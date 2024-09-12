@@ -1,0 +1,20 @@
+#header {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 1em;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+
+	background-color: var(--background-color);
+	border-radius: 1em;
+}
+#links {
+	display: flex;
+	flex-grow: 1;
+}
+#header a {
+	padding: 1em;
+}

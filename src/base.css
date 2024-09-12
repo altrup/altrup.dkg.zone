@@ -1,0 +1,48 @@
+:root {
+	font-family: Comfortaa, Arial;
+}
+* {
+	font-family: inherit;
+	color: inherit;
+}
+
+html, body, #mount, #main {
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+
+	overflow: hidden;
+}
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Set up Comfortaa font */
+@font-face {
+	font-family: Comfortaa;
+	src: url("/Comfortaa/static/Comfortaa-Light.ttf") format("truetype");
+	font-weight: 100 300;
+}
+@font-face {
+	font-family: Comfortaa;
+	src: url("/Comfortaa/static/Comfortaa-Regular.ttf") format("truetype");
+	font-weight: 400;
+}
+@font-face {
+	font-family: Comfortaa;
+	src: url("/Comfortaa/static/Comfortaa-Medium.ttf") format("truetype");
+	font-weight: 500;
+}
+@font-face {
+	font-family: Comfortaa;
+	src: url("/Comfortaa/static/Comfortaa-SemiBold.ttf") format("truetype");
+	font-weight: 600;
+}
+@font-face {
+	font-family: Comfortaa;
+	src: url("/Comfortaa/static/Comfortaa-Bold.ttf") format("truetype");
+	font-weight: 700 900;
+}

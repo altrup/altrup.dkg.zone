@@ -1,0 +1,17 @@
+.light {
+	--text-color: #000000;
+	--background-color: #F5F6F4;
+	--background-color-2: #C8C2AE;
+	--primary-color: #9893DA;
+	--secondary-color: #C42021;
+	--tertiary-color: #6AB547;
+}
+
+.dark {
+	--text-color: #F5F6F4;
+	--background-color: #030C11;
+	--background-color-2: #714C47;
+	--primary-color: #266069;
+	--secondary-color: #9B4647;
+	--tertiary-color: #625304;
+}
