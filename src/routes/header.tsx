@@ -10,7 +10,7 @@ function Header() {
 				<Link to="/about">About</Link>
 			</div>
 			<div id={styles["socials"]}>
-				<a href="https://github.com/EricL521">Github</a> 
+				<a href="https://github.com/EricL521" target="_blank">Github</a> 
 			</div>
 		</div>
 	);
