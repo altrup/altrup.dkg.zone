@@ -1,3 +1,9 @@
+/* Hide html until base.css loads */
+html {
+	visibility: hidden;
+	opacity: 0;
+}
+
 .light {
 	--text-color: #000000;
 	--background-color: #F5F6F4;

@@ -45,7 +45,6 @@ class ThemeManager {
 		['light', 'dark'].forEach((theme) => this.#mountElement.classList.remove(theme));
 		// add new theme class
 		this.#mountElement.classList.add(this.theme);
-		console.log(this.#mountElement);
 	}
 }
 

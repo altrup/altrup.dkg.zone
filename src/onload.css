@@ -1,0 +1,5 @@
+/* Override  temperary hide from inline.css */
+html {
+	visibility: visible;
+	opacity: 1;
+}
