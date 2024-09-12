@@ -100,17 +100,12 @@ app.use('*', async (req, res) => {
 			},
 			onError(error) {
 				didError = true;
-				console.error(error);
+				if (!isProduction) console.error(error);
 			}
 		});
 		
 		setTimeout(() => {
-			try {
-				abort();
-			}
-			catch (e) {
-				console.error(e);
-			}
+			abort();
 		}, ABORT_DELAY);
 	} catch (e) {
 		vite?.ssrFixStacktrace(e)

@@ -11,7 +11,7 @@ const routes = createRoutesFromElements(
 	<Route
 		path="/"
 		element={<Root />}
-		errorElement={<ErrorPage />}
+		errorElement={<Root outletOverride={<ErrorPage />} />}
 	>
 		<Route
 			index

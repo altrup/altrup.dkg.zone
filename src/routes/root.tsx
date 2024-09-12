@@ -4,13 +4,13 @@ import Header from "./header";
 
 import styles from "./root.module.css";
 
-function Root() {
+function Root({ outletOverride }: { outletOverride?: JSX.Element}) {
 
 	return (
 		<div id={styles["root"]}>
 			<Header />
 			<div id={styles["main-page"]}>
-				<Outlet />
+				{ outletOverride?? <Outlet /> }
 			</div>
 		</div>
 	);
