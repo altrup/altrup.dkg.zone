@@ -1,8 +1,16 @@
 // manages and applies themes to mount element
 // NOTE: this scripts runs BEFORE DOM loads
 
-// static class, used to have private variables
-class ThemeManager {
+// Event that is emitted on theme changes (only setting changes, i.e., system, light)
+// name is 'themeChange'
+class ThemeChangeEvent extends Event {
+	constructor(type, options, theme) {
+		super(type, options);
+		this.theme = theme;
+	}
+}
+// class, used to have private variables
+class ThemeManager extends EventTarget {
 	// can be dark, light, or system, defaulting to system
 	#themeSetting = localStorage.getItem('theme') ?? 'system';
 	#systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches? 'dark': 'light';
@@ -18,12 +26,15 @@ class ThemeManager {
 		['light', 'dark'].forEach((theme) => oldElement?.classList.remove(theme));
 	}
 
+	get themeSetting() { return this.#themeSetting; }
 	get theme() {
 		if (this.#themeSetting === 'dark' || this.#themeSetting === 'light') return this.#themeSetting;
 		else return this.#systemTheme;
 	}
 	
 	constructor() {
+		super();
+
 		// initialize system theme listener
 		const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
 		mediaQueryList.onchange = () => {
@@ -32,12 +43,17 @@ class ThemeManager {
 		}
 	}
 
+	
 	// updateTheme stores theme in localStorage, and applies new theme to mount element
 	updateTheme(theme) { 
+		if (!(theme === 'light' || theme === 'dark' || theme === 'system')) return console.error("Bad theme input recieved");
 		this.#themeSetting = theme; 
 		localStorage.setItem('theme', theme); 
 
 		this.#applyTheme();
+
+		// call event listeners
+		this.dispatchEvent(new ThemeChangeEvent('themeChange', {}, theme));
 	}
 	// helper function ran only from updateTheme
 	#applyTheme() {

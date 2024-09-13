@@ -1,0 +1,24 @@
+#theme-changer {
+	overflow: hidden;
+	margin-left: 1em;
+}
+#theme-changer button {
+	box-sizing: border-box;
+	height: 35px;
+	width: 35px;
+	padding: 2px;
+	left: 0; right: 0;
+
+	border-radius: 35%;
+	border: 1px solid transparent;
+	background-color: transparent;
+
+	cursor: pointer;
+}
+#theme-changer button.selected {
+	border-color: var(--text-color);
+}
+#theme-changer img {
+	width: auto;
+	height: 100%;
+}

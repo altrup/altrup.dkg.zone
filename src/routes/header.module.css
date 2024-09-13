@@ -11,10 +11,13 @@
 	background-color: var(--background-color);
 	border-radius: 1em;
 }
-#links {
-	display: flex;
-	flex-grow: 1;
-}
 #header a {
 	padding: 1em;
+}
+#socials {
+	flex-grow: 1;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
 }
