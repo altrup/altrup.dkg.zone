@@ -11,7 +11,7 @@ const ABORT_DELAY = 10000;
 
 // Cached production assets
 const templateHTMLProduction = isProduction
-	? await fs.readFile('./index.html', 'utf-8')
+	? await fs.readFile('./dist/client/index.html', 'utf-8')
 	: '';
 const inlineCSSProduction = isProduction
 	? await fs.readFile('./src/inline.css', 'utf-8')

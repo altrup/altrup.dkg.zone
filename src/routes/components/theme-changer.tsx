@@ -16,7 +16,7 @@ function ThemeChanger() {
 
 	// add listener to theme manager for theme changes and store theme
 	const [themeSetting, setThemeSetting] = useState('');
-	const [theme, setTheme] = useState('');
+	// const [theme, setTheme] = useState('');
 	// store order of buttons, too, to swap order when setting theme (feels more natural)
 	const [order, dispatchOrder] = useReducer((state: string[], theme: string) => {
 		return [theme].concat(state.filter(val => val !== theme));
@@ -26,19 +26,19 @@ function ThemeChanger() {
 
 		// initialize states
 		setThemeSetting(themeManager.themeSetting);
-		setTheme(themeManager.theme);
+		// setTheme(themeManager.theme);
 		dispatchOrder(themeManager.themeSetting);
 
 		// add listeners
 		const themeSettingChangeListener = (e: any) => { setThemeSetting(e.theme); }
 		themeManager.addEventListener('themeSettingChange', themeSettingChangeListener);
 
-		const themeChangeListener = (e: any) => { setTheme(e.theme); }
-		themeManager.addEventListener('themeChange', themeChangeListener);
+		// const themeChangeListener = (e: any) => { setTheme(e.theme); }
+		// themeManager.addEventListener('themeChange', themeChangeListener);
 		// remove event listeners on component unmount
 		return () => {
 			themeManager.removeEventListener('themeSettingChange', themeSettingChangeListener);
-			themeManager.removeEventListener('themeChange', themeChangeListener);
+			// themeManager.removeEventListener('themeChange', themeChangeListener);
 		};
 	}, []);
 	const [hidden, setHidden] = useState(true);
