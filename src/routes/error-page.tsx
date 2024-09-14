@@ -8,8 +8,8 @@ function ErrorPage() {
 
 	return (
 		<div id={styles["error-page"]}>
-			<h1>{`Error Code: ${error.status}`}</h1>
-			<p>{`Error: ${error.statusText || error.message}`}</p>
+			<h1>{`${error.status}${error.statusText? ` - ${error.statusText}`: ''}`}</h1>
+			<p>{error.data}</p>
 		</div>
 	);
 }
