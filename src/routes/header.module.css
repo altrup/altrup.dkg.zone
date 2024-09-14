@@ -9,7 +9,6 @@
 	align-items: center;
 
 	background-color: var(--background-color);
-	border-radius: 1em;
 }
 #header a {
 	padding: 1em;

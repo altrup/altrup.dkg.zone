@@ -8,7 +8,7 @@
 	align-items: center;
 
 	background-color: var(--background-color);
-	color: var(--text-color);
+	color: var(--color-1);
 }
 
 #main-page {

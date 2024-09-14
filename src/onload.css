@@ -1,4 +1,4 @@
-/* Override  temperary hide from inline.css */
+/* Unhide html */
 html {
 	visibility: visible;
 	opacity: 1;

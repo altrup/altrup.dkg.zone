@@ -1,24 +1,60 @@
-#theme-changer {
-	overflow: hidden;
+#theme-changer-wrapper {
+	position: relative;
 	margin-left: 1em;
+
+	width: 35px;
+	height: 35px;
+}
+#theme-changer {
+	position: absolute;
+
+	overflow: hidden;
+
+	width: 35px;
+	height: 35px;
+
+	transition-property: height;
+}
+#theme-changer.hidden {
+	visibility: hidden;
 }
 #theme-changer button {
+	position: absolute;
+	left: 0px; top: 0px;
+
 	box-sizing: border-box;
 	height: 35px;
 	width: 35px;
 	padding: 2px;
-	left: 0; right: 0;
 
-	border-radius: 35%;
-	border: 1px solid transparent;
+	border: none;
 	background-color: transparent;
 
 	cursor: pointer;
+
+	opacity: 0;
+	transition-property: top, opacity;
 }
 #theme-changer button.selected {
-	border-color: var(--text-color);
+	opacity: 1;
 }
 #theme-changer img {
-	width: auto;
-	height: 100%;
+	width: 100%;
+	height: auto;
+}
+
+#theme-changer:hover {
+	height: 105px;
+}
+#theme-changer:hover button {
+	opacity: 1;
+}
+#theme-changer:hover button.pos-1 {
+	top: 0px;
+}
+#theme-changer:hover button.pos-2 {
+	top: 35px;
+}
+#theme-changer:hover button.pos-3 {
+	top: 70px;
 }
