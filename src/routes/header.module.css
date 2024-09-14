@@ -13,9 +13,10 @@
 #header a {
 	padding: 1em;
 }
-#socials {
+#links {
 	flex-grow: 1;
-
+}
+#socials {
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
