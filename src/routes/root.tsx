@@ -19,7 +19,7 @@ function Root({ outletOverride }: { outletOverride?: JSX.Element}) {
 	const [hydrated, setHydrated] = useState(false);
 	useEffect(() => { setHydrated(true); }, []);
 	// using requestAnimationFrame runs right before the next redraw, which delays it long enough to prevent initial transitions
-	useEffect(() => { if (hydrated) requestAnimationFrame(() =>setTransitionClass(transitionStyles["transition"])); }, [hydrated]);
+	useEffect(() => { if (hydrated) requestAnimationFrame(() => setTransitionClass(transitionStyles["transition"])); }, [hydrated]);
 
 	// add listener to theme manager for theme changes and store theme
 	const [themeSetting, setThemeSetting] = useState('');

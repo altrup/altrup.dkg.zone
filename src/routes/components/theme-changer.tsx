@@ -28,8 +28,17 @@ function ThemeChanger() {
 	const [order, dispatchOrder] = useReducer((state: string[], theme: string) => {
 		return [theme].concat(state.filter(val => val !== theme));
 	}, ['light', 'dark', 'system']);
+	// cssOrder is one frame behind order, to make animations work properly
+	const [cssOrder, setCssOrder] = useState(['light', 'dark', 'system']);
+	useEffect(() => { requestAnimationFrame(() => setCssOrder(order)); }, [order])
 	// initialize order
 	useEffect(() => dispatchOrder(themeManager.themeSetting), []);
+
+	const getButtonIcon = useCallback((buttonTheme: string) => {
+		if (buttonTheme === 'light') return lightModeIcon;
+		if (buttonTheme === 'dark') return darkModeIcon;
+		if (buttonTheme === 'system') return systemModeIcon;
+	}, []);
 
 	const updateTheme = useCallback((theme: string) => {
 		if (!isClient) return; // do nothing
@@ -39,23 +48,29 @@ function ThemeChanger() {
 		unFocus(); // unFocus is clicked with mouse
 	}, [isClient]);
 
-	console.log(themeSetting);
-
 	return (
 		<div id={styles["theme-changer-wrapper"]}>
 			<div id={styles["theme-changer"]} className={hidden? styles["hidden"]: undefined}>
-				<button id={styles['light']} className={[themeSetting === 'light'? styles["selected"]: undefined, styles["pos-" + (1 + order.indexOf('light'))]].join(' ')} 
+				{
+					order.map((buttonTheme) => (
+						<button key={buttonTheme} id={buttonTheme} onClick={() => updateTheme(buttonTheme)}
+						className={[themeSetting === buttonTheme? styles["selected"]: undefined, styles["pos-" + (1 + cssOrder.indexOf(buttonTheme))]].join(' ')}>
+							<img src={getButtonIcon(buttonTheme)} className={theme === 'dark'? styles['inverted']: undefined} draggable="false" alt={`${buttonTheme}-mode`} />
+						</button>
+					))
+				}
+				{/* <button id={styles['light']} className={[themeSetting === 'light'? styles["selected"]: undefined, styles["pos-" + (1 + order.indexOf('light'))]].join(' ')} 
 				onClick={() => updateTheme('light')}>
-					<img src={lightModeIcon} className={theme === 'dark'? styles['inverted']: undefined} draggable="false" alt='light-mode'></img>
+					<img src={lightModeIcon} className={theme === 'dark'? styles['inverted']: undefined} draggable="false" alt='light-mode' />
 				</button>
 				<button id={styles['dark']} className={[themeSetting === 'dark'? styles["selected"]: undefined, styles["pos-" + (1 + order.indexOf('dark'))]].join(' ')}
 				onClick={() => updateTheme('dark')}>
-					<img src={darkModeIcon} className={theme === 'dark'? styles['inverted']: undefined} draggable="false" alt='dark-mode'></img>
+					<img src={darkModeIcon} className={theme === 'dark'? styles['inverted']: undefined} draggable="false" alt='dark-mode' />
 				</button>
 				<button id={styles['system']} className={[themeSetting === 'system'? styles["selected"]: undefined, styles["pos-" + (1 + order.indexOf('system'))]].join(' ')}
 				onClick={() => updateTheme('system')}>
-					<img src={systemModeIcon} className={theme === 'dark'? styles['inverted']: undefined} draggable="false" alt='system-mode'></img>
-				</button>
+					<img src={systemModeIcon} className={theme === 'dark'? styles['inverted']: undefined} draggable="false" alt='system-mode' />
+				</button> */}
 			</div>
 		</div>
 	)
