@@ -8,8 +8,6 @@
 #theme-changer {
 	position: absolute;
 
-	overflow: hidden;
-
 	width: 35px;
 	height: 35px;
 
@@ -41,20 +39,25 @@
 #theme-changer img {
 	width: 100%;
 	height: auto;
+
+	transition-property: filter;
+}
+#theme-changer img.inverted {
+	filter: invert(1);
 }
 
-#theme-changer:hover {
+#theme-changer:hover, #theme-changer:focus-within {
 	height: 105px;
 }
-#theme-changer:hover button {
+#theme-changer:hover button, #theme-changer:focus-within button {
 	opacity: 1;
 }
-#theme-changer:hover button.pos-1 {
+#theme-changer:hover button.pos-1, #theme-changer:focus-within button.pos-1 {
 	top: 0px;
 }
-#theme-changer:hover button.pos-2 {
+#theme-changer:hover button.pos-2, #theme-changer:focus-within button.pos-2 {
 	top: 35px;
 }
-#theme-changer:hover button.pos-3 {
+#theme-changer:hover button.pos-3, #theme-changer:focus-within button.pos-3 {
 	top: 70px;
 }

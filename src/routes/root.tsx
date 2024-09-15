@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 
-import Header from "./header";
+import Header from "./components/header";
 
 import styles from "./root.module.css";
 import transitionStyles from "./transition.module.css";
@@ -15,10 +15,11 @@ function Root({ outletOverride }: { outletOverride?: JSX.Element}) {
 	const [isClient, _] = useState(typeof window !== 'undefined');
 	
 	// Only start transitioning after initial hydration
-	const [transitionClass, setTransitionClass] = useState(styles[""]);
-	useEffect(() => {
-		setTransitionClass(transitionStyles["transition"]);
-	});
+	const [transitionClass, setTransitionClass] = useState(styles["notransition"]);
+	const [hydrated, setHydrated] = useState(false);
+	useEffect(() => { setHydrated(true); }, []);
+	// using requestAnimationFrame runs right before the next redraw, which delays it long enough to prevent initial transitions
+	useEffect(() => { if (hydrated) requestAnimationFrame(() =>setTransitionClass(transitionStyles["transition"])); }, [hydrated]);
 
 	// add listener to theme manager for theme changes and store theme
 	const [themeSetting, setThemeSetting] = useState('');

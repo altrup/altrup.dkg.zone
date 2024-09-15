@@ -1,11 +1,10 @@
 import { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import ThemeChanger from "./components/theme-changer";
-import { ThemeContext } from "./root";
+import ThemeChanger from "./theme-changer";
+import { ThemeContext } from "../root";
 
-import lightGithubIcon from '../icons/light-theme/github.svg';
-import darkGithubIcon from '../icons/dark-theme/github.svg';
+import githubIcon from '../../icons/github.svg';
 
 import styles from "./header.module.css";
 
@@ -25,7 +24,7 @@ function Header() {
 			<ThemeChanger />
 			<div id={styles["socials"]}>
 				<a href="https://github.com/EricL521" target="_blank">
-					<img src={theme === 'light'? lightGithubIcon: darkGithubIcon}></img>
+					<img src={githubIcon} className={theme === 'dark'? styles['inverted']: undefined}></img>
 				</a> 
 			</div>
 		</div>

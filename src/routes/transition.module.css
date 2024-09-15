@@ -9,3 +9,6 @@
 .notransition {
 	transition: none;
 }
+.notransition * {
+	transition: inherit;
+}

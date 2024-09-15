@@ -11,7 +11,13 @@
 	background-color: var(--background-color);
 }
 #header a {
-	padding: 1em;
+	margin: 1em;
+}
+#header img {
+	transition-property: filter;
+}
+#header img.inverted {
+	filter: invert(1);
 }
 #links {
 	flex-grow: 1;
