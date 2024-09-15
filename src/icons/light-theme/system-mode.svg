@@ -2,13 +2,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="0.98079193in"
-   height="1.0462356in"
-   viewBox="0 0 24.912113 26.57438"
+   width="1in"
+   height="0.97500002in"
+   viewBox="0 0 25.399997 24.764997"
    version="1.1"
    id="svg135"
    inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
-   sodipodi:docname="dark-mode.svg"
+   sodipodi:docname="system-mode.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,15 +24,16 @@
      inkscape:deskcolor="#505050"
      inkscape:document-units="in"
      showgrid="false"
-     inkscape:zoom="3.0693247"
-     inkscape:cx="-10.099942"
-     inkscape:cy="80.147923"
+     inkscape:zoom="2.6467967"
+     inkscape:cx="69.517995"
+     inkscape:cy="15.112608"
      inkscape:window-width="1707"
      inkscape:window-height="987"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     showguides="false" />
   <defs
      id="defs132">
     <inkscape:path-effect
@@ -90,10 +91,29 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-14.878668,0.22642107)">
-    <path
-       id="path1"
-       style="fill:#ffffff;stroke:#000000;stroke-width:1.27;stroke-linejoin:round"
-       d="M 27.979202,0.4085643 A 12.699999,12.699999 0 0 1 29.630781,6.6629622 12.699999,12.699999 0 0 1 16.930782,19.362961 12.699999,12.699999 0 0 1 15.431649,19.255991 12.699999,12.699999 0 0 0 26.455781,25.71296 12.699999,12.699999 0 0 0 39.15578,13.012962 12.699999,12.699999 0 0 0 27.979202,0.4085643 Z" />
+     transform="translate(-12.768997,0.63490731)">
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.27;stroke-linecap:round;stroke-linejoin:round;fill-opacity:1"
+       id="rect349"
+       width="24.129997"
+       height="16.509998"
+       x="13.403997"
+       y="9.2681585e-05"
+       ry="4.8266091" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.27;stroke-linecap:round;stroke-linejoin:round;fill-opacity:1"
+       id="rect351"
+       width="17.779999"
+       height="2.5399995"
+       x="16.578997"
+       y="20.955091"
+       ry="1.2699997" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.27;stroke-linecap:round;stroke-linejoin:round;fill-opacity:1"
+       id="rect353"
+       width="3.6707377"
+       height="4.4449992"
+       x="23.633627"
+       y="16.510092" />
   </g>
 </svg>

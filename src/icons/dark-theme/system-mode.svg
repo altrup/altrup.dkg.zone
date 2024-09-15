@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1in"
+   height="0.97500002in"
+   viewBox="0 0 25.399997 24.764997"
+   version="1.1"
+   id="svg135"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
+   sodipodi:docname="system-mode.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview137"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="in"
+     showgrid="false"
+     inkscape:zoom="2.6467967"
+     inkscape:cx="69.517995"
+     inkscape:cy="15.112608"
+     inkscape:window-width="1707"
+     inkscape:window-height="987"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="false" />
+  <defs
+     id="defs132">
+    <inkscape:path-effect
+       effect="copy_rotate"
+       starting_point="312.31704,63.5"
+       origin="63.5,63.5"
+       id="path-effect1124"
+       is_visible="true"
+       lpeversion="1.2"
+       lpesatellites=""
+       method="normal"
+       num_copies="9"
+       starting_angle="0"
+       rotation_angle="40"
+       gap="0"
+       copies_to_360="true"
+       mirror_copies="false"
+       split_items="false"
+       link_styles="false" />
+    <inkscape:path-effect
+       effect="tiling"
+       id="path-effect1122"
+       is_visible="true"
+       lpeversion="1"
+       unit="px"
+       seed="1;1"
+       lpesatellites=""
+       num_rows="1"
+       num_cols="3"
+       gapx="0"
+       gapy="0"
+       offset="0"
+       offset_type="false"
+       scale="0"
+       rotate="0"
+       mirrorrowsx="false"
+       mirrorrowsy="false"
+       mirrorcolsx="false"
+       mirrorcolsy="false"
+       mirrortrans="false"
+       shrink_interp="false"
+       split_items="false"
+       link_styles="false"
+       interpolate_scalex="false"
+       interpolate_scaley="true"
+       interpolate_rotatex="false"
+       interpolate_rotatey="true"
+       random_scale="false"
+       random_rotate="false"
+       random_gap_y="false"
+       random_gap_x="false"
+       transformorigin="" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-12.768997,0.63490731)">
+    <rect
+       style="fill:none;stroke:#ffffff;stroke-width:1.27;stroke-linecap:round;stroke-linejoin:round;fill-opacity:1;stroke-opacity:1"
+       id="rect349"
+       width="24.129997"
+       height="16.509998"
+       x="13.403997"
+       y="9.2681585e-05"
+       ry="4.8266091" />
+    <rect
+       style="fill:none;stroke:#ffffff;stroke-width:1.27;stroke-linecap:round;stroke-linejoin:round;fill-opacity:1;stroke-opacity:1"
+       id="rect351"
+       width="17.779999"
+       height="2.5399995"
+       x="16.578997"
+       y="20.955091"
+       ry="1.2699997" />
+    <rect
+       style="fill:none;stroke:#ffffff;stroke-width:1.27;stroke-linecap:round;stroke-linejoin:round;fill-opacity:1;stroke-opacity:1"
+       id="rect353"
+       width="3.6707377"
+       height="4.4449992"
+       x="23.633627"
+       y="16.510092" />
+  </g>
+</svg>
