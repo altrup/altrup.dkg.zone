@@ -1,7 +1,8 @@
 import { createContext, useEffect, useMemo, useState } from "react";
-import { Outlet, useMatches } from "react-router-dom";
+import { useMatches } from "react-router-dom";
 
 import Header from "./components/header";
+import AnimatedOutlet from "./components/animated-outlet";
 
 import styles from "./root.module.css";
 import transitionStyles from "./transition.module.css";
@@ -14,6 +15,7 @@ const ThemeContext = createContext({theme: '', themeSetting: ''});
 function Root({ outletOverride }: { outletOverride?: JSX.Element}) {
 	const [isClient, _] = useState(typeof window !== 'undefined');
 
+	// Update page title
 	const matches = useMatches();
 	const {handle, data}: {handle: any, data: any} = useMemo(() => matches[matches.length - 1], [matches[matches.length - 1]]);
 	const title = useMemo(() => handle && handle.title && handle.title(data), [handle, data]);
@@ -57,8 +59,9 @@ function Root({ outletOverride }: { outletOverride?: JSX.Element}) {
 		<div id={styles["root"]} className={transitionClass}>
 			<ThemeContext.Provider value={{theme, themeSetting}}>
 				<Header />
+				
 				<div id={styles["main-page"]}>
-					{ outletOverride?? <Outlet /> }
+					<AnimatedOutlet outletOverride={outletOverride} />
 				</div>
 			</ThemeContext.Provider>
 		</div>
