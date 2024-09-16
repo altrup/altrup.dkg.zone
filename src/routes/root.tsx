@@ -1,5 +1,4 @@
-import { createContext, useEffect, useMemo, useState } from "react";
-import { useMatches } from "react-router-dom";
+import { createContext, useEffect, useState } from "react";
 
 import Header from "./components/header";
 import AnimatedOutlet from "./components/animated-outlet";
@@ -15,16 +14,6 @@ const ThemeContext = createContext({theme: '', themeSetting: ''});
 function Root({ outletOverride }: { outletOverride?: JSX.Element}) {
 	const [isClient, _] = useState(typeof window !== 'undefined');
 
-	// Update page title
-	const matches = useMatches();
-	const {handle, data}: {handle: any, data: any} = useMemo(() => matches[matches.length - 1], [matches[matches.length - 1]]);
-	const title = useMemo(() => handle && handle.title && handle.title(data), [handle, data]);
-	// use last match to get title
-	useMemo(() => {
-		if (!isClient) return;
-		if (title) document.title = title;
-	}, [isClient, title]);
-	
 	// Only start transitioning after initial hydration
 	const [transitionClass, setTransitionClass] = useState(styles["notransition"]);
 	const [hydrated, setHydrated] = useState(false);
@@ -60,7 +49,7 @@ function Root({ outletOverride }: { outletOverride?: JSX.Element}) {
 			<ThemeContext.Provider value={{theme, themeSetting}}>
 				<Header />
 				
-				<div id={styles["main-page"]}>
+				<div id={styles["main-page"]} className={transitionStyles["notransition"]}>
 					<AnimatedOutlet outletOverride={outletOverride} />
 				</div>
 			</ThemeContext.Provider>

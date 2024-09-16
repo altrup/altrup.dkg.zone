@@ -1,6 +1,12 @@
+import { useEffect } from 'react';
+
 import styles from './home-page.module.css';
 
+import setTitle from '../../helper-functions/setTitle';
+
 function HomePage() {
+	useEffect(() => setTitle('Altrup'));
+
 	return (
 		<div id={styles["home-page"]}>
 			<div className={styles["paragraph"]}>

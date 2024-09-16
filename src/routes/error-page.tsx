@@ -1,10 +1,15 @@
+import { useEffect } from "react";
 import { useRouteError } from "react-router-dom";
 
 import styles from "./error-page.module.css";
 
+import setTitle from "../helper-functions/setTitle";
+
 function ErrorPage() {
 	const error: any = useRouteError();
 	console.error(error);
+	
+	useEffect(() => setTitle(`${error.status}${error.statusText? ` ${error.statusText}`: ''} - Altrup`));
 
 	return (
 		<div id={styles["error-page"]}>

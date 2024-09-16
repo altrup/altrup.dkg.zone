@@ -18,17 +18,14 @@ const routes = createRoutesFromElements(
 		<Route
 			index
 			element={<HomePage />}
-			handle={{title: () => "Altrup"}}
 		/>
 		<Route
 			path="/projects"
 			element={<ProjectsPage />}
-			handle={{title: () => "Projects - Altrup"}}
 		/>
 		<Route
 			path="/about"
 			element={<AboutPage />}
-			handle={{title: () => "About - Altrup"}}
 		/>
 	</Route>
 );
