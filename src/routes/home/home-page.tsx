@@ -1,8 +1,8 @@
-
+import styles from './home-page.module.css';
 
 function HomePage() {
 	return (
-		<div>
+		<div id={styles["home-page"]}>
 			<h1>Home</h1>
 		</div>
 	);
