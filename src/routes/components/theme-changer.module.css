@@ -23,7 +23,7 @@
 	box-sizing: border-box;
 	height: 35px;
 	width: 35px;
-	padding: 2px;
+	padding: 0; margin: 0;
 
 	border: none;
 	background-color: transparent;
