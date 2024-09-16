@@ -1,5 +1,5 @@
-import { createContext, useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { createContext, useEffect, useMemo, useState } from "react";
+import { Outlet, useMatches } from "react-router-dom";
 
 import Header from "./components/header";
 
@@ -13,6 +13,15 @@ const ThemeContext = createContext({theme: '', themeSetting: ''});
 
 function Root({ outletOverride }: { outletOverride?: JSX.Element}) {
 	const [isClient, _] = useState(typeof window !== 'undefined');
+
+	const matches = useMatches();
+	const {handle, data}: {handle: any, data: any} = useMemo(() => matches[matches.length - 1], [matches[matches.length - 1]]);
+	const title = useMemo(() => handle && handle.title && handle.title(data), [handle, data]);
+	// use last match to get title
+	useMemo(() => {
+		if (!isClient) return;
+		if (title) document.title = title;
+	}, [isClient, title]);
 	
 	// Only start transitioning after initial hydration
 	const [transitionClass, setTransitionClass] = useState(styles["notransition"]);
