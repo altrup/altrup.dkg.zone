@@ -7,12 +7,11 @@
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: center;
-	flex-wrap: wrap;
 
 	background-color: var(--background-color);
 }
 #header a {
-	margin: 1em;
+	padding: 1em;
 }
 #header img {
 	box-sizing: border-box;

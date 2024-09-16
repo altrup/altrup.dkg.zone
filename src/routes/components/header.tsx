@@ -23,6 +23,7 @@ function Header() {
 				</Link>
 				<Link to="/projects" className={location.pathname == '/projects'? styles["selected"]: undefined}>Projects</Link>
 				<Link to="/about" className={location.pathname == '/about'? styles['selected']: undefined}>About</Link>
+				<Link to="/contacts" className={location.pathname == '/contacts'? styles['selected']: undefined}>Contacts</Link>
 			</div>
 			<div id={styles["right-side"]}>
 				<ThemeChanger />
