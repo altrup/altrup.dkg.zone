@@ -27,11 +27,9 @@ function Header() {
 			</div>
 			<div id={styles["right-side"]}>
 				<ThemeChanger />
-				<div id={styles["socials"]}>
-					<a href="https://github.com/EricL521" target="_blank">
-						<img src={githubIcon} className={theme === 'dark'? styles['inverted']: undefined}></img>
-					</a> 
-				</div>
+				<a href="https://github.com/EricL521" target="_blank">
+					<img src={githubIcon} className={theme === 'dark'? styles['inverted']: undefined}></img>
+				</a> 
 			</div>
 		</div>
 	);
