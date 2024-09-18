@@ -3,7 +3,7 @@
 }
 * {
 	font-family: inherit;
-	color: inherit;
+	color: var(--color-1);
 }
 
 html, body, #mount, #main {
