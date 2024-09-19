@@ -3,7 +3,7 @@ import { useRouteError } from "react-router-dom";
 
 import styles from "./error-page.module.css";
 
-import setTitle from "../helper-functions/setTitle";
+import setTitle from "../helper-functions/set-title";
 
 function ErrorPage() {
 	const error: any = useRouteError();

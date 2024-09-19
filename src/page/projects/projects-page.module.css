@@ -1,11 +1,8 @@
-#animation-div {
-	position: absolute;
-	left: 0px; top: 0px;
+#projects-page {
 	width: 100%; height: 100%;
-
+	 
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-
-	will-change: transform;
 }

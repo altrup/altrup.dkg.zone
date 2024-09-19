@@ -11,8 +11,11 @@
 	color: var(--color-1);
 }
 
-#main-page {
+.main-page {
 	position: relative;
 	width: 100%;
 	flex-grow: 1;
+
+	overflow-x: hidden;
+	overflow-y: scroll;
 }

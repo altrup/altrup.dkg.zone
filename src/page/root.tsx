@@ -1,17 +1,19 @@
 import { createContext, useEffect, useState } from "react";
 
 import Header from "./components/header";
-import AnimatedOutlet from "./components/animated-outlet";
 
 import styles from "./root.module.css";
 import transitionStyles from "./transition.module.css";
+import HomePage from "./home/home-page";
+import ProjectsPage from "./projects/projects-page";
+import ContactsPage from "./contacts/contacts-page";
 
 // Make typescript happy
 declare const themeManager: EventTarget & {updateTheme: (theme: string) => void, themeSetting: string, theme: string};
 
 const ThemeContext = createContext({theme: '', themeSetting: ''});
 
-function Root({ outletOverride }: { outletOverride?: JSX.Element}) {
+function Root() {
 	const [isClient, _] = useState(typeof window !== 'undefined');
 
 	// Only start transitioning after initial hydration
@@ -49,8 +51,10 @@ function Root({ outletOverride }: { outletOverride?: JSX.Element}) {
 			<ThemeContext.Provider value={{theme, themeSetting}}>
 				<Header />
 				
-				<div id={styles["main-page"]} className={transitionStyles["notransition"]}>
-					<AnimatedOutlet outletOverride={outletOverride} />
+				<div id='main-page' className={[styles["main-page"], transitionStyles["notransition"]].join(' ')}>
+					<HomePage />
+					<ProjectsPage />
+					<ContactsPage />
 				</div>
 			</ThemeContext.Provider>
 		</div>
