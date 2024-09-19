@@ -1,7 +1,7 @@
 // NOTE: also contains logic for scrolling
 
-import { useCallback, useContext, useEffect, useState } from "react";
-import { Link, scroller } from "react-scroll";
+import { useCallback, useContext, useEffect } from "react";
+import { Link, scroller, scrollSpy } from "react-scroll";
 
 import ThemeChanger from "./theme-changer";
 import { ThemeContext } from "../root";
@@ -21,49 +21,51 @@ function Header() {
 	// scroll to page based on url (only runs once)
 	useEffect(() => {
 		const pageUrl = window.location.pathname;
-		if (pageUrl === "/") return setIgnorePageInfo(false); // don't scroll if we are on home page
+		if (pageUrl === "/") return; // don't scroll if we are on home page
 		const pageName = getPageName(pageUrl);
 		if (!pageName) { // if page doesn't exist, set url to default
-			setIgnorePageInfo(false);
-			return updatePageInfo("home", false);
+			return updatePageInfo("home");
 		}
 
+		// update page info, then scroll to page
+		updatePageInfo(pageName);
 		scroller.scrollTo(pageName, {
 			containerId: 'main-page',
 			smooth: true,
-			duration: 500
+			duration: 500,
+			offset: pageName === 'contacts'? 50: 0
 		});
-		// once done scrolling, stop ignoring page info
-		setTimeout(() => setIgnorePageInfo(false), 500);
+
+	}, []);
+	// force scroll-spy to update
+	useEffect(() => {
+		scrollSpy.update();
 	}, []);
 
-	// used to ignore page info updates while doing initial scroll
-	const [ignorePageInfo, setIgnorePageInfo] = useState(true);
 	// updates title, url, and corresponding history entry
-	const updatePageInfo = useCallback((pageName: string, ignorePageInfo: boolean) => {
-		console.log(pageName);
-		if (ignorePageInfo) return;
-
-		const pageTitle = getPageTitle(pageName);
-		const pageUrl = getPageUrl(pageName);
-		
-		if (pageTitle) setTitle(pageTitle);
-		if (pageUrl) setUrl(pageUrl);
+	const updatePageInfo = useCallback((pageName: string) => {
+		setTimeout(() => {
+			const pageTitle = getPageTitle(pageName);
+			const pageUrl = getPageUrl(pageName);
+			
+			if (pageTitle) setTitle(pageTitle);
+			if (pageUrl) setUrl(pageUrl);
+		});
 	}, []);
 
 	return (
 		<div id={styles["header"]}>
 			<div id={styles["links"]}>
-				<Link to="home" id={styles["logo"]} onSetActive={() => updatePageInfo("home", ignorePageInfo)}
+				<Link to="home" id={styles["logo"]} activeClass={styles["selected"]} onClick={() => updatePageInfo("home")}
 				containerId="main-page" spy={true} smooth={true} duration={500}>
 					<img src="/icon.png"></img>
 					<h1>Altrup</h1>
 				</Link>
-				<Link to="projects" onSetActive={() => updatePageInfo("projects", ignorePageInfo)}
+				<Link to="projects" activeClass={styles["selected"]} onClick={() => updatePageInfo("projects")}
 				containerId="main-page" spy={true} smooth={true} duration={500}>
 					Projects
 				</Link>
-				<Link to="contacts" onSetActive={() => updatePageInfo("contacts", ignorePageInfo)}
+				<Link to="contacts" activeClass={styles["selected"]} onClick={() => updatePageInfo("contacts")}
 				containerId="main-page" spy={true} smooth={true} offset={50}>
 					Contacts
 				</Link>

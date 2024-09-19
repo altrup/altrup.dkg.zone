@@ -42,6 +42,15 @@
 
 	text-decoration: none;
 	cursor: pointer;
+
+	transition-duration: 0.5s;
+	transition-property: transform, color;
+}
+#links a.selected {
+	transform: scale(1.2);
+}
+#links a#logo.selected {
+	transform: scale(1.1);
 }
 #links a#logo {
 	margin: 0 1em;

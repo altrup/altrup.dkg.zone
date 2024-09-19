@@ -4,6 +4,8 @@ const isClient = typeof window !== 'undefined';
 
 const setTitle = (title: string) => {
 	if (!isClient) return;
+	if (document.title === title) return;
+	
 	if (title) document.title = title;
 }
 

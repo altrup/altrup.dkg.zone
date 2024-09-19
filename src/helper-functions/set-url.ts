@@ -4,7 +4,9 @@ const isClient = typeof window !== 'undefined';
 
 const setUrl = (url: string) => {
 	if (!isClient) return;
-	window.history.replaceState('test', '', url);
+	if (window.location.pathname === url) return;
+	
+	window.history.replaceState({}, '', url);
 }
 
 export default setUrl;
