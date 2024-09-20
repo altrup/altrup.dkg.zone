@@ -1,7 +1,7 @@
 // NOTE: also contains logic for scrolling
 
 import { useCallback, useContext, useEffect } from "react";
-import { Link, scroller, scrollSpy } from "react-scroll";
+import { Button, scroller, scrollSpy } from "react-scroll";
 
 import ThemeChanger from "./theme-changer";
 import { ThemeContext } from "../root";
@@ -12,6 +12,7 @@ import styles from "./header.module.css";
 
 import setTitle from "../../helper-functions/set-title";
 import setUrl from "../../helper-functions/set-url";
+import unFocus from "../../helper-functions/unFocus";
 import { getPageUrl, getPageTitle, getPageName } from "../projects/page-info";
 
 function Header() {
@@ -35,7 +36,6 @@ function Header() {
 			duration: 500,
 			offset: pageName === 'contacts'? 50: 0
 		});
-
 	}, []);
 	// force scroll-spy to update
 	useEffect(() => {
@@ -56,19 +56,19 @@ function Header() {
 	return (
 		<div id={styles["header"]}>
 			<div id={styles["links"]}>
-				<Link to="home" id={styles["logo"]} activeClass={styles["selected"]} onClick={() => updatePageInfo("home")}
+				<Button to="home" id={styles["logo"]} activeClass={styles["selected"]} onClick={() => { updatePageInfo("home"); unFocus(); }}
 				containerId="main-page" spy={true} smooth={true} duration={500}>
 					<img src="/icon.png"></img>
 					<h1>Altrup</h1>
-				</Link>
-				<Link to="projects" activeClass={styles["selected"]} onClick={() => updatePageInfo("projects")}
+				</Button>
+				<Button to="projects" activeClass={styles["selected"]} onClick={() => { updatePageInfo("projects"); unFocus(); }}
 				containerId="main-page" spy={true} smooth={true} duration={500}>
 					Projects
-				</Link>
-				<Link to="contacts" activeClass={styles["selected"]} onClick={() => updatePageInfo("contacts")}
+				</Button>
+				<Button to="contacts" activeClass={styles["selected"]} onClick={() => { updatePageInfo("contacts"); unFocus(); }}
 				containerId="main-page" spy={true} smooth={true} offset={50}>
 					Contacts
-				</Link>
+				</Button>
 			</div>
 			<div id={styles["right-side"]}>
 				<ThemeChanger />

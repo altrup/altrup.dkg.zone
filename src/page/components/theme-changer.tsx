@@ -1,6 +1,6 @@
 import { useCallback, useContext, useEffect, useReducer, useState } from 'react';
 
-import { unFocus } from '../../helper-functions/unFocus';
+import unFocus from '../../helper-functions/unFocus';
 
 import { ThemeContext } from '../root';
 

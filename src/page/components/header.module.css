@@ -32,37 +32,67 @@
 	justify-content: flex-start;
 	align-items: last baseline;
 }
-#links a {
+#links button {
+	position: relative;
+	padding: 1em;
+
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 
-	padding: 1em;
-
+	border: none;
+	background-color: transparent;
+	font-size: 1em;
 	text-decoration: none;
 	cursor: pointer;
 
-	transition-duration: 0.5s;
+	transition-duration: 0.3s, 0.1s;
 	transition-property: transform, color;
 }
-#links a.selected {
-	transform: scale(1.2);
+#links button:not(#logo) {
+	text-shadow: -0.1em -0.1em 0.2em var(--background-color), -0.1em 0.1em 0.2em var(--background-color), 
+		0.1em -0.1em 0.2em var(--background-color), 0.1em 0.1em 0.2em var(--background-color);
 }
-#links a#logo.selected {
+#links button:not(#logo)::after {
+	content: "";
+	width: 0px;
+	height: .2em;
+	left: 50%;
+	transform: translateX(-50%);
+	border-radius: 100vh;
+
+	background: var(--color-2);
+
+	position: absolute;
+	bottom: 0.75em;
+
+	transition-duration: 0.3s, 0.1s;
+	transition-property: width, color;
+}
+#links button:hover, #links button:focus {
 	transform: scale(1.1);
 }
-#links a#logo {
+#links button:active {
+	transform: scale(1.05);
+}
+#links button:hover:not(#logo)::after, #links button:focus:not(#logo)::after {
+	width: 35%;
+}
+#links button.selected:not(#logo)::after {
+	width: 75%;
+}
+#links button#logo {
 	margin: 0 1em;
 	padding: 0.2em;
 	border-radius: 100vh;
 	background-color: var(--background-color-2);
 }
-#links a#logo img {
+#links button#logo img {
 	height: 50px;
 	width: auto;
 }
-#links a#logo h1 {
+#links button#logo h1 {
 	margin: 0;
 	padding: 0 0.2em;
 }
