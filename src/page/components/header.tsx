@@ -10,10 +10,9 @@ import githubIcon from "../../icons/github.svg";
 
 import styles from "./header.module.css";
 
-import setTitle from "../../helper-functions/set-title";
 import setUrl from "../../helper-functions/set-url";
 import unFocus from "../../helper-functions/unFocus";
-import { getPageUrl, getPageTitle, getPageName } from "../projects/page-info";
+import { getPageUrl, getPageName } from "../projects/page-info";
 
 function Header() {
 	// import context
@@ -45,10 +44,8 @@ function Header() {
 	// updates title, url, and corresponding history entry
 	const updatePageInfo = useCallback((pageName: string) => {
 		setTimeout(() => {
-			const pageTitle = getPageTitle(pageName);
 			const pageUrl = getPageUrl(pageName);
 			
-			if (pageTitle) setTitle(pageTitle);
 			if (pageUrl) setUrl(pageUrl);
 		});
 	}, []);
