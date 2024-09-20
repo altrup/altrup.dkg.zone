@@ -1,0 +1,200 @@
+#links-parent {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+
+	pointer-events: none;
+}
+#links-parent * {
+	pointer-events: initial;
+}
+#links {
+	position: relative;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+
+	pointer-events: none;
+}
+#links * {
+	pointer-events: initial;
+}
+#links button {
+	position: relative;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+
+	border: none;
+	background-color: transparent;
+	font-size: 1em;
+	text-decoration: none;
+	cursor: pointer;
+
+	transition-duration: 0.3s, 0.2s;
+	transition-property: transform, visibility, margin-top, text-shadow, background-color, color;
+}
+@media (hover: hover) {
+	#links button:hover {
+		transform: scale(1.1) !important;
+	}
+}
+@media (hover: none) {
+	#links button:active::before {
+		content: "";
+
+		position: absolute; 
+		top: 0; left: 0;
+		width: 100%; height: 100%;
+		
+		z-index: 1; opacity: 0.5;
+		background-color: var(--color-2);
+		border-radius: 100vh;
+	}
+}
+#links button:focus-visible {
+	transform: scale(1.1) !important;
+}
+#links button:active {
+	transform: scale(1.05) !important;
+}
+#hidden-links button {
+	text-shadow: -0.1em -0.1em 0.2em var(--background-color), -0.1em 0.1em 0.2em var(--background-color), 
+		0.1em -0.1em 0.2em var(--background-color), 0.1em 0.1em 0.2em var(--background-color),
+		-0.1em -0.1em 0.2em var(--background-color), -0.1em 0.1em 0.2em var(--background-color), 
+		0.1em -0.1em 0.2em var(--background-color), 0.1em 0.1em 0.2em var(--background-color);
+}
+#hidden-links button::after {
+	content: "";
+	width: 0px;
+	height: .2em;
+	left: 50%;
+	transform: translateX(-50%);
+	border-radius: 100vh;
+
+	background: var(--color-2);
+
+	position: absolute;
+	bottom: 0.25em;
+
+	transition-duration: 0.3s, 0.1s;
+	transition-property: width, color;
+}
+@media (hover: hover) {
+	#links button:hover:not(#logo)::after {
+		width: 35%;
+	}
+}
+#links button:focus-visible:not(#logo)::after {
+	width: 35%;
+}
+#links button.selected:not(#logo)::after {
+	width: 75%;
+}
+#links button#logo {
+	margin: 0.5em 1em;
+	padding: 0.2em;
+	border-radius: 100vh;
+	background-color: var(--background-color-2);
+}
+#links button#logo.selected {
+	transform: scale(1.05);
+}
+#links button#logo img {
+	height: 50px;
+	width: auto;
+}
+#links button#logo h1 {
+	margin: 0;
+	padding: 0 0.2em;
+}
+
+#hidden-links {
+	position: absolute;
+	top: 50%; left: 0;
+	z-index: -1;
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+
+	transform-origin: top center;
+	transform: scaleY(0);
+	transition-duration: 0.3s, 0.2s;
+	transition-property: transform, top;
+}
+#hidden-links.showing {
+	top: 100%;
+	transform: scaleY(1);
+}
+#hidden-links button {
+	padding: 0.5em;
+	
+	visibility: hidden;
+}
+#hidden-links.showing button {
+	visibility: visible;
+}
+#toggle-show-links-button {
+	border: none;
+	padding: 0;
+	background-color: transparent;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 35px;
+	height: 35px;
+	filter: drop-shadow(-0.1em -0.1em 0.2em var(--background-color)) drop-shadow(-0.1em 0.1em 0.2em var(--background-color)) 
+	drop-shadow(0.1em -0.1em 0.2em var(--background-color)) drop-shadow(0.1em 0.1em 0.2em var(--background-color));
+
+	cursor: pointer;
+
+	rotate: -90deg;
+	transition-duration: 0.3s, 0.2s;
+	transition-property: transform, rotate, margin-top, text-shadow, background-color, color;
+}
+#toggle-show-links-button img#arrow-img {
+	width: 30px;
+	height: auto;
+
+	transition-property: filter;
+}
+#toggle-show-links-button img.inverted {
+	filter: invert(1);
+}
+#toggle-show-links-button.showing {
+	rotate: 0deg;
+}
+#toggle-show-links-button:focus-visible {
+	transform: scale(1.1);
+}
+@media (hover: hover) {
+	#toggle-show-links-button:hover {
+		transform: scale(1.1);
+	}
+}
+@media (hover: none) {
+	#toggle-show-links-button:active::before {
+		content: "";
+
+		position: absolute; 
+		top: 0; left: 0;
+		width: 100%; height: 100%;
+		
+		z-index: 1; opacity: 0.5;
+		background-color: var(--color-2);
+		border-radius: 5px;
+	}
+}
+#toggle-show-links-button:active {
+	transform: scale(1.05);
+}

@@ -1,9 +1,11 @@
 // NOTE: also contains logic for scrolling
 
-import { useCallback, useContext, useEffect } from "react";
-import { Button, scroller, scrollSpy } from "react-scroll";
+import { useCallback, useContext, useEffect, useState } from "react";
+import { scroller, scrollSpy } from "react-scroll";
 
 import ThemeChanger from "./theme-changer";
+import WideLinks from "./wide-links";
+import SlimLinks from "./slim-links";
 import { ThemeContext } from "../root";
 
 import githubIcon from "../../icons/github.svg";
@@ -12,12 +14,26 @@ import styles from "./header.module.css";
 import transitionStyles from "../transition.module.css";
 
 import setUrl from "../../helper-functions/set-url";
-import unFocus from "../../helper-functions/unFocus";
 import { getPageUrl, getPageName } from "../projects/page-info";
 
 function Header() {
 	// import context
 	const {theme} = useContext(ThemeContext);
+
+	// detect page width to see if we should adjust header
+	const [useSlimLinks, setUseSlimLinks] = useState(true);
+	useEffect(() => {
+		const resizeListener = () => {
+			setUseSlimLinks(window.matchMedia("(max-width: 560px)").matches);
+		};
+		window.addEventListener('resize', resizeListener);
+		
+		// also call resize on load
+		resizeListener();
+		
+		// remove listener on page rerender
+		return () => { window.removeEventListener('resize', resizeListener); };
+	}, []);
 
 	// scroll to page based on url (only runs once)
 	useEffect(() => {
@@ -53,21 +69,12 @@ function Header() {
 
 	return (
 		<div id={styles["header"]}>
-			<div id={styles["links"]}>
-				<Button to="home" id={styles["logo"]} activeClass={styles["selected"]} onClick={() => { updatePageInfo("home"); unFocus(); }}
-				containerId="main-page" spy={true} smooth={true} duration={500}>
-					<img src="/icon.png"></img>
-					<h1>Altrup</h1>
-				</Button>
-				<Button to="projects" activeClass={styles["selected"]} onClick={() => { updatePageInfo("projects"); unFocus(); }}
-				containerId="main-page" spy={true} smooth={true} duration={500}>
-					Projects
-				</Button>
-				<Button to="contacts" activeClass={styles["selected"]} onClick={() => { updatePageInfo("contacts"); unFocus(); }}
-				containerId="main-page" spy={true} smooth={true} offset={50}>
-					Contacts
-				</Button>
-			</div>
+			{
+				useSlimLinks? 
+					<SlimLinks updatePageInfo={updatePageInfo} />
+				: 
+					<WideLinks updatePageInfo={updatePageInfo} />
+			}
 			<div id={styles["right-side"]}>
 				<ThemeChanger />
 				<a href="https://github.com/EricL521" target="_blank" className={transitionStyles["interactive"]}>

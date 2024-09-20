@@ -1,6 +1,6 @@
 .transition {
 	transition: 0.2s ease;
-	transition-property: color, background-color, border-color; 
+	transition-property: color, background-color, border-color, text-shadow; 
 }
 .transition * {
 	transition: inherit;
@@ -15,7 +15,7 @@
 
 .interactive {
 	transition-duration: 0.3s, 0.2s;
-	transition-property: transform, color, background-color, border-color; 
+	transition-property: transform, color, background-color, border-color, text-shadow; 
 	transform: scale(1);
 }
 @media (hover: hover) {
