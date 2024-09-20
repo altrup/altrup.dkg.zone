@@ -36,7 +36,7 @@
 	text-decoration: none;
 	cursor: pointer;
 
-	transition-duration: 0.3s, 0.2s;
+	transition-duration: 0.3s, 0.2s, 0.2s, 0.2s, 0.2s, 0.2s, 0.2s, 0.2s;
 	transition-property: transform, height, padding, scale, visibility, text-shadow, background-color, color;
 }
 @media (hover: hover) {
@@ -84,7 +84,7 @@
 	bottom: 0.25em;
 
 	transition-duration: 0.3s, 0.2s;
-	transition-property: width, color;
+	transition-property: width, background;
 }
 @media (hover: hover) {
 	#links a:hover:not(#logo)::after {
@@ -152,7 +152,7 @@
 
 	rotate: -90deg;
 	transition-duration: 0.3s, 0.2s;
-	transition-property: transform, rotate, background-color, color;
+	transition-property: transform, rotate;
 }
 #toggle-show-links-button img#arrow-img {
 	width: 30px;

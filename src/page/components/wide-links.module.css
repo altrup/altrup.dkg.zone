@@ -26,8 +26,8 @@
 	text-decoration: none;
 	cursor: pointer;
 
-	transition-duration: 0.3s, 0.2s;
-	transition-property: transform, text-shadow, color;
+	transition-duration: 0.3s, 0.2s, 0.2s, 0.2s;
+	transition-property: transform, text-shadow, background-color, color;
 }
 @media (hover: hover) {
 	#links a:hover {
