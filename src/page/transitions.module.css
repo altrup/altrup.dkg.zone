@@ -1,0 +1,48 @@
+.transition {
+	transition: all 0.2s ease; 
+}
+.transition * {
+	transition: all 0.2s ease; 
+}
+
+.notransition {
+	transition: none !important;
+}
+.notransition * {
+	transition: inherit !important;
+}
+
+.interactive {
+	transition-duration: 0.2s, 0.3s;
+	transition-property: all, transform; 
+	transform: scale(1);
+}
+@media (hover: hover) {
+	.interactive:hover {
+		transform: scale(1.1);
+	}
+}
+@media (hover: none) {
+	:is(div, button).interactive:active::before {
+		content: "";
+
+		position: absolute; 
+		top: 0; left: 0;
+		width: 100%; height: 100%;
+		
+		z-index: 1; opacity: 0.5;
+		background-color: var(--color-2);
+		border-radius: 100vh;
+
+		pointer-events: none;
+	}
+	:is(div, button).interactive.interactive-rounded-square:active::before {
+		border-radius: 5px;
+	}
+}
+div.interactive:has(:is(button, a):active), .interactive:active {
+	transform: scale(1.05);
+}
+div.interactive:has(:is(button, a):focus-visible), .interactive:focus-visible {
+	transform: scale(1.1);
+}

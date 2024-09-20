@@ -11,7 +11,7 @@ import { ThemeContext } from "../root";
 import githubIcon from "../../icons/github.svg";
 
 import styles from "./header.module.css";
-import transitionStyles from "../transition.module.css";
+import transitionStyles from "../transitions.module.css";
 
 import setUrl from "../../helper-functions/set-url";
 import { getPageUrl, getPageName } from "../projects/page-info";
@@ -77,8 +77,8 @@ function Header() {
 			}
 			<div id={styles["right-side"]}>
 				<ThemeChanger />
-				<a href="https://github.com/EricL521" target="_blank" className={transitionStyles["interactive"]}>
-					<img src={githubIcon} className={[styles["link-icon"], theme === "dark"? styles["inverted"]: undefined].join(' ')}></img>
+				<a href="https://github.com/EricL521" target="_blank" className={[transitionStyles["interactive"], transitionStyles["interactive-rounded-square"]].join(' ')}>
+					<img src={githubIcon} className={[styles["link-icon"], theme === "dark"? styles["inverted"]: undefined].join(' ')} draggable="false"></img>
 				</a> 
 			</div>
 		</div>

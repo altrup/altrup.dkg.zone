@@ -9,6 +9,7 @@ import lightModeIcon from '../../icons/light-mode.svg';
 import systemModeIcon from '../../icons/system-mode.svg';
 
 import styles from './theme-changer.module.css';
+import transitionStyles from '../transitions.module.css';
 
 // Make typescript happy
 declare const themeManager: EventTarget & {updateTheme: (theme: string) => void, themeSetting: string, theme: string};
@@ -58,7 +59,8 @@ function ThemeChanger() {
 				{
 					order.map((buttonTheme, index) => (
 						<button key={buttonTheme} id={buttonTheme} style={{zIndex: order.length - index}} onClick={() => updateTheme(buttonTheme)}
-						className={[themeSetting === buttonTheme? styles["selected"]: undefined, styles["pos-" + (1 + cssOrder.indexOf(buttonTheme))]].join(' ')}>
+						className={[themeSetting === buttonTheme? styles["selected"]: undefined, styles["pos-" + (1 + cssOrder.indexOf(buttonTheme))], 
+							transitionStyles["interactive"], transitionStyles["interactive-rounded-square"]].join(' ')}>
 							<img key={buttonTheme} src={getButtonIcon(buttonTheme)} className={theme === 'dark'? styles['inverted']: undefined} draggable="false" alt={`${buttonTheme} mode`} />
 						</button>
 					))

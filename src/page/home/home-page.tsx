@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { Element } from "react-scroll";
 
 import styles from './home-page.module.css';
-import transitionStyles from '../transition.module.css';
+import transitionStyles from '../transitions.module.css';
 
 function HomePage() {
 	const interactiveStyle = useMemo(() => [styles["interactive"], transitionStyles["interactive"]].join(' '), []);

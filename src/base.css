@@ -4,6 +4,9 @@
 * {
 	font-family: inherit;
 	color: var(--color-1);
+	
+	-webkit-tap-highlight-color: transparent;
+	appearance: none;
 }
 
 html, body, #mount {

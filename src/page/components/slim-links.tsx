@@ -4,6 +4,7 @@ import { useContext, useReducer } from "react";
 import { Link } from "react-scroll";
 
 import styles from "./slim-links.module.css";
+import transitionStyles from "../transitions.module.css";
 
 import arrow from "../../icons/arrow.svg";
 
@@ -21,31 +22,41 @@ function SlimLinks({updatePageInfo} : {updatePageInfo: (pageName: string) => voi
 	return (
 		<div id={styles["links-parent"]}>
 			<div id={styles["links"]}>
-				<Link href="/" to="home" id={styles["logo"]} onClick={() => { updatePageInfo("home"); unFocus(); }}
-				containerId="main-page" spy={true} smooth={true} duration={500}>
-					<img src="/icon.png"></img>
-				</Link>
+				<div id={styles["logo"]} className={[transitionStyles["interactive"], transitionStyles["interactive-rounded-square"]].join(' ')}>
+					<Link href="/" to="home" onClick={() => { updatePageInfo("home"); unFocus(); }}
+					containerId="main-page" spy={true} smooth={true} duration={500}>
+						<img src="/icon.png"></img>
+					</Link>
+				</div>
 				<div id={styles["hidden-links-parent"]}>
 					<div id={styles["hidden-links"]} className={showLinks? styles["showing"]: undefined}>
-						<Link href="/" to="home" activeClass={styles["selected"]} onClick={() => { updatePageInfo("home"); unFocus(); }}
-						containerId="main-page" spy={true} smooth={true} duration={500}>
-							Home
-						</Link>
-						<Link href="projects" to="projects" activeClass={styles["selected"]} onClick={() => { updatePageInfo("projects"); unFocus(); }}
-						containerId="main-page" spy={true} smooth={true} duration={500}>
-							Projects
-						</Link>
-						<Link href="contacts" to="contacts" activeClass={styles["selected"]} onClick={() => { updatePageInfo("contacts"); unFocus(); }}
-						containerId="main-page" spy={true} smooth={true} duration={500}>
-							Contacts
-						</Link>
+						<div className={transitionStyles["interactive"]}>
+							<Link href="/" to="home" activeClass={styles["selected"]} onClick={() => { updatePageInfo("home"); unFocus(); }}
+							containerId="main-page" spy={true} smooth={true} duration={500}>
+								Home
+							</Link>
+						</div>
+						<div className={transitionStyles["interactive"]}>
+							<Link href="projects" to="projects" activeClass={styles["selected"]} onClick={() => { updatePageInfo("projects"); unFocus(); }}
+							containerId="main-page" spy={true} smooth={true} duration={500}>
+								Projects
+							</Link>
+						</div>
+						<div className={transitionStyles["interactive"]}>
+							<Link href="contacts" to="contacts" activeClass={styles["selected"]} onClick={() => { updatePageInfo("contacts"); unFocus(); }}
+							containerId="main-page" spy={true} smooth={true} duration={500}>
+								Contacts
+							</Link>
+						</div>
 					</div>
 				</div>
 			</div>
 
-			<button id={styles["toggle-show-links-button"]} className={showLinks? styles["showing"]: undefined} onClick={toggleShowLinks}>
-				<img src={arrow} id={styles["arrow-img"]} className={theme === "dark"? styles["inverted"]: undefined} draggable="false" />
-			</button>
+			<div className={[transitionStyles["interactive"], transitionStyles["interactive-rounded-square"]].join(' ')}>
+				<button id={styles["toggle-show-links-button"]} className={showLinks? styles["showing"]: undefined} onClick={toggleShowLinks}>
+					<img src={arrow} id={styles["arrow-img"]} className={theme === "dark"? styles["inverted"]: undefined} draggable="false" />
+				</button>
+			</div>
 		</div>
 	);
 }

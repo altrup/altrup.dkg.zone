@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 import Header from "./components/header";
 
 import styles from "./root.module.css";
-import transitionStyles from "./transition.module.css";
+import transitionStyles from "./transitions.module.css";
 
 import HomePage from "./home/home-page";
 import ProjectsPage from "./projects/projects-page";
