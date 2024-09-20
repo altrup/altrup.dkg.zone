@@ -22,7 +22,7 @@
 #links * {
 	pointer-events: initial;
 }
-#links button {
+#links a {
 	position: relative;
 
 	display: flex;
@@ -36,16 +36,16 @@
 	text-decoration: none;
 	cursor: pointer;
 
-	transition-duration: 0.3s, 0.2s;
-	transition-property: transform, visibility, margin-top, text-shadow, background-color, color;
+	transition-duration: 0.3s, 0.3s 0.3s, 0.3s, 0.2s;
+	transition-property: transform, height, padding, scale, visibility, text-shadow, background-color, color;
 }
 @media (hover: hover) {
-	#links button:hover {
+	#links a:hover {
 		transform: scale(1.1) !important;
 	}
 }
 @media (hover: none) {
-	#links button:active::before {
+	#links a:active::before {
 		content: "";
 
 		position: absolute; 
@@ -57,19 +57,20 @@
 		border-radius: 100vh;
 	}
 }
-#links button:focus-visible {
+#links a:focus-visible {
 	transform: scale(1.1) !important;
 }
-#links button:active {
+#links a:active {
 	transform: scale(1.05) !important;
 }
-#hidden-links button {
+
+#hidden-links a {
 	text-shadow: -0.1em -0.1em 0.2em var(--background-color), -0.1em 0.1em 0.2em var(--background-color), 
 		0.1em -0.1em 0.2em var(--background-color), 0.1em 0.1em 0.2em var(--background-color),
 		-0.1em -0.1em 0.2em var(--background-color), -0.1em 0.1em 0.2em var(--background-color), 
 		0.1em -0.1em 0.2em var(--background-color), 0.1em 0.1em 0.2em var(--background-color);
 }
-#hidden-links button::after {
+#hidden-links a::after {
 	content: "";
 	width: 0px;
 	height: .2em;
@@ -86,62 +87,56 @@
 	transition-property: width, color;
 }
 @media (hover: hover) {
-	#links button:hover:not(#logo)::after {
+	#links a:hover:not(#logo)::after {
 		width: 35%;
 	}
 }
-#links button:focus-visible:not(#logo)::after {
+#links address:focus-visible:not(#logo)::after {
 	width: 35%;
 }
-#links button.selected:not(#logo)::after {
+#links a.selected:not(#logo)::after {
 	width: 75%;
 }
-#links button#logo {
-	margin: 0.5em 1em;
-	padding: 0.2em;
+#links a#logo {
+	margin: 0.5em;
+	padding: 0;
 	border-radius: 100vh;
-	background-color: var(--background-color-2);
+	border: 1px solid var(--color-1);
 }
-#links button#logo.selected {
-	transform: scale(1.05);
-}
-#links button#logo img {
+#links a#logo img {
 	height: 50px;
 	width: auto;
-}
-#links button#logo h1 {
-	margin: 0;
-	padding: 0 0.2em;
+	padding: 0;
 }
 
+#hidden-links-parent {
+	height: 2em;
+}
 #hidden-links {
-	position: absolute;
-	top: 50%; left: 0;
-	z-index: -1;
-	width: 100%;
+	position: relative;
 
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-
+}
+#hidden-links a {
 	transform-origin: top center;
-	transform: scaleY(0);
-	transition-duration: 0.3s, 0.2s;
-	transition-property: transform, top;
-}
-#hidden-links.showing {
-	top: 100%;
-	transform: scaleY(1);
-}
-#hidden-links button {
-	padding: 0.5em;
+	scale: 1 0;
+	height: 0;
+	padding: 0 0.5em;
 	
 	visibility: hidden;
 }
-#hidden-links.showing button {
+#hidden-links.showing a, #hidden-links a.selected {
+	box-sizing: content-box;
+
 	visibility: visible;
+	scale: 1 1;
+	height: 1em;
+	padding: 0.5em;
 }
+
 #toggle-show-links-button {
 	border: none;
 	padding: 0;
@@ -153,18 +148,19 @@
 
 	width: 35px;
 	height: 35px;
-	filter: drop-shadow(-0.1em -0.1em 0.2em var(--background-color)) drop-shadow(-0.1em 0.1em 0.2em var(--background-color)) 
-	drop-shadow(0.1em -0.1em 0.2em var(--background-color)) drop-shadow(0.1em 0.1em 0.2em var(--background-color));
 
 	cursor: pointer;
 
 	rotate: -90deg;
 	transition-duration: 0.3s, 0.2s;
-	transition-property: transform, rotate, margin-top, text-shadow, background-color, color;
+	transition-property: transform, rotate, margin-top, background-color, color;
 }
 #toggle-show-links-button img#arrow-img {
 	width: 30px;
 	height: auto;
+
+	filter: drop-shadow(-0.1em -0.1em 0.2em var(--background-color)) drop-shadow(-0.1em 0.1em 0.2em var(--background-color)) 
+	drop-shadow(0.1em -0.1em 0.2em var(--background-color)) drop-shadow(0.1em 0.1em 0.2em var(--background-color));
 
 	transition-property: filter;
 }

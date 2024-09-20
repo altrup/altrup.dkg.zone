@@ -1,7 +1,7 @@
 // component for links when we need to save some space
 import { useContext, useReducer } from "react";
 
-import { Button } from "react-scroll";
+import { Link } from "react-scroll";
 
 import styles from "./slim-links.module.css";
 
@@ -21,20 +21,25 @@ function SlimLinks({updatePageInfo} : {updatePageInfo: (pageName: string) => voi
 	return (
 		<div id={styles["links-parent"]}>
 			<div id={styles["links"]}>
-				<Button to="home" id={styles["logo"]} activeClass={styles["selected"]} onClick={() => { updatePageInfo("home"); unFocus(); }}
+				<Link href="/" to="home" id={styles["logo"]} onClick={() => { updatePageInfo("home"); unFocus(); }}
 				containerId="main-page" spy={true} smooth={true} duration={500}>
 					<img src="/icon.png"></img>
-					<h1>Altrup</h1>
-				</Button>
-				<div id={styles["hidden-links"]} className={showLinks? styles["showing"]: undefined}>
-					<Button to="projects" activeClass={styles["selected"]} onClick={() => { updatePageInfo("projects"); unFocus(); }}
-					containerId="main-page" spy={true} smooth={true} duration={500}>
-						Projects
-					</Button>
-					<Button to="contacts" activeClass={styles["selected"]} onClick={() => { updatePageInfo("contacts"); unFocus(); }}
-					containerId="main-page" spy={true} smooth={true} offset={50}>
-						Contacts
-					</Button>
+				</Link>
+				<div id={styles["hidden-links-parent"]}>
+					<div id={styles["hidden-links"]} className={showLinks? styles["showing"]: undefined}>
+						<Link href="/" to="home" activeClass={styles["selected"]} onClick={() => { updatePageInfo("home"); unFocus(); }}
+						containerId="main-page" spy={true} smooth={true} duration={500}>
+							Home
+						</Link>
+						<Link href="projects" to="projects" activeClass={styles["selected"]} onClick={() => { updatePageInfo("projects"); unFocus(); }}
+						containerId="main-page" spy={true} smooth={true} duration={500}>
+							Projects
+						</Link>
+						<Link href="contacts" to="contacts" activeClass={styles["selected"]} onClick={() => { updatePageInfo("contacts"); unFocus(); }}
+						containerId="main-page" spy={true} smooth={true} duration={500}>
+							Contacts
+						</Link>
+					</div>
 				</div>
 			</div>
 

@@ -11,7 +11,7 @@
 #links * {
 	pointer-events: initial;
 }
-#links button {
+#links a {
 	position: relative;
 	padding: 1em;
 
@@ -30,12 +30,12 @@
 	transition-property: transform, text-shadow, color;
 }
 @media (hover: hover) {
-	#links button:hover {
+	#links a:hover {
 		transform: scale(1.1) !important;
 	}
 }
 @media (hover: none) {
-	#links button:active::before {
+	#links a:active::before {
 		content: "";
 
 		position: absolute; 
@@ -47,19 +47,19 @@
 		border-radius: 100vh;
 	}
 }
-#links button:focus-visible {
+#links a:focus-visible {
 	transform: scale(1.1) !important;
 }
-#links button:active {
+#links a:active {
 	transform: scale(1.05) !important;
 }
-#links button:not(#logo) {
+#links a:not(#logo) {
 	text-shadow: -0.1em -0.1em 0.2em var(--background-color), -0.1em 0.1em 0.2em var(--background-color), 
 		0.1em -0.1em 0.2em var(--background-color), 0.1em 0.1em 0.2em var(--background-color),
 		-0.1em -0.1em 0.2em var(--background-color), -0.1em 0.1em 0.2em var(--background-color), 
 		0.1em -0.1em 0.2em var(--background-color), 0.1em 0.1em 0.2em var(--background-color);
 }
-#links button:not(#logo)::after {
+#links a:not(#logo)::after {
 	content: "";
 	width: 0px;
 	height: .2em;
@@ -76,30 +76,30 @@
 	transition-property: width, color;
 }
 @media (hover: hover) {
-	#links button:hover:not(#logo)::after {
+	#links a:hover:not(#logo)::after {
 		width: 35%;
 	}
 }
-#links button:focus-visible:not(#logo)::after {
+#links a:focus-visible:not(#logo)::after {
 	width: 35%;
 }
-#links button.selected:not(#logo)::after {
+#links a.selected:not(#logo)::after {
 	width: 75%;
 }
-#links button#logo {
+#links a#logo {
 	margin: 0.5em 1em;
 	padding: 0.2em;
 	border-radius: 100vh;
 	background-color: var(--background-color-2);
 }
-#links button#logo.selected {
+#links a#logo.selected {
 	transform: scale(1.05);
 }
-#links button#logo img {
+#links a#logo img {
 	height: 50px;
 	width: auto;
 }
-#links button#logo h1 {
+#links a#logo h1 {
 	margin: 0;
 	padding: 0 0.2em;
 }
