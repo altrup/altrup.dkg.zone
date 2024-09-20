@@ -14,16 +14,27 @@
 
 	pointer-events: none;
 }
-#header img {
+#header img.link-icon {
 	box-sizing: border-box;
 	height: 35px;
 	width: auto;
 	padding: 2px;
 
+	filter: invert(0);
+
+	transition-duration: 0.2s;
 	transition-property: filter;
 }
 #header img.inverted {
 	filter: invert(1);
+}
+#header img.link-icon {
+	filter: invert(0) drop-shadow(-0.1em -0.1em 0.1em var(--background-color)) drop-shadow(-0.1em 0.1em 0.1em var(--background-color)) 
+	drop-shadow(0.1em -0.1em 0.1em var(--background-color)) drop-shadow(0.1em 0.1em 0.1em var(--background-color));
+}
+#header img.inverted.link-icon {
+	filter: invert(1) drop-shadow(-0.1em -0.1em 0.1em var(--background-color)) drop-shadow(-0.1em 0.1em 0.1em var(--background-color)) 
+	drop-shadow(0.1em -0.1em 0.1em var(--background-color)) drop-shadow(0.1em 0.1em 0.1em var(--background-color));
 }
 
 #right-side {

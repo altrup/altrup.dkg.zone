@@ -40,13 +40,17 @@ function ThemeChanger() {
 		if (buttonTheme === 'system') return systemModeIcon;
 	}, []);
 
+	// store the nextTheme we switch to when html order updates
+	const [nextTheme, setNextTheme] = useState(theme);
 	const updateTheme = useCallback((theme: string) => {
 		if (!isClient) return; // do nothing
-		themeManager.updateTheme(theme);
 		dispatchOrder(theme);
+		setNextTheme(theme);
 
 		unFocus(); // unFocus is clicked with mouse
 	}, [isClient]);
+	// only update theme after we've reordered elements
+	useEffect(() => { if (nextTheme) requestAnimationFrame(() => requestAnimationFrame(() => themeManager.updateTheme(nextTheme))) }, [nextTheme]);
 
 	return (
 		<div id={styles["theme-changer-wrapper"]}>
@@ -55,7 +59,7 @@ function ThemeChanger() {
 					order.map((buttonTheme, index) => (
 						<button key={buttonTheme} id={buttonTheme} style={{zIndex: order.length - index}} onClick={() => updateTheme(buttonTheme)}
 						className={[themeSetting === buttonTheme? styles["selected"]: undefined, styles["pos-" + (1 + cssOrder.indexOf(buttonTheme))]].join(' ')}>
-							<img src={getButtonIcon(buttonTheme)} className={theme === 'dark'? styles['inverted']: undefined} draggable="false" alt={`${buttonTheme}-mode`} />
+							<img key={buttonTheme} src={getButtonIcon(buttonTheme)} className={theme === 'dark'? styles['inverted']: undefined} draggable="false" alt={`${buttonTheme} mode`} />
 						</button>
 					))
 				}

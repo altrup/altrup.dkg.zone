@@ -78,7 +78,7 @@ function Header() {
 			<div id={styles["right-side"]}>
 				<ThemeChanger />
 				<a href="https://github.com/EricL521" target="_blank" className={transitionStyles["interactive"]}>
-					<img src={githubIcon} className={theme === "dark"? styles["inverted"]: undefined}></img>
+					<img src={githubIcon} className={[styles["link-icon"], theme === "dark"? styles["inverted"]: undefined].join(' ')}></img>
 				</a> 
 			</div>
 		</div>

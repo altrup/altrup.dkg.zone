@@ -30,6 +30,10 @@
 
 	cursor: pointer;
 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
 	opacity: 0;
 	transition-duration: 0.3s, 0.2s;
 	transition-property: transform, top, opacity;
@@ -63,13 +67,20 @@
 	opacity: 1;
 }
 #theme-changer img {
-	width: 100%;
-	height: auto;
+	box-sizing: border-box;
+	width: auto;
+	height: 35px;
+	padding: 2px;
 
+	filter: invert(0) drop-shadow(-0.1em -0.1em 0.1em var(--background-color)) drop-shadow(-0.1em 0.1em 0.1em var(--background-color)) 
+	drop-shadow(0.1em -0.1em 0.1em var(--background-color)) drop-shadow(0.1em 0.1em 0.1em var(--background-color));
+
+	transition-duration: 0.2s;
 	transition-property: filter;
 }
 #theme-changer img.inverted {
-	filter: invert(1);
+	filter: invert(1) drop-shadow(-0.1em -0.1em 0.1em var(--background-color)) drop-shadow(-0.1em 0.1em 0.1em var(--background-color)) 
+	drop-shadow(0.1em -0.1em 0.1em var(--background-color)) drop-shadow(0.1em 0.1em 0.1em var(--background-color));
 }
 
 #theme-changer:hover, #theme-changer:focus-within {
