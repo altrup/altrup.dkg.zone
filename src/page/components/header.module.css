@@ -113,3 +113,6 @@
 #right-side a {
 	margin: 1em;
 }
+#right-side a:active {
+	transform: scale(1.05);
+}

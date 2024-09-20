@@ -9,6 +9,7 @@ import lightModeIcon from '../../icons/light-mode.svg';
 import systemModeIcon from '../../icons/system-mode.svg';
 
 import styles from './theme-changer.module.css';
+import transitionStyles from "../transition.module.css";
 
 // Make typescript happy
 declare const themeManager: EventTarget & {updateTheme: (theme: string) => void, themeSetting: string, theme: string};
@@ -59,18 +60,6 @@ function ThemeChanger() {
 						</button>
 					))
 				}
-				{/* <button id={styles['light']} className={[themeSetting === 'light'? styles["selected"]: undefined, styles["pos-" + (1 + order.indexOf('light'))]].join(' ')} 
-				onClick={() => updateTheme('light')}>
-					<img src={lightModeIcon} className={theme === 'dark'? styles['inverted']: undefined} draggable="false" alt='light-mode' />
-				</button>
-				<button id={styles['dark']} className={[themeSetting === 'dark'? styles["selected"]: undefined, styles["pos-" + (1 + order.indexOf('dark'))]].join(' ')}
-				onClick={() => updateTheme('dark')}>
-					<img src={darkModeIcon} className={theme === 'dark'? styles['inverted']: undefined} draggable="false" alt='dark-mode' />
-				</button>
-				<button id={styles['system']} className={[themeSetting === 'system'? styles["selected"]: undefined, styles["pos-" + (1 + order.indexOf('system'))]].join(' ')}
-				onClick={() => updateTheme('system')}>
-					<img src={systemModeIcon} className={theme === 'dark'? styles['inverted']: undefined} draggable="false" alt='system-mode' />
-				</button> */}
 			</div>
 		</div>
 	)

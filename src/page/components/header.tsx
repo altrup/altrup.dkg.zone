@@ -9,6 +9,7 @@ import { ThemeContext } from "../root";
 import githubIcon from "../../icons/github.svg";
 
 import styles from "./header.module.css";
+import transitionStyles from "../transition.module.css";
 
 import setUrl from "../../helper-functions/set-url";
 import unFocus from "../../helper-functions/unFocus";
@@ -69,7 +70,7 @@ function Header() {
 			</div>
 			<div id={styles["right-side"]}>
 				<ThemeChanger />
-				<a href="https://github.com/EricL521" target="_blank">
+				<a href="https://github.com/EricL521" target="_blank" className={transitionStyles["interactive"]}>
 					<img src={githubIcon} className={theme === "dark"? styles["inverted"]: undefined}></img>
 				</a> 
 			</div>

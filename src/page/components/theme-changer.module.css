@@ -31,7 +31,14 @@
 	cursor: pointer;
 
 	opacity: 0;
-	transition-property: top, opacity;
+	transition-duration: 0.3s, 0.2s;
+	transition-property: transform, top, opacity;
+}
+#theme-changer button:hover, #theme-changer button:focus {
+	transform: scale(1.1);
+}
+#theme-changer button:active {
+	transform: scale(1.05);
 }
 #theme-changer button.selected {
 	opacity: 1;

@@ -12,3 +12,12 @@
 .notransition * {
 	transition: inherit;
 }
+
+.interactive {
+	transition-duration: 0.3s, 0.2s;
+	transition-property: transform, color, background-color, border-color; 
+	transform: scale(1);
+}
+.interactive:hover, .interactive:focus {
+	transform: scale(1.1);
+}
