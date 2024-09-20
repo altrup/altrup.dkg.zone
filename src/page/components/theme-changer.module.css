@@ -34,7 +34,26 @@
 	transition-duration: 0.3s, 0.2s;
 	transition-property: transform, top, opacity;
 }
-#theme-changer button:hover, #theme-changer button:focus {
+@media (hover: hover) {
+	#theme-changer button:hover {
+		transform: scale(1,1);
+	}
+}
+@media (hover: none) {
+	#theme-changer button:active::before {
+		content: "";
+		visibility: visible;
+
+		position: absolute; 
+		top: 0; left: 0;
+		width: 100%; height: 100%;
+		
+		z-index: 1; opacity: 0.5;
+		background-color: var(--color-2);
+		border-radius: 5px;
+	}
+}
+#theme-changer button:focus-visible {
 	transform: scale(1.1);
 }
 #theme-changer button:active {

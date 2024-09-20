@@ -18,6 +18,11 @@
 	transition-property: transform, color, background-color, border-color; 
 	transform: scale(1);
 }
-.interactive:hover, .interactive:focus {
+@media (hover: hover) {
+	.interactive:hover {
+		transform: scale(1.1);
+	}
+}
+.interactive:focus {
 	transform: scale(1.1);
 }
