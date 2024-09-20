@@ -50,6 +50,12 @@
 	transition-duration: 0.3s, 0.1s, 0.1s;
 	transition-property: transform, text-shadow, color;
 }
+#links button:hover, #links button:focus {
+	transform: scale(1.1) !important;
+}
+#links button:active {
+	transform: scale(1.05) !important;
+}
 #links button:not(#logo) {
 	text-shadow: -0.1em -0.1em 0.2em var(--background-color), -0.1em 0.1em 0.2em var(--background-color), 
 		0.1em -0.1em 0.2em var(--background-color), 0.1em 0.1em 0.2em var(--background-color),
@@ -72,12 +78,6 @@
 	transition-duration: 0.3s, 0.1s;
 	transition-property: width, color;
 }
-#links button:hover, #links button:focus {
-	transform: scale(1.1);
-}
-#links button:active {
-	transform: scale(1.05);
-}
 #links button:hover:not(#logo)::after, #links button:focus:not(#logo)::after {
 	width: 35%;
 }
@@ -89,6 +89,9 @@
 	padding: 0.2em;
 	border-radius: 100vh;
 	background-color: var(--background-color-2);
+}
+#links button#logo.selected {
+	transform: scale(1.05);
 }
 #links button#logo img {
 	height: 50px;
