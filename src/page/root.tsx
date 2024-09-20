@@ -4,6 +4,7 @@ import Header from "./components/header";
 
 import styles from "./root.module.css";
 import transitionStyles from "./transition.module.css";
+
 import HomePage from "./home/home-page";
 import ProjectsPage from "./projects/projects-page";
 import ContactsPage from "./contacts/contacts-page";
@@ -17,7 +18,7 @@ function Root() {
 	const [isClient, _] = useState(typeof window !== 'undefined');
 
 	// Only start transitioning after initial hydration
-	const [transitionClass, setTransitionClass] = useState(styles["notransition"]);
+	const [transitionClass, setTransitionClass] = useState(transitionStyles["notransition"]);
 	const [hydrated, setHydrated] = useState(false);
 	useEffect(() => { setHydrated(true); }, []);
 	// using requestAnimationFrame runs right before the next redraw, which delays it long enough to prevent initial transitions
@@ -51,7 +52,7 @@ function Root() {
 			<ThemeContext.Provider value={{theme, themeSetting}}>
 				<Header />
 				
-				<div id='main-page' className={[styles["main-page"], transitionStyles["notransition"]].join(' ')}>
+				<div id='main-page' className={[styles["main-page"]].join(' ')}>
 					<HomePage />
 					<ProjectsPage />
 					<ContactsPage />

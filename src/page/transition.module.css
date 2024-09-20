@@ -7,10 +7,10 @@
 }
 
 .notransition {
-	transition: none;
+	transition: none !important;
 }
 .notransition * {
-	transition: inherit;
+	transition: inherit !important;
 }
 
 .interactive {
