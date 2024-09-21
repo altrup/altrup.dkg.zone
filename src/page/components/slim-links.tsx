@@ -32,19 +32,19 @@ function SlimLinks({updatePageInfo} : {updatePageInfo: (pageName: string) => voi
 					<div id={styles["hidden-links"]} className={showLinks? styles["showing"]: undefined}>
 						<div className={transitionStyles["interactive"]}>
 							<Link href="/" to="home" activeClass={styles["selected"]} onClick={() => { updatePageInfo("home"); unFocus(); }}
-							containerId="main-page" spy={true} smooth={true} duration={500}>
+							containerId="main-page" spy={true} smooth={true} duration={500} offset={-100}>
 								Home
 							</Link>
 						</div>
 						<div className={transitionStyles["interactive"]}>
 							<Link href="projects" to="projects" activeClass={styles["selected"]} onClick={() => { updatePageInfo("projects"); unFocus(); }}
-							containerId="main-page" spy={true} smooth={true} duration={500}>
+							containerId="main-page" spy={true} smooth={true} duration={500} offset={-100}>
 								Projects
 							</Link>
 						</div>
 						<div className={transitionStyles["interactive"]}>
 							<Link href="contacts" to="contacts" activeClass={styles["selected"]} onClick={() => { updatePageInfo("contacts"); unFocus(); }}
-							containerId="main-page" spy={true} smooth={true} duration={500}>
+							containerId="main-page" spy={true} smooth={true} duration={500} offset={-100}>
 								Contacts
 							</Link>
 						</div>

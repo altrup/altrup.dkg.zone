@@ -50,7 +50,7 @@ function Header() {
 			containerId: 'main-page',
 			smooth: true,
 			duration: 500,
-			offset: pageName === 'contacts'? 50: 0
+			offset: -100
 		});
 	}, []);
 	// force scroll-spy to update
