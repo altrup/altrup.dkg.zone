@@ -14,7 +14,7 @@ import styles from "./header.module.css";
 import transitionStyles from "../transitions.module.css";
 
 import setUrl from "../../helper-functions/set-url";
-import { getPageUrl, getPageName } from "../projects/page-info";
+import { getPageUrl, getPageName } from "../../helper-functions/page-info";
 
 function Header() {
 	// import context
