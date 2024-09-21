@@ -23,7 +23,7 @@
 	}
 }
 @media (hover: none) {
-	:is(div, button).interactive:active::before {
+	:is(div, button, a).interactive:active::before {
 		content: "";
 
 		position: absolute; 
@@ -36,7 +36,7 @@
 
 		pointer-events: none;
 	}
-	:is(div, button).interactive.interactive-rounded-square:active::before {
+	:is(div, button, a).interactive.interactive-rounded-square:active::before {
 		border-radius: 5px;
 	}
 }
