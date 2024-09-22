@@ -2,7 +2,7 @@
 	box-sizing: border-box;
 	width: 100%;
 	padding: 0 10vw;
-	padding-bottom: 100px;
+	padding-bottom: 125px;
 
 	display: flex;
 	flex-direction: column;
@@ -23,6 +23,6 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
-	align-items: baseline;
+	align-items: flex-start;
 	flex-wrap: wrap;
 }
