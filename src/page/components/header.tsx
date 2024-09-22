@@ -1,6 +1,6 @@
 // NOTE: also contains logic for scrolling
 
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { scroller, scrollSpy } from "react-scroll";
 
 import ThemeChanger from "./theme-changer";
@@ -67,6 +67,7 @@ function Header() {
 		});
 	}, []);
 
+	const transitionClass = useMemo(() => [transitionStyles["interactive"], transitionStyles["clickable"], transitionStyles["rounded-square"]].join(' '), [transitionStyles]);
 	return (
 		<div id={styles["header"]}>
 			{
@@ -77,7 +78,7 @@ function Header() {
 			}
 			<div id={styles["right-side"]}>
 				<ThemeChanger />
-				<a href="https://github.com/EricL521" target="_blank" className={[transitionStyles["interactive"], transitionStyles["interactive-rounded-square"]].join(' ')}>
+				<a href="https://github.com/EricL521" target="_blank" className={transitionClass}>
 					<img src={githubIcon} className={[styles["link-icon"], theme === "dark"? styles["inverted"]: undefined].join(' ')} draggable="false"></img>
 				</a> 
 			</div>

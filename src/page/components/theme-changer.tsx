@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect, useReducer, useState } from 'react';
+import { useCallback, useContext, useEffect, useMemo, useReducer, useState } from 'react';
 
 import unFocus from '../../helper-functions/unFocus';
 
@@ -53,14 +53,14 @@ function ThemeChanger() {
 	// only update theme after we've reordered elements
 	useEffect(() => { if (nextTheme) requestAnimationFrame(() => requestAnimationFrame(() => themeManager.updateTheme(nextTheme))) }, [nextTheme]);
 
+	const transitionClass = useMemo(() => [transitionStyles["interactive"], transitionStyles["clickable"], transitionStyles["rounded-square"]].join(' '), [transitionStyles]);
 	return (
 		<div id={styles["theme-changer-wrapper"]}>
 			<div id={styles["theme-changer"]} className={hidden? styles["hidden"]: undefined}>
 				{
 					order.map((buttonTheme, index) => (
 						<button key={buttonTheme} id={buttonTheme} style={{zIndex: order.length - index}} onClick={() => updateTheme(buttonTheme)}
-						className={[themeSetting === buttonTheme? styles["selected"]: undefined, styles["pos-" + (1 + cssOrder.indexOf(buttonTheme))], 
-							transitionStyles["interactive"], transitionStyles["interactive-rounded-square"]].join(' ')}>
+						className={[themeSetting === buttonTheme? styles["selected"]: undefined, styles["pos-" + (1 + cssOrder.indexOf(buttonTheme))], transitionClass].join(' ')}>
 							<img key={buttonTheme} src={getButtonIcon(buttonTheme)} className={theme === 'dark'? styles['inverted']: undefined} draggable="false" alt={`${buttonTheme} mode`} />
 						</button>
 					))

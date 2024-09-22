@@ -1,5 +1,5 @@
 // component for links when we need to save some space
-import { useContext, useReducer } from "react";
+import { useContext, useMemo, useReducer } from "react";
 
 import { Link } from "react-scroll";
 
@@ -19,10 +19,12 @@ function SlimLinks({updatePageInfo} : {updatePageInfo: (pageName: string) => voi
 		return !state;
 	}, false);
 
+	const transitionClass = useMemo(() => [transitionStyles["interactive"], transitionStyles["clickable"]].join(' '), [transitionStyles]);
+	const roundedSquareTransitionClass = useMemo(() => [transitionClass, transitionStyles["rounded-square"]].join(' '), [transitionClass, transitionStyles]);
 	return (
 		<div id={styles["links-parent"]}>
 			<div id={styles["links"]}>
-				<div id={styles["logo"]} className={[transitionStyles["interactive"], transitionStyles["interactive-rounded-square"]].join(' ')}>
+				<div id={styles["logo"]} className={roundedSquareTransitionClass}>
 					<Link href="/" to="home" onClick={() => { updatePageInfo("home"); unFocus(); }}
 					containerId="main-page" spy={true} smooth={true} duration={500}>
 						<img src="/icon.png"></img>
@@ -30,19 +32,19 @@ function SlimLinks({updatePageInfo} : {updatePageInfo: (pageName: string) => voi
 				</div>
 				<div id={styles["hidden-links-parent"]}>
 					<div id={styles["hidden-links"]} className={showLinks? styles["showing"]: undefined}>
-						<div className={transitionStyles["interactive"]}>
+						<div className={transitionClass}>
 							<Link href="/" to="home" activeClass={styles["selected"]} onClick={() => { updatePageInfo("home"); unFocus(); }}
 							containerId="main-page" spy={true} smooth={true} duration={500} offset={-100}>
 								Home
 							</Link>
 						</div>
-						<div className={transitionStyles["interactive"]}>
+						<div className={transitionClass}>
 							<Link href="projects" to="projects" activeClass={styles["selected"]} onClick={() => { updatePageInfo("projects"); unFocus(); }}
 							containerId="main-page" spy={true} smooth={true} duration={500} offset={-100}>
 								Projects
 							</Link>
 						</div>
-						<div className={transitionStyles["interactive"]}>
+						<div className={transitionClass}>
 							<Link href="contacts" to="contacts" activeClass={styles["selected"]} onClick={() => { updatePageInfo("contacts"); unFocus(); }}
 							containerId="main-page" spy={true} smooth={true} duration={500} offset={-100}>
 								Contacts
@@ -52,7 +54,7 @@ function SlimLinks({updatePageInfo} : {updatePageInfo: (pageName: string) => voi
 				</div>
 			</div>
 
-			<div className={[transitionStyles["interactive"], transitionStyles["interactive-rounded-square"]].join(' ')}>
+			<div className={roundedSquareTransitionClass}>
 				<button id={styles["toggle-show-links-button"]} className={showLinks? styles["showing"]: undefined} onClick={toggleShowLinks}>
 					<img src={arrow} id={styles["arrow-img"]} className={theme === "dark"? styles["inverted"]: undefined} draggable="false" />
 				</button>
