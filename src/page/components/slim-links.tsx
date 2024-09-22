@@ -39,13 +39,13 @@ function SlimLinks({updatePageInfo} : {updatePageInfo: (pageName: string) => voi
 							</Link>
 						</div>
 						<div className={transitionClass}>
-							<Link href="projects" to="projects" activeClass={styles["selected"]} onClick={() => { updatePageInfo("projects"); unFocus(); }}
+							<Link href="/projects" to="projects" activeClass={styles["selected"]} onClick={() => { updatePageInfo("projects"); unFocus(); }}
 							containerId="main-page" spy={true} smooth={true} duration={500} offset={-125}>
 								Projects
 							</Link>
 						</div>
 						<div className={transitionClass}>
-							<Link href="contacts" to="contacts" activeClass={styles["selected"]} onClick={() => { updatePageInfo("contacts"); unFocus(); }}
+							<Link href="/contacts" to="contacts" activeClass={styles["selected"]} onClick={() => { updatePageInfo("contacts"); unFocus(); }}
 							containerId="main-page" spy={true} smooth={true} duration={500} offset={-125}>
 								Contacts
 							</Link>

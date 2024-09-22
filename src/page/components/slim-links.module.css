@@ -59,16 +59,17 @@
 	transition-duration: 0.3s, 0.2s;
 	transition-property: width, all;
 }
+/* NOTE: we use calculate for line lengths to account for 1em of padding */
 @media (hover: hover) {
 	#links a:hover:not(#logo)::after {
-		width: 35%;
+		width: 30%;
 	}
 }
 #links address:focus-visible:not(#logo)::after {
-	width: 35%;
+	width: 30%;
 }
 #links a.selected:not(#logo)::after {
-	width: 75%;
+	width: calc(100% - 1em);
 }
 #links #logo {
 	margin: 0.4em;
@@ -106,7 +107,8 @@
 
 	scale: 1 1;
 	height: 1em;
-	padding: 0.5em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
 	visibility: visible;
 }
 

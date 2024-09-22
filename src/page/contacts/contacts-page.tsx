@@ -6,6 +6,7 @@ function ContactsPage() {
 	return (
 		<Element id={styles["contacts-page"]} name='contacts'>
 			<h1>Contacts</h1>
+			
 		</Element>
 	);
 }
