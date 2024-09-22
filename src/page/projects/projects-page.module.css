@@ -3,11 +3,6 @@
 	width: 100%;
 	padding: 0 10vw;
 	padding-bottom: 125px;
-
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: flex-start;
 }
 #projects-label {
 	font-size: 2.25em;
