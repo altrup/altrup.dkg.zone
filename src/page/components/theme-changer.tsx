@@ -1,15 +1,15 @@
-import { useCallback, useContext, useEffect, useMemo, useReducer, useState } from 'react';
+import { useCallback, useContext, useEffect, useMemo, useReducer, useState } from "react";
 
-import unFocus from '../../helper-functions/unFocus';
+import unFocus from "../../helper-functions/unFocus";
 
-import { ThemeContext } from '../root';
+import { ThemeContext } from "../root";
 
-import darkModeIcon from '../../icons/dark-mode.svg';
-import lightModeIcon from '../../icons/light-mode.svg';
-import systemModeIcon from '../../icons/system-mode.svg';
+import darkModeIcon from "/icons/dark-mode.svg";
+import lightModeIcon from "/icons/light-mode.svg";
+import systemModeIcon from "/icons/system-mode.svg";
 
-import styles from './theme-changer.module.css';
-import transitionStyles from '../transitions.module.css';
+import styles from "./theme-changer.module.css";
+import transitionStyles from "../transitions.module.css";
 
 // Make typescript happy
 declare const themeManager: EventTarget & {updateTheme: (theme: string) => void, themeSetting: string, theme: string};
