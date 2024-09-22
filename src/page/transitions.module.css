@@ -13,6 +13,8 @@
 }
 
 .interactive {
+	display: inline-block;
+
 	transition-duration: 0.2s, 0.3s;
 	transition-property: all, transform; 
 	transform: scale(1);
@@ -21,8 +23,8 @@
 	.interactive:hover {
 		transform: scale(1.1);
 	}
-	p.interactive:hover, div.interactive:not(.clickable):hover {
-		transform: scale(1.05);
+	p.interactive:hover, h2.interactive:hover, div.interactive:not(.clickable):hover {
+		transform: scale(1.04);
 	}
 }
 @media (hover: none) {

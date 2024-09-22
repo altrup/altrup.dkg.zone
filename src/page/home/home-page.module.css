@@ -1,5 +1,6 @@
 #home-page {
 	padding-top: 150px;
+	padding-bottom: 100px;
 	width: 100%;
 
 	display: flex;
@@ -21,9 +22,4 @@
 	font-size: 1.5em;
 
 	width: min(100%, max(50%, 500px));
-}
-@media (hover: hover) {
-	p.interactive:hover {
-		transform: scale(1.05);
-	}
 }
