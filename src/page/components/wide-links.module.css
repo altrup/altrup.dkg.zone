@@ -11,6 +11,10 @@
 #links * {
 	pointer-events: initial;
 }
+#links div:not(#logo-parent) {
+	filter: drop-shadow(-0.1em -0.1em 0.1em var(--background-color)) drop-shadow(-0.1em 0.1em 0.1em var(--background-color)) 
+	drop-shadow(0.1em -0.1em 0.1em var(--background-color)) drop-shadow(0.1em 0.1em 0.1em var(--background-color));
+}
 #links a {
 	position: relative;
 	padding: 1em;
@@ -25,12 +29,6 @@
 	font-size: 1em;
 	text-decoration: none;
 	cursor: pointer;
-}
-#links a:not(#logo) {
-	text-shadow: -0.1em -0.1em 0.2em var(--background-color), -0.1em 0.1em 0.2em var(--background-color), 
-		0.1em -0.1em 0.2em var(--background-color), 0.1em 0.1em 0.2em var(--background-color),
-		-0.1em -0.1em 0.2em var(--background-color), -0.1em 0.1em 0.2em var(--background-color), 
-		0.1em -0.1em 0.2em var(--background-color), 0.1em 0.1em 0.2em var(--background-color);
 }
 #links a:not(#logo)::after {
 	content: "";
@@ -56,8 +54,9 @@
 #links a:focus-visible:not(#logo)::after {
 	width: 35%;
 }
+/* NOTE: we use calculate for width to account for padding */
 #links a.selected:not(#logo)::after {
-	width: 75%;
+	width: calc(100% - 2em);
 }
 #links a#logo {
 	margin: 0.5em 1em;

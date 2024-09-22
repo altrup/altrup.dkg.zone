@@ -37,11 +37,9 @@
 	cursor: pointer;
 }
 
-#hidden-links a {
-	text-shadow: -0.1em -0.1em 0.2em var(--background-color), -0.1em 0.1em 0.2em var(--background-color), 
-		0.1em -0.1em 0.2em var(--background-color), 0.1em 0.1em 0.2em var(--background-color),
-		-0.1em -0.1em 0.2em var(--background-color), -0.1em 0.1em 0.2em var(--background-color), 
-		0.1em -0.1em 0.2em var(--background-color), 0.1em 0.1em 0.2em var(--background-color);
+#hidden-links div {
+	filter: drop-shadow(-0.1em -0.1em 0.1em var(--background-color)) drop-shadow(-0.1em 0.1em 0.1em var(--background-color)) 
+	drop-shadow(0.1em -0.1em 0.1em var(--background-color)) drop-shadow(0.1em 0.1em 0.1em var(--background-color));
 }
 #hidden-links a::after {
 	content: "";
@@ -59,15 +57,15 @@
 	transition-duration: 0.3s, 0.2s;
 	transition-property: width, all;
 }
-/* NOTE: we use calculate for line lengths to account for 1em of padding */
 @media (hover: hover) {
 	#links a:hover:not(#logo)::after {
-		width: 30%;
+		width: 35%;
 	}
 }
 #links address:focus-visible:not(#logo)::after {
-	width: 30%;
+	width: 35%;
 }
+/* NOTE: we use calculate for width to account for 1em of padding */
 #links a.selected:not(#logo)::after {
 	width: calc(100% - 1em);
 }
