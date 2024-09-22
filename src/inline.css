@@ -11,6 +11,9 @@ html {
 	--color-2: #9893DA;
 	--color-3: #C42021;
 	--color-4: #6AB547;
+
+	--color-link: #0000EE;
+	--color-link-visited: #551A8B;
 }
 
 .dark {
@@ -20,4 +23,7 @@ html {
 	--color-2: #368a97;
 	--color-3: #9B4647;
 	--color-4: #625304;
+
+	--color-link: #4fabb8;
+	--color-link-visited: #ce5cff;
 }

@@ -4,11 +4,14 @@ import { useMemo } from "react";
 import styles from "./project.module.css";
 import transitionStyles from '../../transitions.module.css';
 
-function Project({name, description, demoLink, codeLink}: {name: string, description: string, demoLink?: string, codeLink: string}) {
+function Project({name, description, demoLink, codeLink, image}: {name: string, description: string, demoLink?: string, codeLink: string, image?: string}) {
 	const clickableInteractiveClass = useMemo(() => [transitionStyles["interactive"], transitionStyles["clickable"]].join(' '), [transitionStyles]);
 	return (
 		<div className={styles["project"]}>
 			<div className={transitionStyles["interactive"]}>
+				{image?
+					<img src={image} />
+				: undefined}
 				<div className={styles["label"]}>
 					<h2 className={[transitionStyles["interactive"], styles["title"]].join(' ')}>{name}</h2>
 					<div className={styles["links"]}>
