@@ -5,6 +5,13 @@
 
 	flex-grow: 1;
 }
+.project-child {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	flex-wrap: wrap;
+}
 .label {
 	display: flex;
 	flex-direction: row;
@@ -16,14 +23,18 @@
 
 	width: fit-content;
 }
-.label h2, .label a {
+.label h3, .label a {
 	margin: 0.25em 0;
 	margin-right: 1em;
 }
 
+.text {
+	width: min(100%, 500px);
+	flex-grow: 1;
+}
 .title {
 	margin: 0;
-	font-size: 1.6em;
+	font-size: 1.4em;
 }
 .description {
 	padding: 0; margin: 0; 
@@ -31,4 +42,14 @@
 
 	width: 100%;
 	max-width: max-content;
+}
+.image {
+	margin: 1em;
+	margin-right: 2em;
+	border-radius: 1em;
+}
+@media (hover: hover) {
+	.image:hover {
+		transform: scale(1.1);
+	}
 }

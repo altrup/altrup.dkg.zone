@@ -14,7 +14,19 @@
 	width: fit-content;
 	margin-bottom: 0;	
 }
-#projects-div {
+.project-type-div {
+	box-sizing: border-box;
+}
+@media (hover: hover) {
+	#projects-page div.project-type-div:hover {
+		transform: scale(1.02);
+	}
+}
+.project-type-label {
+	font-size: 1.8em;
+	margin: 2em 0 0 0;
+}
+.projects-div {
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
