@@ -4,9 +4,9 @@ import { useMemo } from "react";
 import { Link } from "react-scroll";
 
 import styles from "./wide-links.module.css";
-import transitionStyles from "../transitions.module.css";
+import transitionStyles from "../../transitions.module.css";
 
-import unFocus from "../../helper-functions/unFocus";
+import unFocus from "../../../helper-functions/unFocus";
 
 function WideLinks({updatePageInfo} : {updatePageInfo: (pageName: string) => void}) {
 	const transitionClass = useMemo(() => [transitionStyles["interactive"], transitionStyles["clickable"]].join(' '), [transitionStyles]);

@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 
-import Header from "./components/header";
+import Header from "./header/header";
 
 import styles from "./root.module.css";
 import transitionStyles from "./transitions.module.css";
@@ -57,6 +57,8 @@ function Root() {
 					<ProjectsPage />
 					<ContactsPage />
 				</div>
+
+				
 			</ThemeContext.Provider>
 		</div>
 	);

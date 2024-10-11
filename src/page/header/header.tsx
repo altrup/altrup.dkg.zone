@@ -3,9 +3,9 @@
 import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { scroller, scrollSpy } from "react-scroll";
 
-import ThemeChanger from "./theme-changer";
-import WideLinks from "./wide-links";
-import SlimLinks from "./slim-links";
+import ThemeChanger from "./components/theme-changer";
+import WideLinks from "./components/wide-links";
+import SlimLinks from "./components/slim-links";
 import { ThemeContext } from "../root";
 
 import githubIcon from "/icons/github.svg";

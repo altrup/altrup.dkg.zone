@@ -4,12 +4,12 @@ import { useContext, useMemo, useReducer } from "react";
 import { Link } from "react-scroll";
 
 import styles from "./slim-links.module.css";
-import transitionStyles from "../transitions.module.css";
+import transitionStyles from "../../transitions.module.css";
 
 import arrow from "/icons/arrow.svg";
 
-import unFocus from "../../helper-functions/unFocus";
-import { ThemeContext } from "../root";
+import unFocus from "../../../helper-functions/unFocus";
+import { ThemeContext } from "../../root";
 
 function SlimLinks({updatePageInfo} : {updatePageInfo: (pageName: string) => void}) {
 	// import context
