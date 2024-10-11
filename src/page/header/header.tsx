@@ -78,8 +78,8 @@ function Header() {
 			}
 			<div id={styles["right-side"]}>
 				<ThemeChanger />
-				<a href="https://github.com/EricL521" target="_blank" className={transitionClass}>
-					<img src={githubIcon} className={[styles["link-icon"], theme === "dark"? styles["inverted"]: undefined].join(' ')} draggable="false"></img>
+				<a href="https://github.com/EricL521" target="_blank" className={[styles["link-icon-parent"], transitionClass].join(" ")}>
+					<img src={githubIcon} alt="Github" className={[styles["link-icon"], theme === "dark"? styles["inverted"]: undefined].join(' ')} draggable="false"></img>
 				</a> 
 			</div>
 		</div>

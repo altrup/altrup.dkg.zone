@@ -14,15 +14,19 @@
 
 	pointer-events: none;
 }
+#header a.link-icon-parent {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	height: 35px;
+	padding: 3px;
+}
 #header img.link-icon {
 	display: block;
 	
 	box-sizing: border-box;
-	height: 35px;
 	width: auto;
-	padding: 3px;
-	margin: 1px;
-	margin-bottom: 2px;
 
 	filter: invert(0);
 }
