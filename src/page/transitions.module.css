@@ -29,6 +29,13 @@
 	div.interactive:not(.clickable):hover {
 		transform: scale(1.03);
 	}
+
+	div.interactive.clickable:has(:is(button, a):active), .interactive.clickable:active {
+		transform: scale(1.05);
+	}
+	div.interactive.clickable:has(:is(button, a):focus-visible), .interactive:focus-visible {
+		transform: scale(1.1);
+	}
 }
 @media (hover: none) {
 	.interactive.clickable:active::before {
@@ -47,9 +54,11 @@
 	.interactive.clickable.rounded-square:active::before {
 		border-radius: 5px;
 	}
-}
-div.interactive.clickable:has(:is(button, a):active), .interactive.clickable:active {
-	transform: scale(1.05);
+
+
+	div.interactive.clickable:has(:is(button, a):active), .interactive.clickable:active {
+		transform: scale(0.95);
+	}
 }
 div.interactive.clickable:has(:is(button, a):focus-visible), .interactive:focus-visible {
 	transform: scale(1.1);

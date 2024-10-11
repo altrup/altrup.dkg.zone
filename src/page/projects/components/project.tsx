@@ -1,13 +1,15 @@
 // Component for showing projects
 import { useMemo } from "react";
 
+import InteractiveImage from "./interactive-image";
+
 import styles from "./project.module.css";
 import transitionStyles from '../../transitions.module.css';
 
 function Project({name, description, demoLink, codeLink, image}: {
 	name: string, description: string, demoLink?: string, codeLink?: string, 
 	image?: {
-		src: string, height: number, alt?: string
+		src: string, height: number, alt: string
 	}
 }) {
 	const clickableInteractiveClass = useMemo(() => [transitionStyles["interactive"], transitionStyles["clickable"]].join(' '), [transitionStyles]);
@@ -15,7 +17,7 @@ function Project({name, description, demoLink, codeLink, image}: {
 		<div className={styles["project"]}>
 			<div className={[styles["project-child"], transitionStyles["interactive"]].join(' ')}>
 				{image?
-					<img className={styles["image"]} alt={image.alt} src={image.src} height={image.height} />
+					<InteractiveImage image={image} customStyle={styles["custom-image-margin"]} />
 				: undefined}
 				<div className={styles["text"]}>
 					<div className={styles["label"]}>

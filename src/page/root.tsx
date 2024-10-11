@@ -9,10 +9,13 @@ import HomePage from "./home/home-page";
 import ProjectsPage from "./projects/projects-page";
 import ContactsPage from "./contacts/contacts-page";
 
-// Make typescript happy
+import SelectedImage, { ImageInfo } from "./components/selected-image";
+
+// themeManager is a global class declared on load
 declare const themeManager: EventTarget & {updateTheme: (theme: string) => void, themeSetting: string, theme: string};
 
 const ThemeContext = createContext({theme: '', themeSetting: ''});
+const SelectedImageContext = createContext({setSelectedImage: (_?: ImageInfo) => {}, setShowImage: (_: boolean) => {}});
 
 function Root() {
 	const [isClient, _] = useState(typeof window !== 'undefined');
@@ -47,22 +50,28 @@ function Root() {
 		};
 	}, []);
 
+	const [selectedImage, setSelectedImage] = useState<ImageInfo | undefined>(undefined);
+	const [showImage, setShowImage] = useState<boolean>(false);
+
 	return (
 		<div id={styles["root"]} className={transitionClass}>
 			<ThemeContext.Provider value={{theme, themeSetting}}>
-				<Header />
-				
-				<div id='main-page' className={[styles["main-page"]].join(' ')}>
-					<HomePage />
-					<ProjectsPage />
-					<ContactsPage />
-				</div>
+				<SelectedImageContext.Provider value={{setSelectedImage, setShowImage}}>
+					<Header />
+					
+					<div id='main-page' className={[styles["main-page"]].join(' ')}>
+						<HomePage />
+						<ProjectsPage />
+						<ContactsPage />
+					</div>
 
-				
+
+					<SelectedImage showImage={showImage} image={selectedImage} />
+				</SelectedImageContext.Provider>
 			</ThemeContext.Provider>
 		</div>
 	);
 }
 
 export default Root;
-export { ThemeContext };
+export { ThemeContext, SelectedImageContext };

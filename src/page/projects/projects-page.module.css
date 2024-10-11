@@ -4,6 +4,9 @@
 	padding: 0 10vw;
 	padding-bottom: 125px;
 }
+#projects-page-child {
+	width: 100%;
+}
 #projects-label {
 	font-size: 2.25em;
 	width: fit-content;
@@ -12,10 +15,11 @@
 #projects-description {
 	display: block;
 	width: fit-content;
-	margin-bottom: 0;	
+	margin-bottom: 0;
 }
 .project-type-div {
 	box-sizing: border-box;
+	width: 100%;
 }
 @media (hover: hover) {
 	#projects-page div.project-type-div:hover {
@@ -26,7 +30,16 @@
 	font-size: 1.8em;
 	margin: 2em 0 0 0;
 }
+.project-type-description {
+	display: block;
+	width: fit-content;
+	margin-bottom: 0;
+
+	font-size: 0.95em;
+}
 .projects-div {
+	width: 100%;
+
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
