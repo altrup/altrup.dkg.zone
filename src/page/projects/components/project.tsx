@@ -1,7 +1,7 @@
 // Component for showing projects
 import { useMemo } from "react";
 
-import InteractiveImage from "./interactive-image";
+import InteractiveImage from "../../components/interactive-image";
 
 import styles from "./project.module.css";
 import transitionStyles from '../../transitions.module.css';

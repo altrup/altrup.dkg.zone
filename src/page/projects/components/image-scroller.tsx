@@ -1,4 +1,4 @@
-import InteractiveImage from "./interactive-image";
+import InteractiveImage from "../../components/interactive-image";
 
 import styles from "./image-scroller.module.css";
 

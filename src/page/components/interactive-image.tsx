@@ -1,11 +1,11 @@
 import { useCallback, useContext } from "react";
 
-import unFocus from "../../../helper-functions/unFocus";
+import unFocus from "../../helper-functions/unFocus";
 
-import { ImageInfo } from "../../components/selected-image";
-import { SelectedImageContext } from "../../root";
+import { ImageInfo } from "./selected-image";
+import { SelectedImageContext } from "../root";
 
-import transitionStyles from "../../transitions.module.css";
+import transitionStyles from "../transitions.module.css";
 import styles from "./interactive-image.module.css";
 
 function InteractiveImage({ image, customStyle }: { image: ImageInfo, customStyle?: string }) {
