@@ -8,8 +8,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
-	cursor: pointer;
 	
 	backdrop-filter: blur(0.5em);
 }
@@ -25,6 +23,8 @@
 
 	filter: drop-shadow(-0.2em -0.2em 0.2em var(--background-color)) drop-shadow(-0.2em 0.2em 0.2em var(--background-color)) 
 	drop-shadow(0.2em -0.2em 0.2em var(--background-color)) drop-shadow(0.2em 0.2em 0.2em var(--background-color));
+
+	cursor: pointer;
 
 	transform: translateY(0);
 }
@@ -47,5 +47,8 @@
 @media (hover: hover) {
 	#selected-image-parent:hover {
 		transform: scale(1.05);
+	}
+	#selected-image-parent:active {
+		transform: scale(1.025);
 	}
 }
