@@ -33,6 +33,7 @@
 .project-type-description {
 	display: block;
 	width: fit-content;
+	max-width: min(100%, 500px);
 	margin-bottom: 0;
 
 	font-size: 0.95em;
