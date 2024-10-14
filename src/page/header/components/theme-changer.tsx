@@ -21,7 +21,7 @@ function ThemeChanger() {
 	// import context
 	const {theme, themeSetting} = useContext(ThemeContext);
 
-	const [hidden, setHidden] = useState(true);
+	const [hidden, setHidden] = useState(false);
 	// after theme and settings update, make component visible
 	useEffect(() => setHidden(false));
 
@@ -41,25 +41,32 @@ function ThemeChanger() {
 		if (buttonTheme === 'system') return systemModeIcon;
 	}, []);
 
+	// for mobile devices, instead of opening on hover, we want to open menu on click
+	const [isOpen, setIsOpen] = useState(false);
+	const updateIsOpen = useCallback(() => {
+		setIsOpen(!isOpen);
+	}, [isOpen]);
+
 	// store the nextTheme we switch to when html order updates
 	const [nextTheme, setNextTheme] = useState(theme);
-	const updateTheme = useCallback((theme: string) => {
+	const onButtonClick = useCallback((theme: string) => {
 		if (!isClient) return; // do nothing
 		dispatchOrder(theme);
 		setNextTheme(theme);
+		updateIsOpen();
 
-		unFocus(); // unFocus is clicked with mouse
-	}, [isClient]);
+		unFocus(); // unFocus when clicked with mouse
+	}, [isClient, updateIsOpen]);
 	// only update theme after we've reordered elements
 	useEffect(() => { if (nextTheme) requestAnimationFrame(() => requestAnimationFrame(() => themeManager.updateTheme(nextTheme))) }, [nextTheme]);
 
 	const transitionClass = useMemo(() => [transitionStyles["interactive"], transitionStyles["clickable"], transitionStyles["rounded-square"]].join(' '), [transitionStyles]);
 	return (
 		<div id={styles["theme-changer-wrapper"]}>
-			<div id={styles["theme-changer"]} className={hidden? styles["hidden"]: undefined}>
+			<div id={styles["theme-changer"]} className={[hidden? styles["hidden"]: undefined, isOpen? styles["open"]: undefined].join(' ')}>
 				{
 					order.map((buttonTheme, index) => (
-						<button key={buttonTheme} id={buttonTheme} style={{zIndex: order.length - index}} onClick={() => updateTheme(buttonTheme)}
+						<button key={buttonTheme} id={buttonTheme} style={{zIndex: order.length - index}} onClick={() => onButtonClick(buttonTheme)}
 						className={[themeSetting === buttonTheme? styles["selected"]: undefined, styles["pos-" + (1 + cssOrder.indexOf(buttonTheme))], transitionClass].join(' ')}>
 							<img key={buttonTheme} src={getButtonIcon(buttonTheme)} className={theme === 'dark'? styles['inverted']: undefined} draggable="false" alt={`${buttonTheme} mode`} />
 						</button>

@@ -54,15 +54,31 @@
 	drop-shadow(0.1em -0.1em 0.1em var(--background-color)) drop-shadow(0.1em 0.1em 0.1em var(--background-color));
 }
 
-#theme-changer:hover, #theme-changer:focus-within {
-	height: 110px;
+@media (hover: hover) {
+	#theme-changer:hover, #theme-changer:focus-within {
+		height: 110px;
+	}
+	#theme-changer:hover button, #theme-changer:focus-within button {
+		opacity: 1;
+	}
+	#theme-changer:hover button.pos-2, #theme-changer:focus-within button.pos-2 {
+		top: 37.5px;
+	}
+	#theme-changer:hover button.pos-3, #theme-changer:focus-within button.pos-3 {
+		top: 75px;
+	}
 }
-#theme-changer:hover button, #theme-changer:focus-within button {
-	opacity: 1;
-}
-#theme-changer:hover button.pos-2, #theme-changer:focus-within button.pos-2 {
-	top: 37.5px;
-}
-#theme-changer:hover button.pos-3, #theme-changer:focus-within button.pos-3 {
-	top: 75px;
+@media (hover: none) {
+	#theme-changer.open, #theme-changer:focus-within {
+		height: 110px;
+	}
+	#theme-changer.open button, #theme-changer:focus-within button {
+		opacity: 1;
+	}
+	#theme-changer.open button.pos-2, #theme-changer:focus-within button.pos-2 {
+		top: 37.5px;
+	}
+	#theme-changer.open button.pos-3, #theme-changer:focus-within button.pos-3 {
+		top: 75px;
+	}
 }
