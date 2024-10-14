@@ -76,13 +76,22 @@
 	#links button:not(#logo):hover a::after {
 		width: 35%;
 	}
+	#links button:not(#logo):hover a {
+		margin-bottom: 0.2em;
+	}
 }
 #links button:focus-visible:not(#logo) a::after {
 	width: 35%;
 }
+#links button:focus-visible:not(#logo) a {
+	margin-bottom: 0.2em;
+}
 /* NOTE: we use calculate for width to account for 1em of padding */
 #links button:not(#logo) a.selected::after {
 	width: calc(100% - 1em);
+}
+#links button:not(#logo) a.selected {
+	margin-bottom: 0.2em;
 }
 #links #logo-parent {
 	margin: 0.4em;
