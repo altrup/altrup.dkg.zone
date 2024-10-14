@@ -38,8 +38,9 @@
 
 	font-size: 0.95em;
 }
-.project-type-description * {
-	display: inline;
+.project-type-description * {	
+	font-size: 1em;
+	line-height: 1em;
 }
 .projects-div {
 	width: 100%;
