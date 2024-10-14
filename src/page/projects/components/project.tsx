@@ -12,7 +12,7 @@ function Project({name, description, demoLink, codeLink, image}: {
 		src: string, height: number, alt: string
 	}
 }) {
-	const clickableInteractiveClass = useMemo(() => [transitionStyles["interactive"], transitionStyles["clickable"]].join(' '), [transitionStyles]);
+	const clickableInteractiveClass = useMemo(() => [transitionStyles["interactive"], transitionStyles["clickable"], transitionStyles["rounded-square"]].join(' '), [transitionStyles]);
 	return (
 		<div className={styles["project"]}>
 			<div className={[styles["project-child"], transitionStyles["interactive"]].join(' ')}>

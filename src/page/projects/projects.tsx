@@ -42,7 +42,7 @@ const crossViewSection = {
 	description: <span>
 		{"Cross your eyes and try to make the images overlap! For more info about cross view, and a tutorial, check out "}
 		<a href="https://www.reddit.com/r/CrossView/wiki/index/" target="_blank" 
-		className={[transitionStyles["interactive"], transitionStyles["clickable"]].join(' ')}>this</a> {"reddit post."}
+		className={[transitionStyles["interactive"], transitionStyles["clickable"], transitionStyles["rounded-square"]].join(' ')}>this</a> {"reddit post."}
 	</span>,
 	imageScroller: {
 		height: 200,
