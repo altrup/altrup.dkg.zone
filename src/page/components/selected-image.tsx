@@ -19,17 +19,15 @@ function SelectedImage({ showImage, image }: { showImage: boolean, image: ImageI
 		// for some reason doesn't work unless focus is delayed
 		if (showImage && isActiveElementSelectedWithTab() && selectedImageButton.current instanceof HTMLElement) {
 			oldActiveElement.current = document.activeElement?? undefined;
-			setTimeout(() => selectedImageButton.current?.focus(), 50); // 200 is the time as it takes to transition in
+			setTimeout(() => selectedImageButton.current?.focus(), 50); // 200 is the time it takes to transition in
 		}
 		if (!showImage && isActiveElementSelectedWithTab() && document.activeElement === selectedImageButton.current) {
 			const tempOldActiveElement = oldActiveElement.current;
 			oldActiveElement.current = undefined;
 			if (tempOldActiveElement && tempOldActiveElement instanceof HTMLElement) 
-				setTimeout(() => tempOldActiveElement.focus(), 50); // 200 is the time as it takes to transition in
+				setTimeout(() => tempOldActiveElement.focus(), 50); // 200 is the time it takes to transition in
 		}
 	}, [showImage]);
-
-	console.log(image?.src);
 
 	return (
 		<div id={styles["selected-image-background"]} className={!showImage? styles["hidden"]: ""}
