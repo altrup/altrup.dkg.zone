@@ -20,20 +20,20 @@
 	transform: scale(1);
 }
 @media (hover: hover) {
-	.interactive:hover, .interactive:focus-within {
+	.interactive:hover {
 		transform: scale(1.1);
 	}
-	p.interactive:hover, p.interactive:focus-within {
+	p.interactive:hover {
 		transform: scale(1.04);
 	}
-	div.interactive:not(.clickable):hover, div.interactive:not(.clickable):focus-within {
+	div.interactive:not(.clickable):hover {
 		transform: scale(1.03);
 	}
 
 	div.interactive.clickable:has(:is(button, a):active), .interactive.clickable:active {
 		transform: scale(1.05);
 	}
-	div.interactive.clickable:has(:is(button, a):focus-visible), .interactive:focus-visible {
+	div.interactive.clickable:has(:is(button, a):focus-visible) {
 		transform: scale(1.1);
 	}
 }
@@ -60,6 +60,12 @@
 		transform: scale(0.95);
 	}
 }
-div.interactive.clickable:has(:is(button, a):focus-visible), .interactive:focus-visible {
+div.interactive.clickable:focus-within, .interactive:focus-within, .interactive:focus-visible {
 	transform: scale(1.1);
+}
+p.interactive:focus-within {
+	transform: scale(1.04);
+}
+div.interactive:not(.clickable):focus-within {
+	transform: scale(1.03);
 }

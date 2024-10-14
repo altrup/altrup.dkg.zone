@@ -50,7 +50,7 @@ function Header() {
 			containerId: 'main-page',
 			smooth: true,
 			duration: 500,
-			offset: -125
+			offset: pageName == "home"? 0: 5, // Scroll extra to fix spy not correctly updating on mobile chrome
 		});
 	}, []);
 	// force scroll-spy to update

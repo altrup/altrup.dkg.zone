@@ -1,7 +1,7 @@
 // component for links when we need to save some space
-import { useContext, useMemo, useReducer } from "react";
+import { useCallback, useContext, useMemo, useReducer } from "react";
 
-import { Link } from "react-scroll";
+import { Link, scroller } from "react-scroll";
 
 import styles from "./slim-links.module.css";
 import transitionStyles from "../../transitions.module.css";
@@ -19,36 +19,52 @@ function SlimLinks({updatePageInfo} : {updatePageInfo: (pageName: string) => voi
 		return !state;
 	}, false);
 
+	const onLinkClick = useCallback((name: string) => {
+		updatePageInfo(name);
+		unFocus();
+
+		scroller.scrollTo(name, {
+			containerId: "main-page",
+			smooth: true,
+			duration: 500,
+			offset: name == "home"? 0: 5, // Scroll extra to fix spy not correctly updating on mobile chrome
+		});
+	}, []);
+
 	const transitionClass = useMemo(() => [transitionStyles["interactive"], transitionStyles["clickable"]].join(' '), [transitionStyles]);
 	const roundedSquareTransitionClass = useMemo(() => [transitionClass, transitionStyles["rounded-square"]].join(' '), [transitionClass, transitionStyles]);
 	return (
 		<div id={styles["links-parent"]}>
 			<div id={styles["links"]}>
-				<div id={styles["logo"]} className={roundedSquareTransitionClass}>
-					<Link href="/" to="home" onClick={() => { updatePageInfo("home"); unFocus(); }}
-					containerId="main-page" spy={true} smooth={true} duration={500}>
-						<img src="/icon.png"></img>
-					</Link>
+				<div id={styles["logo-parent"]} className={roundedSquareTransitionClass}>
+					<button id={styles["logo"]} onClick={() => onLinkClick("home")}>
+						<Link href="/" to="home" containerId="main-page" spy={true} tabIndex={-1}>
+							<img src="/icon.png"></img>
+						</Link>
+					</button>
 				</div>
 				<div id={styles["hidden-links-parent"]}>
 					<div id={styles["hidden-links"]} className={showLinks? styles["showing"]: undefined}>
 						<div className={transitionClass}>
-							<Link href="/" to="home" activeClass={styles["selected"]} onClick={() => { updatePageInfo("home"); unFocus(); }}
-							containerId="main-page" spy={true} smooth={true} duration={500} offset={-125}>
-								Home
-							</Link>
+							<button onClick={() => onLinkClick("home")}>
+								<Link href="/" to="home" activeClass={styles["selected"]} containerId="main-page" spy={true} tabIndex={-1}>
+									Home
+								</Link>
+							</button>
 						</div>
 						<div className={transitionClass}>
-							<Link href="/projects" to="projects" activeClass={styles["selected"]} onClick={() => { updatePageInfo("projects"); unFocus(); }}
-							containerId="main-page" spy={true} smooth={true} duration={500} offset={-125}>
-								Projects
-							</Link>
+							<button onClick={() => onLinkClick("projects")}>
+								<Link href="/projects" to="projects" activeClass={styles["selected"]} containerId="main-page" spy={true} tabIndex={-1}>
+									Projects
+								</Link>
+							</button>
 						</div>
 						<div className={transitionClass}>
-							<Link href="/contacts" to="contacts" activeClass={styles["selected"]} onClick={() => { updatePageInfo("contacts"); unFocus(); }}
-							containerId="main-page" spy={true} smooth={true} duration={500} offset={-125}>
-								Contacts
-							</Link>
+							<button onClick={() => onLinkClick("contacts")}>
+								<Link href="/contacts" to="contacts" activeClass={styles["selected"]} containerId="main-page" spy={true} tabIndex={-1}>
+									Contacts
+								</Link>
+							</button>
 						</div>
 					</div>
 				</div>

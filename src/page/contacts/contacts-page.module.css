@@ -2,6 +2,7 @@
 	box-sizing: border-box;
 	width: 100%;
 	padding: 0 10vw;
+	padding-top: 125px;
 	padding-bottom: 150px;
 }
 #contacts-page-title {

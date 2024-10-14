@@ -35,12 +35,26 @@
 	background-color: transparent;
 	font-size: 1em;
 	text-decoration: none;
-	cursor: pointer;
+
+	pointer-events: none;
+}
+#links a * {
+	pointer-events: none;
 }
 
-#hidden-links div {
-	filter: drop-shadow(-0.1em -0.1em 0.1em var(--background-color)) drop-shadow(-0.1em 0.1em 0.1em var(--background-color)) 
-	drop-shadow(0.1em -0.1em 0.1em var(--background-color)) drop-shadow(0.1em 0.1em 0.1em var(--background-color));
+#links-parent button {
+	background-color: transparent;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	font-size: 1em;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+
+	cursor: pointer;
 }
 #hidden-links a::after {
 	content: "";
@@ -59,20 +73,24 @@
 	transition-property: width, all;
 }
 @media (hover: hover) {
-	#links a:hover:not(#logo)::after {
+	#links button:not(#logo):hover a::after {
 		width: 35%;
 	}
 }
-#links address:focus-visible:not(#logo)::after {
+#links button:focus-visible:not(#logo) a::after {
 	width: 35%;
 }
 /* NOTE: we use calculate for width to account for 1em of padding */
-#links a.selected:not(#logo)::after {
+#links button:not(#logo) a.selected::after {
 	width: calc(100% - 1em);
 }
-#links #logo {
+#links #logo-parent {
 	margin: 0.4em;
+}
+#links #logo {
 	padding: 0.1em;
+
+	border-radius: 100vh;
 }
 #links #logo a {
 	border-radius: 100vh;
@@ -95,11 +113,16 @@
 	justify-content: flex-start;
 	align-items: center;
 }
+#hidden-links button {
+	visibility: hidden;
+}
 #hidden-links a {
+	filter: drop-shadow(-0.1em -0.1em 0.1em var(--background-color)) drop-shadow(-0.1em 0.1em 0.1em var(--background-color)) 
+	drop-shadow(0.1em -0.1em 0.1em var(--background-color)) drop-shadow(0.1em 0.1em 0.1em var(--background-color));
+
 	scale: 1 0;
 	height: 0;
 	padding: 0 0.5em;
-	visibility: hidden;
 }
 #hidden-links.showing a, #hidden-links a.selected {
 	box-sizing: content-box;
@@ -108,6 +131,8 @@
 	height: 1em;
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
+}
+#hidden-links.showing button, #hidden-links button:has(a.selected) {
 	visibility: visible;
 }
 
