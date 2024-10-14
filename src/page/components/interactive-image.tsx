@@ -21,9 +21,10 @@ function InteractiveImage({ image, customStyle }: { image: ImageInfo, customStyl
 	return (
 		<div className={[styles["image-parent"], transitionStyles["interactive"], transitionStyles["clickable"], transitionStyles["rounded-square"], customStyle].join(' ')}>
 			<LazyLoad height={image.height} scrollContainer="#main-page" offset={300} once>
-				<img className={styles["image"]} 
-					src={image.src} alt={image.alt} height={image.height} 
-					onClick={() => {setSelectedImage(image); onImageClick(true);}} onMouseOver={() => setSelectedImage(image)}/>
+				<button onClick={() => {setSelectedImage(image); onImageClick(true);}} onMouseOver={() => setSelectedImage(image)} onFocus={() => setSelectedImage(image)}>
+					<img className={styles["image"]} 
+						src={image.src} alt={image.alt} height={image.height} />
+				</button>
 			</LazyLoad>
 		</div>
 	);
