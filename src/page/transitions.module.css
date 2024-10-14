@@ -20,13 +20,13 @@
 	transform: scale(1);
 }
 @media (hover: hover) {
-	.interactive:hover {
+	.interactive:hover, .interactive:focus-within {
 		transform: scale(1.1);
 	}
-	p.interactive:hover {
+	p.interactive:hover, p.interactive:focus-within {
 		transform: scale(1.04);
 	}
-	div.interactive:not(.clickable):hover {
+	div.interactive:not(.clickable):hover, div.interactive:not(.clickable):focus-within {
 		transform: scale(1.03);
 	}
 
