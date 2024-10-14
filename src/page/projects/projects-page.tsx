@@ -39,17 +39,17 @@ function ProjectsPage() {
 				</div>
 
 				<div className={[styles["project-type-div"], transitionStyles["interactive"]].join(' ')}>
-					<h2 className={[styles["project-type-label"], transitionStyles["interactive"]].join(' ')}>Crossview Images</h2>
+					<h2 className={[styles["project-type-label"], transitionStyles["interactive"]].join(' ')}>Cross View Images</h2>
 					<p className={[styles["project-type-description"], transitionStyles["interactive"]].join(' ')}>
-						For more info about crossview, and a tutorial, check out <a href="https://www.reddit.com/r/CrossView/wiki/index/" target="_blank" 
+						For more info about cross view, and a tutorial, check out <a href="https://www.reddit.com/r/CrossView/wiki/index/" target="_blank" 
 							className={[transitionStyles["interactive"], transitionStyles["clickable"]].join(' ')}>this</a> reddit post </p>
 					<ImageScroller height={200} images={[
-						{src: "/images/crossview/nighttime-street.jpg", alt: "Crossview image of a street at night"},
-						{src: "/images/crossview/water-reflection.jpg", alt: "Crossview image of some lights reflecting in water"},
-						{src: "/images/crossview/fish-pond.jpg", alt: "Crossview image of some fish in a pond"},
-						{src: "/images/crossview/bag-milk.jpg", alt: "Crossview image of a bag of milk"},
-						{src: "/images/crossview/burger.jpg", alt: "Crossview image of a burger I got at a restaurant"},
-						{src: "/images/crossview/svejk-dice.jpg", alt: "Crossview image of a die with Svejk on one face"}
+						{src: "/images/crossview/nighttime-street.jpg", alt: "Cross view image of a street at night"},
+						{src: "/images/crossview/water-reflection.jpg", alt: "Cross view image of some lights reflecting in water"},
+						{src: "/images/crossview/fish-pond.jpg", alt: "Cross view image of some fish in a pond"},
+						{src: "/images/crossview/bag-milk.jpg", alt: "Cross view image of a bag of milk"},
+						{src: "/images/crossview/burger.jpg", alt: "Cross view image of a burger I got at a restaurant"},
+						{src: "/images/crossview/svejk-dice.jpg", alt: "Cross view image of a die with Svejk on one face"}
 					]}/>
 				</div>
 			</div>
