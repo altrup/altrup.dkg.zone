@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useRef, useState } from "react";
 
 import Header from "./header/header";
 
@@ -53,13 +53,15 @@ function Root() {
 	const [selectedImage, setSelectedImage] = useState<ImageInfo | undefined>(undefined);
 	const [showImage, setShowImage] = useState<boolean>(false);
 
+	const scrollContainer = useRef(null);
+
 	return (
 		<div id={styles["root"]} className={transitionClass}>
 			<ThemeContext.Provider value={{theme, themeSetting}}>
 				<SelectedImageContext.Provider value={{setSelectedImage, setShowImage}}>
 					<Header />
 					
-					<div id='main-page' className={[styles["main-page"]].join(' ')}>
+					<div id='main-page' ref={scrollContainer} className={[styles["main-page"]].join(' ')}>
 						<HomePage />
 						<ProjectsPage />
 						<ContactsPage />
@@ -74,4 +76,4 @@ function Root() {
 }
 
 export default Root;
-export { ThemeContext, SelectedImageContext };
+export { ThemeContext, SelectedImageContext};

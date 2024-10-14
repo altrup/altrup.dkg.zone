@@ -1,4 +1,5 @@
 import { useCallback, useContext } from "react";
+import LazyLoad from "../../helper-functions/lazy-load";
 
 import unFocus from "../../helper-functions/unFocus";
 
@@ -19,9 +20,11 @@ function InteractiveImage({ image, customStyle }: { image: ImageInfo, customStyl
 
 	return (
 		<div className={[styles["image-parent"], transitionStyles["interactive"], transitionStyles["clickable"], transitionStyles["rounded-square"], customStyle].join(' ')}>
-			<img className={styles["image"]} 
-				src={image.src} alt={image.alt} height={image.height} 
-				onClick={() => onImageClick(true)} onMouseOver={() => setSelectedImage(image)}/>
+			<LazyLoad height={image.height} scrollContainer="#main-page" offset={300} once>
+				<img className={styles["image"]} 
+					src={image.src} alt={image.alt} height={image.height} 
+					onClick={() => onImageClick(true)} onMouseOver={() => setSelectedImage(image)}/>
+			</LazyLoad>
 		</div>
 	);
 }
