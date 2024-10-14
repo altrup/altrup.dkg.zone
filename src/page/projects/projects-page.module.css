@@ -38,6 +38,9 @@
 
 	font-size: 0.95em;
 }
+.project-type-description * {
+	display: inline;
+}
 .projects-div {
 	width: 100%;
 
