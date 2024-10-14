@@ -81,6 +81,9 @@
 	padding: 0.5em;
 	margin: 0 0.5em;
 }
+#links #logo-parent {
+	border-radius: 100vh;
+}
 #links a#logo {
 	padding: 0.2em;
 	border-radius: 100vh;
