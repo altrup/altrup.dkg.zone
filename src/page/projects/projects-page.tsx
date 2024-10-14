@@ -33,7 +33,7 @@ function ProjectsPage() {
 					<h2 className={[styles["project-type-label"], transitionStyles["interactive"]].join(' ')}>CNC</h2>
 					<p className={[styles["project-type-description"], transitionStyles["interactive"]].join(' ')}>At least what I have photos of</p>
 					<div className={styles["projects-div"]}>
-						<Project name="Svejk Dice" description="Custom wood dice made with a CNC and a custom jig. Designed using Inkscape because I like open source stuff" 
+						<Project name="Svejk Dice" description="Custom wood dice made with a CNC machine and a custom jig. Designed using Inkscape because I like open source stuff" 
 							image={{src: "/images/projects/svejk-dice.jpg", alt: "A die with Svejk on one face", height: 200}}/>
 					</div>
 				</div>
@@ -49,6 +49,7 @@ function ProjectsPage() {
 						{src: "/images/crossview/fish-pond.jpg", alt: "Crossview image of some fish in a pond"},
 						{src: "/images/crossview/bag-milk.jpg", alt: "Crossview image of a bag of milk"},
 						{src: "/images/crossview/burger.jpg", alt: "Crossview image of a burger I got at a restaurant"},
+						{src: "/images/crossview/svejk-dice.jpg", alt: "Crossview image of a die with Svejk on one face"}
 					]}/>
 				</div>
 			</div>
