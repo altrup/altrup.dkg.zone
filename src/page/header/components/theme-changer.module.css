@@ -32,7 +32,7 @@
 
 	opacity: 0;
 }
-#theme-changer div:focus-visible {
+#theme-changer div:focus-within {
 	z-index: 100 !important;
 }
 #theme-changer button.selected {
