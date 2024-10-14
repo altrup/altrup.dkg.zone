@@ -11,9 +11,6 @@
 	width: 35px;
 	height: 35px;
 }
-#theme-changer.hidden {
-	visibility: hidden;
-}
 #theme-changer button {
 	position: absolute;
 	left: 0px; top: 0px;

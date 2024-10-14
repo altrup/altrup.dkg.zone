@@ -21,10 +21,6 @@ function ThemeChanger() {
 	// import context
 	const {theme, themeSetting} = useContext(ThemeContext);
 
-	const [hidden, setHidden] = useState(false);
-	// after theme and settings update, make component visible
-	useEffect(() => setHidden(false));
-
 	// store order of buttons, too, to swap order when setting theme (feels more natural)
 	const [order, dispatchOrder] = useReducer((state: string[], theme: string) => {
 		return [theme].concat(state.filter(val => val !== theme));
@@ -63,7 +59,7 @@ function ThemeChanger() {
 	const transitionClass = useMemo(() => [transitionStyles["interactive"], transitionStyles["clickable"], transitionStyles["rounded-square"]].join(' '), [transitionStyles]);
 	return (
 		<div id={styles["theme-changer-wrapper"]}>
-			<div id={styles["theme-changer"]} className={[hidden? styles["hidden"]: undefined, isOpen? styles["open"]: undefined].join(' ')}>
+			<div id={styles["theme-changer"]} className={isOpen? styles["open"]: undefined}>
 				{
 					order.map((buttonTheme, index) => (
 						<button key={buttonTheme} id={buttonTheme} style={{zIndex: order.length - index}} onClick={() => onButtonClick(buttonTheme)}
