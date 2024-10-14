@@ -62,10 +62,11 @@ function ThemeChanger() {
 			<div id={styles["theme-changer"]} className={isOpen? styles["open"]: undefined}>
 				{
 					order.map((buttonTheme, index) => (
-						<button key={buttonTheme} id={buttonTheme} style={{zIndex: order.length - index}} onClick={() => onButtonClick(buttonTheme)}
-						className={[themeSetting === buttonTheme? styles["selected"]: undefined, styles["pos-" + (1 + cssOrder.indexOf(buttonTheme))], transitionClass].join(' ')}>
-							<img key={buttonTheme} src={getButtonIcon(buttonTheme)} className={theme === 'dark'? styles['inverted']: undefined} draggable="false" alt={`${buttonTheme} mode`} />
-						</button>
+						<div key={buttonTheme} style={{zIndex: order.length - index}} className={[styles["pos-" + (1 + cssOrder.indexOf(buttonTheme))], transitionClass].join(' ')}>
+							<button onClick={() => onButtonClick(buttonTheme)} className={[themeSetting === buttonTheme? styles["selected"]: undefined].join(' ')}>
+								<img key={buttonTheme} src={getButtonIcon(buttonTheme)} className={theme === 'dark'? styles['inverted']: undefined} draggable="false" alt={`${buttonTheme} mode`} />
+							</button>
+						</div>
 					))
 				}
 			</div>

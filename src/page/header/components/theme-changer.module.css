@@ -11,10 +11,11 @@
 	width: 35px;
 	height: 35px;
 }
-#theme-changer button {
+#theme-changer div {
 	position: absolute;
 	left: 0px; top: 0px;
-
+}
+#theme-changer button {
 	box-sizing: border-box;
 	height: 35px;
 	width: 35px;
@@ -31,7 +32,7 @@
 
 	opacity: 0;
 }
-#theme-changer button:focus-visible {
+#theme-changer div:focus-visible {
 	z-index: 100 !important;
 }
 #theme-changer button.selected {
@@ -58,10 +59,10 @@
 	#theme-changer:hover button, #theme-changer:focus-within button {
 		opacity: 1;
 	}
-	#theme-changer:hover button.pos-2, #theme-changer:focus-within button.pos-2 {
+	#theme-changer:hover div.pos-2, #theme-changer:focus-within div.pos-2 {
 		top: 37.5px;
 	}
-	#theme-changer:hover button.pos-3, #theme-changer:focus-within button.pos-3 {
+	#theme-changer:hover div.pos-3, #theme-changer:focus-within div.pos-3 {
 		top: 75px;
 	}
 }
@@ -72,10 +73,10 @@
 	#theme-changer.open button, #theme-changer:focus-within button {
 		opacity: 1;
 	}
-	#theme-changer.open button.pos-2, #theme-changer:focus-within button.pos-2 {
+	#theme-changer.open div.pos-2, #theme-changer:focus-within div.pos-2 {
 		top: 37.5px;
 	}
-	#theme-changer.open button.pos-3, #theme-changer:focus-within button.pos-3 {
+	#theme-changer.open div.pos-3, #theme-changer:focus-within div.pos-3 {
 		top: 75px;
 	}
 }
