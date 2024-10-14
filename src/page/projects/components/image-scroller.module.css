@@ -29,6 +29,12 @@
 
 	pointer-events: none;
 }
+.images-div div {
+	border-radius: 0.5em;
+}
+.images-div button {
+	border-radius: 0.5em;
+}
 .images-div img {
 	border-radius: 0.5em;
 }
