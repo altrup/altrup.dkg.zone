@@ -23,7 +23,7 @@ function InteractiveImage({ image, customStyle }: { image: ImageInfo, customStyl
 			<LazyLoad height={image.height} scrollContainer="#main-page" offset={300} once>
 				<img className={styles["image"]} 
 					src={image.src} alt={image.alt} height={image.height} 
-					onClick={() => onImageClick(true)} onMouseOver={() => setSelectedImage(image)}/>
+					onClick={() => {setSelectedImage(image); onImageClick(true);}} onMouseOver={() => setSelectedImage(image)}/>
 			</LazyLoad>
 		</div>
 	);
