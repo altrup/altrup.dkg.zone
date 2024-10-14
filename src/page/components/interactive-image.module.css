@@ -22,7 +22,7 @@
 	.image-parent:hover {
 		transform: scale(1.05) !important;
 	}
-	.image-parent:active {
+	.image-parent:active, .image-parent:has(button:active) {
 		transform: scale(1.025) !important;
 	}
 }

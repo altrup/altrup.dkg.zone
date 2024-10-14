@@ -32,10 +32,14 @@ function SelectedImage({ showImage, image }: { showImage: boolean, image: ImageI
 	return (
 		<div id={styles["selected-image-background"]} className={!showImage? styles["hidden"]: ""}
 			onClick={() => setShowImage(false)}>
-			<div id={styles["selected-image-parent"]} className={transitionStyles["interactive"]}>
-				<button ref={selectedImageButton}>
-					<img id={styles["selected-image"]} src={image?.src} alt={image?.alt} />
-				</button>
+			<div id={styles["selected-image-content"]}>
+				<div id={styles["selected-image-parent"]} className={transitionStyles["interactive"]}>
+					<button ref={selectedImageButton}>
+						<img id={styles["selected-image"]} src={image?.src} alt={image?.alt} />
+					</button>
+				</div>
+
+				<p id={styles["selected-image-description"]} className={transitionStyles["interactive"]}>{image?.alt}</p>
 			</div>
 		</div>
 	);
