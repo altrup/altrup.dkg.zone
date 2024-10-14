@@ -6,12 +6,9 @@ import { Link, scroller } from "react-scroll";
 import styles from "./wide-links.module.css";
 import transitionStyles from "../../transitions.module.css";
 
-import unFocus from "../../../helper-functions/unFocus";
-
 function WideLinks({updatePageInfo} : {updatePageInfo: (pageName: string) => void}) {
 	const onLinkClick = useCallback((name: string) => {
 		updatePageInfo(name);
-		unFocus();
 
 		scroller.scrollTo(name, {
 			containerId: "main-page",

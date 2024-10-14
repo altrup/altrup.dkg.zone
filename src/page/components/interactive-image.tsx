@@ -1,8 +1,6 @@
 import { useCallback, useContext } from "react";
 import LazyLoad from "../../helper-functions/lazy-load";
 
-import unFocus from "../../helper-functions/unFocus";
-
 import { ImageInfo } from "./selected-image";
 import { SelectedImageContext } from "../root";
 
@@ -14,8 +12,6 @@ function InteractiveImage({ image, customStyle }: { image: ImageInfo, customStyl
 
 	const onImageClick = useCallback((showImage: boolean) => {
 		setShowImage(showImage);
-
-		unFocus(); // unFocus is clicked with mouse
 	}, []);
 
 	return (

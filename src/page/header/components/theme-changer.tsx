@@ -1,7 +1,5 @@
 import { useCallback, useContext, useEffect, useMemo, useReducer, useState } from "react";
 
-import unFocus from "../../../helper-functions/unFocus";
-
 import { ThemeContext } from "../../root";
 
 import darkModeIcon from "/icons/dark-mode.svg";
@@ -50,8 +48,6 @@ function ThemeChanger() {
 		dispatchOrder(theme);
 		setNextTheme(theme);
 		updateIsOpen();
-
-		unFocus(); // unFocus when clicked with mouse
 	}, [isClient, updateIsOpen]);
 	// only update theme after we've reordered elements
 	useEffect(() => { if (nextTheme) requestAnimationFrame(() => requestAnimationFrame(() => themeManager.updateTheme(nextTheme))) }, [nextTheme]);

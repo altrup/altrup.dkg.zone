@@ -8,7 +8,6 @@ import transitionStyles from "../../transitions.module.css";
 
 import arrow from "/icons/arrow.svg";
 
-import unFocus from "../../../helper-functions/unFocus";
 import { ThemeContext } from "../../root";
 
 function SlimLinks({updatePageInfo} : {updatePageInfo: (pageName: string) => void}) {
@@ -21,7 +20,6 @@ function SlimLinks({updatePageInfo} : {updatePageInfo: (pageName: string) => voi
 
 	const onLinkClick = useCallback((name: string) => {
 		updatePageInfo(name);
-		unFocus();
 
 		scroller.scrollTo(name, {
 			containerId: "main-page",

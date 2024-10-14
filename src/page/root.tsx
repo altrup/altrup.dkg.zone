@@ -11,6 +11,8 @@ import ContactsPage from "./contacts/contacts-page";
 
 import SelectedImage, { ImageInfo } from "./components/selected-image";
 
+import unFocus from "../helper-functions/unFocus";
+
 // themeManager is a global class declared on load
 declare const themeManager: EventTarget & {updateTheme: (theme: string) => void, themeSetting: string, theme: string};
 
@@ -56,7 +58,7 @@ function Root() {
 	const scrollContainer = useRef(null);
 
 	return (
-		<div id={styles["root"]} className={transitionClass}>
+		<div id={styles["root"]} className={transitionClass} onClick={() => unFocus()}>
 			<ThemeContext.Provider value={{theme, themeSetting}}>
 				<SelectedImageContext.Provider value={{setSelectedImage, setShowImage}}>
 					<Header />
