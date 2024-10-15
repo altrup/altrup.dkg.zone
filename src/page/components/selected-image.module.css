@@ -23,9 +23,6 @@
 	justify-content: center;
 	align-items: center;
 
-	filter: drop-shadow(-0.2em -0.2em 0.2em var(--background-color)) drop-shadow(-0.2em 0.2em 0.2em var(--background-color)) 
-	drop-shadow(0.2em -0.2em 0.2em var(--background-color)) drop-shadow(0.2em 0.2em 0.2em var(--background-color));
-
 	transform: translateY(0);
 }
 #selected-image-background.hidden #selected-image-content {
@@ -42,8 +39,6 @@
 	grid-column-start: 1;
 }
 #selected-image-parent {
-	overflow: hidden;
-
 	border-radius: 1em;
 
 	cursor: pointer;
@@ -79,6 +74,9 @@
 
 	padding: 0; 
 	margin: 0;
+	
+	filter: drop-shadow(-0.2em -0.2em 0.2em var(--background-color)) drop-shadow(-0.2em 0.2em 0.2em var(--background-color)) 
+	drop-shadow(0.2em -0.2em 0.2em var(--background-color)) drop-shadow(0.2em 0.2em 0.2em var(--background-color));
 }
 #selected-image-description {
 	font-size: 2.5em;
@@ -86,6 +84,9 @@
 
 	margin-bottom: 0;
 	padding: 0 0.5em;
+
+	filter: drop-shadow(-0.2em -0.2em 0.2em var(--background-color)) drop-shadow(-0.2em 0.2em 0.2em var(--background-color)) 
+	drop-shadow(0.2em -0.2em 0.2em var(--background-color)) drop-shadow(0.2em 0.2em 0.2em var(--background-color));
 }
 @media (hover: hover) {
 	#selected-image-parent:hover {
