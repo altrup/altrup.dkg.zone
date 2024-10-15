@@ -51,8 +51,8 @@ const crossViewSection = {
 			{preview: "/images/preview/crossview/water-reflection.jpg", full: "/images/full/crossview/water-reflection.jpg", alt: "Cross view image of some lights reflecting in water"},
 			{preview: "/images/preview/crossview/fish-pond.jpg", full: "/images/full/crossview/fish-pond.jpg", alt: "Cross view image of some fish in a pond"},
 			{preview: "/images/preview/crossview/bag-milk.jpg", full: "/images/full/crossview/bag-milk.jpg", alt: "Cross view image of a bag of milk"},
-			{preview: "/images/preview/crossview/burger.jpg", full: "/images/preview/crossview/burger.jpg", alt: "Cross view image of a burger I got at a restaurant"},
-			{preview: "/images/preview/crossview/svejk-dice.jpg", full: "/images/preview/crossview/svejk-dice.jpg", alt: "Cross view image of a die with Svejk on one face"}
+			{preview: "/images/preview/crossview/burger.jpg", full: "/images/full/crossview/burger.jpg", alt: "Cross view image of a burger I got at a restaurant"},
+			{preview: "/images/preview/crossview/svejk-dice.jpg", full: "/images/full/crossview/svejk-dice.jpg", alt: "Cross view image of a die with Svejk on one face"}
 		]
 	}
 }
