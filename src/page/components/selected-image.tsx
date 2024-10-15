@@ -7,9 +7,9 @@ import { isActiveElementSelectedWithTab } from "../../helper-functions/unFocus";
 import transitionStyles from "../transitions.module.css";
 import styles from "./selected-image.module.css";
 
-type ImageInfo = {src: string, alt: string, height: number};
+type ImageInfo = {preview: string, full: string, alt: string, height: number};
 
-function SelectedImage({ showImage, image }: { showImage: boolean, image: ImageInfo | undefined }) {
+function SelectedImage({ showImage, image }: { showImage: boolean, image?: ImageInfo }) {
 	const {setShowImage} = useContext(SelectedImageContext);
 	const selectedImageButton = useRef<HTMLButtonElement>(null);
 	// actual element in the page that was selected
@@ -35,7 +35,7 @@ function SelectedImage({ showImage, image }: { showImage: boolean, image: ImageI
 			<div id={styles["selected-image-content"]}>
 				<div id={styles["selected-image-parent"]} className={transitionStyles["interactive"]}>
 					<button ref={selectedImageButton}>
-						<img id={styles["selected-image"]} src={image?.src} alt={image?.alt} />
+						<img id={styles["selected-image"]} src={image?.full} alt={image?.alt} />
 					</button>
 				</div>
 

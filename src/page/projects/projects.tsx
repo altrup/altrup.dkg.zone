@@ -32,7 +32,7 @@ const cncSection = {
 	projects: [
 		{
 			name: "Svejk Dice", description: "Custom wood dice made with a CNC machine and a custom jig. Designed using Inkscape because I like open source stuff", 
-			image: {src: "/images/projects/svejk-dice.jpg", alt: "A die with Svejk on one face", height: 200}
+			image: {preview: "/images/preview/projects/svejk-dice.jpg", full: "/images/full/projects/svejk-dice.jpg", alt: "A die with Svejk on one face", height: 200}
 		}
 	]
 };
@@ -47,12 +47,12 @@ const crossViewSection = {
 	imageScroller: {
 		height: 200,
 		images: [
-			{src: "/images/crossview/nighttime-street.jpg", alt: "Cross view image of a street at night"},
-			{src: "/images/crossview/water-reflection.jpg", alt: "Cross view image of some lights reflecting in water"},
-			{src: "/images/crossview/fish-pond.jpg", alt: "Cross view image of some fish in a pond"},
-			{src: "/images/crossview/bag-milk.jpg", alt: "Cross view image of a bag of milk"},
-			{src: "/images/crossview/burger.jpg", alt: "Cross view image of a burger I got at a restaurant"},
-			{src: "/images/crossview/svejk-dice.jpg", alt: "Cross view image of a die with Svejk on one face"}
+			{preview: "/images/preview/crossview/nighttime-street.jpg", full: "/images/full/crossview/nighttime-street.jpg", alt: "Cross view image of a street at night"},
+			{preview: "/images/preview/crossview/water-reflection.jpg", full: "/images/full/crossview/water-reflection.jpg", alt: "Cross view image of some lights reflecting in water"},
+			{preview: "/images/preview/crossview/fish-pond.jpg", full: "/images/full/crossview/fish-pond.jpg", alt: "Cross view image of some fish in a pond"},
+			{preview: "/images/preview/crossview/bag-milk.jpg", full: "/images/full/crossview/bag-milk.jpg", alt: "Cross view image of a bag of milk"},
+			{preview: "/images/preview/crossview/burger.jpg", full: "/images/preview/crossview/burger.jpg", alt: "Cross view image of a burger I got at a restaurant"},
+			{preview: "/images/preview/crossview/svejk-dice.jpg", full: "/images/preview/crossview/svejk-dice.jpg", alt: "Cross view image of a die with Svejk on one face"}
 		]
 	}
 }

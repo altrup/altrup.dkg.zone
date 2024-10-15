@@ -1,8 +1,10 @@
+import { ImageInfo } from "../../components/selected-image";
+
 import InteractiveImage from "../../components/interactive-image";
 
 import styles from "./image-scroller.module.css";
 
-function ImageScroller({ height, images }: {height: number, images: {src: string, alt: string, customStyle?: string}[]}) {
+function ImageScroller({ height, images }: {height: number, images: (Omit<ImageInfo, "height"> & {customStyle?: string})[]}) {
 	// const imagesDiv = useRef(null);
 
 	return (
