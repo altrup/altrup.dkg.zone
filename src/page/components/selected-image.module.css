@@ -31,10 +31,25 @@
 #selected-image-background.hidden #selected-image-content {
 	transform: translateY(100vh);
 }
+#selected-image-loading-position {
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-items: center;
+	align-items: center;
+}
+#selected-image-loading-position > * {
+	grid-row-start: 1;
+	grid-column-start: 1;
+}
 #selected-image-parent {
+	overflow: hidden;
+
 	border-radius: 1em;
 
 	cursor: pointer;
+}
+#selected-image-parent.loading {
+	visibility: hidden;
 }
 #selected-image-parent button {
 	display: flex;
@@ -48,6 +63,8 @@
 	cursor: pointer;
 
 	border-radius: 1em;
+
+	transition: none;
 }
 #selected-image {
 	border-radius: 1em;
@@ -56,6 +73,12 @@
 	max-height: 80vh;
 	width: auto;
 	height: auto;
+}
+#loading {
+	font-size: 1.5em;
+
+	padding: 0; 
+	margin: 0;
 }
 #selected-image-description {
 	font-size: 2.5em;

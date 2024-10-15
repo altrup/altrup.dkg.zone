@@ -1,8 +1,10 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 
 import { SelectedImageContext } from "../root";
 
 import { isActiveElementSelectedWithTab } from "../../helper-functions/unFocus";
+
+import LoadingIcon from "./loading-icon";
 
 import transitionStyles from "../transitions.module.css";
 import styles from "./selected-image.module.css";
@@ -29,14 +31,31 @@ function SelectedImage({ showImage, image }: { showImage: boolean, image?: Image
 		}
 	}, [showImage]);
 
+	const [imageLoading, setImageLoading] = useState(false);
+	const oldImage = useRef(image);
+	useEffect(() => {
+		if (oldImage.current?.full !== image?.full) {
+			// new src detected
+			setImageLoading(true);
+		}
+
+		oldImage.current = image;
+	}, [image]);
+
+
 	return (
 		<div id={styles["selected-image-background"]} className={!showImage? styles["hidden"]: ""}
 			onClick={() => setShowImage(false)}>
 			<div id={styles["selected-image-content"]}>
-				<div id={styles["selected-image-parent"]} className={transitionStyles["interactive"]}>
-					<button ref={selectedImageButton}>
-						<img id={styles["selected-image"]} src={image?.full} alt={image?.alt} />
-					</button>
+				<div id={styles["selected-image-loading-position"]}>
+					<p className={transitionStyles["interactive"]} id={styles["loading"]}>Loading image</p>
+
+					<div id={styles["selected-image-parent"]} className={[imageLoading? styles["loading"]: undefined, transitionStyles["interactive"]].join(' ')}>
+						<button ref={selectedImageButton}>
+							<img id={styles["selected-image"]} src={image?.full} alt={image?.alt} 
+								onLoad={() => setImageLoading(false)} onError={() => setImageLoading(false)} />
+						</button>
+					</div>
 				</div>
 
 				<p id={styles["selected-image-description"]} className={transitionStyles["interactive"]}>{image?.alt}</p>
