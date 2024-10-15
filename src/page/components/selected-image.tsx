@@ -4,8 +4,6 @@ import { SelectedImageContext } from "../root";
 
 import { isActiveElementSelectedWithTab } from "../../helper-functions/unFocus";
 
-import LoadingIcon from "./loading-icon";
-
 import transitionStyles from "../transitions.module.css";
 import styles from "./selected-image.module.css";
 
