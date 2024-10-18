@@ -1,6 +1,10 @@
 .image-parent {
 	margin: 1em;
 	border-radius: 1em;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .image-parent button {
 	display: flex;
