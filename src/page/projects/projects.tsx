@@ -38,7 +38,7 @@ const physicalProjectsSection = {
 			name: "Framework 16 GPU Case", description: "A 3d-printed case for my Framework 16 GPU and Expansion Bay Shell when not in use", 
 			links: [{text: "STL Models", href: "https://github.com/EricL521/Framework-16-GPU-Case"}],
 			image: {preview: "/images/preview/projects/framework-gpu-case.jpg", full: "/images/full/projects/framework-gpu-case.jpg", 
-				alt: "A Framework 16 GPU with a case halfway over it", height: 200}
+				alt: "A Framework 16 GPU with a case over it", height: 200}
 		}
 	]
 };
@@ -59,7 +59,7 @@ const crossViewSection = {
 			{preview: "/images/preview/crossview/bag-milk.jpg", full: "/images/full/crossview/bag-milk.jpg", alt: "Cross view image of a bag of milk"},
 			{preview: "/images/preview/crossview/burger.jpg", full: "/images/full/crossview/burger.jpg", alt: "Cross view image of a burger I got at a restaurant"},
 			{preview: "/images/preview/crossview/svejk-dice.jpg", full: "/images/full/crossview/svejk-dice.jpg", alt: "Cross view image of a die with Svejk on one face"},
-			{preview: "/images/preview/crossview/framework-gpu-case.jpg", full: "/images/full/crossview/framework-gpu-case.jpg", alt: "Cross view image of a Framework 16 GPU with a case halfway over it"}
+			{preview: "/images/preview/crossview/framework-gpu-case.jpg", full: "/images/full/crossview/framework-gpu-case.jpg", alt: "Cross view image of a Framework 16 GPU with a case over it"}
 		]
 	}
 }
