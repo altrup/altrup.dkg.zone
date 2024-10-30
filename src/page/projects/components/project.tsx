@@ -24,8 +24,8 @@ function Project({name, description, links, image}: {
 						<h3 className={[transitionStyles["interactive"], styles["title"]].join(' ')}>{name}</h3>
 						{links?
 							<div className={styles["links"]}>
-								{links.map(link => (
-									<a className={clickableInteractiveClass} href={link.href} target="_blank">{link.text}</a>
+								{links.map((link, index) => (
+									<a key={index} className={clickableInteractiveClass} href={link.href} target="_blank">{link.text}</a>
 								))}
 							</div>
 						: undefined}
