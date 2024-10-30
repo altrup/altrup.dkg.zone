@@ -8,8 +8,8 @@ import InteractiveImage from "../../components/interactive-image";
 import styles from "./project.module.css";
 import transitionStyles from '../../transitions.module.css';
 
-function Project({name, description, demoLink, codeLink, image}: {
-	name: string, description: string, demoLink?: string, codeLink?: string, 
+function Project({name, description, links, image}: {
+	name: string, description: string, links?: {text: string, href: string}[], 
 	image?: ImageInfo
 }) {
 	const clickableInteractiveClass = useMemo(() => [transitionStyles["interactive"], transitionStyles["clickable"], transitionStyles["rounded-square"]].join(' '), [transitionStyles]);
@@ -22,14 +22,13 @@ function Project({name, description, demoLink, codeLink, image}: {
 				<div className={styles["text"]}>
 					<div className={styles["label"]}>
 						<h3 className={[transitionStyles["interactive"], styles["title"]].join(' ')}>{name}</h3>
-						<div className={styles["links"]}>
-							{demoLink?
-								<a className={clickableInteractiveClass} href={demoLink} target="_blank">Demo</a>
-							: undefined}
-							{codeLink?
-								<a className={clickableInteractiveClass} href={codeLink} target="_blank">Code</a>
-							: undefined}
-						</div>
+						{links?
+							<div className={styles["links"]}>
+								{links.map(link => (
+									<a className={clickableInteractiveClass} href={link.href} target="_blank">{link.text}</a>
+								))}
+							</div>
+						: undefined}
 					</div>
 					<p className={[styles["description"], transitionStyles["interactive"]].join(' ')}>{description}</p>
 				</div>

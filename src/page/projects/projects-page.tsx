@@ -27,9 +27,8 @@ function ProjectsPage() {
 								{
 									section.projects.map((project, index) => (
 											<Project key={index} name={project.name} description={project.description} 
-												demoLink={"demoLink" in project? project.demoLink: undefined}
-												codeLink={"codeLink" in project? project.codeLink: undefined}
-												image={"image" in project? project.image?? undefined: undefined}/>
+												links={"links" in project? project.links: undefined}
+												image={"image" in project? project.image: undefined}/>
 									))
 								}
 								</div>
