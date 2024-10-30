@@ -79,6 +79,8 @@
 	drop-shadow(0.2em -0.2em 0.2em var(--background-color)) drop-shadow(0.2em 0.2em 0.2em var(--background-color));
 }
 #selected-image-description {
+	max-width: 90vw;
+
 	font-size: 2.5em;
 	text-align: center;
 
