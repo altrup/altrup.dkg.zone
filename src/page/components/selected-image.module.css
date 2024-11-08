@@ -44,7 +44,7 @@
 	cursor: pointer;
 }
 #selected-image-parent.loading {
-	transform: none;
+	transition: none;
 	scale: 0.001;
 }
 #selected-image-parent button {
