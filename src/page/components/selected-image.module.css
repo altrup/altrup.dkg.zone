@@ -44,7 +44,7 @@
 	cursor: pointer;
 }
 #selected-image-parent.loading {
-	visibility: hidden;
+	scale: 0.001;
 }
 #selected-image-parent button {
 	display: flex;

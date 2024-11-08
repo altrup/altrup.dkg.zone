@@ -51,7 +51,7 @@ function SelectedImage({ showImage, image }: { showImage: boolean, image?: Image
 					<div id={styles["selected-image-parent"]} className={[imageLoading? styles["loading"]: undefined, transitionStyles["interactive"]].join(' ')}>
 						<button ref={selectedImageButton}>
 							<img id={styles["selected-image"]} src={image?.full} alt={image?.alt} 
-								onLoad={() => setImageLoading(false)} onError={() => setImageLoading(false)} />
+								onLoad={() => requestAnimationFrame(() => setImageLoading(false))} onError={() => setImageLoading(false)} />
 						</button>
 					</div>
 				</div>
