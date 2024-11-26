@@ -46,7 +46,9 @@ function SelectedImage({ showImage, image }: { showImage: boolean, image?: Image
 			onClick={() => setShowImage(false)}>
 			<div id={styles["selected-image-content"]}>
 				<div id={styles["selected-image-loading-position"]}>
-					<p className={transitionStyles["interactive"]} id={styles["loading"]}>Loading image</p>
+					{imageLoading?
+						<p className={transitionStyles["interactive"]} id={styles["loading"]}>Loading image</p>
+					: undefined}
 
 					<div id={styles["selected-image-parent"]} className={[imageLoading? styles["loading"]: undefined, transitionStyles["interactive"]].join(' ')}>
 						<button ref={selectedImageButton}>
