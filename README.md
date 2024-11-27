@@ -12,7 +12,7 @@ Guide to running the website
   ```bash
   git clone https://github.com/EricL521/altrup.dkg.zone.git
   ```
-- Enter new folder
+- Enter newly created folder
   ```bash
   cd altrup.dkg.zone
   ```
