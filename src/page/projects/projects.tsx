@@ -5,7 +5,8 @@ const codingSection = {
 	projects: [
 		{ 
 			name: "Schmek", description: "A twist on the classic snake game, where players can upgrade abilities and create simple combos", 
-			links: [{text: "Demo", href: "https://schmek.dkg.zone"}, {text: "Code", href: "https://github.com/EricL521/Schmek"}]
+			links: [{text: "Demo", href: "https://schmek.dkg.zone"}, {text: "Code", href: "https://github.com/EricL521/Schmek"}], 
+			image: {preview: "/images/svg/projects/Schmek.svg", full: "/images/svg/projects/Schmek.svg", alt: "A sample frame of a Schmek game", height: 100}
 		},
 		{
 			name: "RingVC", description: "A discord bot that allows you to easily ping people to join you in a Discord server voice chat", 
