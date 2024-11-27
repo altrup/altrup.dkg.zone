@@ -1,6 +1,7 @@
 .project {
 	box-sizing: border-box;
 	padding: 1em;
+	margin-bottom: 1em;
 	width: min(100%, 500px);
 
 	flex-grow: 1;
@@ -19,7 +20,7 @@
 	align-items: baseline;
 	flex-wrap: wrap;
 
-	margin: 1em 0;
+	margin: 0 0 1em;
 
 	width: fit-content;
 }
