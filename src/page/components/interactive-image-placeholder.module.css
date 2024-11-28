@@ -1,0 +1,14 @@
+.parent-div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	border-radius: 1em;
+	border: dashed 1px var(--color-1);
+	box-sizing: border-box;
+	padding: 0.5em;
+}
+
+.image-alt {
+	text-align: center;
+}

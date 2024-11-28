@@ -7,7 +7,7 @@ import { isActiveElementSelectedWithTab } from "../../helper-functions/unFocus";
 import transitionStyles from "../transitions.module.css";
 import styles from "./selected-image.module.css";
 
-type ImageInfo = {preview: string, full: string, alt: string, height: number};
+type ImageInfo = {preview: string, full: string, alt: string, aspectRatio: number, height: number};
 
 function SelectedImage({ showImage, image }: { showImage: boolean, image?: ImageInfo }) {
 	const {setShowImage} = useContext(SelectedImageContext);

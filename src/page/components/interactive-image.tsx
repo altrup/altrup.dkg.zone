@@ -1,13 +1,15 @@
 import { useCallback, useContext } from "react";
-import LazyLoad from "../../helper-functions/lazy-load";
 
 import { ImageInfo } from "./selected-image";
 import { SelectedImageContext } from "../root";
 
+import LazyLoad from "./lazy-load";
+import InteractiveImagePlaceholder from "./interactive-image-placeholder";
+
 import transitionStyles from "../transitions.module.css";
 import styles from "./interactive-image.module.css";
 
-function InteractiveImage({ image, customStyle }: { image: ImageInfo, customStyle?: string }) {
+function InteractiveImage({ image, scrollContainer, customStyle }: { image: ImageInfo, scrollContainer?: Element, customStyle?: string }) {
 	const { setShowImage, setSelectedImage } = useContext(SelectedImageContext);
 
 	const onImageClick = useCallback((showImage: boolean) => {
@@ -16,9 +18,9 @@ function InteractiveImage({ image, customStyle }: { image: ImageInfo, customStyl
 
 	return (
 		<div className={[styles["image-parent"], transitionStyles["interactive"], transitionStyles["clickable"], transitionStyles["rounded-square"], customStyle].join(' ')}>
-			<LazyLoad height={image.height} scrollContainer="#main-page" offset={300} once>
+			<LazyLoad placeholder={<InteractiveImagePlaceholder image={image} />} scrollContainers={[scrollContainer, "#main-page"]} offset={300}>
 				<button onClick={() => {setSelectedImage(image); onImageClick(true);}} onMouseOver={() => setSelectedImage(image)} onFocus={() => setSelectedImage(image)}>
-					<img className={styles["image"]} style={{maxHeight: image.height}}
+					<img className={styles["image"]} style={{width: image.aspectRatio * image.height, height: image.height}}
 						src={image.preview} alt={image.alt} />
 				</button>
 			</LazyLoad>
