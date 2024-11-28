@@ -8,7 +8,7 @@ Guide to running the website
 - Node.js and npm ([installation guide](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm))
 
 ### Quick Start
-- Single command that clones and launches website. Requires node and npm
+- Single command that clones and launches website. Requires node.js and npm
   
   ```bash
   git clone https://github.com/EricL521/altrup.dkg.zone.git && cd altrup.dkg.zone && npm i && npm run build && npm run preview
