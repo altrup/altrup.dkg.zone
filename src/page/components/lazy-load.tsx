@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import isOnScreen from "../../helper-functions/is-on-screen";
 
 // scrollContainers is an array of elements or query strings that represent elements
@@ -8,9 +8,9 @@ function LazyLoad({ children, placeholder, visibilityOverride, offset, scrollCon
 	const element = useRef(null);
 
 	// check if element is on screen on load
-	useEffect(() => {
+	useMemo(() => {
 		if (element.current) setVisible(isOnScreen(element.current, offset));
-	}, [element]);
+	}, [element.current]);
 	// add event listener to check if element is on screen
 	useEffect(() => {
 		if (!scrollContainers || visible || visibilityOverride) return;
@@ -38,7 +38,7 @@ function LazyLoad({ children, placeholder, visibilityOverride, offset, scrollCon
 			}
 			window.removeEventListener("resize", onScreenListener);
 		}
-	}, [element, scrollContainers, visible, visibilityOverride]);
+	}, [element.current, scrollContainers, visible, visibilityOverride]);
 
 	return (
 		<div ref={element}>
