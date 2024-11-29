@@ -14,7 +14,7 @@ const codingSection = {
 			links: [{text: "Code", href: "https://github.com/EricL521/RingVC"}]
 		},
 		{
-			name: "Rotating Arrow Game", description: "An online implementation of a really cool puzzle game I found in a mobile app", 
+			name: "Rotating Arrow Game", description: "An online implementation of an interesting puzzle game I found in a mobile app", 
 			links: [{text: "Demo", href: "https://ericl521.github.io/Rotating-Arrow-Game"}, {text: "Code", href: "https://github.com/EricL521/Rotating-Arrow-Game"}]
 		},
 		{
@@ -22,7 +22,7 @@ const codingSection = {
 			links: [{text: "Demo", href: "https://ericl521.github.io/particlejs/test/test.html"}, {text: "Code", href: "https://github.com/EricL521/particlejs"}]
 		},
 		{
-			name: "Soldier Tycoon", description: "One of my first games! A one file monstrocity where you defend a castle from raiders", 
+			name: "Soldier Tycoon", description: "One of my first games! A one file monstrocity where you defend a castle from raiders. Also a flash bang", 
 			links: [{text: "Demo", href: "https://ericl521.github.io/Soldier-Tycoon"}, {text: "Code", href: "https://github.com/EricL521/Soldier-Tycoon"}]
 		}
 	]
