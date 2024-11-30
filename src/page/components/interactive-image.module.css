@@ -1,6 +1,8 @@
 .static-image-parent {
 	margin: 1em;
 	border-radius: 1em;
+
+	height: fit-content;
 }
 .image-parent {
 	display: flex;
@@ -21,7 +23,7 @@
 	border-radius: 1em;
 }
 .image {
-	max-width: min(100vw, 500px);
+	max-width: min(70vw, 500px);
 	height: auto;
 	border-radius: 1em;
 }

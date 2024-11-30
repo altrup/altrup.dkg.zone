@@ -6,6 +6,7 @@
 }
 .images-div {
 	display: flex;
+	align-items: center;
 	flex-direction: row;
 	overflow-x: scroll;
 	scroll-snap-type: x mandatory;
