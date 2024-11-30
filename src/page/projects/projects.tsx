@@ -1,7 +1,7 @@
 import transitionStyles from '../transitions.module.css';
 
-const codingSection = {
-	title: "Coding Projects",
+const softwareSection = {
+	title: "Software Projects",
 	projects: [
 		{ 
 			name: "Schmek", description: "A twist on the classic snake game, where players can upgrade abilities and create simple combos", 
@@ -28,8 +28,8 @@ const codingSection = {
 	]
 };
 
-const physicalProjectsSection = {
-	title: "Physical Projects",
+const mechanicalSection = {
+	title: "Mechanical Projects",
 	description: "At least what I have photos of",
 	projects: [
 		{
@@ -73,4 +73,4 @@ const crossViewSection = {
 	}
 }
 
-export default [codingSection, physicalProjectsSection, crossViewSection];
+export default [softwareSection, mechanicalSection, crossViewSection];
