@@ -21,12 +21,12 @@ function InteractiveImage({ image, scrollContainer, customClass, customStyle }: 
 	return (
 		<div className={[styles["static-image-parent"], customClass].join(' ')} style={customStyle}>
 			<div className={[styles["image-parent"], transitionStyles["interactive"], transitionStyles["clickable"], transitionStyles["rounded-square"]].join(' ')}>
-				<LazyLoad placeholder={<InteractiveImagePlaceholder image={image} />} scrollContainers={[scrollContainer, "#main-page"]} offset={300}>
-					<button onClick={() => {setSelectedImage(image); onImageClick(true);}} onMouseOver={() => setSelectedImage(image)} onFocus={() => setSelectedImage(image)}>
-						<img className={styles["image"]} style={{width: image.aspectRatio * image.height + 'px'}}
-							src={image.preview} alt={image.alt} />
-					</button>
-				</LazyLoad>
+				<button onClick={() => {setSelectedImage(image); onImageClick(true);}} onMouseOver={() => setSelectedImage(image)} onFocus={() => setSelectedImage(image)}>
+					<LazyLoad placeholder={<InteractiveImagePlaceholder image={image} />} scrollContainers={[scrollContainer, "#main-page"]} offset={300}>
+							<img className={styles["image"]} style={{width: image.aspectRatio * image.height + 'px'}}
+								src={image.preview} alt={image.alt} />
+					</LazyLoad>
+				</button>
 			</div>
 		</div>
 	);
