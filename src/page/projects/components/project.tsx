@@ -15,7 +15,6 @@ function Project({name, description, links, image, imageScroller}: {
 	name: string, description: string, links?: {text: string, href: string}[], 
 	image?: ImageInfo, imageScroller?: ImageList
 }) {
-	const clickableInteractiveClass = useMemo(() => [transitionStyles["interactive"], transitionStyles["clickable"], transitionStyles["rounded-square"]].join(' '), [transitionStyles]);
 
 	const imageScrollerWidth = useMemo(() => {
 		if (!imageScroller) return undefined;
@@ -23,6 +22,7 @@ function Project({name, description, links, image, imageScroller}: {
 		return maxWidth;
 	}, [imageScroller]);
 
+	const clickableInteractiveClass = useMemo(() => [transitionStyles["interactive"], transitionStyles["clickable"], transitionStyles["rounded-square"]].join(' '), [transitionStyles]);
 	return (
 		<div className={styles["project"]}>
 			<div className={[styles["project-child"], transitionStyles["interactive"]].join(' ')}>
