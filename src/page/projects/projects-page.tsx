@@ -13,7 +13,7 @@ function ProjectsPage() {
 		<Element id={styles["projects-page"]} name="projects">
 			<div id={styles["projects-page-child"]} className={transitionStyles["interactive"]}>
 				<h1 id={styles["projects-label"]} className={transitionStyles["interactive"]}>Projects</h1>
-				<p id={styles["projects-description"]} className={transitionStyles["interactive"]}>Some projects and other things that I think are pretty cool</p>
+				<p id={styles["projects-description"]} className={transitionStyles["interactive"]}>Some projects and things I'm interested in</p>
 
 				{
 					projects.map((section, index) => (
