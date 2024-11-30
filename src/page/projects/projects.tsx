@@ -34,8 +34,14 @@ const physicalProjectsSection = {
 	projects: [
 		{
 			name: "Svejk Dice", description: "Custom wood dice made with a CNC machine and a custom jig. Designed using Inkscape because I like open source stuff", 
-			image: {preview: "/images/preview/projects/svejk-dice.jpg", full: "/images/full/projects/svejk-dice.jpg", 
-				alt: "A die with Svejk on one face", aspectRatio: 2449/2576, height: 200}
+			imageScroller: {
+				height: 200, 
+				images: [
+					{preview: "/images/preview/projects/svejk-dice-finish.jpg", full: "/images/full/projects/svejk-dice-finish.jpg", alt: "Dice with Svejk on one face, with wood finish", aspectRatio: 2590/1557},
+					{preview: "/images/preview/projects/svejk-dice-paint.jpg", full: "/images/full/projects/svejk-dice-paint.jpg", alt: "A painted die with Svejk on one face", aspectRatio: 2449/2576},
+					{preview: "/images/preview/projects/svejk-dice-jig.jpg", full: "/images/full/projects/svejk-dice-jig.jpg", alt: "A jig for holding dice while CNC milling", aspectRatio: 2560/2708}
+				]
+			}
 		},
 		{
 			name: "Framework 16 GPU Case", description: "A 3d-printed case for my Framework 16 GPU and Expansion Bay Shell when not in use", 

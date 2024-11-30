@@ -2,8 +2,9 @@ import { ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import isOnScreen from "../../helper-functions/is-on-screen";
 
 // scrollContainers is an array of elements or query strings that represent elements
-function LazyLoad({ children, placeholder, visibilityOverride, offset, scrollContainers }: 
-{ children: ReactNode, placeholder: ReactNode, visibilityOverride?: boolean, offset?: number[] | number, scrollContainers?: (Element | string | undefined)[] }) {
+function LazyLoad({ children, placeholder, visibilityOverride, offset, scrollContainers }: { 
+	children: ReactNode, placeholder: ReactNode, visibilityOverride?: boolean, offset?: number[] | number, scrollContainers?: (Element | string | undefined)[] 
+}) {
 	const [visible, setVisible] = useState(false);
 	const element = useRef(null);
 
@@ -41,7 +42,7 @@ function LazyLoad({ children, placeholder, visibilityOverride, offset, scrollCon
 	}, [element.current, scrollContainers, visible, visibilityOverride]);
 
 	return (
-		<div ref={element}>
+		<div ref={element} className="lazy-load-div">
 		{
 			typeof visibilityOverride != "undefined"? 
 				visibilityOverride? children: placeholder

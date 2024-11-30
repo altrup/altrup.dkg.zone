@@ -1,4 +1,4 @@
-import { useCallback, useContext } from "react";
+import { CSSProperties, useCallback, useContext } from "react";
 
 import { ImageInfo } from "./selected-image";
 import { SelectedImageContext } from "../root";
@@ -9,7 +9,9 @@ import InteractiveImagePlaceholder from "./interactive-image-placeholder";
 import transitionStyles from "../transitions.module.css";
 import styles from "./interactive-image.module.css";
 
-function InteractiveImage({ image, scrollContainer, customStyle }: { image: ImageInfo, scrollContainer?: Element, customStyle?: string }) {
+function InteractiveImage({ image, scrollContainer, customClass, customStyle }: {
+	image: ImageInfo, scrollContainer?: Element, customClass?: string, customStyle?: CSSProperties
+}) {
 	const { setShowImage, setSelectedImage } = useContext(SelectedImageContext);
 
 	const onImageClick = useCallback((showImage: boolean) => {
@@ -17,13 +19,15 @@ function InteractiveImage({ image, scrollContainer, customStyle }: { image: Imag
 	}, []);
 
 	return (
-		<div className={[styles["image-parent"], transitionStyles["interactive"], transitionStyles["clickable"], transitionStyles["rounded-square"], customStyle].join(' ')}>
-			<LazyLoad placeholder={<InteractiveImagePlaceholder image={image} />} scrollContainers={[scrollContainer, "#main-page"]} offset={300}>
-				<button onClick={() => {setSelectedImage(image); onImageClick(true);}} onMouseOver={() => setSelectedImage(image)} onFocus={() => setSelectedImage(image)}>
-					<img className={styles["image"]} style={{width: image.aspectRatio * image.height, height: image.height}}
-						src={image.preview} alt={image.alt} />
-				</button>
-			</LazyLoad>
+		<div className={[styles["static-image-parent"], customClass].join(' ')} style={customStyle}>
+			<div className={[styles["image-parent"], transitionStyles["interactive"], transitionStyles["clickable"], transitionStyles["rounded-square"]].join(' ')}>
+				<LazyLoad placeholder={<InteractiveImagePlaceholder image={image} />} scrollContainers={[scrollContainer, "#main-page"]} offset={300}>
+					<button onClick={() => {setSelectedImage(image); onImageClick(true);}} onMouseOver={() => setSelectedImage(image)} onFocus={() => setSelectedImage(image)}>
+						<img className={styles["image"]} style={{width: image.aspectRatio * image.height + 'px'}}
+							src={image.preview} alt={image.alt} />
+					</button>
+				</LazyLoad>
+			</div>
 		</div>
 	);
 }

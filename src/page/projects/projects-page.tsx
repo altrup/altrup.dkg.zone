@@ -4,7 +4,7 @@ import styles from './projects-page.module.css';
 import transitionStyles from '../transitions.module.css';
 
 import Project from './components/project';
-import ImageScroller from './components/image-scroller';
+import ImageScroller, { isImageList } from './components/image-scroller';
 
 import projects from "./projects";
 
@@ -27,15 +27,15 @@ function ProjectsPage() {
 								{
 									section.projects.map((project, index) => (
 											<Project key={index} name={project.name} description={project.description} 
-												links={"links" in project? project.links: undefined}
-												image={"image" in project? project.image: undefined}/>
+												imageScroller={"imageScroller" in project && isImageList(project.imageScroller)? project.imageScroller: undefined}
+												image={"image" in project? project.image: undefined} 
+												links={"links" in project? project.links: undefined} />
 									))
 								}
 								</div>
 							: undefined}
-							{"imageScroller" in section && "height" in section.imageScroller && "images" in section.imageScroller && 
-							Object.prototype.toString.call(section.imageScroller.images) === '[object Array]' && section.imageScroller.images.length > 0?
-								<ImageScroller height={section.imageScroller.height} images={section.imageScroller.images} />
+							{"imageScroller" in section && isImageList(section.imageScroller)?
+								<ImageScroller height={section.imageScroller.height} images={section.imageScroller.images} arrowNavigation />
 							: undefined}
 						</div>
 					))
