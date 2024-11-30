@@ -45,9 +45,14 @@ const mechanicalSection = {
 		},
 		{
 			name: "Framework 16 GPU Case", description: "A 3d-printed case for my Framework 16 GPU and Expansion Bay Shell when not in use", 
-			links: [{text: "STL Models", href: "https://github.com/EricL521/Framework-16-GPU-Case"}],
-			image: {preview: "/images/preview/projects/framework-gpu-case.jpg", full: "/images/full/projects/framework-gpu-case.jpg", 
-				alt: "A Framework 16 GPU with a case over it", aspectRatio: 2763/2620, height: 200}
+			links: [{text: "STL Models", href: "https://github.com/EricL521/Framework-16-GPU-Case"}],imageScroller: {
+				height: 200, 
+				images: [
+					{preview: "/images/preview/projects/framework-gpu-case-half.jpg", full: "/images/full/projects/framework-gpu-case-half.jpg", alt: "An upside down Framework 16 GPU with a case halfway over it", aspectRatio: 2268/2165},
+					{preview: "/images/preview/projects/framework-gpu-case-bottom.jpg", full: "/images/full/projects/framework-gpu-case-bottom.jpg", alt: "An upside down Framework 16 GPU with a case over it", aspectRatio: 2079/1993},
+					{preview: "/images/preview/projects/framework-gpu-case-top.jpg", full: "/images/full/projects/framework-gpu-case-top.jpg", alt: "A right side up Framework 16 GPU with a case over it", aspectRatio: 2210/2174}
+				]
+			}
 		}
 	]
 };
