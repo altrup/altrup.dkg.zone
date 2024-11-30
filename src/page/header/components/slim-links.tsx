@@ -37,7 +37,7 @@ function SlimLinks({updatePageInfo} : {updatePageInfo: (pageName: string) => voi
 				<div id={styles["logo-parent"]} className={roundedSquareTransitionClass}>
 					<button id={styles["logo"]} onClick={() => onLinkClick("home")}>
 						<Link href="/" to="home" containerId="main-page" spy={true} tabIndex={-1}>
-							<img src="/icon.png"></img>
+							<img src="/icon-small.png"></img>
 						</Link>
 					</button>
 				</div>

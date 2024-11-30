@@ -25,7 +25,7 @@ function WideLinks({updatePageInfo} : {updatePageInfo: (pageName: string) => voi
 			<div id={styles["logo-parent-parent"]} className={roundedSquareTransitionClass}>
 				<button id={styles["logo-parent"]} onClick={() => onLinkClick("home")}>
 					<Link href="/" to="home" id={styles["logo"]} activeClass={styles["selected"]} containerId="main-page" spy={true} tabIndex={-1}>
-						<img src="/icon.png"></img>
+						<img src="/icon-small.png"></img>
 						<h1>Altrup</h1>
 					</Link>
 				</button>
