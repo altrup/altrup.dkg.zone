@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useMemo, useRef, useState } from "react";
 
 import { SelectedImageContext } from "../root";
 
@@ -6,6 +6,7 @@ import { isActiveElementSelectedWithTab } from "../../helper-functions/unFocus";
 
 import transitionStyles from "../transitions.module.css";
 import styles from "./selected-image.module.css";
+import ImagePlaceholder from "./image-placeholder";
 
 type ImageInfo = {preview: string, full: string, alt: string, aspectRatio: number, height: number};
 
@@ -15,6 +16,7 @@ function SelectedImage({ showImage, image }: { showImage: boolean, image?: Image
 	// actual element in the page that was selected
 	const oldActiveElement = useRef<Element>();
 
+	// focus on the image when it's selected
 	useEffect(() => {
 		// for some reason doesn't work unless focus is delayed
 		if (showImage && isActiveElementSelectedWithTab() && selectedImageButton.current instanceof HTMLElement) {
@@ -29,33 +31,43 @@ function SelectedImage({ showImage, image }: { showImage: boolean, image?: Image
 		}
 	}, [showImage]);
 
-	const [imageLoading, setImageLoading] = useState(false);
+	const [imageLoaded, setImageLoaded] = useState(false);
 	const oldImage = useRef(image);
 	useEffect(() => {
 		if (oldImage.current?.full !== image?.full) {
 			// new src detected
-			setImageLoading(true);
+			setImageLoaded(false);
 		}
 
 		oldImage.current = image;
 	}, [image]);
 
+	const imageSizeStyle = useMemo(() => {
+		if (!image) return undefined;
+		// calculate image size based on aspect ratio and max-width of 90vw and max-height of 80vh
+		const maxWidth = 0.90 * (window.innerWidth || document.documentElement.clientWidth);
+		const maxHeight = 0.80 * (window.innerHeight || document.documentElement.clientHeight);
+		const height = Math.min(maxHeight, maxWidth / image.aspectRatio);
+		return {
+			aspectRatio: image.aspectRatio,
+			height: height + 'px'
+		};
+	}, [image]);
 
 	return (
 		<div id={styles["selected-image-background"]} className={!showImage? styles["hidden"]: ""}
 			onClick={() => setShowImage(false)}>
 			<div id={styles["selected-image-content"]}>
-				<div id={styles["selected-image-loading-position"]}>
-					{imageLoading?
-						<p className={transitionStyles["interactive"]} id={styles["loading"]}>Loading image</p>
-					: undefined}
-
-					<div id={styles["selected-image-parent"]} className={[imageLoading? styles["loading"]: undefined, transitionStyles["interactive"]].join(' ')}>
-						<button ref={selectedImageButton}>
-							<img id={styles["selected-image"]} src={image?.full} alt={image?.alt} 
-								onLoad={() => requestAnimationFrame(() => setImageLoading(false))} onError={() => setImageLoading(false)} />
-						</button>
-					</div>
+				<div id={styles["selected-image-parent"]} className={transitionStyles["interactive"]}>
+					<button ref={selectedImageButton}>
+						<div id={styles["selected-image-loading-position"]}>
+							{image && !imageLoaded?
+								<ImagePlaceholder image={image} customHeightStyle={imageSizeStyle?.height} customFontSize={"1.5em"} customFontText={"Loading ..."} />
+							: undefined}
+							<img id={styles["selected-image"]} className={!imageLoaded? styles["loading"]: undefined} src={image?.full} alt={image?.alt} style={imageSizeStyle}
+								onLoad={() => requestAnimationFrame(() => setImageLoaded(true))} onError={() => setImageLoaded(false)} />
+						</div>
+					</button>
 				</div>
 
 				<p id={styles["selected-image-description"]} className={transitionStyles["interactive"]}>{image?.alt}</p>

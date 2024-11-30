@@ -50,12 +50,7 @@
 
 	cursor: pointer;
 
-	margin: 0 0 4%;
-	z-index: 1;
-}
-#selected-image-parent.loading {
-	transition: none;
-	scale: 0.001;
+	margin: 0 0 4vh;
 }
 #selected-image-parent button {
 	display: flex;
@@ -74,20 +69,11 @@
 }
 #selected-image {
 	border-radius: 1em;
-
-	max-width: 90vw;
-	max-height: 80vh;
-	width: auto;
-	height: auto;
+	z-index: 1;
 }
-#loading {
-	font-size: 1.5em;
-
-	padding: 0; 
-	margin: 0;
-	
-	filter: drop-shadow(-0.2em -0.2em 0.2em var(--background-color)) drop-shadow(-0.2em 0.2em 0.2em var(--background-color)) 
-	drop-shadow(0.2em -0.2em 0.2em var(--background-color)) drop-shadow(0.2em 0.2em 0.2em var(--background-color));
+#selected-image.loading {
+	transition: none;
+	scale: 0.001;
 }
 #selected-image-description {
 	max-width: 90vw;
