@@ -18,6 +18,10 @@ const softwareSection = {
 			links: [{text: "Demo", href: "https://ericl521.github.io/Rotating-Arrow-Game"}, {text: "Code", href: "https://github.com/EricL521/Rotating-Arrow-Game"}]
 		},
 		{
+			name: "Rotating Arrow Game AI", description: "An AI I trained using Keras Core to play the Rotating Arrow Game. Works surprisingly well, at least for the 3x3 and 4x4 versions", 
+			links: [{text: "Code", href: "https://github.com/EricL521/Rotating-Arrow-Game-AI"}]
+		},
+		{
 			name: "ParticleJS", description: "In my opinion, satisfying, but very ineffecient particle simulation. Warning: flash bang for dark mode users", 
 			links: [{text: "Demo", href: "https://ericl521.github.io/particlejs/test/test.html"}, {text: "Code", href: "https://github.com/EricL521/particlejs"}]
 		},
