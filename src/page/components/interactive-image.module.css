@@ -22,10 +22,24 @@
 
 	border-radius: 1em;
 }
+.image-loading-position {
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-items: center;
+	align-items: center;
+}
+.image-loading-position > * {
+	grid-row-start: 1;
+	grid-column-start: 1;
+}
 .image {
 	max-width: min(70vw, 500px);
 	height: auto;
 	border-radius: 1em;
+}
+.image.hidden {
+	transition: none;
+	scale: 0.001;
 }
 @media (hover: hover) {
 	.image-parent:hover {
