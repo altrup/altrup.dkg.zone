@@ -23,7 +23,7 @@ function InteractiveImage({ image, scrollContainer, customClass, customStyle }: 
 	return (
 		<div className={[styles["static-image-parent"], customClass].join(' ')} style={customStyle}>
 			<div className={[styles["image-parent"], transitionStyles["interactive"], transitionStyles["clickable"], transitionStyles["rounded-square"]].join(' ')}>
-				<button onClick={() => {setSelectedImage(image); onImageClick(true);}} onMouseOver={() => setSelectedImage(image)} onFocus={() => setSelectedImage(image)}>
+				<button onClick={() => {setSelectedImage(image); onImageClick(true);}}>
 					<LazyLoad placeholder={<ImagePlaceholder image={image} />} scrollContainers={[scrollContainer, "#main-page"]} offset={300}>
 						<div className={styles["image-loading-position"]}>
 							<ImagePlaceholder image={image} customClass={[styles["placeholder"], imageLoaded? styles["hidden"]: undefined].join(' ')} />
