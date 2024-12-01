@@ -47,10 +47,10 @@ function SelectedImage({ showImage, image }: { showImage: boolean, image?: Image
 		// calculate image size based on aspect ratio and max-width of 90vw and max-height of 80vh
 		const maxWidth = 0.90 * (window.innerWidth || document.documentElement.clientWidth);
 		const maxHeight = 0.80 * (window.innerHeight || document.documentElement.clientHeight);
-		const height = Math.min(maxHeight, maxWidth / image.aspectRatio);
+		const width = Math.min(maxWidth, maxHeight * image.aspectRatio);
 		return {
 			aspectRatio: image.aspectRatio,
-			height: height + 'px'
+			width: width + 'px'
 		};
 	}, [image]);
 
@@ -63,7 +63,7 @@ function SelectedImage({ showImage, image }: { showImage: boolean, image?: Image
 						<div id={styles["selected-image-loading-position"]}>
 							{image?
 								<ImagePlaceholder image={image} customClass={[styles["placeholder"], imageLoaded? styles["hidden"]: undefined].join(' ')} 
-									customHeightStyle={imageSizeStyle?.height} customFontText={"Loading ..."} />
+									customWidthStyle={imageSizeStyle?.width} customFontText={"Loading ..."} />
 							: undefined}
 							<img id={styles["selected-image"]} className={!imageLoaded? styles["loading"]: undefined} src={image?.full} alt={image?.alt} style={imageSizeStyle}
 								onLoad={() => setImageLoaded(true)} onError={() => setImageLoaded(false)} />

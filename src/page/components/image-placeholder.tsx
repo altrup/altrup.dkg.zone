@@ -4,12 +4,12 @@ import { ImageInfo } from "./selected-image";
 
 import styles from "./image-placeholder.module.css";
 
-function ImagePlaceholder({ image, customHeightStyle, customFontText, customClass }: { 
-	image: ImageInfo, customHeightStyle?: string, customFontText?: string, customClass?: string 
+function ImagePlaceholder({ image, customWidthStyle, customFontText, customClass }: { 
+	image: ImageInfo, customWidthStyle?: string, customFontText?: string, customClass?: string 
 }) {
 	const sizeStyle = useMemo(() => ({
 		aspectRatio: image.aspectRatio,
-		height: customHeightStyle?? image.height + 'px'
+		width: customWidthStyle?? image.aspectRatio * image.height + 'px'
 	}), [image]);
 
 	return (

@@ -26,7 +26,7 @@ function InteractiveImage({ image, scrollContainer, customClass, customStyle }: 
 				<button onClick={() => {setSelectedImage(image); onImageClick(true);}}>
 					<LazyLoad placeholder={<ImagePlaceholder image={image} />} scrollContainers={[scrollContainer, "#main-page"]} offset={300}>
 						<div className={styles["image-loading-position"]}>
-							<ImagePlaceholder image={image} customClass={[styles["placeholder"], imageLoaded? styles["hidden"]: undefined].join(' ')} customHeightStyle={"unset"} />
+							<ImagePlaceholder image={image} customClass={[styles["placeholder"], imageLoaded? styles["hidden"]: undefined].join(' ')} />
 							<img className={[styles["image"], !imageLoaded? styles["hidden"]: undefined].join(' ')} style={{width: image.aspectRatio * image.height + 'px'}} 
 								src={image.preview} alt={image.alt} onLoad={() => setImageLoaded(true)} onError={() => setImageLoaded(false)} />
 						</div>
