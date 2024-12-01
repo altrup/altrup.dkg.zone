@@ -32,6 +32,10 @@
 	grid-row-start: 1;
 	grid-column-start: 1;
 }
+.placeholder.hidden {
+	visibility: hidden;
+	opacity: 0;
+}
 .image {
 	max-width: min(70vw, 500px);
 	height: auto;

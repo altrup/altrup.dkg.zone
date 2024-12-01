@@ -61,8 +61,9 @@ function SelectedImage({ showImage, image }: { showImage: boolean, image?: Image
 				<div id={styles["selected-image-parent"]} className={transitionStyles["interactive"]}>
 					<button ref={selectedImageButton}>
 						<div id={styles["selected-image-loading-position"]}>
-							{image && !imageLoaded?
-								<ImagePlaceholder image={image} customHeightStyle={imageSizeStyle?.height} customFontSize={"1.5em"} customFontText={"Loading ..."} />
+							{image?
+								<ImagePlaceholder image={image} customClass={[styles["placeholder"], imageLoaded? styles["hidden"]: undefined].join(' ')} 
+									customHeightStyle={imageSizeStyle?.height} customFontText={"Loading ..."} />
 							: undefined}
 							<img id={styles["selected-image"]} className={!imageLoaded? styles["loading"]: undefined} src={image?.full} alt={image?.alt} style={imageSizeStyle}
 								onLoad={() => setImageLoaded(true)} onError={() => setImageLoaded(false)} />

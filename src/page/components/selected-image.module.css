@@ -67,6 +67,13 @@
 
 	transition: none;
 }
+.placeholder {
+	font-size: 1.5em;
+}
+.placeholder.hidden {
+	visibility: hidden;
+	opacity: 0;
+}
 #selected-image {
 	border-radius: 1em;
 	z-index: 1;

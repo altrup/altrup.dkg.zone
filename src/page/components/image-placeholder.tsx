@@ -4,8 +4,8 @@ import { ImageInfo } from "./selected-image";
 
 import styles from "./image-placeholder.module.css";
 
-function ImagePlaceholder({ image, customHeightStyle, customFontSize, customFontText }: { 
-	image: ImageInfo, customHeightStyle?: string, customFontSize?: string, customFontText?: string 
+function ImagePlaceholder({ image, customHeightStyle, customFontText, customClass }: { 
+	image: ImageInfo, customHeightStyle?: string, customFontText?: string, customClass?: string 
 }) {
 	const sizeStyle = useMemo(() => ({
 		aspectRatio: image.aspectRatio,
@@ -13,8 +13,8 @@ function ImagePlaceholder({ image, customHeightStyle, customFontSize, customFont
 	}), [image]);
 
 	return (
-		<div className={[styles["parent-div"]].join(' ')} style={sizeStyle}>
-			<p className={styles["image-alt"]} style={{fontSize: customFontSize}}>{customFontText?? image.alt}</p>
+		<div className={[styles["parent-div"], customClass].join(' ')} style={sizeStyle}>
+			<p className={styles["image-alt"]}>{customFontText?? image.alt}</p>
 		</div>
 	);
 }
