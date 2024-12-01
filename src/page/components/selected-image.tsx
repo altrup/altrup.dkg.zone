@@ -65,7 +65,7 @@ function SelectedImage({ showImage, image }: { showImage: boolean, image?: Image
 								<ImagePlaceholder image={image} customHeightStyle={imageSizeStyle?.height} customFontSize={"1.5em"} customFontText={"Loading ..."} />
 							: undefined}
 							<img id={styles["selected-image"]} className={!imageLoaded? styles["loading"]: undefined} src={image?.full} alt={image?.alt} style={imageSizeStyle}
-								onLoad={() => requestAnimationFrame(() => setImageLoaded(true))} onError={() => setImageLoaded(false)} />
+								onLoad={() => setImageLoaded(true)} onError={() => setImageLoaded(false)} />
 						</div>
 					</button>
 				</div>
