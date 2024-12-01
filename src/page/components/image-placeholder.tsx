@@ -14,7 +14,9 @@ function ImagePlaceholder({ image, customWidthStyle, customFontText, customClass
 
 	return (
 		<div className={[styles["parent-div"], customClass].join(' ')} style={sizeStyle}>
-			<p className={styles["image-alt"]}>{customFontText?? image.alt}</p>
+			<div className={styles["scroll-div"]}>
+				<p className={styles["image-alt"]}>{customFontText?? image.alt}</p>
+			</div>
 		</div>
 	);
 }

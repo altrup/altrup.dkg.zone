@@ -1,17 +1,25 @@
 .parent-div {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	background-color: var(--background-color);
 
-	box-sizing: border-box;
-	padding: 0.5em;
+	overflow: hidden;
+}
+.scroll-div {
+	display: flex;
+	align-items: safe center;
+	justify-content: safe center;
 
 	border-radius: 1em;
 	border: dashed 1px var(--color-1);
-	
-	background-color: var(--background-color);
+
+	box-sizing: border-box;
+	padding: 0.5em;
+	width: 100%;
+	height: 100%;
+
+	overflow: scroll;
 }
 
 .image-alt {
 	text-align: center;
+	margin: 0;
 }
