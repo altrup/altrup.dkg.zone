@@ -77,7 +77,7 @@
 	border-radius: 0.7em;
 	font-size: 1.5em;
 
-	transition-duration: 0.2s, 0s;
+	transition-duration: var(--transition-duration), 0s;
 	transition-property: all, z-index;
 	z-index: 1;
 }

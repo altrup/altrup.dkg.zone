@@ -1,8 +1,10 @@
 .transition {
-	transition: all 0.2s ease; 
+	--transition-duration: 0.2s;
+
+	transition: all var(--transition-duration) ease; 
 }
 .transition * {
-	transition: all 0.2s ease; 
+	transition: all var(--transition-duration) ease; 
 }
 
 .notransition {
@@ -13,9 +15,11 @@
 }
 
 .interactive {
+	--transform-transition-duration: 0.3s;
+
 	display: inline-block;
 
-	transition-duration: 0.2s, 0.3s;
+	transition-duration: var(--transition-duration), var(--transform-transition-duration);
 	transition-property: all, transform; 
 	transform: scale(1);
 }

@@ -69,7 +69,7 @@
 	position: absolute;
 	bottom: 0.25em;
 
-	transition-duration: 0.3s, 0.2s;
+	transition-duration: var(--transform-transition-duration), var(--transition-duration);
 	transition-property: width, all;
 }
 @media (hover: hover) {
@@ -160,7 +160,7 @@
 	cursor: pointer;
 
 	rotate: -90deg;
-	transition-duration: 0.2s;
+	transition-duration: var(--transition-duration);
 	transition-property: rotate;
 }
 #toggle-show-links-button.showing {
@@ -173,7 +173,7 @@
 	filter: invert(0) drop-shadow(-0.1em -0.1em 0.2em var(--background-color)) drop-shadow(-0.1em 0.1em 0.2em var(--background-color)) 
 	drop-shadow(0.1em -0.1em 0.2em var(--background-color)) drop-shadow(0.1em 0.1em 0.2em var(--background-color));
 
-	transition-duration: 0.2s;
+	transition-duration: var(--transition-duration);
 	transition-property: filter;
 }
 #toggle-show-links-button img#arrow-img.inverted {

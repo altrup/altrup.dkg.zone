@@ -61,7 +61,7 @@
 	position: absolute;
 	bottom: 0.75em;
 
-	transition-duration: 0.2s, 0.3s;
+	transition-duration: var(--transition-duration), var(--transform-transition-duration);
 	transition-property: all, width;
 }
 @media (hover: hover) {
