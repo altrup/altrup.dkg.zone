@@ -52,6 +52,7 @@
 .description {
 	padding: 0; margin: 0; 
 	font-size: 0.9em;
+	color: var(--color-description);
 
 	width: 100%;
 	max-width: max-content;

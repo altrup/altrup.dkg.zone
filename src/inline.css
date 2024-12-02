@@ -6,6 +6,7 @@ html {
 
 .light {
 	--color-1: #000000;
+	--color-description: #1F1F1F;
 	--background-color: #F5F6F4;
 	--background-color-2: #C8C2AE;
 	--color-2: #9893DA;
@@ -17,7 +18,8 @@ html {
 }
 
 .dark {
-	--color-1: #F5F6F4;
+	--color-1: #F3F3F7;
+	--color-description: #C7C9CD;
 	--background-color: #030C11;
 	--background-color-2: #473B33;
 	--color-2: #368a97;

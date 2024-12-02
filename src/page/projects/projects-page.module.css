@@ -16,6 +16,7 @@
 	display: block;
 	width: fit-content;
 	margin-bottom: 0;
+	color: var(--color-description);
 }
 .project-type-div {
 	box-sizing: border-box;
@@ -37,6 +38,8 @@
 	margin-bottom: 0;
 
 	font-size: 0.95em;
+	
+	color: var(--color-description);
 }
 .project-type-description * {	
 	font-size: 1em;
