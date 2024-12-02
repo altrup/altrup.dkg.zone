@@ -10,7 +10,7 @@ function ImagePlaceholder({ image, customWidthStyle, customFontText, customClass
 	const sizeStyle = useMemo(() => ({
 		aspectRatio: image.aspectRatio,
 		width: customWidthStyle?? image.aspectRatio * image.height + 'px'
-	}), [image]);
+	}), [image, customWidthStyle]);
 
 	return (
 		<div className={[styles["parent-div"], customClass].join(' ')} style={sizeStyle}>

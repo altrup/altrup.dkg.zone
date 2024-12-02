@@ -42,17 +42,38 @@ function SelectedImage({ showImage, image }: { showImage: boolean, image?: Image
 		oldImage.current = image;
 	}, [image]);
 
+	const [maxWidth, setMaxWidth] = useState(0);
+	const [maxHeight, setMaxHeight] = useState(0);
+	// add listener for window resize
+	useEffect(() => {
+		const resizeListener = () => {
+			// maxWidth is 90vw and maxHeight is 80vh
+			setMaxWidth(0.90 * (window.innerWidth || document.documentElement.clientWidth));
+			setMaxHeight(0.80 * (window.innerHeight || document.documentElement.clientHeight));
+		};
+		// call once on load
+		resizeListener();
+
+		window.addEventListener('resize', resizeListener);
+		// remove listener on unmount
+		return () => {
+			window.removeEventListener('resize', resizeListener);
+		};
+	}, []);
+
+	const imageWidth = useMemo(() => {
+		if (!image) return undefined;
+		// calculate image width based on aspect ratio, maxWidth and maxHeight
+		return Math.min(maxWidth, maxHeight * image.aspectRatio);
+	}, [image, maxWidth, maxHeight]);
 	const imageSizeStyle = useMemo(() => {
 		if (!image) return undefined;
-		// calculate image size based on aspect ratio and max-width of 90vw and max-height of 80vh
-		const maxWidth = 0.90 * (window.innerWidth || document.documentElement.clientWidth);
-		const maxHeight = 0.80 * (window.innerHeight || document.documentElement.clientHeight);
-		const width = Math.min(maxWidth, maxHeight * image.aspectRatio);
+		
 		return {
 			aspectRatio: image.aspectRatio,
-			width: width + 'px'
+			width: imageWidth + 'px'
 		};
-	}, [image]);
+	}, [image, imageWidth]);
 
 	return (
 		<div id={styles["selected-image-background"]} className={!showImage? styles["hidden"]: ""}
@@ -63,7 +84,7 @@ function SelectedImage({ showImage, image }: { showImage: boolean, image?: Image
 						<div id={styles["selected-image-loading-position"]}>
 							{image?
 								<ImagePlaceholder image={image} customClass={[styles["placeholder"], imageLoaded? styles["hidden"]: undefined].join(' ')} 
-									customWidthStyle={imageSizeStyle?.width} customFontText={"Loading ..."} />
+									customWidthStyle={imageWidth + 'px'} customFontText={"Loading ..."} />
 							: undefined}
 							<img id={styles["selected-image"]} className={!imageLoaded? styles["loading"]: undefined} src={image?.full} alt={image?.alt} style={imageSizeStyle}
 								onLoad={() => setImageLoaded(true)} onError={() => setImageLoaded(false)} />
