@@ -1,6 +1,5 @@
 .static-image-parent {
 	margin: 1em;
-	border-radius: 1em;
 
 	height: fit-content;
 }
@@ -19,8 +18,6 @@
 	font-size: 1em;
 
 	cursor: pointer;
-
-	border-radius: 1em;
 }
 .image-loading-position {
 	display: grid;
@@ -33,9 +30,13 @@
 	grid-column-start: 1;
 }
 .placeholder {
+	transition: none;
+
 	max-width: min(70vw, 500px);
+	border-radius: 1em;
 }
 .placeholder.hidden {
+	transition: inherit;
 	visibility: hidden;
 	opacity: 0;
 }
@@ -43,10 +44,15 @@
 	max-width: min(70vw, 500px);
 	height: auto;
 	border-radius: 1em;
+
+	transition-duration: 0.2s, 0s;
+	transition-property: all, z-index;
+	z-index: 1;
 }
 .image.hidden {
 	transition: none;
 	scale: 0.001;
+	z-index: -1;
 }
 @media (hover: hover) {
 	.image-parent:hover {

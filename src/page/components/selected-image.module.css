@@ -10,9 +10,6 @@
 	align-items: center;
 	
 	backdrop-filter: blur(0.5em);
-
-	overflow-y: auto;
-	overflow-x: hidden;
 }
 #selected-image-background.hidden {
 	visibility: hidden;
@@ -31,6 +28,9 @@
 	padding: 3%;
 
 	transform: translateY(0);
+
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 #selected-image-background.hidden #selected-image-content {
 	transform: translateY(100vh);
@@ -46,8 +46,6 @@
 	grid-column-start: 1;
 }
 #selected-image-parent {
-	border-radius: 1em;
-
 	cursor: pointer;
 
 	margin: 0 0 4vh;
@@ -63,24 +61,30 @@
 
 	cursor: pointer;
 
-	border-radius: 1em;
-
 	transition: none;
 }
 .placeholder {
+	transition: none;
+	border-radius: 0.7em;
 	font-size: 1.5em;
 }
 .placeholder.hidden {
+	transition: inherit;
 	visibility: hidden;
 	opacity: 0;
 }
 #selected-image {
-	border-radius: 1em;
+	border-radius: 0.7em;
+	font-size: 1.5em;
+
+	transition-duration: 0.2s, 0s;
+	transition-property: all, z-index;
 	z-index: 1;
 }
 #selected-image.loading {
 	transition: none;
 	scale: 0.001;
+	z-index: -1;
 }
 #selected-image-description {
 	max-width: 90vw;
