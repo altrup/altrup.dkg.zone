@@ -15,7 +15,7 @@ function ContactsPage() {
 					<p className={interactiveClass}>and Links</p>
 				</div>
 				<div id={styles["contacts"]} className={interactiveClass}>
-					<a href="mailto:altrup.dkg.zone" className={clickableInteractiveClass}>altrup@dkg.zone</a>
+					<a href="mailto:altrup@dkg.zone" className={clickableInteractiveClass}>altrup@dkg.zone</a>
 					<a href="mailto:eric.liu4@uwaterloo.ca" className={clickableInteractiveClass}>eric.liu4@uwaterloo.ca</a>
 					<a href="https://www.linkedin.com/in/ericl521/" target="_blank" className={clickableInteractiveClass}>LinkedIn</a>
 					<a href="https://github.com/EricL521" target="_blank" className={clickableInteractiveClass}>GitHub</a>
