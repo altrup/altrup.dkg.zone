@@ -77,7 +77,9 @@ const crossViewSection = {
 			{preview: "/images/preview/crossview/bag-milk.jpg", full: "/images/full/crossview/bag-milk.jpg", alt: "Cross view image of a bag of milk", aspectRatio: 5516/4252},
 			{preview: "/images/preview/crossview/burger.jpg", full: "/images/full/crossview/burger.jpg", alt: "Cross view image of a burger I got at a restaurant", aspectRatio: 4834/4292},
 			{preview: "/images/preview/crossview/svejk-dice.jpg", full: "/images/full/crossview/svejk-dice.jpg", alt: "Cross view image of a die with Svejk on one face", aspectRatio: 5105/4166},
-			{preview: "/images/preview/crossview/framework-gpu-case.jpg", full: "/images/full/crossview/framework-gpu-case.jpg", alt: "Cross view image of a Framework 16 GPU with a case over it", aspectRatio: 5673/4296}
+			{preview: "/images/preview/crossview/framework-gpu-case.jpg", full: "/images/full/crossview/framework-gpu-case.jpg", alt: "Cross view image of a Framework 16 GPU with a case over it", aspectRatio: 5673/4296},
+			{preview: "/images/preview/crossview/butterfly.jpg", full: "/images/full/crossview/butterfly.jpg", alt: "Cross view image of a butterfly on a leaf", aspectRatio: 6102/4366},
+			{preview: "/images/preview/crossview/mushroom-plush.jpg", full: "/images/full/crossview/mushroom-plush.jpg", alt: "Cross view image of a mushroom plush I made (has a face now)", aspectRatio: 5143/4322},
 		]
 	}
 }
