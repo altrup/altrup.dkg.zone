@@ -1,6 +1,6 @@
 import { Element } from 'react-scroll';
 
-import { isImageList, useProjects } from '../../hooks/useProjects';
+import { isImageList } from '../../helper-functions/getProjects';
 
 import styles from './projects-page.module.css';
 import transitionStyles from '../transitions.module.css';
@@ -8,10 +8,8 @@ import transitionStyles from '../transitions.module.css';
 import Project from './components/project';
 import ImageScroller from './components/image-scroller';
 
-// import projects from "./projects";
-
 function ProjectsPage() {
-	const projects = useProjects();
+	const projects = __PROJECTS__;
 
 	return (
 		<Element id={styles["projects-page"]} name="projects">

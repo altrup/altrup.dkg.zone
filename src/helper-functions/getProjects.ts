@@ -1,0 +1,55 @@
+import { createClient, PostgrestError } from '@supabase/supabase-js';
+
+// Define the types for projects
+export type ImageInfo = { preview: string, full: string, alt: string, aspectRatio: number, height: number };
+export type ImageList = {
+	height: number,
+	images: (Omit<ImageInfo, "height">)[]
+};
+export const isImageList = (props: unknown): props is ImageList => {
+	const imageScrollerProps = props as ImageList;
+	return typeof imageScrollerProps.height === "number" && Array.isArray(imageScrollerProps.images) && imageScrollerProps.images.every(image =>
+		typeof image.preview === "string" && typeof image.full === "string" && typeof image.alt === "string" && typeof image.aspectRatio === "number");
+};
+export type Link = {
+	text: string;
+	href: string;
+}
+export type Project = {
+	name: string;
+	description: string;
+	imageScroller?: ImageList;
+	image?: ImageInfo;
+	links?: Link[];
+}
+export type ProjectSection = {
+	title: string;
+	description?: string | (string | Link)[];
+} & (
+		{
+			imageScroller: ImageList;
+		}
+		| {
+			projects: Project[]
+		}
+	)
+
+export const getProjects = (
+	{ supabaseURL, supabaseAnonKey, supabaseTableName }: { supabaseURL: string, supabaseAnonKey: string, supabaseTableName: string }
+) => {
+	const supabase = createClient(supabaseURL, supabaseAnonKey);
+	const tableName = supabaseTableName;
+
+	return new Promise<ProjectSection[]>((resolve, reject) => {
+		supabase.from(tableName).select().then(({ data, error }: { data: { id: number, Projects: ProjectSection }[] | null, error: PostgrestError | null }) => {
+			if (error) {
+				reject(error);
+			}
+			else if (data) {
+				const sortedData = data.sort((a, b) => a.id - b.id);
+				resolve(sortedData.map(({ Projects }) => Projects));
+			}
+		});
+	});
+};
+
