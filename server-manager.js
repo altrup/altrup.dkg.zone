@@ -40,9 +40,9 @@ process.on('exit', () => {
 
 // run build command on projects change
 onProjectUpdate({
-	supabaseURL: env.VITE_SUPABASE_URL,
-	supabaseAnonKey: env.VITE_SUPABASE_ANON_KEY,
-	supabaseTableName: env.VITE_SUPABASE_TABLE_NAME,
+	supabaseURL: env.SUPABASE_URL,
+	supabaseAnonKey: env.SUPABASE_ANON_KEY,
+	supabaseTableName: env.SUPABASE_TABLE_NAME,
 }, () => {
 	if (isProduction) {
 		// rebuild the project

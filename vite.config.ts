@@ -11,9 +11,9 @@ export default defineConfig(async ({ mode }) => {
     plugins: [react()],
     define: {
       __PROJECTS__: await getProjects({
-        supabaseAnonKey: env.VITE_SUPABASE_ANON_KEY,
-        supabaseURL: env.VITE_SUPABASE_URL,
-        supabaseTableName: env.VITE_SUPABASE_TABLE_NAME
+        supabaseAnonKey: env.SUPABASE_ANON_KEY,
+        supabaseURL: env.SUPABASE_URL,
+        supabaseTableName: env.SUPABASE_TABLE_NAME
       }),
     }
   }
