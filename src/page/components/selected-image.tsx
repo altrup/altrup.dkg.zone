@@ -3,12 +3,11 @@ import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import { SelectedImageContext } from "../root";
 
 import { isActiveElementSelectedWithTab } from "../../helper-functions/unFocus";
+import { ImageInfo } from "../../hooks/useProjects";
 
 import transitionStyles from "../transitions.module.css";
 import styles from "./selected-image.module.css";
 import ImagePlaceholder from "./image-placeholder";
-
-type ImageInfo = {preview: string, full: string, alt: string, aspectRatio: number, height: number};
 
 function SelectedImage({ showImage, image }: { showImage: boolean, image?: ImageInfo }) {
 	const {setShowImage} = useContext(SelectedImageContext);

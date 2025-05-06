@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useMemo, useRef, useState } from "react";
+import { ReactNode, useEffect, useMemo, useState } from "react";
 import isOnScreen from "../../helper-functions/is-on-screen";
 
 // scrollContainers is an array of elements or query strings that represent elements
@@ -6,18 +6,18 @@ function LazyLoad({ children, placeholder, visibilityOverride, offset, scrollCon
 	children: ReactNode, placeholder: ReactNode, visibilityOverride?: boolean, offset?: number[] | number, scrollContainers?: (Element | string | undefined)[] 
 }) {
 	const [visible, setVisible] = useState(false);
-	const element = useRef(null);
+	const [element, setElement] = useState<HTMLDivElement | null>(null);
 
 	// check if element is on screen on load
 	useMemo(() => {
-		if (element.current) setVisible(isOnScreen(element.current, offset));
-	}, [element.current]);
+		if (element) setVisible(isOnScreen(element, offset));
+	}, [element, offset]);
 	// add event listener to check if element is on screen
 	useEffect(() => {
 		if (!scrollContainers || visible || visibilityOverride) return;
 
 		const onScreenListener = () => {
-			if (element.current) setVisible(isOnScreen(element.current, offset));
+			if (element) setVisible(isOnScreen(element, offset));
 		};
 		// add event listener to scroll containers
 		for (const scrollContainer of scrollContainers) {
@@ -39,10 +39,10 @@ function LazyLoad({ children, placeholder, visibilityOverride, offset, scrollCon
 			}
 			window.removeEventListener("resize", onScreenListener);
 		}
-	}, [element.current, scrollContainers, visible, visibilityOverride]);
+	}, [scrollContainers, visible, visibilityOverride, offset, element]);
 
 	return (
-		<div ref={element} className="lazy-load-div">
+		<div ref={setElement} className="lazy-load-div">
 		{
 			typeof visibilityOverride != "undefined"? 
 				visibilityOverride? children: placeholder

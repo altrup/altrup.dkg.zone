@@ -1,21 +1,17 @@
 // Component for showing projects
 import { useMemo } from "react";
 
-import { ImageInfo } from "../../components/selected-image";
-import ImageScroller, { ImageList } from "./image-scroller";
+import ImageScroller from "./image-scroller";
 
 import InteractiveImage from "../../components/interactive-image";
+
+import type { Project } from "../../../hooks/useProjects";
 
 import styles from "./project.module.css";
 import transitionStyles from '../../transitions.module.css';
 import projectImageScrollerStyles from "./project-image-scroller.module.css";
-
 // NOTE: imageScroller overrides image
-function Project({name, description, links, image, imageScroller}: {
-	name: string, description: string, links?: {text: string, href: string}[], 
-	image?: ImageInfo, imageScroller?: ImageList
-}) {
-
+function Project({name, description, links, image, imageScroller}: Project) {
 	const imageScrollerWidth = useMemo(() => {
 		if (!imageScroller) return undefined;
 		const maxWidth = imageScroller.images.reduce((maxWidth, image) => Math.max(maxWidth, image.aspectRatio * imageScroller.height), 0);
@@ -38,7 +34,7 @@ function Project({name, description, links, image, imageScroller}: {
 						{links?
 							<div className={styles["links"]}>
 								{links.map((link, index) => (
-									<a key={index} className={clickableInteractiveClass} href={link.href} target="_blank">{link.text}</a>
+									<a key={index} className={clickableInteractiveClass} href={link.href} target="_blank" rel="noreferrer">{link.text}</a>
 								))}
 							</div>
 						: undefined}

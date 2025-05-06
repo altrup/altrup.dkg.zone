@@ -1,4 +1,3 @@
-import transitionStyles from '../transitions.module.css';
 
 const softwareSection = {
 	title: "Software Projects",
@@ -63,11 +62,11 @@ const mechanicalSection = {
 
 const crossViewSection = {
 	title: "Cross View Images",
-	description: <>
-		{"Cross your eyes and try to make the images overlap! For more info about cross view and a tutorial, check out "}
-		<a href="https://www.reddit.com/r/CrossView/wiki/index/" target="_blank" 
-		className={[transitionStyles["interactive"], transitionStyles["clickable"], transitionStyles["rounded-square"]].join(' ')}>this</a>{" Reddit post"}
-	</>,
+	description: [
+		"Cross your eyes and try to make the images overlap! For more info about cross view and a tutorial, check out ",
+		{text: "this", href: "https://www.reddit.com/r/CrossView/wiki/index/"},
+		" Reddit post"
+	],
 	imageScroller: {
 		height: 200,
 		images: [
@@ -82,6 +81,7 @@ const crossViewSection = {
 			{preview: "/images/preview/crossview/mushroom-plush.jpg", full: "/images/full/crossview/mushroom-plush.jpg", alt: "Cross view image of a mushroom plush I made (has a face now)", aspectRatio: 5143/4322},
 		]
 	}
-}
+};
+console.log(JSON.stringify(crossViewSection));
 
 export default [softwareSection, mechanicalSection, crossViewSection];
