@@ -1,0 +1,67 @@
+import { spawn, exec } from 'child_process';
+import { loadEnv } from 'vite';
+
+import { onProjectUpdate } from './src/helper-functions/onProjectUpdate.js';
+
+// constants
+const isProduction = process.env.NODE_ENV === 'production';
+const env = loadEnv(process.env.NODE_ENV, process.cwd(), "");
+
+// Start server.js in a subprocess
+// returns a function to stop the server and remove listeners
+const startServer = () => {
+	const serverProcess = spawn('node', ['server.js'], {
+		cwd: process.cwd(), // Set the current working directory to the script's directory
+		stdio: 'inherit' // Inherit stdio to display output in the parent process
+	});
+
+	// Handle subprocess exit
+	serverProcess.on('close', (code) => {
+		console.log(`server.js exited with code ${code}`);
+	});
+
+	// Handle errors
+	serverProcess.on('error', (err) => {
+		console.error('Failed to start server.js:', err);
+	});
+
+	return () => {
+		console.log('Stopping server.js...');
+		serverProcess.kill('SIGINT'); // Send SIGINT to the subprocess
+	};
+};
+
+let stopCurrentServerProcess = startServer();
+
+// stop server process on exit
+process.on('exit', () => {
+	stopCurrentServerProcess();
+});
+
+// run build command on projects change
+onProjectUpdate({
+	supabaseURL: env.VITE_SUPABASE_URL,
+	supabaseAnonKey: env.VITE_SUPABASE_ANON_KEY,
+	supabaseTableName: env.VITE_SUPABASE_TABLE_NAME,
+}, () => {
+	if (isProduction) {
+		// rebuild the project
+		console.log("Project updated: rebuilding...");
+		exec("npm run build:without-deploy", (error, stdout, stderr) => {
+			console.log(error, stdout, stderr);
+
+			// restart the server
+			console.log("Project updated: restarting server...");
+			stopCurrentServerProcess();
+			exec("npm run deploy", (error, stdout, stderr) => {
+				console.log(error, stdout, stderr);
+				stopCurrentServerProcess = startServer();
+			});
+		});
+	}
+	else {
+		console.log("Project updated: restarting server...");
+		stopCurrentServerProcess();
+		stopCurrentServerProcess = startServer();
+	}
+});

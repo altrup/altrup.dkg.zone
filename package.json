@@ -4,12 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node server",
-    "build": "npm run build:client && npm run build:server",
-    "build:client": "tsc -b && vite build --ssrManifest --outDir dist/client",
-    "build:server": "tsc -b && vite build --ssr src/entry-server.tsx --outDir dist/server",
+    "dev": "node server-manager",
+    "build": "npm run build:without-deploy && npm run deploy",
+    "build:without-deploy": "npm run build:client && npm run build:server",
+    "build:client": "tsc -b && vite build --ssrManifest --outDir tmp/dist/client",
+    "build:server": "tsc -b && vite build --ssr src/entry-server.tsx --outDir tmp/dist/server",
+    "deploy": "rm -rf dist && mkdir dist && cp -r tmp/dist/* dist && rm -rf tmp",
     "lint": "eslint .",
-    "preview": "NODE_ENV=production node server"
+    "preview": "NODE_ENV=production node server-manager"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.4",

@@ -2,11 +2,13 @@
 import fs from 'node:fs/promises';
 import express from 'express';
 import { Transform } from 'node:stream'
+import { loadEnv } from 'vite';
 
 // Constants
 const isProduction = process.env.NODE_ENV === 'production';
-const port = process.env.PORT || 5173;
-const base = process.env.BASE || '/';
+const env = loadEnv(process.env.NODE_ENV, process.cwd(), "");
+const port = env.PORT || 5173;
+const base = env.BASE || '/';
 const ABORT_DELAY = 10000;
 
 // Cached production assets
@@ -36,7 +38,7 @@ if (!isProduction) {
 		base
 	});
 	app.use(vite.middlewares);
-} 
+}
 else {
 	const compression = (await import('compression')).default;
 	const sirv = (await import('sirv')).default;
@@ -62,8 +64,8 @@ app.use('*', async (req, res) => {
 		else {
 			templateHTML = templateHTMLProduction;
 			inlineCSS = inlineCSSProduction;
-			inlineJS = inlineJSProduction
-			render = (await import('./dist/server/entry-server.js')).render
+			inlineJS = inlineJSProduction;
+			render = (await import('./dist/server/entry-server.js')).render;
 		}
 		const html = templateHTML
 			.replace('<!--inline-css-->', `<style>${inlineCSS}</style>`)
@@ -95,7 +97,7 @@ app.use('*', async (req, res) => {
 				transformStream.on('finish', () => {
 					res.end(htmlEnd);
 				});
-				
+
 				pipe(transformStream);
 			},
 			onError(error) {
@@ -103,7 +105,7 @@ app.use('*', async (req, res) => {
 				if (!isProduction) console.error(error);
 			}
 		});
-		
+
 		setTimeout(() => {
 			abort();
 		}, ABORT_DELAY);
