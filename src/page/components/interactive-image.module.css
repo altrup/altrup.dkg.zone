@@ -49,6 +49,9 @@
 	transition-property: all, z-index;
 	z-index: 1;
 }
+.image.drop-shadow {
+	filter: drop-shadow(0 0 0.2em var(--color-1));
+}
 .image.hidden {
 	transition: none;
 	scale: 0.001;
