@@ -7,13 +7,6 @@ Guide to running the website
 ### Prerequisites
 - Node.js and npm ([installation guide](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm))
 
-### Quick Start
-- Single command that clones and launches website. Requires node.js and npm
-  
-  ```bash
-  git clone https://github.com/EricL521/altrup.dkg.zone.git && cd altrup.dkg.zone && npm i && npm run build && npm run preview
-  ```
-
 ### Installation & Usage
 - Clone repository
   
@@ -30,6 +23,8 @@ Guide to running the website
   ```bash
   npm install
   ```
+- Set up [supabase](https://supabase.com/) (For self-hosting, see [Supabase self-hosting guide](https://supabase.com/docs/guides/self-hosting))
+  - Create a `.env` file by copying the `.env.example` file, and update the placeholders with your Supabase credentials
 - Build website
   
   ```bash
