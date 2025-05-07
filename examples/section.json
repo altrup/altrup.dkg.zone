@@ -1,0 +1,94 @@
+{
+	"name": "projects",
+	"title": "Projects",
+	"description": "Some projects and things I'm interested in",
+	"subSections": [
+		{
+			"title": "Software Projects",
+			"projects": [
+				{
+					"name": "Schmek",
+					"image": {
+						"alt": "A sample frame of a Schmek game",
+						"full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/svg/projects/Schmek.svg",
+						"height": 100,
+						"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/svg/projects/Schmek.svg",
+						"aspectRatio": 1.25
+					},
+					"links": [
+						{
+							"href": "https://schmek.dkg.zone",
+							"text": "Demo"
+						},
+						{
+							"href": "https://github.com/EricL521/Schmek",
+							"text": "Code"
+						}
+					],
+					"description": "A twist on the classic snake game, where players can upgrade abilities and create simple combos"
+				}
+			]
+		},
+		{
+			"title": "Mechanical Projects",
+			"projects": [
+				{
+					"name": "Framework 16 GPU Case",
+					"links": [
+						{
+							"href": "https://github.com/EricL521/Framework-16-GPU-Case",
+							"text": "STL Models"
+						}
+					],
+					"description": "A 3d-printed case for my Framework 16 GPU and Expansion Bay Shell when not in use",
+					"imageScroller": {
+						"height": 200,
+						"images": [
+							{
+								"alt": "An upside down Framework 16 GPU with a case halfway over it",
+								"full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/projects/framework-gpu-case-half.jpg",
+								"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/projects/framework-gpu-case-half.jpg",
+								"aspectRatio": 1.0475750577367207
+							},
+							{
+								"alt": "An upside down Framework 16 GPU with a case over it",
+								"full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/projects/framework-gpu-case-bottom.jpg",
+								"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/projects/framework-gpu-case-bottom.jpg",
+								"aspectRatio": 1.0431510286001004
+							},
+							{
+								"alt": "A right side up Framework 16 GPU with a case over it",
+								"full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/projects/framework-gpu-case-top.jpg",
+								"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/projects/framework-gpu-case-top.jpg",
+								"aspectRatio": 1.016559337626495
+							}
+						]
+					}
+				}
+			],
+			"description": "At least what I have photos of"
+		},
+		{
+			"title": "Cross View Images",
+			"description": [
+				"Cross your eyes and try to make the images overlap! For more info about cross view and a tutorial, check out ",
+				{
+					"href": "https://www.reddit.com/r/CrossView/wiki/index/",
+					"text": "this"
+				},
+				" Reddit post"
+			],
+			"imageScroller": {
+				"height": 200,
+				"images": [
+					{
+						"alt": "Cross view image of a street at night",
+						"full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/crossview/nighttime-street.jpg",
+						"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/crossview/nighttime-street.jpg",
+						"aspectRatio": 1.3648587055606198
+					}
+				]
+			}
+		}
+	]
+}
