@@ -22,7 +22,7 @@ export type Project = {
 	image?: ImageInfo;
 	links?: Link[];
 }
-export type ProjectSection = {
+export type SubSection = {
 	title: string;
 	description?: string | (string | Link)[];
 } & (
@@ -33,21 +33,27 @@ export type ProjectSection = {
 			projects: Project[]
 		}
 	)
+export type Section = {
+	name: string; // used for url
+	title: string;
+	description?: string;
+	subSections: SubSection[];
+}
 
-export const getProjects = (
+export const getSections = (
 	{ supabaseURL, supabaseAnonKey, supabaseTableName }: { supabaseURL: string, supabaseAnonKey: string, supabaseTableName: string }
 ) => {
 	const supabase = createClient(supabaseURL, supabaseAnonKey);
 	const tableName = supabaseTableName;
 
-	return new Promise<ProjectSection[]>((resolve, reject) => {
-		supabase.from(tableName).select().then(({ data, error }: { data: { id: number, Projects: ProjectSection }[] | null, error: PostgrestError | null }) => {
+	return new Promise<Section[]>((resolve, reject) => {
+		supabase.from(tableName).select().then(({ data, error }: { data: { id: number, Sections: Section }[] | null, error: PostgrestError | null }) => {
 			if (error) {
 				reject(error);
 			}
 			else if (data) {
 				const sortedData = data.sort((a, b) => a.id - b.id);
-				resolve(sortedData.map(({ Projects }) => Projects));
+				resolve(sortedData.map(({ Sections }) => Sections));
 			}
 		});
 	});

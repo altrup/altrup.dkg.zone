@@ -1,3 +1,3 @@
-type ProjectSection = import('./src/helper-functions/getProjects').ProjectSection;
+type Section = import('./src/helper-functions/getSections').Section;
 
-declare const __PROJECTS__: ProjectSection[];
+declare const __SECTIONS__: Section[];

@@ -1,28 +1,40 @@
 import { Element } from 'react-scroll';
 
-import { isImageList } from '../../helper-functions/getProjects';
+import { isImageList, SubSection } from '../../helper-functions/getSections';
 
-import styles from './projects-page.module.css';
+import styles from './section-page.module.css';
 import transitionStyles from '../transitions.module.css';
 
 import Project from './components/project';
 import ImageScroller from './components/image-scroller';
 
-function ProjectsPage() {
-	const projects = __PROJECTS__;
-
+function SectionPage({
+	name,
+	title,
+	description,
+	subSections
+}: {
+	name: string,
+	title: string,
+	description?: string,
+	subSections: SubSection[]
+}) {
 	return (
-		<Element id={styles["projects-page"]} name="projects">
-			<div id={styles["projects-page-child"]} className={transitionStyles["interactive"]}>
-				<h1 id={styles["projects-label"]} className={transitionStyles["interactive"]}>Projects</h1>
-				<p id={styles["projects-description"]} className={transitionStyles["interactive"]}>{"Some projects and things I'm interested in"}</p>
+		<Element id={styles["sections-page"]} name={name}>
+			<div id={styles["sections-page-child"]} className={transitionStyles["interactive"]}>
+				<h1 id={styles["sections-label"]} className={transitionStyles["interactive"]}>{title}</h1>
+				{
+					description ?
+						<p id={styles["sections-description"]} className={transitionStyles["interactive"]}>{description}</p>
+						: null
+				}
 
 				{
-					projects.map((section, index) => (
-						<div key={index} className={[styles["project-type-div"], transitionStyles["interactive"]].join(' ')}>
-							<h2 className={[styles["project-type-label"], transitionStyles["interactive"]].join(' ')}>{section.title}</h2>
+					subSections.map((section, index) => (
+						<div key={index} className={[styles["section-type-div"], transitionStyles["interactive"]].join(' ')}>
+							<h2 className={[styles["section-type-label"], transitionStyles["interactive"]].join(' ')}>{section.title}</h2>
 							{"description" in section && section.description ?
-								<p className={[styles["project-type-description"], transitionStyles["interactive"]].join(' ')}>{
+								<p className={[styles["section-type-description"], transitionStyles["interactive"]].join(' ')}>{
 									typeof section.description === "string" ? section.description :
 										section.description.map((desc, index) => (
 											<span key={index}>
@@ -34,7 +46,7 @@ function ProjectsPage() {
 								}</p>
 								: undefined}
 							{"projects" in section && Object.prototype.toString.call(section.projects) === '[object Array]' && section.projects.length > 0 ?
-								<div className={styles["projects-div"]}>
+								<div className={styles["sections-div"]}>
 									{
 										section.projects.map((project, index) => (
 											<Project key={index} name={project.name} description={project.description}
@@ -56,4 +68,4 @@ function ProjectsPage() {
 	);
 }
 
-export default ProjectsPage;
+export default SectionPage;

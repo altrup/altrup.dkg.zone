@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 
-export const onProjectUpdate = ({ supabaseURL, supabaseAnonKey, supabaseTableName }, callback) => {
+export const onSectionUpdate = ({ supabaseURL, supabaseAnonKey, supabaseTableName }, callback) => {
 	const supabase = createClient(supabaseURL, supabaseAnonKey);
 	let channel = null;
 

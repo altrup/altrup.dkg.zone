@@ -2,15 +2,15 @@
 // ex. title, url, element
 
 // get pageUrl from pageName
-const pageUrl = new Map([
+const pageUrl = new Map<string, string>([
 	['home', '/'],
-	['projects', '/projects'],
+	...(__SECTIONS__.map<[string, string]>(section => [section.name, `/${section.name}`])),
 	['contacts', '/contacts']
 ]);
 // get pageTitle from pageName
 const pageTitle = new Map([
 	['home', 'Altrup'],
-	['projects', 'Altrup - Projects'],
+	...(__SECTIONS__.map<[string, string]>(section => [section.name, `Altrup - ${section.title}`])),
 	['contacts', 'Altrup - Contacts']
 ]);
 // pageName from pageUrl

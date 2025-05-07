@@ -3,7 +3,7 @@ import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import { SelectedImageContext } from "../root";
 
 import { isActiveElementSelectedWithTab } from "../../helper-functions/unFocus";
-import { ImageInfo } from "../../helper-functions/getProjects";
+import { ImageInfo } from "../../helper-functions/getSections";
 
 import transitionStyles from "../transitions.module.css";
 import styles from "./selected-image.module.css";

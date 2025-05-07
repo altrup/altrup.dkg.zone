@@ -1,37 +1,37 @@
-#projects-page {
+#sections-page {
 	box-sizing: border-box;
 	width: 100%;
 	padding: 0 10vw;
 	padding-top: 125px;
 }
-#projects-page-child {
+#sections-page-child {
 	width: 100%;
 }
-#projects-label {
+#sections-label {
 	font-size: 2.25em;
 	width: fit-content;
 	margin-bottom: 0;
 }
-#projects-description {
+#sections-description {
 	display: block;
 	width: fit-content;
 	margin-bottom: 0;
 	color: var(--color-description);
 }
-.project-type-div {
+.section-type-div {
 	box-sizing: border-box;
 	width: 100%;
 }
 @media (hover: hover) {
-	#projects-page div.project-type-div:hover {
+	#sections-page div.section-type-div:hover {
 		transform: scale(1.02);
 	}
 }
-.project-type-label {
+.section-type-label {
 	font-size: 1.8em;
 	margin: 2em 0 0 0;
 }
-.project-type-description {
+.section-type-description {
 	display: block;
 	width: fit-content;
 	max-width: min(100%, 500px);
@@ -41,11 +41,11 @@
 	
 	color: var(--color-description);
 }
-.project-type-description * {	
+.section-type-description * {	
 	font-size: 1em;
 	line-height: 1em;
 }
-.projects-div {
+.sections-div {
 	width: 100%;
 
 	display: flex;

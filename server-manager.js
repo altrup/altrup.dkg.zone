@@ -1,7 +1,7 @@
 import { spawn, exec } from 'child_process';
 import { loadEnv } from 'vite';
 
-import { onProjectUpdate } from './src/helper-functions/onProjectUpdate.js';
+import { onSectionUpdate } from './src/helper-functions/onSectionUpdate.js';
 
 // constants
 const isProduction = process.env.NODE_ENV === 'production';
@@ -39,7 +39,7 @@ process.on('exit', () => {
 });
 
 // run build command on projects change
-onProjectUpdate({
+onSectionUpdate({
 	supabaseURL: env.SUPABASE_URL,
 	supabaseAnonKey: env.SUPABASE_ANON_KEY,
 	supabaseTableName: env.SUPABASE_TABLE_NAME,
