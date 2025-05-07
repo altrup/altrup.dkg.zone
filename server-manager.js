@@ -55,6 +55,8 @@ onSectionUpdate({
 			stopCurrentServerProcess();
 			exec("npm run deploy", (error, stdout, stderr) => {
 				console.log(error, stdout, stderr);
+				// stop again just in case this is triggered multiple times at the same time
+				stopCurrentServerProcess();
 				stopCurrentServerProcess = startServer();
 			});
 		});
