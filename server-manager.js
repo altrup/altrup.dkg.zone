@@ -39,31 +39,44 @@ process.on('exit', () => {
 });
 
 // run build command on projects change
+let updating = Promise.resolve(); // when updating, this will be set to a promise which resolves when the build is done
+let updateQueued = false; // when an update is queued (because the last update is still running), this will be set to true
 onSectionUpdate({
 	supabaseURL: env.SUPABASE_URL,
 	supabaseAnonKey: env.SUPABASE_ANON_KEY,
 	supabaseTableName: env.SUPABASE_TABLE_NAME,
 }, () => {
-	if (isProduction) {
-		// rebuild the project
-		console.log("Project updated: rebuilding...");
-		exec("npm run build:without-deploy", (error, stdout, stderr) => {
-			console.log(error, stdout, stderr);
+	if (updateQueued) {
+		console.log("Project updated: update already queued, skipping...");
+		return;
+	}
 
-			// restart the server
-			console.log("Project updated: restarting server...");
-			stopCurrentServerProcess();
-			exec("npm run deploy", (error, stdout, stderr) => {
-				console.log(error, stdout, stderr);
-				// stop again just in case this is triggered multiple times at the same time
+	updateQueued = true;
+	console.log("Project updated: update queued...");
+	updating.then(() => {
+		updateQueued = false;
+		updating = new Promise((res) => {
+			if (isProduction) {
+				// rebuild the project
+				console.log("Project updated: rebuilding...");
+				exec("npm run build:without-deploy", (error, stdout, stderr) => {
+					console.log(error, stdout, stderr);
+
+					// restart the server
+					console.log("Project updated: restarting server...");
+					stopCurrentServerProcess();
+					exec("npm run deploy", (error, stdout, stderr) => {
+						console.log(error, stdout, stderr);
+						stopCurrentServerProcess = startServer();
+						res();
+					});
+				});
+			}
+			else {
+				console.log("Project updated: restarting server...");
 				stopCurrentServerProcess();
 				stopCurrentServerProcess = startServer();
-			});
+			}
 		});
-	}
-	else {
-		console.log("Project updated: restarting server...");
-		stopCurrentServerProcess();
-		stopCurrentServerProcess = startServer();
-	}
+	});
 });
