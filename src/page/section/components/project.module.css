@@ -1,7 +1,6 @@
 .project {
 	box-sizing: border-box;
-	padding: 1em;
-	margin: 0.75em 2em 0.75em 0.25em;
+	margin: 1.75em 3em 1.75em 1.25em;
 	width: min(100%, 500px);
 
 	flex-grow: 1;
@@ -9,7 +8,7 @@
 @media (max-width: 1000px) {
 	/* if max-width is less than 1000px, projects only stack vertically */
 	.project {
-		margin: 0.75em 0em;
+		margin: 1.75em 1em;
 	}
 }
 .project-child {
@@ -18,6 +17,17 @@
 	justify-content: flex-start;
 	align-items: center;
 	flex-wrap: wrap;
+
+	pointer-events: none;
+}
+.project-child.image-scroller {
+	margin-right: -4em;
+}
+.project-child.image {
+	margin-right: -2em;
+}
+.project-child * {
+	pointer-events: all;
 }
 .label {
 	display: flex;
@@ -44,6 +54,12 @@
 	flex-grow: 1;
 
 	margin: 0.75em 0;
+}
+.text.image-scroller {
+	margin-right: 4em;
+}
+.text.image {
+	margin-right: 2em;
 }
 .title {
 	margin: 0;
