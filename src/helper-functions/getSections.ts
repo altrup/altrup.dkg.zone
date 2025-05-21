@@ -48,7 +48,7 @@ export const getSections = (
 	const tableName = supabaseTableName;
 
 	return new Promise<Section[]>((resolve, reject) => {
-		supabase.from(tableName).select().then(({ data, error }: { data: { id: number, Sections: Section }[] | null, error: PostgrestError | null }) => {
+		supabase.from(tableName).select("id, Sections").then(({ data, error }: { data: { id: number, Sections: Section }[] | null, error: PostgrestError | null }) => {
 			if (error) {
 				reject(error);
 			}
