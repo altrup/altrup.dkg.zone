@@ -17,7 +17,7 @@ function ContactsPage() {
 				<div id={styles["contacts"]} className={interactiveClass}>
 					<a href="mailto:altrup@dkg.zone" className={clickableInteractiveClass}>altrup@dkg.zone</a>
 					<a href="mailto:eric.liu4@uwaterloo.ca" className={clickableInteractiveClass}>eric.liu4@uwaterloo.ca</a>
-					<a href="https://www.linkedin.com/in/ericl521/" target="_blank" className={clickableInteractiveClass} rel="noreferrer">LinkedIn</a>
+					<a href="https://www.linkedin.com/in/altrup/" target="_blank" className={clickableInteractiveClass} rel="noreferrer">LinkedIn</a>
 					<a href="https://github.com/altrup" target="_blank" className={clickableInteractiveClass} rel="noreferrer">GitHub</a>
 				</div>
 			</div>
