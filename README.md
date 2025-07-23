@@ -11,7 +11,7 @@ Guide to running the website
 - Clone repository
   
   ```bash
-  git clone https://github.com/EricL521/altrup.dkg.zone.git
+  git clone https://github.com/altrup/altrup.dkg.zone.git
   ```
 - Enter newly created folder
   
