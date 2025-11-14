@@ -33,24 +33,24 @@ function ImageScroller({ width, height, images, customStyle, arrowNavigation }: 
 		}
 	}, [height, imagesDiv]);
 
-	const widthStyle = useMemo(() => width? {width: width + 'px'}: undefined, [width]);
+	const widthStyle = useMemo(() => width? {width: `${String(width)}px`}: undefined, [width]);
 	const getClassStyle = useCallback((className: string) => {
 		return (customStyle && customStyle[className])?? styles[className];
 	}, [customStyle]);
 
-	const transitionClass = useMemo(() => [transitionStyles["interactive"], transitionStyles["clickable"]].join(' '), [transitionStyles]);
-	const roundedSquareTransitionClass = useMemo(() => [transitionClass, transitionStyles["rounded-square"]].join(' '), [transitionClass, transitionStyles]);
+	const transitionClass = useMemo(() => [transitionStyles["interactive"], transitionStyles["clickable"]].join(' '), []);
+	const roundedSquareTransitionClass = useMemo(() => [transitionClass, transitionStyles["rounded-square"]].join(' '), [transitionClass]);
 	return (
 		<div className={getClassStyle("images-div-parent")}>
 			{arrowNavigation? 
 				<div className={getClassStyle("arrow-navigation-div")}>
 					<div className={roundedSquareTransitionClass}>
-						<button className={[getClassStyle("arrow-img-button"), getClassStyle("left-button")].join(' ')} onClick={() => scrollIndex(-1)}>
+						<button className={[getClassStyle("arrow-img-button"), getClassStyle("left-button")].join(' ')} onClick={() => { scrollIndex(-1); }}>
 							<img src={arrow} className={[getClassStyle("arrow-img"), theme === "dark"? getClassStyle("inverted"): undefined].join(' ')} draggable="false" />
 						</button>
 					</div>
 					<div className={roundedSquareTransitionClass}>
-						<button className={[getClassStyle("arrow-img-button"), getClassStyle("right-button")].join(' ')} onClick={() => scrollIndex(1)}>
+						<button className={[getClassStyle("arrow-img-button"), getClassStyle("right-button")].join(' ')} onClick={() => { scrollIndex(1); }}>
 							<img src={arrow} className={[getClassStyle("arrow-img"), theme === "dark"? getClassStyle("inverted"): undefined].join(' ')} draggable="false" />
 						</button>
 					</div>

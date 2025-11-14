@@ -5,8 +5,8 @@ import styles from "./contacts-page.module.css";
 import transitionStyles from '../transitions.module.css';
 
 function ContactsPage() {
-	const interactiveClass = useMemo(() => [styles["interactive"], transitionStyles["interactive"]].join(' '), [transitionStyles]);
-	const clickableInteractiveClass = useMemo(() => [interactiveClass, transitionStyles["clickable"]].join(' '), [interactiveClass, transitionStyles]);
+	const interactiveClass = useMemo(() => [styles["interactive"], transitionStyles["interactive"]].join(' '), []);
+	const clickableInteractiveClass = useMemo(() => [interactiveClass, transitionStyles["clickable"]].join(' '), [interactiveClass]);
 	return (
 		<Element id={styles["contacts-page"]} name='contacts'>
 			<div className={interactiveClass}>

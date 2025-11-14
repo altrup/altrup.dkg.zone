@@ -9,7 +9,7 @@ function ImagePlaceholder({ image, customWidthStyle, customFontText, customClass
 }) {
 	const sizeStyle = useMemo(() => ({
 		aspectRatio: image.aspectRatio,
-		width: customWidthStyle?? image.aspectRatio * image.height + 'px'
+		width: customWidthStyle ?? `${String(image.aspectRatio * image.height)}px`
 	}), [image, customWidthStyle]);
 
 	return (

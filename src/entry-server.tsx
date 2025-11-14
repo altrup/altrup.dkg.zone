@@ -3,7 +3,7 @@ import { type RenderToPipeableStreamOptions, renderToPipeableStream } from 'reac
 
 import Root from "./page/root";
 
-export async function render(
+export function render(
 	_url: string, 
 	_ssrManifest?: string, 
 	options?: RenderToPipeableStreamOptions
