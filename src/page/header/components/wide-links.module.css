@@ -14,18 +14,9 @@
 #links div {
 	display: flex;
 }
-#links button:not(#logo-parent) a {
+#links a:not(#logo) {
 	filter: drop-shadow(-0.1em -0.1em 0.1em var(--background-color)) drop-shadow(-0.1em 0.1em 0.1em var(--background-color)) 
 	drop-shadow(0.1em -0.1em 0.1em var(--background-color)) drop-shadow(0.1em 0.1em 0.1em var(--background-color));
-}
-#links button {
-	background-color: transparent;
-	border: 0;
-	padding: 0;
-	margin: 0;
-	font-size: 1em;
-
-	cursor: pointer;
 }
 #links a {
 	position: relative;
@@ -42,11 +33,6 @@
 	font-size: 1em;
 	text-decoration: none;
 	cursor: pointer;
-	
-	pointer-events: none;
-}
-#links a * {
-	pointer-events: none;
 }
 #links a:not(#logo)::after {
 	content: "";
@@ -65,35 +51,32 @@
 	transition-property: all, width;
 }
 @media (hover: hover) {
-	#links button:hover a:not(#logo)::after {
+	#links a:hover:not(#logo)::after {
 		width: 35%;
 	}
 }
-#links button:focus-visible a:not(#logo)::after {
+#links a:focus-visible:not(#logo)::after {
 	width: 35%;
 }
 /* NOTE: we use calculate for width to account for padding */
-#links button a.selected:not(#logo)::after {
+#links a.selected:not(#logo)::after {
 	width: calc(100% - 2em);
-}
-#links #logo-parent-parent {
-	border-radius: 100vh;
-	padding: 0.5em;
-	margin: 0 0.5em;
 }
 #links #logo-parent {
 	border-radius: 100vh;
+	padding: 0.5em;
+	margin: 0 0.5em;
 }
 #links a#logo {
 	padding: 0.2em;
 	border-radius: 100vh;
 	background-color: var(--background-color-2);
 }
-#logo-parent:not(:focus-within, :hover, :active):has(a#logo.selected) {
+#logo:not(:focus-within, :hover, :active).selected {
 	transform: scale(1.05);
 }
 @media (hover: none) {
-	#logo-parent:active:has(a#logo.selected) {
+	#logo:active:has(a#logo.selected) {
 		transform: scale(1);
 	}
 }

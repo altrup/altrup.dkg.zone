@@ -1,7 +1,7 @@
 // component for links when we need to save some space
 import { useCallback, useContext, useMemo, useReducer } from "react";
 
-import { Link, scroller } from "react-scroll";
+import { Link } from "react-scroll";
 
 import styles from "./slim-links.module.css";
 import transitionStyles from "../../transitions.module.css";
@@ -9,6 +9,7 @@ import transitionStyles from "../../transitions.module.css";
 import arrow from "/icons/arrow.svg";
 
 import { ThemeContext } from "../../root";
+import unFocus from "../../../helper-functions/unFocus";
 
 function SlimLinks({ updatePageInfo }: { updatePageInfo: (pageName: string) => void }) {
 	// import context
@@ -21,52 +22,43 @@ function SlimLinks({ updatePageInfo }: { updatePageInfo: (pageName: string) => v
 	const onLinkClick = useCallback((name: string) => {
 		updatePageInfo(name);
 
-		scroller.scrollTo(name, {
-			containerId: "main-page",
-			smooth: true,
-			duration: 500,
-			offset: name == "home" ? 0 : 5, // Scroll extra to fix spy not correctly updating on mobile chrome
-		});
+		unFocus();
 	}, [updatePageInfo]);
 
-	const transitionClass = useMemo(() => [transitionStyles["interactive"], transitionStyles["clickable"]].join(' '), [transitionStyles]);
-	const roundedSquareTransitionClass = useMemo(() => [transitionClass, transitionStyles["rounded-square"]].join(' '), [transitionClass, transitionStyles]);
+	const transitionClass = useMemo(() => [transitionStyles["interactive"], transitionStyles["clickable"]].join(' '), []);
+	const roundedSquareTransitionClass = useMemo(() => [transitionClass, transitionStyles["rounded-square"]].join(' '), [transitionClass]);
 	return (
 		<div id={styles["links-parent"]}>
 			<div id={styles["links"]}>
 				<div id={styles["logo-parent"]} className={roundedSquareTransitionClass}>
-					<button id={styles["logo"]} onClick={() => { onLinkClick("home"); }}>
-						<Link href="/" to="home" containerId="main-page" spy={true} tabIndex={-1}>
-							<img src="/icon-small.png"></img>
-						</Link>
-					</button>
+					<Link id={styles["logo"]} smooth duration={500} offset={0} spy={true}
+						containerId="main-page" onClick={() => { onLinkClick("home"); }} href="/" to="home" >
+						<img src="/icon-small.png"></img>
+					</Link>
 				</div>
 				<div id={styles["hidden-links-parent"]}>
 					<div id={styles["hidden-links"]} className={showLinks ? styles["showing"] : undefined}>
 						<div className={transitionClass}>
-							<button onClick={() => { onLinkClick("home"); }}>
-								<Link href="/" to="home" activeClass={styles["selected"]} containerId="main-page" spy={true} tabIndex={-1}>
-									Home
-								</Link>
-							</button>
+							<Link activeClass={styles["selected"]} smooth duration={500} offset={0} spy={true}
+								containerId="main-page" onClick={() => { onLinkClick("home"); }} href="/" to="home" >
+								Home
+							</Link>
 						</div>
 						{
 							__SECTIONS__.map(section => (
 								<div className={transitionClass} key={section.name}>
-									<button onClick={() => { onLinkClick(section.name); }}>
-										<Link href={`/${section.name}`} to={section.name} activeClass={styles["selected"]} containerId="main-page" spy={true} tabIndex={-1}>
-											{section.title}
-										</Link>
-									</button>
+									<Link activeClass={styles["selected"]} smooth duration={500} offset={section.name == "home" ? 0 : 5} spy={true}
+										containerId="main-page" onClick={() => { onLinkClick(section.name); }} href={`/${section.name}`} to={section.name}>
+										{section.title}
+									</Link>
 								</div>
 							))
 						}
 						<div className={transitionClass}>
-							<button onClick={() => { onLinkClick("contacts"); }}>
-								<Link href="/contacts" to="contacts" activeClass={styles["selected"]} containerId="main-page" spy={true} tabIndex={-1}>
-									Contacts
-								</Link>
-							</button>
+							<Link activeClass={styles["selected"]} smooth duration={500} offset={5} spy={true}
+								containerId="main-page" onClick={() => { onLinkClick("contacts"); }} href="/contacts" to="contacts">
+								Contacts
+							</Link>
 						</div>
 					</div>
 				</div>

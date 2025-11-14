@@ -35,27 +35,8 @@
 	background-color: transparent;
 	font-size: 1em;
 	text-decoration: none;
-
-	pointer-events: none;
-}
-#links a * {
-	pointer-events: none;
 }
 
-#links-parent button {
-	background-color: transparent;
-	border: 0;
-	padding: 0;
-	margin: 0;
-	font-size: 1em;
-
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-
-	cursor: pointer;
-}
 #hidden-links a::after {
 	content: "";
 	width: 0px;
@@ -73,24 +54,24 @@
 	transition-property: width, all;
 }
 @media (hover: hover) {
-	#links button:not(#logo):hover a::after {
+	#links a:not(#logo):hover::after {
 		width: 35%;
 	}
-	#links button:not(#logo):hover a {
+	#links a:not(#logo):hover {
 		margin-bottom: 0.2em;
 	}
 }
-#links button:focus-visible:not(#logo) a::after {
+#links a:focus-visible:not(#logo)::after {
 	width: 35%;
 }
-#links button:focus-visible:not(#logo) a {
+#links a:focus-visible:not(#logo) {
 	margin-bottom: 0.2em;
 }
 /* NOTE: we use calculate for width to account for 1em of padding */
-#links button:not(#logo) a.selected::after {
+#links a:not(#logo).selected::after {
 	width: calc(100% - 1em);
 }
-#links button:not(#logo) a.selected {
+#links a:not(#logo).selected {
 	margin-bottom: 0.2em;
 }
 #links #logo-parent {
@@ -101,7 +82,7 @@
 
 	border-radius: 100vh;
 }
-#links #logo a {
+#links #logo {
 	border-radius: 100vh;
 	border: 1px solid var(--color-1);
 }
@@ -122,7 +103,7 @@
 	justify-content: flex-start;
 	align-items: center;
 }
-#hidden-links button {
+#hidden-links a {
 	visibility: hidden;
 }
 #hidden-links a {
@@ -141,7 +122,7 @@
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
 }
-#hidden-links.showing button, #hidden-links button:has(a.selected) {
+#hidden-links.showing a, #hidden-links a.selected {
 	visibility: visible;
 }
 
