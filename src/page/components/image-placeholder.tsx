@@ -4,8 +4,8 @@ import { ImageInfo } from "./selected-image";
 
 import styles from "./image-placeholder.module.css";
 
-function ImagePlaceholder({ image, customWidthStyle, customFontText, customClass }: { 
-	image: ImageInfo, customWidthStyle?: string, customFontText?: string, customClass?: string 
+function ImagePlaceholder({ image, customWidthStyle, customFontText, customClass }: {
+	image: ImageInfo, customWidthStyle?: string, customFontText?: string, customClass?: string
 }) {
 	const sizeStyle = useMemo(() => ({
 		aspectRatio: image.aspectRatio,
@@ -15,7 +15,7 @@ function ImagePlaceholder({ image, customWidthStyle, customFontText, customClass
 	return (
 		<div className={[styles["parent-div"], customClass].join(' ')} style={sizeStyle}>
 			<div className={styles["scroll-div"]}>
-				<p className={styles["image-alt"]}>{customFontText?? image.alt}</p>
+				<span className={styles["image-alt"]} role="img">{customFontText ?? image.alt}</span>
 			</div>
 		</div>
 	);

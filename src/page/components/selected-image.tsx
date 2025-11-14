@@ -77,7 +77,7 @@ function SelectedImage({ showImage, image }: { showImage: boolean, image?: Image
 	return (
 		<div id={styles["selected-image-background"]} className={!showImage ? styles["hidden"] : ""}
 			onClick={() => { setShowImage(false) }}>
-			<div id={styles["selected-image-content"]}>
+			<figure id={styles["selected-image-content"]}>
 				<div id={styles["selected-image-parent"]} className={transitionStyles["interactive"]}>
 					<button ref={selectedImageButton}>
 						<div id={styles["selected-image-loading-position"]}>
@@ -85,14 +85,14 @@ function SelectedImage({ showImage, image }: { showImage: boolean, image?: Image
 								<ImagePlaceholder image={image} customClass={[styles["placeholder"], imageLoaded ? styles["hidden"] : undefined].join(' ')}
 									customWidthStyle={`${String(imageWidth)}px`} customFontText={"Loading ..."} />
 								: undefined}
-							<img id={styles["selected-image"]} className={!imageLoaded ? styles["loading"] : undefined} src={image?.full} alt={image?.alt} style={imageSizeStyle}
+							<img id={styles["selected-image"]} className={!imageLoaded ? styles["loading"] : undefined} src={image?.full} style={imageSizeStyle}
 								onLoad={() => { setImageLoaded(true); }} onError={() => { setImageLoaded(false); }} />
 						</div>
 					</button>
 				</div>
 
-				<p id={styles["selected-image-description"]} className={transitionStyles["interactive"]}>{image?.alt}</p>
-			</div>
+				<figcaption id={styles["selected-image-description"]} className={transitionStyles["interactive"]}>{image?.alt}</figcaption>
+			</figure>
 		</div>
 	);
 }
