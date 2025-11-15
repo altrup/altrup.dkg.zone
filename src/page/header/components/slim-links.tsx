@@ -1,7 +1,7 @@
 // component for links when we need to save some space
 import { useCallback, useContext, useMemo, useReducer } from "react";
 
-import { Link } from "react-scroll";
+import { Link, scroller } from "react-scroll";
 
 import styles from "./slim-links.module.css";
 import transitionStyles from "../../transitions.module.css";
@@ -22,6 +22,14 @@ function SlimLinks({ updatePageInfo }: { updatePageInfo: (pageName: string) => v
 	const onLinkClick = useCallback((name: string) => {
 		updatePageInfo(name);
 
+		// NOTE: can't use offset in Link because it affects both spy and scroll
+		scroller.scrollTo(name, {
+			containerId: "main-page",
+			smooth: true,
+			duration: 500,
+			offset: name == "home" ? 0 : 5, // Scroll extra to fix spy not correctly updating on mobile chrome
+		});
+
 		unFocus();
 	}, [updatePageInfo]);
 
@@ -31,7 +39,7 @@ function SlimLinks({ updatePageInfo }: { updatePageInfo: (pageName: string) => v
 		<div id={styles["links-parent"]}>
 			<div id={styles["links"]}>
 				<div id={styles["logo-parent"]} className={roundedSquareTransitionClass}>
-					<Link id={styles["logo"]} smooth duration={500} offset={0} spy={true}
+					<Link id={styles["logo"]} spy={true}
 						containerId="main-page" onClick={() => { onLinkClick("home"); }} href="/" to="home" >
 						<img src="/icon-small.png"></img>
 					</Link>
@@ -39,7 +47,7 @@ function SlimLinks({ updatePageInfo }: { updatePageInfo: (pageName: string) => v
 				<div id={styles["hidden-links-parent"]}>
 					<div id={styles["hidden-links"]} className={showLinks ? styles["showing"] : undefined}>
 						<div className={transitionClass}>
-							<Link activeClass={styles["selected"]} smooth duration={500} offset={0} spy={true}
+							<Link activeClass={styles["selected"]} spy={true}
 								containerId="main-page" onClick={() => { onLinkClick("home"); }} href="/" to="home" >
 								Home
 							</Link>
@@ -47,7 +55,7 @@ function SlimLinks({ updatePageInfo }: { updatePageInfo: (pageName: string) => v
 						{
 							__SECTIONS__.map(section => (
 								<div className={transitionClass} key={section.name}>
-									<Link activeClass={styles["selected"]} smooth duration={500} offset={section.name == "home" ? 0 : 5} spy={true}
+									<Link activeClass={styles["selected"]} spy={true}
 										containerId="main-page" onClick={() => { onLinkClick(section.name); }} href={`/${section.name}`} to={section.name}>
 										{section.title}
 									</Link>
@@ -55,7 +63,7 @@ function SlimLinks({ updatePageInfo }: { updatePageInfo: (pageName: string) => v
 							))
 						}
 						<div className={transitionClass}>
-							<Link activeClass={styles["selected"]} smooth duration={500} offset={5} spy={true}
+							<Link activeClass={styles["selected"]} spy={true}
 								containerId="main-page" onClick={() => { onLinkClick("contacts"); }} href="/contacts" to="contacts">
 								Contacts
 							</Link>
