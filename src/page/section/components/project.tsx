@@ -24,7 +24,7 @@ function Project({name, description, links, image, imageScroller}: Project) {
 			<div className={[styles["project-child"], imageScroller? styles["image-scroller"]: image? styles["image"]: undefined].join(' ')}>
 				{imageScroller?
 					<ImageScroller customStyle={projectImageScrollerStyles} width={imageScrollerWidth} height={imageScroller.height} 
-						images={imageScroller.images} arrowNavigation />
+						centerFirstImage={imageScroller.centerFirstImage} images={imageScroller.images} arrowNavigation />
 				: image?
 					<InteractiveImage image={image} customClass={styles["custom-image-margin"]} />
 				: undefined}

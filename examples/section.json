@@ -7,6 +7,41 @@
 			"title": "Software Projects",
 			"projects": [
 				{
+					"name": "AI model Ablater",
+					"image": {
+						"alt": "A screenshot of the Token Activation Viewer",
+						"full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/projects/model-ablater-token-activation-viewer.png",
+						"height": 100,
+						"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/projects/model-ablater-token-activation-viewer.png",
+						"aspectRatio": 1.668
+					},
+					"links": [
+						{
+							"href": "https://github.com/altrup/model-ablater",
+							"text": "Code"
+						}
+					],
+					"description": "A collection of scripts that provide a GUI for inspecting and ablating transformer models easily"
+				},
+				{
+					"name": "RingVC",
+					"image": {
+						"alt": "RingVC Logo",
+						"full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/svg/projects/RingVC.svg",
+						"height": 100,
+						"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/svg/projects/RingVC.svg",
+						"aspectRatio": 1,
+						"dropShadowWithTheme": "dark"
+					},
+					"links": [
+						{
+							"href": "https://github.com/altrup/RingVC",
+							"text": "Code"
+						}
+					],
+					"description": "A discord bot that allows you to easily ping people to join you in a Discord server voice chat"
+				},
+				{
 					"name": "Schmek",
 					"image": {
 						"alt": "A sample frame of a Schmek game",
@@ -26,12 +61,107 @@
 						}
 					],
 					"description": "A twist on the classic snake game, where players can upgrade abilities and create simple combos"
+				},
+				{
+					"name": "Rotating Arrow Game",
+					"links": [
+						{
+							"href": "https://altrup.github.io/Rotating-Arrow-Game",
+							"text": "Demo"
+						},
+						{
+							"href": "https://github.com/altrup/Rotating-Arrow-Game",
+							"text": "Code"
+						}
+					],
+					"description": "An online implementation of an interesting puzzle game I found in a mobile app"
+				},
+				{
+					"name": "Rotating Arrow Game AI",
+					"links": [
+						{
+							"href": "https://github.com/altrup/Rotating-Arrow-Game-AI",
+							"text": "Code"
+						}
+					],
+					"description": "An AI I trained using Keras Core to play the Rotating Arrow Game. Works surprisingly well, at least for the 3x3 and 4x4 versions"
+				},
+				{
+					"name": "ParticleJS",
+					"links": [
+						{
+							"href": "https://altrup.github.io/particlejs/test/test.html",
+							"text": "Demo"
+						},
+						{
+							"href": "https://github.com/altrup/particlejs",
+							"text": "Code"
+						}
+					],
+					"description": "In my opinion, satisfying, but very ineffecient particle simulation. Warning: flash bang for dark mode users"
+				},
+				{
+					"name": "Soldier Tycoon",
+					"links": [
+						{
+							"href": "https://altrup.github.io/Soldier-Tycoon",
+							"text": "Demo"
+						},
+						{
+							"href": "https://github.com/altrup/Soldier-Tycoon",
+							"text": "Code"
+						}
+					],
+					"description": "One of my first games! A one file monstrocity where you defend a castle from raiders. Also a flash bang"
+				}
+			]
+		},
+		{
+			"title": "Electrical Projects",
+			"projects": [
+				{
+					"name": "Framework Dual USB-C Expansion Card",
+					"links": [
+						{
+							"href": "https://github.com/altrup/Framework-2-USB-C-Expansion-Card",
+							"text": "Altium Project"
+						}
+					],
+					"description": "WIP. My attempt at a Dual USB-C Expansion Card featuring upstream Power Delivery"
 				}
 			]
 		},
 		{
 			"title": "Mechanical Projects",
 			"projects": [
+				{
+					"name": "Svejk Dice",
+					"description": "Custom wood dice made with a CNC machine and a custom jig. Designed using Inkscape because I like open source stuff",
+					"imageScroller": {
+						"height": 200,
+						"images": [
+							{
+								"alt": "Dice with Svejk on one face, with wood finish",
+								"full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/projects/svejk-dice-finish.jpg",
+								"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/projects/svejk-dice-finish.jpg",
+								"aspectRatio": 1.663455362877328
+							},
+							{
+								"alt": "A painted die with Svejk on one face",
+								"full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/projects/svejk-dice-paint.jpg",
+								"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/projects/svejk-dice-paint.jpg",
+								"aspectRatio": 0.9506987577639752
+							},
+							{
+								"alt": "A jig for holding dice while CNC milling",
+								"full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/projects/svejk-dice-jig.jpg",
+								"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/projects/svejk-dice-jig.jpg",
+								"aspectRatio": 0.9453471196454948
+							}
+						],
+						"centerFirstImage": true
+					}
+				},
 				{
 					"name": "Framework 16 GPU Case",
 					"links": [
@@ -62,7 +192,8 @@
 								"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/projects/framework-gpu-case-top.jpg",
 								"aspectRatio": 1.016559337626495
 							}
-						]
+						],
+						"centerFirstImage": true
 					}
 				}
 			],
@@ -86,6 +217,54 @@
 						"full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/crossview/nighttime-street.jpg",
 						"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/crossview/nighttime-street.jpg",
 						"aspectRatio": 1.3648587055606198
+					},
+					{
+						"alt": "Cross view image of some lights reflecting in water",
+						"full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/crossview/water-reflection.jpg",
+						"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/crossview/water-reflection.jpg",
+						"aspectRatio": 1.4823444631275522
+					},
+					{
+						"alt": "Cross view image of some fish in a pond",
+						"full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/crossview/fish-pond.jpg",
+						"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/crossview/fish-pond.jpg",
+						"aspectRatio": 1.4259151656013946
+					},
+					{
+						"alt": "Cross view image of a bag of milk",
+						"full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/crossview/bag-milk.jpg",
+						"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/crossview/bag-milk.jpg",
+						"aspectRatio": 1.297271872060207
+					},
+					{
+						"alt": "Cross view image of a burger I got at a restaurant",
+						"full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/crossview/burger.jpg",
+						"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/crossview/burger.jpg",
+						"aspectRatio": 1.1262814538676607
+					},
+					{
+						"alt": "Cross view image of a die with Svejk on one face",
+						"full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/crossview/svejk-dice.jpg",
+						"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/crossview/svejk-dice.jpg",
+						"aspectRatio": 1.2253960633701393
+					},
+					{
+						"alt": "Cross view image of a Framework 16 GPU with a case over it",
+						"full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/crossview/framework-gpu-case.jpg",
+						"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/crossview/framework-gpu-case.jpg",
+						"aspectRatio": 1.3205307262569832
+					},
+					{
+						"alt": "Cross view image of a butterfly on a leaf",
+						"full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/crossview/butterfly.jpg",
+						"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/crossview/butterfly.jpg",
+						"aspectRatio": 1.397617956939991
+					},
+					{
+						"alt": "Cross view image of a mushroom plush I made (has a face now)",
+						"full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/crossview/mushroom-plush.jpg",
+						"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/crossview/mushroom-plush.jpg",
+						"aspectRatio": 1.1899583526145303
 					}
 				]
 			}

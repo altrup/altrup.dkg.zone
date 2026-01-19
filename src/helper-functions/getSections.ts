@@ -4,6 +4,7 @@ import { createClient, PostgrestError } from '@supabase/supabase-js';
 export type StyleOptions = "dark" | "light" | "none" | "both";
 export type ImageInfo = { preview: string, full: string, alt: string, aspectRatio: number, height: number, dropShadowWithTheme?: StyleOptions };
 export type ImageList = {
+	centerFirstImage: boolean,
 	height: number,
 	images: (Omit<ImageInfo, "height">)[]
 };

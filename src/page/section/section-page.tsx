@@ -58,7 +58,8 @@ function SectionPage({
 								</div>
 								: undefined}
 							{"imageScroller" in section && isImageList(section.imageScroller) ?
-								<ImageScroller height={section.imageScroller.height} images={section.imageScroller.images} arrowNavigation />
+								<ImageScroller height={section.imageScroller.height} images={section.imageScroller.images} 
+									centerFirstImage={section.imageScroller.centerFirstImage} arrowNavigation />
 								: undefined}
 						</div>
 					))
