@@ -59,7 +59,7 @@ function ImageScroller({ width, height, images, customStyle, arrowNavigation, ce
 			<div ref={setImagesDiv} tabIndex={-1} className={getClassStyle("images-div")} style={widthStyle}>
 				{images.map((image, index) => (
 					<InteractiveImage key={index} scrollContainer={imagesDiv ?? undefined} image={{ ...image, height }} customStyle={index == 0 && centerFirstImage && width ? {
-						marginLeft: String(width - (image.aspectRatio * height)) + "px",
+						marginLeft: String((width - (image.aspectRatio * height))/2) + "px",
 					} : undefined}
 						customClass={[index == 0 ? styles["first-image"] : index == images.length - 1 ? styles["last-image"] : undefined, getClassStyle("interactive-image")].join(' ')} />
 				))}
