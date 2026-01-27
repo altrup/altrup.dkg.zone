@@ -77,6 +77,7 @@ onSectionUpdate(
           console.log("Project updated: restarting server...");
           stopCurrentServerProcess();
           stopCurrentServerProcess = startServer();
+          res();
         }
       });
     });
