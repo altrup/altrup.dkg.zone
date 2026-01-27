@@ -1,0 +1,341 @@
+[
+  {
+    "name": "projects",
+    "title": "Projects",
+    "description": "Some projects and things I'm interested in",
+    "subSections": [
+      {
+        "title": "Electrical Projects",
+        "projects": [
+          {
+            "name": "Dual USB-C Expansion Card",
+            "image": {
+              "alt": "Current Schematic for Framework Dual USB-C Expansion Card",
+              "full": "https://altrup.github.io/Framework-2-USB-C-Expansion-Card/Framework 2 USB-C Expansion Card.pdf",
+              "height": 200,
+              "iframe": true,
+              "preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/projects/expansion-card-architecture.png",
+              "aspectRatio": 1.4,
+              "dropShadowWithTheme": "light"
+            },
+            "links": [
+              {
+                "href": "https://github.com/altrup/Framework-2-USB-C-Expansion-Card",
+                "text": "Files"
+              }
+            ],
+            "description": "WIP. My attempt at a Framework Dual USB-C Expansion Card featuring upstream Power Delivery"
+          }
+        ]
+      },
+      {
+        "title": "Software Projects",
+        "projects": [
+          {
+            "name": "AI model Ablater",
+            "image": {
+              "alt": "A screenshot of the Token Activation Viewer",
+              "full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/projects/model-ablater-token-activation-viewer.png",
+              "height": 100,
+              "preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/projects/model-ablater-token-activation-viewer.png",
+              "aspectRatio": 1.668
+            },
+            "links": [
+              {
+                "href": "https://github.com/altrup/model-ablater",
+                "text": "Code"
+              }
+            ],
+            "description": "A collection of scripts that provide a GUI for inspecting and ablating transformer models easily"
+          },
+          {
+            "name": "RingVC",
+            "image": {
+              "alt": "RingVC Logo",
+              "full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/svg/projects/RingVC.svg",
+              "height": 100,
+              "preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/svg/projects/RingVC.svg",
+              "aspectRatio": 1,
+              "dropShadowWithTheme": "dark"
+            },
+            "links": [
+              { "href": "https://github.com/altrup/RingVC", "text": "Code" }
+            ],
+            "description": "A discord bot that allows you to easily ping people to join you in a Discord server voice chat"
+          },
+          {
+            "name": "Schmek",
+            "image": {
+              "alt": "A sample frame of a Schmek game",
+              "full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/svg/projects/Schmek.svg",
+              "height": 100,
+              "preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/svg/projects/Schmek.svg",
+              "aspectRatio": 1.25
+            },
+            "links": [
+              { "href": "https://schmek.dkg.zone", "text": "Demo" },
+              { "href": "https://github.com/altrup/Schmek", "text": "Code" }
+            ],
+            "description": "A twist on the classic snake game, where players can upgrade abilities and create simple combos"
+          },
+          {
+            "name": "Rotating Arrow Game",
+            "links": [
+              {
+                "href": "https://altrup.github.io/Rotating-Arrow-Game",
+                "text": "Demo"
+              },
+              {
+                "href": "https://github.com/altrup/Rotating-Arrow-Game",
+                "text": "Code"
+              }
+            ],
+            "description": "An online implementation of an interesting puzzle game I found in a mobile app"
+          },
+          {
+            "name": "Rotating Arrow Game AI",
+            "links": [
+              {
+                "href": "https://github.com/altrup/Rotating-Arrow-Game-AI",
+                "text": "Code"
+              }
+            ],
+            "description": "An AI I trained using Keras Core to play the Rotating Arrow Game. Works surprisingly well, at least for the 3x3 and 4x4 versions"
+          },
+          {
+            "name": "ParticleJS",
+            "links": [
+              {
+                "href": "https://altrup.github.io/particlejs/test/test.html",
+                "text": "Demo"
+              },
+              { "href": "https://github.com/altrup/particlejs", "text": "Code" }
+            ],
+            "description": "In my opinion, satisfying, but very ineffecient particle simulation. Warning: flash bang for dark mode users"
+          },
+          {
+            "name": "Soldier Tycoon",
+            "links": [
+              {
+                "href": "https://altrup.github.io/Soldier-Tycoon",
+                "text": "Demo"
+              },
+              {
+                "href": "https://github.com/altrup/Soldier-Tycoon",
+                "text": "Code"
+              }
+            ],
+            "description": "One of my first games! A one file monstrocity where you defend a castle from raiders. Also a flash bang"
+          }
+        ]
+      },
+      {
+        "title": "Mechanical Projects",
+        "projects": [
+          {
+            "name": "Svejk Dice",
+            "description": "Custom wood dice made with a CNC machine and a custom jig. Designed using Inkscape because I like open source stuff",
+            "imageScroller": {
+              "height": 200,
+              "images": [
+                {
+                  "alt": "Dice with Svejk on one face, with wood finish",
+                  "full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/projects/svejk-dice-finish.jpg",
+                  "preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/projects/svejk-dice-finish.jpg",
+                  "aspectRatio": 1.663455362877328
+                },
+                {
+                  "alt": "A painted die with Svejk on one face",
+                  "full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/projects/svejk-dice-paint.jpg",
+                  "preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/projects/svejk-dice-paint.jpg",
+                  "aspectRatio": 0.9506987577639752
+                },
+                {
+                  "alt": "A jig for holding dice while CNC milling",
+                  "full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/projects/svejk-dice-jig.jpg",
+                  "preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/projects/svejk-dice-jig.jpg",
+                  "aspectRatio": 0.9453471196454948
+                }
+              ],
+              "centerFirstImage": true
+            }
+          },
+          {
+            "name": "Framework 16 GPU Case",
+            "links": [
+              {
+                "href": "https://github.com/altrup/Framework-16-GPU-Case",
+                "text": "STL Models"
+              }
+            ],
+            "description": "A 3d-printed case for my Framework 16 GPU and Expansion Bay Shell when not in use",
+            "imageScroller": {
+              "height": 200,
+              "images": [
+                {
+                  "alt": "An upside down Framework 16 GPU with a case halfway over it",
+                  "full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/projects/framework-gpu-case-half.jpg",
+                  "preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/projects/framework-gpu-case-half.jpg",
+                  "aspectRatio": 1.0475750577367207
+                },
+                {
+                  "alt": "An upside down Framework 16 GPU with a case over it",
+                  "full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/projects/framework-gpu-case-bottom.jpg",
+                  "preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/projects/framework-gpu-case-bottom.jpg",
+                  "aspectRatio": 1.0431510286001004
+                },
+                {
+                  "alt": "A right side up Framework 16 GPU with a case over it",
+                  "full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/projects/framework-gpu-case-top.jpg",
+                  "preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/projects/framework-gpu-case-top.jpg",
+                  "aspectRatio": 1.016559337626495
+                }
+              ],
+              "centerFirstImage": true
+            }
+          }
+        ],
+        "description": "At least what I have photos of"
+      },
+      {
+        "title": "Cross View Images",
+        "description": [
+          "Cross your eyes and try to make the images overlap! For more info about cross view and a tutorial, check out ",
+          {
+            "href": "https://www.reddit.com/r/CrossView/wiki/index/",
+            "text": "this"
+          },
+          " Reddit post"
+        ],
+        "imageScroller": {
+          "height": 200,
+          "images": [
+            {
+              "alt": "Cross view image of a street at night",
+              "full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/crossview/nighttime-street.jpg",
+              "preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/crossview/nighttime-street.jpg",
+              "aspectRatio": 1.3648587055606198
+            },
+            {
+              "alt": "Cross view image of some lights reflecting in water",
+              "full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/crossview/water-reflection.jpg",
+              "preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/crossview/water-reflection.jpg",
+              "aspectRatio": 1.4823444631275522
+            },
+            {
+              "alt": "Cross view image of some fish in a pond",
+              "full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/crossview/fish-pond.jpg",
+              "preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/crossview/fish-pond.jpg",
+              "aspectRatio": 1.4259151656013946
+            },
+            {
+              "alt": "Cross view image of a seagull",
+              "full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/crossview/seagull.jpg",
+              "preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/crossview/seagull.jpg",
+              "aspectRatio": 1.337617627
+            },
+            {
+              "alt": "Cross view image of a burger I got at a restaurant",
+              "full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/crossview/burger.jpg",
+              "preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/crossview/burger.jpg",
+              "aspectRatio": 1.1262814538676607
+            },
+            {
+              "alt": "Cross view image of a die with Svejk on one face",
+              "full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/crossview/svejk-dice.jpg",
+              "preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/crossview/svejk-dice.jpg",
+              "aspectRatio": 1.2253960633701393
+            },
+            {
+              "alt": "Cross view image of a Framework 16 GPU with a case over it",
+              "full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/crossview/framework-gpu-case.jpg",
+              "preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/crossview/framework-gpu-case.jpg",
+              "aspectRatio": 1.3205307262569832
+            },
+            {
+              "alt": "Cross view image of a butterfly on a leaf",
+              "full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/crossview/butterfly.jpg",
+              "preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/crossview/butterfly.jpg",
+              "aspectRatio": 1.397617956939991
+            },
+            {
+              "alt": "Cross view image of a mushroom plush I made (has a face now)",
+              "full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/crossview/mushroom-plush.jpg",
+              "preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/crossview/mushroom-plush.jpg",
+              "aspectRatio": 1.1899583526145303
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "experience",
+    "title": "Experience",
+    "description": "Co-ops and design teams",
+    "subSections": [
+      {
+        "title": "Co-ops",
+        "projects": [
+          {
+            "name": "Guelph Eye MD (Relay)",
+            "links": [
+              { "href": "https://guelpheyemd.com/", "text": "Website" }
+            ],
+            "description": "Developed productivity and communication tools using a Go backend with an Electron and StreamDeck frontend, helping streamline patient flow"
+          },
+          {
+            "name": "Paige (kiloBryte)",
+            "image": {
+              "alt": "An image of a Paige Frame",
+              "full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/experience/paige-frame.png",
+              "height": 100,
+              "preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/experience/paige-frame.png",
+              "aspectRatio": 1.29069767442,
+              "dropShadowWithTheme": "light"
+            },
+            "links": [
+              { "href": "https://www.paigeframe.com/", "text": "Website" }
+            ],
+            "description": "Worked on a cross-platform video calling solution for seniors, focused on simplicity. Developed the React Native device app and Ionic companion app, integrating Firebase and Vidyo's SDK"
+          }
+        ]
+      },
+      {
+        "title": "Design Teams",
+        "projects": [
+          {
+            "name": "Orbital",
+            "links": [
+              { "href": "https://www.uworbital.com/", "text": "Website" }
+            ],
+            "description": "Working on firmware for a CubeSat designed to capture images of Earth from orbit. Personally worked on the ArduCAM Driver, and saving flash space by seperating HalCoGen and FreeRTOS libraries in CMake",
+            "imageScroller": {
+              "height": 100,
+              "images": [
+                {
+                  "alt": "Orbital Team Logo",
+                  "full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/experience/orbital.png",
+                  "preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/experience/orbital.png",
+                  "aspectRatio": 1.003921569
+                },
+                {
+                  "alt": "A test image taken using the ArduCAM",
+                  "full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/experience/orbital-arducam.png",
+                  "preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/experience/orbital-arducam.png",
+                  "aspectRatio": 1.320833333
+                }
+              ],
+              "centerFirstImage": true
+            }
+          },
+          {
+            "name": "WARG",
+            "links": [{ "href": "https://www.uwarg.com/", "text": "Website" }],
+            "description": "Member of Electrical Subteam. Just joined, hopefully going to be designing and testing some PCBs soon!"
+          }
+        ]
+      }
+    ]
+  }
+]
