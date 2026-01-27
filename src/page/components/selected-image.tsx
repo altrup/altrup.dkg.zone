@@ -120,18 +120,34 @@ function SelectedImage({
                   customFontText={"Loading ..."}
                 />
               ) : undefined}
-              <img
-                id={styles["selected-image"]}
-                className={!imageLoaded ? styles["loading"] : undefined}
-                src={image?.full}
-                style={imageSizeStyle}
-                onLoad={() => {
-                  setImageLoaded(true);
-                }}
-                onError={() => {
-                  setImageLoaded(false);
-                }}
-              />
+
+              {image?.iframe ? (
+                <iframe
+                  id={styles["selected-image"]}
+                  className={!imageLoaded ? styles["loading"] : undefined}
+                  src={image.full}
+                  style={imageSizeStyle}
+                  onLoad={() => {
+                    setImageLoaded(true);
+                  }}
+                  onError={() => {
+                    setImageLoaded(false);
+                  }}
+                />
+              ) : (
+                <img
+                  id={styles["selected-image"]}
+                  className={!imageLoaded ? styles["loading"] : undefined}
+                  src={image?.full}
+                  style={imageSizeStyle}
+                  onLoad={() => {
+                    setImageLoaded(true);
+                  }}
+                  onError={() => {
+                    setImageLoaded(false);
+                  }}
+                />
+              )}
             </div>
           </button>
         </div>

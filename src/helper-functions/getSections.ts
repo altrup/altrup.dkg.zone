@@ -4,6 +4,7 @@ import { createClient, PostgrestError } from "@supabase/supabase-js";
 export type StyleOptions = "dark" | "light" | "none" | "both";
 export type ImageInfo = {
   preview: string;
+  iframe?: boolean; // default false
   full: string;
   alt: string;
   aspectRatio: number;
