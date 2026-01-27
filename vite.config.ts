@@ -13,17 +13,21 @@ export default defineConfig(async ({ mode }) => {
 
   let sections;
 
-  const sectionsFilePath = path.normalize(
+  const sectionsFilePath = env.SECTIONS_JSON_FILE ? path.normalize(
     path.join(__dirname, env.SECTIONS_JSON_FILE),
-  );
+  ) : null;
   if (!isProduction) {
-    console.log(`Loading sections from ${sectionsFilePath}`);
-    try {
-      sections = JSON.parse(
-        await fs.readFile(sectionsFilePath, "utf8"),
-      ) as Section[];
-    } catch (e) {
-      console.log(`Failed to load sections from ${sectionsFilePath}`, e);
+    if (sectionsFilePath) {
+      console.log(`Loading sections from ${sectionsFilePath}`);
+      try {
+        sections = JSON.parse(
+          await fs.readFile(sectionsFilePath, "utf8"),
+        ) as Section[];
+      } catch (e) {
+        console.log(`Failed to load sections from ${sectionsFilePath}`, e);
+      }
+    } else {
+      console.log("No SECTIONS_JSON_FILE specified");
     }
   }
 
@@ -40,25 +44,25 @@ export default defineConfig(async ({ mode }) => {
   return {
     plugins: [
       react(),
-      !isProduction
+      !isProduction && sectionsFilePath
         ? {
-            name: "restart-on-json-change",
-            configureServer(server: ViteDevServer) {
-              // Manually add the file to the watcher
-              server.watcher.add(sectionsFilePath);
+          name: "restart-on-json-change",
+          configureServer(server: ViteDevServer) {
+            // Manually add the file to the watcher
+            server.watcher.add(sectionsFilePath);
 
-              server.watcher.on("change", (file: string) => {
-                if (path.normalize(file) === sectionsFilePath) {
-                  console.log(
-                    "🔄 Sections JSON changed. Restarting Vite server...",
-                  );
-                  server.restart().catch((e: unknown) => {
-                    console.error(e);
-                  });
-                }
-              });
-            },
-          }
+            server.watcher.on("change", (file: string) => {
+              if (path.normalize(file) === sectionsFilePath) {
+                console.log(
+                  "🔄 Sections JSON changed. Restarting Vite server...",
+                );
+                server.restart().catch((e: unknown) => {
+                  console.error(e);
+                });
+              }
+            });
+          },
+        }
         : undefined,
     ],
     define: {
