@@ -1,8 +1,14 @@
-import ReactDOM from "react-dom/client";
+import { StrictMode } from "react";
+import { hydrateRoot } from "react-dom/client";
 
 // apply onload.css
 import "./onload.css";
 import "./base.css";
 import Root from "./page/root";
 
-ReactDOM.hydrateRoot(document.getElementById("mount") as HTMLElement, <Root />);
+hydrateRoot(
+  document.getElementById("mount") as HTMLElement,
+  <StrictMode>
+    <Root />
+  </StrictMode>,
+);

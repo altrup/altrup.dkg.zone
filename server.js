@@ -46,10 +46,10 @@ if (!isProduction) {
 }
 
 // Serve HTML
-app.use("*", async (req, res) => {
-  const url = req.originalUrl.replace(base, "");
-
+app.use(async (req, res) => {
   try {
+    const url = req.originalUrl.replace(base, "");
+
     let templateHTML, inlineCSS, inlineJS, render;
     if (!isProduction) {
       templateHTML = await fs.readFile("./index.html", "utf-8");
@@ -71,7 +71,7 @@ app.use("*", async (req, res) => {
 
     let didError = false;
 
-    const { pipe, abort } = await render(url, ssrManifest, {
+    const { pipe, abort } = render(url, {
       onShellError() {
         res.status(500);
         res.set({ "Content-Type": "text/html" });
@@ -81,26 +81,39 @@ app.use("*", async (req, res) => {
         res.status(didError ? 500 : 200);
         res.set({ "Content-Type": "text/html" });
 
+        const [htmlStart, htmlEnd] = html.split(`<!--app-html-->`);
+        let htmlEnded = false;
+
         const transformStream = new Transform({
           transform(chunk, encoding, callback) {
-            res.write(chunk, encoding);
+            // See entry-server.tsx for more details of this code
+            if (!htmlEnded) {
+              chunk = chunk.toString();
+              if (chunk.endsWith("<vite-streaming-end></vite-streaming-end>")) {
+                res.write(chunk.slice(0, -41) + htmlEnd, "utf-8");
+              } else {
+                res.write(chunk, "utf-8");
+              }
+            } else {
+              res.write(chunk, encoding);
+            }
             callback();
           },
         });
 
-        const [htmlStart, htmlEnd] = html.split(`<!--app-html-->`);
+        transformStream.on("finish", () => {
+          res.end();
+        });
 
         res.write(htmlStart);
-
-        transformStream.on("finish", () => {
-          res.end(htmlEnd);
-        });
 
         pipe(transformStream);
       },
       onError(error) {
         didError = true;
-        if (!isProduction) console.error(error);
+        if (!isProduction) {
+          console.error(error);
+        }
       },
     });
 

@@ -19,7 +19,7 @@ function SelectedImage({
   const { setShowImage } = useContext(SelectedImageContext);
   const selectedImageButton = useRef<HTMLButtonElement>(null);
   // actual element in the page that was selected
-  const oldActiveElement = useRef<Element>();
+  const oldActiveElement = useRef<Element>(null);
 
   // focus on the image when it's selected
   useEffect(() => {
@@ -29,7 +29,7 @@ function SelectedImage({
       isActiveElementSelectedWithTab() &&
       selectedImageButton.current instanceof HTMLElement
     ) {
-      oldActiveElement.current = document.activeElement ?? undefined;
+      oldActiveElement.current = document.activeElement ?? null;
       setTimeout(() => selectedImageButton.current?.focus(), 50); // 200 is the time it takes to transition in
     }
     if (
@@ -38,7 +38,7 @@ function SelectedImage({
       document.activeElement === selectedImageButton.current
     ) {
       const tempOldActiveElement = oldActiveElement.current;
-      oldActiveElement.current = undefined;
+      oldActiveElement.current = null;
       if (tempOldActiveElement && tempOldActiveElement instanceof HTMLElement)
         setTimeout(() => {
           tempOldActiveElement.focus();
