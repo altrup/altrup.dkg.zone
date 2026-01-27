@@ -1,111 +1,115 @@
 #selected-image-background {
-	position: fixed;
-	left: 0; top: 0;
-	z-index: 2;
-	width: 100vw;
-	height: 100vh;
-	
-	backdrop-filter: blur(0.5em);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
 
-	overflow-y: auto;
-	overflow-x: hidden;
+  backdrop-filter: blur(0.5em);
+
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 #selected-image-background.hidden {
-	visibility: hidden;
-	backdrop-filter: blur(0);
+  visibility: hidden;
+  backdrop-filter: blur(0);
 }
 
 #selected-image-content {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-	box-sizing: border-box;
-	width: 100%;
-	min-height: 100%;
-	padding: 3%;
-	margin: 0;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100%;
+  padding: 3%;
+  margin: 0;
 
-	transform: translateY(0);
+  transform: translateY(0);
 
-	overflow-y: auto;
-	overflow-x: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 #selected-image-background.hidden #selected-image-content {
-	transform: translateY(100vh);
+  transform: translateY(100vh);
 }
 #selected-image-loading-position {
-	display: grid;
-	grid-template-columns: 1fr;
-	justify-items: center;
-	align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
 }
 #selected-image-loading-position > * {
-	grid-row-start: 1;
-	grid-column-start: 1;
+  grid-row-start: 1;
+  grid-column-start: 1;
 }
 #selected-image-parent {
-	cursor: pointer;
+  cursor: pointer;
 
-	margin: 0 0 4vh;
+  margin: 0 0 4vh;
 }
 #selected-image-parent button {
-	display: flex;
+  display: flex;
 
-	background-color: transparent;
-	border: 0;
-	padding: 0;
-	margin: 0;
-	font-size: 1em;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
 
-	cursor: pointer;
+  cursor: pointer;
 
-	transition: none;
+  transition: none;
 }
 .placeholder {
-	transition: none;
-	border-radius: 0.7em;
-	font-size: 1.5em;
+  transition: none;
+  border-radius: 0.7em;
+  font-size: 1.5em;
 }
 .placeholder.hidden {
-	transition: inherit;
-	visibility: hidden;
-	opacity: 0;
+  transition: inherit;
+  visibility: hidden;
+  opacity: 0;
 }
 #selected-image {
-	border-radius: 0.7em;
-	font-size: 1.5em;
+  border-radius: 0.7em;
+  font-size: 1.5em;
 
-	transition-duration: var(--transition-duration), 0s;
-	transition-property: all, z-index;
-	z-index: 1;
+  transition-duration: var(--transition-duration), 0s;
+  transition-property: all, z-index;
+  z-index: 1;
 }
 #selected-image.loading {
-	transition: none;
-	scale: 0.001;
-	z-index: -1;
+  transition: none;
+  scale: 0.001;
+  z-index: -1;
 }
 #selected-image-description {
-	max-width: 90vw;
+  max-width: 90vw;
 
-	font-size: 2.5em;
-	text-align: center;
+  font-size: 2.5em;
+  text-align: center;
 
-	margin: 0; 
-	padding: 0 0.5em;
+  margin: 0;
+  padding: 0 0.5em;
 
-	filter: drop-shadow(-0.2em -0.2em 0.2em var(--background-color)) drop-shadow(-0.2em 0.2em 0.2em var(--background-color)) 
-	drop-shadow(0.2em -0.2em 0.2em var(--background-color)) drop-shadow(0.2em 0.2em 0.2em var(--background-color));
+  filter: drop-shadow(-0.2em -0.2em 0.2em var(--background-color))
+    drop-shadow(-0.2em 0.2em 0.2em var(--background-color))
+    drop-shadow(0.2em -0.2em 0.2em var(--background-color))
+    drop-shadow(0.2em 0.2em 0.2em var(--background-color));
 }
 @media (hover: hover) {
-	#selected-image-parent:hover {
-		transform: scale(1.05);
-	}
-	#selected-image-parent:active, #selected-image-parent:has(button:active) {
-		transform: scale(1.025);
-	}
+  #selected-image-parent:hover {
+    transform: scale(1.05);
+  }
+  #selected-image-parent:active,
+  #selected-image-parent:has(button:active) {
+    transform: scale(1.025);
+  }
 }
 #selected-image-parent:focus-within {
-	transform: scale(1.05);
+  transform: scale(1.05);
 }

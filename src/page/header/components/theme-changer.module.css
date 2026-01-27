@@ -1,82 +1,96 @@
 #theme-changer-wrapper {
-	position: relative;
-	margin: 1em 0 1em 1em;
+  position: relative;
+  margin: 1em 0 1em 1em;
 
-	width: 35px;
-	height: 35px;
+  width: 35px;
+  height: 35px;
 }
 #theme-changer {
-	position: absolute;
+  position: absolute;
 
-	width: 35px;
-	height: 35px;
+  width: 35px;
+  height: 35px;
 }
 #theme-changer div {
-	position: absolute;
-	left: 0px; top: 0px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
 }
 #theme-changer button {
-	box-sizing: border-box;
-	height: 35px;
-	width: 35px;
-	padding: 0; margin: 0;
+  box-sizing: border-box;
+  height: 35px;
+  width: 35px;
+  padding: 0;
+  margin: 0;
 
-	border: none;
-	background-color: transparent;
+  border: none;
+  background-color: transparent;
 
-	cursor: pointer;
+  cursor: pointer;
 
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-	opacity: 0;
+  opacity: 0;
 }
 #theme-changer div:focus-within {
-	z-index: 100 !important;
+  z-index: 100 !important;
 }
 #theme-changer button.selected {
-	opacity: 1;
+  opacity: 1;
 }
 #theme-changer img {
-	box-sizing: border-box;
-	width: auto;
-	height: 35px;
-	padding: 3px;
+  box-sizing: border-box;
+  width: auto;
+  height: 35px;
+  padding: 3px;
 
-	filter: invert(0) drop-shadow(-0.1em -0.1em 0.1em var(--background-color)) drop-shadow(-0.1em 0.1em 0.1em var(--background-color)) 
-	drop-shadow(0.1em -0.1em 0.1em var(--background-color)) drop-shadow(0.1em 0.1em 0.1em var(--background-color));
+  filter: invert(0) drop-shadow(-0.1em -0.1em 0.1em var(--background-color))
+    drop-shadow(-0.1em 0.1em 0.1em var(--background-color))
+    drop-shadow(0.1em -0.1em 0.1em var(--background-color))
+    drop-shadow(0.1em 0.1em 0.1em var(--background-color));
 }
 #theme-changer img.inverted {
-	filter: invert(1) drop-shadow(-0.1em -0.1em 0.1em var(--background-color)) drop-shadow(-0.1em 0.1em 0.1em var(--background-color)) 
-	drop-shadow(0.1em -0.1em 0.1em var(--background-color)) drop-shadow(0.1em 0.1em 0.1em var(--background-color));
+  filter: invert(1) drop-shadow(-0.1em -0.1em 0.1em var(--background-color))
+    drop-shadow(-0.1em 0.1em 0.1em var(--background-color))
+    drop-shadow(0.1em -0.1em 0.1em var(--background-color))
+    drop-shadow(0.1em 0.1em 0.1em var(--background-color));
 }
 
 @media (hover: hover) {
-	#theme-changer:hover, #theme-changer:focus-within {
-		height: 110px;
-	}
-	#theme-changer:hover button, #theme-changer:focus-within button {
-		opacity: 1;
-	}
-	#theme-changer:hover div.pos-2, #theme-changer:focus-within div.pos-2 {
-		top: 37.5px;
-	}
-	#theme-changer:hover div.pos-3, #theme-changer:focus-within div.pos-3 {
-		top: 75px;
-	}
+  #theme-changer:hover,
+  #theme-changer:focus-within {
+    height: 110px;
+  }
+  #theme-changer:hover button,
+  #theme-changer:focus-within button {
+    opacity: 1;
+  }
+  #theme-changer:hover div.pos-2,
+  #theme-changer:focus-within div.pos-2 {
+    top: 37.5px;
+  }
+  #theme-changer:hover div.pos-3,
+  #theme-changer:focus-within div.pos-3 {
+    top: 75px;
+  }
 }
 @media (hover: none) {
-	#theme-changer.open, #theme-changer:focus-within {
-		height: 110px;
-	}
-	#theme-changer.open button, #theme-changer:focus-within button {
-		opacity: 1;
-	}
-	#theme-changer.open div.pos-2, #theme-changer:focus-within div.pos-2 {
-		top: 37.5px;
-	}
-	#theme-changer.open div.pos-3, #theme-changer:focus-within div.pos-3 {
-		top: 75px;
-	}
+  #theme-changer.open,
+  #theme-changer:focus-within {
+    height: 110px;
+  }
+  #theme-changer.open button,
+  #theme-changer:focus-within button {
+    opacity: 1;
+  }
+  #theme-changer.open div.pos-2,
+  #theme-changer:focus-within div.pos-2 {
+    top: 37.5px;
+  }
+  #theme-changer.open div.pos-3,
+  #theme-changer:focus-within div.pos-3 {
+    top: 75px;
+  }
 }

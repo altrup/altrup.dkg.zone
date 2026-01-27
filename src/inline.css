@@ -1,31 +1,31 @@
 /* Used to hide html */
 html {
-	visibility: hidden;
-	opacity: 0;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .light {
-	--color-1: #000000;
-	--color-description: #1F1F1F;
-	--background-color: #F5F6F4;
-	--background-color-2: #C8C2AE;
-	--color-2: #9893DA;
-	--color-3: #C42021;
-	--color-4: #6AB547;
+  --color-1: #000000;
+  --color-description: #1f1f1f;
+  --background-color: #f5f6f4;
+  --background-color-2: #c8c2ae;
+  --color-2: #9893da;
+  --color-3: #c42021;
+  --color-4: #6ab547;
 
-	--color-link: #0000EE;
-	--color-link-visited: #551A8B;
+  --color-link: #0000ee;
+  --color-link-visited: #551a8b;
 }
 
 .dark {
-	--color-1: #F3F3F7;
-	--color-description: #C7C9CD;
-	--background-color: #030C11;
-	--background-color-2: #473B33;
-	--color-2: #368a97;
-	--color-3: #9B4647;
-	--color-4: #625304;
+  --color-1: #f3f3f7;
+  --color-description: #c7c9cd;
+  --background-color: #030c11;
+  --background-color-2: #473b33;
+  --color-2: #368a97;
+  --color-3: #9b4647;
+  --color-4: #625304;
 
-	--color-link: #4fabb8;
-	--color-link-visited: #ce5cff;
+  --color-link: #4fabb8;
+  --color-link-visited: #ce5cff;
 }

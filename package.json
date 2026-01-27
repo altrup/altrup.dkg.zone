@@ -10,6 +10,7 @@
     "build:client": "tsc -b && vite build --ssrManifest --outDir tmp/dist/client",
     "build:server": "tsc -b && vite build --ssr src/entry-server.tsx --outDir tmp/dist/server",
     "deploy": "rm -rf dist && mkdir dist && cp -r tmp/dist/* dist && rm -rf tmp",
+    "format": "prettier src \"*.{js,ts}\" --write",
     "lint": "eslint .",
     "preview": "NODE_ENV=production node server-manager"
   },
@@ -35,6 +36,7 @@
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
+    "prettier": "3.8.1",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1"

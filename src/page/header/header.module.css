@@ -1,58 +1,63 @@
 #header {
-	position: fixed;
-	left: 0px; top: 0px;
-	z-index: 1;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
 
-	box-sizing: border-box;
-	width: 100%;
-	padding: 0.5em;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5em;
 
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 
-	pointer-events: none;
+  pointer-events: none;
 }
 #header a.link-icon-parent {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-	padding: 3px;
+  padding: 3px;
 }
 #header img.link-icon {
-	display: block;
-	
-	box-sizing: border-box;
-	width: auto;
+  display: block;
 
-	filter: invert(0);
+  box-sizing: border-box;
+  width: auto;
+
+  filter: invert(0);
 }
 #header img.inverted {
-	filter: invert(1);
+  filter: invert(1);
 }
 #header img.link-icon {
-	filter: invert(0) drop-shadow(-0.1em -0.1em 0.1em var(--background-color)) drop-shadow(-0.1em 0.1em 0.1em var(--background-color)) 
-	drop-shadow(0.1em -0.1em 0.1em var(--background-color)) drop-shadow(0.1em 0.1em 0.1em var(--background-color));
+  filter: invert(0) drop-shadow(-0.1em -0.1em 0.1em var(--background-color))
+    drop-shadow(-0.1em 0.1em 0.1em var(--background-color))
+    drop-shadow(0.1em -0.1em 0.1em var(--background-color))
+    drop-shadow(0.1em 0.1em 0.1em var(--background-color));
 }
 #header img.inverted.link-icon {
-	filter: invert(1) drop-shadow(-0.1em -0.1em 0.1em var(--background-color)) drop-shadow(-0.1em 0.1em 0.1em var(--background-color)) 
-	drop-shadow(0.1em -0.1em 0.1em var(--background-color)) drop-shadow(0.1em 0.1em 0.1em var(--background-color));
+  filter: invert(1) drop-shadow(-0.1em -0.1em 0.1em var(--background-color))
+    drop-shadow(-0.1em 0.1em 0.1em var(--background-color))
+    drop-shadow(0.1em -0.1em 0.1em var(--background-color))
+    drop-shadow(0.1em 0.1em 0.1em var(--background-color));
 }
 
 #right-side {
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-end;
-	align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
 
-	flex-grow: 1;
-	pointer-events: none;
+  flex-grow: 1;
+  pointer-events: none;
 }
 #right-side * {
-	pointer-events: initial;
+  pointer-events: initial;
 }
 #right-side a {
-	margin: 1em;
+  margin: 1em;
 }

@@ -1,18 +1,20 @@
-import React from 'react';
-import { type RenderToPipeableStreamOptions, renderToPipeableStream } from 'react-dom/server';
+import React from "react";
+import {
+  type RenderToPipeableStreamOptions,
+  renderToPipeableStream,
+} from "react-dom/server";
 
 import Root from "./page/root";
 
 export function render(
-	_url: string, 
-	_ssrManifest?: string, 
-	options?: RenderToPipeableStreamOptions
+  _url: string,
+  _ssrManifest?: string,
+  options?: RenderToPipeableStreamOptions,
 ) {
-
-	return renderToPipeableStream(
-		<React.StrictMode>
-			<Root />
-		</React.StrictMode>,
-		options
-	);
-};
+  return renderToPipeableStream(
+    <React.StrictMode>
+      <Root />
+    </React.StrictMode>,
+    options,
+  );
+}

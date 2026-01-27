@@ -1,91 +1,94 @@
 #links {
-	flex-grow: 1;
+  flex-grow: 1;
 
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	align-items: last baseline;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: last baseline;
 
-	pointer-events: none;
+  pointer-events: none;
 }
 #links * {
-	pointer-events: initial;
+  pointer-events: initial;
 }
 #links div {
-	display: flex;
+  display: flex;
 }
 #links a:not(#logo) {
-	filter: drop-shadow(-0.1em -0.1em 0.1em var(--background-color)) drop-shadow(-0.1em 0.1em 0.1em var(--background-color)) 
-	drop-shadow(0.1em -0.1em 0.1em var(--background-color)) drop-shadow(0.1em 0.1em 0.1em var(--background-color));
+  filter: drop-shadow(-0.1em -0.1em 0.1em var(--background-color))
+    drop-shadow(-0.1em 0.1em 0.1em var(--background-color))
+    drop-shadow(0.1em -0.1em 0.1em var(--background-color))
+    drop-shadow(0.1em 0.1em 0.1em var(--background-color));
 }
 #links a {
-	position: relative;
-	padding: 1em;
+  position: relative;
+  padding: 1em;
 
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 
-	color: var(--color-1);
-	border: none;
-	background-color: transparent;
-	font-size: 1em;
-	text-decoration: none;
-	cursor: pointer;
+  color: var(--color-1);
+  border: none;
+  background-color: transparent;
+  font-size: 1em;
+  text-decoration: none;
+  cursor: pointer;
 }
 #links a:not(#logo)::after {
-	content: "";
-	width: 0px;
-	height: .2em;
-	left: 50%;
-	transform: translateX(-50%);
-	border-radius: 100vh;
+  content: "";
+  width: 0px;
+  height: 0.2em;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 100vh;
 
-	background: var(--color-2);
+  background: var(--color-2);
 
-	position: absolute;
-	bottom: 0.75em;
+  position: absolute;
+  bottom: 0.75em;
 
-	transition-duration: var(--transition-duration), var(--transform-transition-duration);
-	transition-property: all, width;
+  transition-duration:
+    var(--transition-duration), var(--transform-transition-duration);
+  transition-property: all, width;
 }
 @media (hover: hover) {
-	#links a:hover:not(#logo)::after {
-		width: 35%;
-	}
+  #links a:hover:not(#logo)::after {
+    width: 35%;
+  }
 }
 #links a:focus-visible:not(#logo)::after {
-	width: 35%;
+  width: 35%;
 }
 /* NOTE: we use calculate for width to account for padding */
 #links a.selected:not(#logo)::after {
-	width: calc(100% - 2em);
+  width: calc(100% - 2em);
 }
 #links #logo-parent {
-	border-radius: 100vh;
-	padding: 0.5em;
-	margin: 0 0.5em;
+  border-radius: 100vh;
+  padding: 0.5em;
+  margin: 0 0.5em;
 }
 #links a#logo {
-	padding: 0.2em;
-	border-radius: 100vh;
-	background-color: var(--background-color-2);
+  padding: 0.2em;
+  border-radius: 100vh;
+  background-color: var(--background-color-2);
 }
 #logo:not(:focus-within, :hover, :active).selected {
-	transform: scale(1.05);
+  transform: scale(1.05);
 }
 @media (hover: none) {
-	#logo:active:has(a#logo.selected) {
-		transform: scale(1);
-	}
+  #logo:active:has(a#logo.selected) {
+    transform: scale(1);
+  }
 }
 #links a#logo img {
-	height: 50px;
-	width: auto;
+  height: 50px;
+  width: auto;
 }
 #links a#logo h1 {
-	font-size: 1.5em;
-	margin: 0;
-	padding: 0 0.2em;
+  font-size: 1.5em;
+  margin: 0;
+  padding: 0 0.2em;
 }

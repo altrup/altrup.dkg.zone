@@ -1,24 +1,24 @@
 #home-page {
-	padding-top: 175px;
-	width: 100%;
+  padding-top: 175px;
+  width: 100%;
 
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 #home-page .text-div {
-	box-sizing: border-box;
-	width: 100%;
-	padding: 0 10vw;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 10vw;
 
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 #home-page .paragraph {
-	font-size: 1.5em;
+  font-size: 1.5em;
 
-	width: min(100%, max(50%, 500px));
+  width: min(100%, max(50%, 500px));
 }
