@@ -1,7 +1,7 @@
 import { spawn, exec } from "child_process";
 import { loadEnv } from "vite";
 
-import { onSectionUpdate } from "./src/helper-functions/onSectionUpdate.js";
+import { onSectionUpdate } from "./src/util/on-section-update.js";
 
 // constants
 const isProduction = process.env.NODE_ENV === "production";

@@ -5,7 +5,7 @@ import { Link, scroller } from "react-scroll";
 
 import styles from "./wide-links.module.css";
 import transitionStyles from "../../transitions.module.css";
-import unFocus from "../../../helper-functions/unFocus";
+import unFocus from "../../../util/un-focus";
 
 function WideLinks({
   updatePageInfo,

@@ -3,7 +3,7 @@ import path from "path";
 import { defineConfig, loadEnv, ViteDevServer } from "vite";
 import react from "@vitejs/plugin-react-swc";
 
-import { getSections } from "./src/helper-functions/getSections";
+import { getSections } from "./src/util/get-sections";
 
 const isProduction = process.env.NODE_ENV === "production";
 

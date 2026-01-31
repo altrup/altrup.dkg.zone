@@ -9,7 +9,7 @@ import transitionStyles from "../../transitions.module.css";
 import arrow from "/icons/arrow.svg";
 
 import { ThemeContext } from "../../root";
-import unFocus from "../../../helper-functions/unFocus";
+import unFocus from "../../../util/un-focus";
 
 function SlimLinks({
   updatePageInfo,

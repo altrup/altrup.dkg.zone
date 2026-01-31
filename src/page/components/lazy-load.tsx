@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useMemo, useState } from "react";
-import isOnScreen from "../../helper-functions/is-on-screen";
+import isOnScreen from "../../util/is-on-screen";
 
 // scrollContainers is an array of elements or query strings that represent elements
 function LazyLoad({

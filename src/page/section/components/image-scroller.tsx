@@ -1,7 +1,7 @@
 import { useCallback, useContext, useMemo, useState } from "react";
 
-import unFocus from "../../../helper-functions/unFocus";
-import { ImageList } from "../../../helper-functions/getSections";
+import unFocus from "../../../util/un-focus";
+import { ImageList } from "../../../util/get-sections";
 
 import InteractiveImage from "../../components/interactive-image";
 

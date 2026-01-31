@@ -1,6 +1,6 @@
 import { Element } from "react-scroll";
 
-import { isImageList, SubSection } from "../../helper-functions/getSections";
+import { isImageList, SubSection } from "../../util/get-sections";
 
 import styles from "./section-page.module.css";
 import transitionStyles from "../transitions.module.css";

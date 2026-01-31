@@ -11,7 +11,7 @@ import ContactsPage from "./contacts/contacts-page";
 
 import SelectedImage, { ImageInfo } from "./components/selected-image";
 
-import unFocus from "../helper-functions/unFocus";
+import unFocus from "../util/un-focus";
 
 // themeManager is a global class declared on load
 declare const themeManager: EventTarget & {

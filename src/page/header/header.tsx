@@ -13,8 +13,8 @@ import githubIcon from "/icons/github.svg";
 import styles from "./header.module.css";
 import transitionStyles from "../transitions.module.css";
 
-import setUrl from "../../helper-functions/set-url";
-import { getPageUrl, getPageName } from "../../helper-functions/page-info";
+import setUrl from "../../util/set-url";
+import { getPageUrl, getPageName } from "../../util/page-info";
 
 function Header() {
   // import context
