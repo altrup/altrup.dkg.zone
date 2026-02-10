@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import fs from "fs/promises";
 import path from "path";
 
-import "../src/base.css";
+import "../base.css";
 
 export const metadata: Metadata = {
   title: "Altrup",

@@ -1,5 +1,5 @@
-import { getSections } from "../src/util/get-sections";
-import Root from "../src/page/root";
+import { getSections } from "../../util/get-sections";
+import Root from "../../page/root";
 
 export const revalidate = false;
 
