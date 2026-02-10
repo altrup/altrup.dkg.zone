@@ -1,11 +1,19 @@
-import { createClient } from "@supabase/supabase-js";
+import { createClient, RealtimeChannel } from "@supabase/supabase-js";
 
 export const onSectionUpdate = (
-  { supabaseURL, supabaseAnonKey, supabaseTableName },
-  callback,
+  {
+    supabaseURL,
+    supabaseAnonKey,
+    supabaseTableName,
+  }: {
+    supabaseURL: string;
+    supabaseAnonKey: string;
+    supabaseTableName: string;
+  },
+  callback: () => unknown,
 ) => {
   const supabase = createClient(supabaseURL, supabaseAnonKey);
-  let channel = null;
+  let channel: RealtimeChannel | null = null;
 
   supabase.realtime
     .setAuth()

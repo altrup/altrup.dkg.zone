@@ -7,7 +7,7 @@ import ImageScroller from "./image-scroller";
 
 import InteractiveImage from "../../components/interactive-image";
 
-import type { Project } from "../../../util/get-sections";
+import type { Project } from "../../../types";
 
 import styles from "./project.module.css";
 import transitionStyles from "../../transitions.module.css";

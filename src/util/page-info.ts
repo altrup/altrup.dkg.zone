@@ -1,7 +1,7 @@
 // Contains information of page info
 // ex. title, url, element
 
-import type { Section } from "./get-sections";
+import type { Section } from "../types";
 
 export function createPageInfo(sections: Section[]) {
   // get pageUrl from pageName

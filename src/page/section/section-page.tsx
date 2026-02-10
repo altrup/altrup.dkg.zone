@@ -2,7 +2,7 @@
 
 import { Element } from "react-scroll";
 
-import { isImageList, SubSection } from "../../util/get-sections";
+import { isImageList, SubSection } from "../../types";
 
 import styles from "./section-page.module.css";
 import transitionStyles from "../transitions.module.css";

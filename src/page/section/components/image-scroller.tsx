@@ -3,7 +3,7 @@
 import { useCallback, useContext, useMemo, useState } from "react";
 
 import unFocus from "../../../util/un-focus";
-import { ImageList } from "../../../util/get-sections";
+import { ImageList } from "../../../types";
 
 import InteractiveImage from "../../components/interactive-image";
 

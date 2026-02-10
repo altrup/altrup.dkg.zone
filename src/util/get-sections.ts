@@ -1,95 +1,88 @@
-import { createClient, PostgrestError } from "@supabase/supabase-js";
+import fs from "fs/promises";
+import path from "path";
+import { Section } from "../types";
+import { onSectionUpdate } from "./on-section-update";
+import { fetchSections } from "./fetch-sections";
+import { FSWatcher, watch } from "fs";
 
-// Define the types for projects
-export type StyleOptions = "dark" | "light" | "none" | "both";
-export type ImageInfo = {
-  preview: string;
-  iframe?: boolean; // default false
-  full: string;
-  alt: string;
-  aspectRatio: number;
-  height: number;
-  dropShadowWithTheme?: StyleOptions;
-};
-export type ImageList = {
-  centerFirstImage: boolean;
-  height: number;
-  images: Omit<ImageInfo, "height">[];
-};
-export const isImageList = (props: unknown): props is ImageList => {
-  const imageScrollerProps = props as ImageList;
-  return (
-    typeof imageScrollerProps.height === "number" &&
-    Array.isArray(imageScrollerProps.images) &&
-    imageScrollerProps.images.every(
-      (image) =>
-        typeof image.preview === "string" &&
-        typeof image.full === "string" &&
-        typeof image.alt === "string" &&
-        typeof image.aspectRatio === "number",
-    )
-  );
-};
-export type Link = {
-  text: string;
-  href: string;
-};
-export type Project = {
-  name: string;
-  description: string;
-  imageScroller?: ImageList;
-  image?: ImageInfo;
-  links?: Link[];
-};
-export type SubSection = {
-  title: string;
-  description?: string | (string | Link)[];
-} & (
-  | {
-      imageScroller: ImageList;
+let cachedSections: Section[] | null = null;
+let removeSupabaseListener: (() => unknown) | null = null;
+let fileWatcher: FSWatcher | null = null;
+
+const updateSections = async () => {
+  const isProduction = process.env.NODE_ENV === "production";
+
+  const sectionsFilePath = process.env.SECTIONS_JSON_FILE
+    ? path.normalize(process.env.SECTIONS_JSON_FILE)
+    : null;
+
+  if (!isProduction) {
+    if (sectionsFilePath) {
+      console.log(`Loading sections from ${sectionsFilePath}`);
+      try {
+        cachedSections = JSON.parse(
+          await fs.readFile(sectionsFilePath, "utf8"),
+        ) as Section[];
+
+        // Update listeners
+        removeSupabaseListener?.();
+        removeSupabaseListener = null;
+        if (!fileWatcher) {
+          fileWatcher = watch(
+            sectionsFilePath,
+            undefined,
+            async (eventType: string) => {
+              if (eventType === "change") {
+                await updateSections();
+              }
+            },
+          );
+        }
+      } catch (e) {
+        console.log(`Failed to load sections from ${sectionsFilePath}`, e);
+      }
+    } else {
+      console.log("No SECTIONS_JSON_FILE specified");
     }
-  | {
-      projects: Project[];
+  }
+
+  if (!cachedSections) {
+    console.log("Loading sections from supabase");
+
+    const supabaseURL = process.env.SUPABASE_URL;
+    const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
+    const supabaseTableName = process.env.SUPABASE_TABLE_NAME;
+
+    if (!supabaseURL || !supabaseAnonKey || !supabaseTableName) {
+      throw new Error("Missing required Supabase environment variables");
     }
-);
-export type Section = {
-  name: string; // used for url
-  title: string;
-  description?: string;
-  subSections: SubSection[];
-};
 
-export const getSections = ({
-  supabaseURL,
-  supabaseAnonKey,
-  supabaseTableName,
-}: {
-  supabaseURL: string;
-  supabaseAnonKey: string;
-  supabaseTableName: string;
-}) => {
-  const supabase = createClient(supabaseURL, supabaseAnonKey);
-  const tableName = supabaseTableName;
+    cachedSections = await fetchSections({
+      supabaseURL: supabaseURL,
+      supabaseAnonKey: supabaseAnonKey,
+      supabaseTableName: supabaseTableName,
+    });
 
-  return new Promise<Section[]>((resolve, reject) => {
-    supabase
-      .from(tableName)
-      .select("id, Sections")
-      .then(
-        ({
-          data,
-          error,
-        }: {
-          data: { id: number; Sections: Section }[] | null;
-          error: PostgrestError | null;
-        }) => {
-          if (error) {
-            reject(error);
-          } else if (data) {
-            const sortedData = data.sort((a, b) => a.id - b.id);
-            resolve(sortedData.map(({ Sections }) => Sections));
-          }
+    // also update listeners
+    fileWatcher?.close();
+    fileWatcher = null;
+    if (!removeSupabaseListener) {
+      removeSupabaseListener = onSectionUpdate(
+        {
+          supabaseURL: supabaseURL,
+          supabaseAnonKey: supabaseAnonKey,
+          supabaseTableName: supabaseTableName,
+        },
+        async () => {
+          cachedSections = await updateSections();
         },
       );
-  });
+    }
+  }
+
+  return cachedSections;
+};
+
+export const getSections = async () => {
+  return cachedSections ?? (await updateSections());
 };

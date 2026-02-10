@@ -14,7 +14,7 @@ import ContactsPage from "./contacts/contacts-page";
 import SelectedImage, { ImageInfo } from "./components/selected-image";
 
 import unFocus from "../util/un-focus";
-import type { Section } from "../util/get-sections";
+import type { Section } from "../types";
 import { createPageInfo } from "../util/page-info";
 
 // themeManager is a global class declared on load
