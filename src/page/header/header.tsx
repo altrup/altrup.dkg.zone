@@ -1,3 +1,5 @@
+"use client";
+
 // NOTE: also contains logic for scrolling
 
 import { useCallback, useContext, useEffect, useMemo, useState } from "react";
@@ -6,28 +8,31 @@ import { scroller, scrollSpy } from "react-scroll";
 import ThemeChanger from "./components/theme-changer";
 import WideLinks from "./components/wide-links";
 import SlimLinks from "./components/slim-links";
-import { ThemeContext } from "../root";
+import { ThemeContext, PageInfoContext } from "../root";
 
-import githubIcon from "/icons/github.svg";
+const githubIcon = "/icons/github.svg";
 
 import styles from "./header.module.css";
 import transitionStyles from "../transitions.module.css";
 
 import setUrl from "../../util/set-url";
-import { getPageUrl, getPageName } from "../../util/page-info";
 
 function Header() {
   // import context
   const { theme } = useContext(ThemeContext);
+  const { getPageUrl, getPageName } = useContext(PageInfoContext);
 
   // updates title, url, and corresponding history entry
-  const updatePageInfo = useCallback((pageName: string) => {
-    setTimeout(() => {
-      const pageUrl = getPageUrl(pageName);
+  const updatePageInfo = useCallback(
+    (pageName: string) => {
+      setTimeout(() => {
+        const pageUrl = getPageUrl(pageName);
 
-      if (pageUrl) setUrl(pageUrl);
-    });
-  }, []);
+        if (pageUrl) setUrl(pageUrl);
+      });
+    },
+    [getPageUrl],
+  );
 
   // detect page width to see if we should adjust header
   const [useSlimLinks, setUseSlimLinks] = useState(true);
@@ -65,7 +70,7 @@ function Header() {
       duration: 500,
       offset: pageName == "home" ? 0 : 5, // Scroll extra to fix spy not correctly updating on mobile chrome
     });
-  }, [updatePageInfo]);
+  }, [updatePageInfo, getPageName]);
   // force scroll-spy to update
   useEffect(() => {
     scrollSpy.update();

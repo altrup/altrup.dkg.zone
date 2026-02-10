@@ -1,3 +1,5 @@
+"use client";
+
 import { CSSProperties, useCallback, useContext, useState } from "react";
 
 import { ImageInfo } from "./selected-image";

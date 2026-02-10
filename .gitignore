@@ -11,8 +11,10 @@ node_modules
 tmp
 dist
 dist-ssr
+.next/
 *.local
 tsconfig.app.tsbuildinfo
+tsconfig.tsbuildinfo
 
 # Editor directories and files
 .vscode/*

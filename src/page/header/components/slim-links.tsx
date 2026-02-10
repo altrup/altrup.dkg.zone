@@ -1,3 +1,5 @@
+"use client";
+
 // component for links when we need to save some space
 import { useCallback, useContext, useMemo, useReducer } from "react";
 
@@ -6,9 +8,9 @@ import { Link, scroller } from "react-scroll";
 import styles from "./slim-links.module.css";
 import transitionStyles from "../../transitions.module.css";
 
-import arrow from "/icons/arrow.svg";
+const arrow = "/icons/arrow.svg";
 
-import { ThemeContext } from "../../root";
+import { ThemeContext, SectionsContext } from "../../root";
 import unFocus from "../../../util/un-focus";
 
 function SlimLinks({
@@ -18,6 +20,7 @@ function SlimLinks({
 }) {
   // import context
   const { theme } = useContext(ThemeContext);
+  const sections = useContext(SectionsContext);
 
   const [showLinks, toggleShowLinks] = useReducer((state: boolean) => {
     return !state;
@@ -90,7 +93,7 @@ function SlimLinks({
                 Home
               </Link>
             </div>
-            {__SECTIONS__.map((section) => (
+            {sections.map((section) => (
               <div className={transitionClass} key={section.name}>
                 <Link
                   activeClass={styles["selected"]}

@@ -1,8 +1,18 @@
 services:
   web:
-    build: .
+    build:
+      context: .
+      args:
+        - PORT=${PORT}
+        - SUPABASE_URL=${SUPABASE_URL}
+        - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
+        - SUPABASE_TABLE_NAME=${SUPABASE_TABLE_NAME}
     restart: unless-stopped
     environment:
       - PORT=${PORT}
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
+      - SUPABASE_TABLE_NAME=${SUPABASE_TABLE_NAME}
+      - REVALIDATION_SECRET=${REVALIDATION_SECRET}
     ports:
       - "${PORT}:${PORT}"

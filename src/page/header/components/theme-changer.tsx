@@ -1,3 +1,5 @@
+"use client";
+
 import {
   useCallback,
   useContext,
@@ -9,9 +11,9 @@ import {
 
 import { ThemeContext } from "../../root";
 
-import darkModeIcon from "/icons/dark-mode.svg";
-import lightModeIcon from "/icons/light-mode.svg";
-import systemModeIcon from "/icons/system-mode.svg";
+const darkModeIcon = "/icons/dark-mode.svg";
+const lightModeIcon = "/icons/light-mode.svg";
+const systemModeIcon = "/icons/system-mode.svg";
 
 import styles from "./theme-changer.module.css";
 import transitionStyles from "../../transitions.module.css";

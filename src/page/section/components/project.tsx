@@ -1,3 +1,5 @@
+"use client";
+
 // Component for showing projects
 import { useMemo } from "react";
 

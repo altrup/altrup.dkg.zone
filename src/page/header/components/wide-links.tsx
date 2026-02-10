@@ -1,17 +1,23 @@
+"use client";
+
 // component for links when we have a wide enough screen
 
-import { useCallback, useMemo } from "react";
+import { useCallback, useContext, useMemo } from "react";
 import { Link, scroller } from "react-scroll";
 
 import styles from "./wide-links.module.css";
 import transitionStyles from "../../transitions.module.css";
 import unFocus from "../../../util/un-focus";
 
+import { SectionsContext } from "../../root";
+
 function WideLinks({
   updatePageInfo,
 }: {
   updatePageInfo: (pageName: string) => void;
 }) {
+  const sections = useContext(SectionsContext);
+
   const onLinkClick = useCallback(
     (name: string) => {
       updatePageInfo(name);
@@ -59,7 +65,7 @@ function WideLinks({
           <h1>Altrup</h1>
         </Link>
       </div>
-      {__SECTIONS__.map((section) => (
+      {sections.map((section) => (
         <div className={transitionClass} key={section.name}>
           <Link
             activeClass={styles["selected"]}

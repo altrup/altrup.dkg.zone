@@ -1,4 +1,6 @@
-import { createContext, useEffect, useRef, useState } from "react";
+"use client";
+
+import { createContext, useEffect, useMemo, useRef, useState } from "react";
 
 import Header from "./header/header";
 
@@ -12,6 +14,8 @@ import ContactsPage from "./contacts/contacts-page";
 import SelectedImage, { ImageInfo } from "./components/selected-image";
 
 import unFocus from "../util/un-focus";
+import type { Section } from "../util/get-sections";
+import { createPageInfo } from "../util/page-info";
 
 // themeManager is a global class declared on load
 declare const themeManager: EventTarget & {
@@ -25,9 +29,17 @@ const SelectedImageContext = createContext<{
   setSelectedImage: (image?: ImageInfo) => void;
   setShowImage: (show: boolean) => void;
 }>({ setSelectedImage: () => {}, setShowImage: () => {} });
+const SectionsContext = createContext<Section[]>([]);
+const PageInfoContext = createContext<ReturnType<typeof createPageInfo>>({
+  getPageUrl: () => undefined,
+  getPageTitle: () => undefined,
+  getPageName: () => undefined,
+});
 
-function Root() {
+function Root({ sections }: { sections: Section[] }) {
   const [isClient] = useState(typeof window !== "undefined");
+
+  const pageInfo = useMemo(() => createPageInfo(sections), [sections]);
 
   // Only start transitioning after initial hydration
   const [transitionClass, setTransitionClass] = useState(
@@ -99,37 +111,46 @@ function Root() {
         unFocus();
       }}
     >
-      <ThemeContext.Provider value={{ theme, themeSetting }}>
-        <SelectedImageContext.Provider
-          value={{ setSelectedImage, setShowImage }}
-        >
-          <Header />
+      <SectionsContext.Provider value={sections}>
+        <PageInfoContext.Provider value={pageInfo}>
+          <ThemeContext.Provider value={{ theme, themeSetting }}>
+            <SelectedImageContext.Provider
+              value={{ setSelectedImage, setShowImage }}
+            >
+              <Header />
 
-          <div
-            id="main-page"
-            ref={scrollContainer}
-            className={[styles["main-page"]].join(" ")}
-          >
-            <HomePage />
-            {__SECTIONS__.map((section) => (
-              <SectionPage
-                key={section.name}
-                name={section.name}
-                title={section.title}
-                description={section.description}
-                subSections={section.subSections}
-              />
-            ))}
+              <div
+                id="main-page"
+                ref={scrollContainer}
+                className={[styles["main-page"]].join(" ")}
+              >
+                <HomePage />
+                {sections.map((section) => (
+                  <SectionPage
+                    key={section.name}
+                    name={section.name}
+                    title={section.title}
+                    description={section.description}
+                    subSections={section.subSections}
+                  />
+                ))}
 
-            <ContactsPage />
-          </div>
+                <ContactsPage />
+              </div>
 
-          <SelectedImage showImage={showImage} image={selectedImage} />
-        </SelectedImageContext.Provider>
-      </ThemeContext.Provider>
+              <SelectedImage showImage={showImage} image={selectedImage} />
+            </SelectedImageContext.Provider>
+          </ThemeContext.Provider>
+        </PageInfoContext.Provider>
+      </SectionsContext.Provider>
     </div>
   );
 }
 
 export default Root;
-export { ThemeContext, SelectedImageContext };
+export {
+  ThemeContext,
+  SelectedImageContext,
+  SectionsContext,
+  PageInfoContext,
+};

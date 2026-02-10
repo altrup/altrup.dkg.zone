@@ -1,29 +1,33 @@
 // Contains information of page info
 // ex. title, url, element
 
-// get pageUrl from pageName
-const pageUrl = new Map<string, string>([
-  ["home", "/"],
-  ...__SECTIONS__.map<[string, string]>((section) => [
-    section.name,
-    `/${section.name}`,
-  ]),
-  ["contacts", "/contacts"],
-]);
-// get pageTitle from pageName
-const pageTitle = new Map([
-  ["home", "Altrup"],
-  ...__SECTIONS__.map<[string, string]>((section) => [
-    section.name,
-    `Altrup - ${section.title}`,
-  ]),
-  ["contacts", "Altrup - Contacts"],
-]);
-// pageName from pageUrl
-const pageName = new Map(Array.from(pageUrl, (a) => [a[1], a[0]]));
+import type { Section } from "./get-sections";
 
-const getPageUrl = (pageName: string) => pageUrl.get(pageName);
-const getPageTitle = (pageName: string) => pageTitle.get(pageName);
-const getPageName = (pageUrl: string) => pageName.get(pageUrl);
+export function createPageInfo(sections: Section[]) {
+  // get pageUrl from pageName
+  const pageUrlMap = new Map<string, string>([
+    ["home", "/"],
+    ...sections.map<[string, string]>((section) => [
+      section.name,
+      `/${section.name}`,
+    ]),
+    ["contacts", "/contacts"],
+  ]);
+  // get pageTitle from pageName
+  const pageTitleMap = new Map([
+    ["home", "Altrup"],
+    ...sections.map<[string, string]>((section) => [
+      section.name,
+      `Altrup - ${section.title}`,
+    ]),
+    ["contacts", "Altrup - Contacts"],
+  ]);
+  // pageName from pageUrl
+  const pageNameMap = new Map(Array.from(pageUrlMap, (a) => [a[1], a[0]]));
 
-export { getPageUrl, getPageTitle, getPageName };
+  return {
+    getPageUrl: (pageName: string) => pageUrlMap.get(pageName),
+    getPageTitle: (pageName: string) => pageTitleMap.get(pageName),
+    getPageName: (pageUrl: string) => pageNameMap.get(pageUrl),
+  };
+}

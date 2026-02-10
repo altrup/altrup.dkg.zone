@@ -1,3 +1,5 @@
+"use client";
+
 import { useCallback, useContext, useMemo, useState } from "react";
 
 import unFocus from "../../../util/un-focus";
@@ -8,7 +10,7 @@ import InteractiveImage from "../../components/interactive-image";
 import styles from "./image-scroller.module.css";
 import transitionStyles from "../../transitions.module.css";
 
-import arrow from "/icons/arrow.svg";
+const arrow = "/icons/arrow.svg";
 
 import { ThemeContext } from "../../root";
 
@@ -22,7 +24,7 @@ function ImageScroller({
   centerFirstImage,
 }: ImageList & {
   width?: number;
-  customStyle?: CSSModuleClasses;
+  customStyle?: Readonly<Record<string, string>>;
   arrowNavigation?: boolean;
 }) {
   // import context
