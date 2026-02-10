@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "next build && cp -r public .next/standalone/",
+    "start": "HOSTNAME=\"0.0.0.0\" node .next/standalone/server.js",
     "format": "prettier src \"*.{js,ts}\" --write",
     "lint": "eslint ."
   },
