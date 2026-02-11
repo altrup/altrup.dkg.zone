@@ -43,13 +43,13 @@ export type SubSection = {
 	title: string;
 	description?: string | (string | Link)[];
 } & (
-		| {
+	| {
 			imageScroller: ImageList;
-		}
-		| {
+	  }
+	| {
 			projects: Project[];
-		}
-	);
+	  }
+);
 export type Section = {
 	name: string; // used for url
 	title: string;

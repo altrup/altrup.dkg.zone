@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build && cp -r public .next/standalone/ && cp -r .next/static .next/standalone/.next/static",
     "start": "HOSTNAME=\"0.0.0.0\" node .next/standalone/server.js",
-    "format": "prettier src \"*.{js,ts}\" --write",
+    "format": "prettier src \"*.{js,ts,jsx,tsx}\" --write",
     "lint": "eslint ."
   },
   "dependencies": {

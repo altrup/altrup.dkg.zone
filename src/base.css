@@ -1,58 +1,58 @@
 :root {
-  font-family: Comfortaa, Arial;
+	font-family: Comfortaa, Arial;
 }
 * {
-  font-family: inherit;
-  line-height: 1.2em;
-  color: var(--color-1);
+	font-family: inherit;
+	line-height: 1.2em;
+	color: var(--color-1);
 
-  -webkit-tap-highlight-color: transparent;
-  appearance: none;
+	-webkit-tap-highlight-color: transparent;
+	appearance: none;
 }
 
 html,
 body,
 #mount {
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
 }
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 a:link {
-  color: var(--color-link);
+	color: var(--color-link);
 }
 a:visited {
-  color: var(--color-link-visited);
+	color: var(--color-link-visited);
 }
 
 /* Set up Comfortaa font */
 @font-face {
-  font-family: Comfortaa;
-  src: url("/Comfortaa/static/Comfortaa-Light.ttf") format("truetype");
-  font-weight: 100 300;
+	font-family: Comfortaa;
+	src: url("/Comfortaa/static/Comfortaa-Light.ttf") format("truetype");
+	font-weight: 100 300;
 }
 @font-face {
-  font-family: Comfortaa;
-  src: url("/Comfortaa/static/Comfortaa-Regular.ttf") format("truetype");
-  font-weight: 400;
+	font-family: Comfortaa;
+	src: url("/Comfortaa/static/Comfortaa-Regular.ttf") format("truetype");
+	font-weight: 400;
 }
 @font-face {
-  font-family: Comfortaa;
-  src: url("/Comfortaa/static/Comfortaa-Medium.ttf") format("truetype");
-  font-weight: 500;
+	font-family: Comfortaa;
+	src: url("/Comfortaa/static/Comfortaa-Medium.ttf") format("truetype");
+	font-weight: 500;
 }
 @font-face {
-  font-family: Comfortaa;
-  src: url("/Comfortaa/static/Comfortaa-SemiBold.ttf") format("truetype");
-  font-weight: 600;
+	font-family: Comfortaa;
+	src: url("/Comfortaa/static/Comfortaa-SemiBold.ttf") format("truetype");
+	font-weight: 600;
 }
 @font-face {
-  font-family: Comfortaa;
-  src: url("/Comfortaa/static/Comfortaa-Bold.ttf") format("truetype");
-  font-weight: 700 900;
+	font-family: Comfortaa;
+	src: url("/Comfortaa/static/Comfortaa-Bold.ttf") format("truetype");
+	font-weight: 700 900;
 }

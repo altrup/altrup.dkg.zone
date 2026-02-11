@@ -1,77 +1,77 @@
 .project {
-  box-sizing: border-box;
-  margin: 1.75em 3em 1.75em 1.25em;
-  width: min(100%, 500px);
+	box-sizing: border-box;
+	margin: 1.75em 3em 1.75em 1.25em;
+	width: min(100%, 500px);
 
-  flex-grow: 1;
+	flex-grow: 1;
 }
 @media (max-width: 1000px) {
-  /* if max-width is less than 1000px, projects only stack vertically */
-  .project {
-    margin: 1.75em 1em;
-  }
+	/* if max-width is less than 1000px, projects only stack vertically */
+	.project {
+		margin: 1.75em 1em;
+	}
 }
 .project-child {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	flex-wrap: wrap;
 
-  pointer-events: none;
+	pointer-events: none;
 }
 .project-child.image-scroller {
-  margin-right: -4em;
+	margin-right: -4em;
 }
 .project-child.image {
-  margin-right: -2em;
+	margin-right: -2em;
 }
 .project-child * {
-  pointer-events: all;
+	pointer-events: all;
 }
 .label {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: baseline;
-  flex-wrap: wrap;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: baseline;
+	flex-wrap: wrap;
 
-  margin: 0 0 1em;
+	margin: 0 0 1em;
 
-  width: fit-content;
+	width: fit-content;
 }
 .label h3,
 .label a {
-  margin: 0.25em 0;
-  margin-right: 1em;
+	margin: 0.25em 0;
+	margin-right: 1em;
 }
 
 .custom-image-margin {
-  margin: 0.75em 2em 0.75em 0;
+	margin: 0.75em 2em 0.75em 0;
 }
 
 .text {
-  width: 200px;
-  flex-grow: 1;
+	width: 200px;
+	flex-grow: 1;
 
-  margin: 0.75em 0;
+	margin: 0.75em 0;
 }
 .text.image-scroller {
-  margin-right: 4em;
+	margin-right: 4em;
 }
 .text.image {
-  margin-right: 2em;
+	margin-right: 2em;
 }
 .title {
-  margin: 0;
-  font-size: 1.4em;
+	margin: 0;
+	font-size: 1.4em;
 }
 .description {
-  padding: 0;
-  margin: 0;
-  font-size: 0.9em;
-  color: var(--color-description);
+	padding: 0;
+	margin: 0;
+	font-size: 0.9em;
+	color: var(--color-description);
 
-  width: 100%;
-  max-width: max-content;
+	width: 100%;
+	max-width: max-content;
 }

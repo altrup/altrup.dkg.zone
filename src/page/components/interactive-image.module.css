@@ -1,71 +1,71 @@
 .static-image-parent {
-  margin: 1em;
+	margin: 1em;
 
-  height: fit-content;
+	height: fit-content;
 }
 .image-parent {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .image-parent button {
-  display: flex;
+	display: flex;
 
-  background-color: transparent;
-  border: 0;
-  padding: 0;
-  margin: 0;
-  font-size: 1em;
+	background-color: transparent;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	font-size: 1em;
 
-  cursor: pointer;
+	cursor: pointer;
 }
 .image-loading-position {
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  align-items: center;
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-items: center;
+	align-items: center;
 }
 .image-loading-position > * {
-  grid-row-start: 1;
-  grid-column-start: 1;
+	grid-row-start: 1;
+	grid-column-start: 1;
 }
 .placeholder {
-  transition: none;
+	transition: none;
 
-  max-width: min(70vw, 500px);
-  border-radius: 1em;
+	max-width: min(70vw, 500px);
+	border-radius: 1em;
 }
 .placeholder.hidden {
-  transition: inherit;
-  visibility: hidden;
-  opacity: 0;
+	transition: inherit;
+	visibility: hidden;
+	opacity: 0;
 }
 .image {
-  max-width: min(70vw, 500px);
-  height: auto;
-  border-radius: 1em;
+	max-width: min(70vw, 500px);
+	height: auto;
+	border-radius: 1em;
 
-  transition-duration: var(--transition-duration), 0s;
-  transition-property: all, z-index;
-  z-index: 1;
+	transition-duration: var(--transition-duration), 0s;
+	transition-property: all, z-index;
+	z-index: 1;
 }
 .image.drop-shadow {
-  filter: drop-shadow(0 0 0.2em var(--color-1));
+	filter: drop-shadow(0 0 0.2em var(--color-1));
 }
 .image.hidden {
-  transition: none;
-  scale: 0.001;
-  z-index: -1;
+	transition: none;
+	scale: 0.001;
+	z-index: -1;
 }
 @media (hover: hover) {
-  .image-parent:hover {
-    transform: scale(1.05) !important;
-  }
-  .image-parent:active,
-  .image-parent:has(button:active) {
-    transform: scale(1.025) !important;
-  }
+	.image-parent:hover {
+		transform: scale(1.05) !important;
+	}
+	.image-parent:active,
+	.image-parent:has(button:active) {
+		transform: scale(1.025) !important;
+	}
 }
 .image-parent:focus-within {
-  transform: scale(1.05) !important;
+	transform: scale(1.05) !important;
 }

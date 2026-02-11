@@ -1,82 +1,82 @@
 .transition {
-  --transition-duration: 0.2s;
+	--transition-duration: 0.2s;
 
-  transition: all var(--transition-duration) ease;
+	transition: all var(--transition-duration) ease;
 }
 .transition * {
-  transition: all var(--transition-duration) ease;
+	transition: all var(--transition-duration) ease;
 }
 
 .notransition {
-  transition: none !important;
+	transition: none !important;
 }
 .notransition * {
-  transition: inherit !important;
+	transition: inherit !important;
 }
 
 .interactive {
-  --transform-transition-duration: 0.3s;
+	--transform-transition-duration: 0.3s;
 
-  display: inline-block;
+	display: inline-block;
 
-  transition-duration:
-    var(--transition-duration), var(--transform-transition-duration);
-  transition-property: all, transform;
-  transform: scale(1);
+	transition-duration:
+		var(--transition-duration), var(--transform-transition-duration);
+	transition-property: all, transform;
+	transform: scale(1);
 }
 @media (hover: hover) {
-  .interactive:hover {
-    transform: scale(1.1);
-  }
-  p.interactive:hover {
-    transform: scale(1.04);
-  }
-  div.interactive:not(.clickable):hover {
-    transform: scale(1.03);
-  }
+	.interactive:hover {
+		transform: scale(1.1);
+	}
+	p.interactive:hover {
+		transform: scale(1.04);
+	}
+	div.interactive:not(.clickable):hover {
+		transform: scale(1.03);
+	}
 
-  div.interactive.clickable:has(:is(button, a):active),
-  .interactive.clickable:active {
-    transform: scale(1.05);
-  }
-  div.interactive.clickable:has(:is(button, a):focus-visible) {
-    transform: scale(1.1);
-  }
+	div.interactive.clickable:has(:is(button, a):active),
+	.interactive.clickable:active {
+		transform: scale(1.05);
+	}
+	div.interactive.clickable:has(:is(button, a):focus-visible) {
+		transform: scale(1.1);
+	}
 }
 @media (hover: none) {
-  .interactive.clickable:active::before {
-    content: "";
+	.interactive.clickable:active::before {
+		content: "";
 
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
 
-    z-index: 10;
-    opacity: 0.5;
-    background-color: var(--color-2);
-    border-radius: 100vh;
+		z-index: 10;
+		opacity: 0.5;
+		background-color: var(--color-2);
+		border-radius: 100vh;
 
-    pointer-events: none;
-  }
-  .interactive.clickable.rounded-square:active::before {
-    border-radius: 5px;
-  }
+		pointer-events: none;
+	}
+	.interactive.clickable.rounded-square:active::before {
+		border-radius: 5px;
+	}
 
-  div.interactive.clickable:has(:is(button, a):active),
-  .interactive.clickable:active {
-    transform: scale(0.95);
-  }
+	div.interactive.clickable:has(:is(button, a):active),
+	.interactive.clickable:active {
+		transform: scale(0.95);
+	}
 }
 div.interactive.clickable:focus-within,
 .interactive:focus-within,
 .interactive:focus-visible {
-  transform: scale(1.1);
+	transform: scale(1.1);
 }
 p.interactive:focus-within {
-  transform: scale(1.04);
+	transform: scale(1.04);
 }
 div.interactive:not(.clickable):focus-within {
-  transform: scale(1.03);
+	transform: scale(1.03);
 }

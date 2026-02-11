@@ -1,11 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  reactStrictMode: true,
-  output: "standalone",
-  outputFileTracingIncludes: {
-    '/': ['./src/inline.css', './src/theme-manager.js'],
-  }
+	reactStrictMode: true,
+	output: "standalone",
+	outputFileTracingIncludes: {
+		"/": ["./src/inline.css", "./src/theme-manager.js"],
+	},
 };
 
 export default nextConfig;

@@ -1,172 +1,172 @@
 #links-parent {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
 
-  pointer-events: none;
+	pointer-events: none;
 }
 #links-parent * {
-  pointer-events: initial;
+	pointer-events: initial;
 }
 #links {
-  position: relative;
+	position: relative;
 
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
 
-  pointer-events: none;
+	pointer-events: none;
 }
 #links * {
-  pointer-events: initial;
+	pointer-events: initial;
 }
 #links a {
-  position: relative;
+	position: relative;
 
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 
-  color: var(--color-1);
-  border: none;
-  background-color: transparent;
-  font-size: 1em;
-  text-decoration: none;
+	color: var(--color-1);
+	border: none;
+	background-color: transparent;
+	font-size: 1em;
+	text-decoration: none;
 }
 
 #hidden-links a::after {
-  content: "";
-  width: 0px;
-  height: 0.2em;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 100vh;
+	content: "";
+	width: 0px;
+	height: 0.2em;
+	left: 50%;
+	transform: translateX(-50%);
+	border-radius: 100vh;
 
-  background: var(--color-2);
+	background: var(--color-2);
 
-  position: absolute;
-  bottom: 0.25em;
+	position: absolute;
+	bottom: 0.25em;
 
-  transition-duration:
-    var(--transform-transition-duration), var(--transition-duration);
-  transition-property: width, all;
+	transition-duration:
+		var(--transform-transition-duration), var(--transition-duration);
+	transition-property: width, all;
 }
 @media (hover: hover) {
-  #links a:not(#logo):hover::after {
-    width: 35%;
-  }
-  #links a:not(#logo):hover {
-    margin-bottom: 0.2em;
-  }
+	#links a:not(#logo):hover::after {
+		width: 35%;
+	}
+	#links a:not(#logo):hover {
+		margin-bottom: 0.2em;
+	}
 }
 #links a:focus-visible:not(#logo)::after {
-  width: 35%;
+	width: 35%;
 }
 #links a:focus-visible:not(#logo) {
-  margin-bottom: 0.2em;
+	margin-bottom: 0.2em;
 }
 /* NOTE: we use calculate for width to account for 1em of padding */
 #links a:not(#logo).selected::after {
-  width: calc(100% - 1em);
+	width: calc(100% - 1em);
 }
 #links a:not(#logo).selected {
-  margin-bottom: 0.2em;
+	margin-bottom: 0.2em;
 }
 #links #logo-parent {
-  margin: 0.4em;
+	margin: 0.4em;
 }
 #links #logo {
-  padding: 0.1em;
+	padding: 0.1em;
 
-  border-radius: 100vh;
+	border-radius: 100vh;
 }
 #links #logo {
-  border-radius: 100vh;
-  border: 1px solid var(--color-1);
+	border-radius: 100vh;
+	border: 1px solid var(--color-1);
 }
 #links #logo img {
-  height: 50px;
-  width: auto;
-  padding: 0;
+	height: 50px;
+	width: auto;
+	padding: 0;
 }
 
 #hidden-links-parent {
-  height: 2em;
+	height: 2em;
 }
 #hidden-links {
-  position: relative;
+	position: relative;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
 }
 #hidden-links a {
-  visibility: hidden;
+	visibility: hidden;
 }
 #hidden-links a {
-  filter: drop-shadow(-0.1em -0.1em 0.1em var(--background-color))
-    drop-shadow(-0.1em 0.1em 0.1em var(--background-color))
-    drop-shadow(0.1em -0.1em 0.1em var(--background-color))
-    drop-shadow(0.1em 0.1em 0.1em var(--background-color));
+	filter: drop-shadow(-0.1em -0.1em 0.1em var(--background-color))
+		drop-shadow(-0.1em 0.1em 0.1em var(--background-color))
+		drop-shadow(0.1em -0.1em 0.1em var(--background-color))
+		drop-shadow(0.1em 0.1em 0.1em var(--background-color));
 
-  scale: 1 0;
-  height: 0;
-  padding: 0 0.5em;
+	scale: 1 0;
+	height: 0;
+	padding: 0 0.5em;
 }
 #hidden-links.showing a,
 #hidden-links a.selected {
-  box-sizing: content-box;
+	box-sizing: content-box;
 
-  scale: 1 1;
-  height: 1em;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+	scale: 1 1;
+	height: 1em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
 }
 #hidden-links.showing a,
 #hidden-links a.selected {
-  visibility: visible;
+	visibility: visible;
 }
 
 #toggle-show-links-button {
-  border: none;
-  padding: 0;
-  background-color: transparent;
+	border: none;
+	padding: 0;
+	background-color: transparent;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-  width: 35px;
-  height: 35px;
+	width: 35px;
+	height: 35px;
 
-  cursor: pointer;
+	cursor: pointer;
 
-  rotate: -90deg;
-  transition-duration: var(--transition-duration);
-  transition-property: rotate;
+	rotate: -90deg;
+	transition-duration: var(--transition-duration);
+	transition-property: rotate;
 }
 #toggle-show-links-button.showing {
-  rotate: 0deg;
+	rotate: 0deg;
 }
 #toggle-show-links-button img#arrow-img {
-  width: 30px;
-  height: auto;
+	width: 30px;
+	height: auto;
 
-  filter: invert(0) drop-shadow(-0.1em -0.1em 0.2em var(--background-color))
-    drop-shadow(-0.1em 0.1em 0.2em var(--background-color))
-    drop-shadow(0.1em -0.1em 0.2em var(--background-color))
-    drop-shadow(0.1em 0.1em 0.2em var(--background-color));
+	filter: invert(0) drop-shadow(-0.1em -0.1em 0.2em var(--background-color))
+		drop-shadow(-0.1em 0.1em 0.2em var(--background-color))
+		drop-shadow(0.1em -0.1em 0.2em var(--background-color))
+		drop-shadow(0.1em 0.1em 0.2em var(--background-color));
 
-  transition-duration: var(--transition-duration);
-  transition-property: filter;
+	transition-duration: var(--transition-duration);
+	transition-property: filter;
 }
 #toggle-show-links-button img#arrow-img.inverted {
-  filter: invert(1) drop-shadow(-0.1em -0.1em 0.2em var(--background-color))
-    drop-shadow(-0.1em 0.1em 0.2em var(--background-color))
-    drop-shadow(0.1em -0.1em 0.2em var(--background-color))
-    drop-shadow(0.1em 0.1em 0.2em var(--background-color));
+	filter: invert(1) drop-shadow(-0.1em -0.1em 0.2em var(--background-color))
+		drop-shadow(-0.1em 0.1em 0.2em var(--background-color))
+		drop-shadow(0.1em -0.1em 0.2em var(--background-color))
+		drop-shadow(0.1em 0.1em 0.2em var(--background-color));
 }
