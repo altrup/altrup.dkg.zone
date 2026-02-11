@@ -5,11 +5,38 @@ import { onSectionUpdate } from "./on-section-update";
 import { fetchSections } from "./fetch-sections";
 import { FSWatcher, watch } from "fs";
 
-let cachedSections: Section[] | null = null;
-let removeSupabaseListener: (() => unknown) | null = null;
-let fileWatcher: FSWatcher | null = null;
+declare global {
+  var __sectionsCache:
+    | {
+        sections: Section[] | null;
+        removeSupabaseListener: (() => unknown) | null;
+        fileWatcher: FSWatcher | null;
+      }
+    | undefined;
+}
+
+globalThis.__sectionsCache?.removeSupabaseListener?.();
+globalThis.__sectionsCache?.fileWatcher?.close();
+globalThis.__sectionsCache = {
+  sections: null,
+  removeSupabaseListener: null,
+  fileWatcher: null,
+};
+
+const getState = () => {
+  if (!globalThis.__sectionsCache) {
+    globalThis.__sectionsCache = {
+      sections: null,
+      removeSupabaseListener: null,
+      fileWatcher: null,
+    };
+  }
+  return globalThis.__sectionsCache;
+};
 
 const updateSections = async () => {
+  const state = getState();
+
   const isProduction = process.env.NODE_ENV === "production";
 
   const sectionsFilePath = process.env.SECTIONS_JSON_FILE
@@ -20,15 +47,15 @@ const updateSections = async () => {
     if (sectionsFilePath) {
       console.log(`Loading sections from ${sectionsFilePath}`);
       try {
-        cachedSections = JSON.parse(
+        state.sections = JSON.parse(
           await fs.readFile(sectionsFilePath, "utf8"),
         ) as Section[];
 
         // Update listeners
-        removeSupabaseListener?.();
-        removeSupabaseListener = null;
-        if (!fileWatcher) {
-          fileWatcher = watch(
+        state.removeSupabaseListener?.();
+        state.removeSupabaseListener = null;
+        if (!state.fileWatcher) {
+          state.fileWatcher = watch(
             sectionsFilePath,
             undefined,
             (eventType: string) => {
@@ -46,7 +73,7 @@ const updateSections = async () => {
     }
   }
 
-  if (!cachedSections) {
+  if (!state.sections) {
     console.log("Loading sections from supabase");
 
     const supabaseURL = process.env.SUPABASE_URL;
@@ -57,32 +84,34 @@ const updateSections = async () => {
       throw new Error("Missing required Supabase environment variables");
     }
 
-    cachedSections = await fetchSections({
+    state.sections = await fetchSections({
       supabaseURL: supabaseURL,
       supabaseAnonKey: supabaseAnonKey,
       supabaseTableName: supabaseTableName,
     });
 
     // also update listeners
-    fileWatcher?.close();
-    fileWatcher = null;
-    if (!removeSupabaseListener) {
-      removeSupabaseListener = onSectionUpdate(
+    state.fileWatcher?.close();
+    state.fileWatcher = null;
+    if (!state.removeSupabaseListener) {
+      state.removeSupabaseListener = onSectionUpdate(
         {
           supabaseURL: supabaseURL,
           supabaseAnonKey: supabaseAnonKey,
           supabaseTableName: supabaseTableName,
         },
         async () => {
-          cachedSections = await updateSections();
+          state.sections = await updateSections();
         },
       );
     }
   }
 
-  return cachedSections;
+  globalThis.__sectionsCache = state;
+  return state.sections;
 };
 
 export const getSections = async () => {
-  return cachedSections ?? (await updateSections());
+  const state = getState();
+  return state.sections ?? (await updateSections());
 };
