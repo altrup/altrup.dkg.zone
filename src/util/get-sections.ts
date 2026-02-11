@@ -61,7 +61,9 @@ const updateSections = async () => {
 						undefined,
 						(eventType: string) => {
 							if (eventType === "change") {
-								updateSections().catch(console.error);
+								if (globalThis.__sectionsCache) {
+									globalThis.__sectionsCache.sections = null;
+								}
 							}
 						},
 					);
@@ -101,8 +103,10 @@ const updateSections = async () => {
 					supabaseAnonKey: supabaseAnonKey,
 					supabaseTableName: supabaseTableName,
 				},
-				async () => {
-					await updateSections();
+				() => {
+					if (globalThis.__sectionsCache) {
+						globalThis.__sectionsCache.sections = null;
+					}
 				},
 			);
 		}
