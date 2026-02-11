@@ -74,7 +74,7 @@ function Header() {
 	// force scroll-spy to update
 	useEffect(() => {
 		scrollSpy.update();
-	}, []);
+	}, [useSlimLinks]);
 
 	const transitionClass = useMemo(
 		() =>

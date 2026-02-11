@@ -41,7 +41,7 @@ export type Project = {
 };
 export type SubSection = {
 	title: string;
-	description?: string | (string | Link)[];
+	description?: string; // markdown
 } & (
 	| {
 			imageScroller: ImageList;
@@ -53,6 +53,8 @@ export type SubSection = {
 export type Section = {
 	name: string; // used for url
 	title: string;
-	description?: string;
-	subSections: SubSection[];
+	subtitle?: string; // displayed next to title
+	description?: string; // markdown
+	subSections?: SubSection[];
+	links?: Link[];
 };

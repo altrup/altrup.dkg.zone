@@ -109,20 +109,6 @@ function SlimLinks({
 								</Link>
 							</div>
 						))}
-						<div className={transitionClass}>
-							<Link
-								activeClass={styles["selected"]}
-								spy={true}
-								containerId="main-page"
-								onClick={() => {
-									onLinkClick("contacts");
-								}}
-								href="/contacts"
-								to="contacts"
-							>
-								Contacts
-							</Link>
-						</div>
 					</div>
 				</div>
 			</div>

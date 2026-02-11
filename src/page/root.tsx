@@ -9,7 +9,6 @@ import transitionStyles from "./transitions.module.css";
 
 import HomePage from "./home/home-page";
 import SectionPage from "./section/section-page";
-import ContactsPage from "./contacts/contacts-page";
 
 import SelectedImage, { ImageInfo } from "./components/selected-image";
 
@@ -126,16 +125,8 @@ function Root({ sections }: { sections: Section[] }) {
 							>
 								<HomePage />
 								{sections.map((section) => (
-									<SectionPage
-										key={section.name}
-										name={section.name}
-										title={section.title}
-										description={section.description}
-										subSections={section.subSections}
-									/>
+									<SectionPage key={section.name} {...section} />
 								))}
-
-								<ContactsPage />
 							</div>
 
 							<SelectedImage showImage={showImage} image={selectedImage} />

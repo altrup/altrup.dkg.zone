@@ -1,8 +1,9 @@
 "use client";
 
 import { Element } from "react-scroll";
+import Markdown from "react-markdown";
 
-import { isImageList, SubSection } from "../../types";
+import { isImageList, type Section } from "../../types";
 
 import styles from "./section-page.module.css";
 import transitionStyles from "../transitions.module.css";
@@ -10,84 +11,104 @@ import transitionStyles from "../transitions.module.css";
 import Project from "./components/project";
 import ImageScroller from "./components/image-scroller";
 
-function SectionPage({
+const interactiveClass = transitionStyles["interactive"];
+const clickableClass = [
+	interactiveClass,
+	transitionStyles["clickable"],
+].join(" ");
+const clickableRoundedClass = [
+	clickableClass,
+	transitionStyles["rounded-square"],
+].join(" ");
+
+const markdownComponents = (pClassName: string) => ({
+	p: ({ children }: { children?: React.ReactNode }) => (
+		<p className={pClassName}>{children}</p>
+	),
+	a: ({
+		href,
+		children,
+	}: {
+		href?: string;
+		children?: React.ReactNode;
+	}) => (
+		<a
+			className={clickableRoundedClass}
+			target="_blank"
+			rel="noreferrer"
+			href={href}
+		>
+			{children}
+		</a>
+	),
+});
+
+const SectionPage = ({
 	name,
 	title,
+	subtitle,
 	description,
 	subSections,
-}: {
-	name: string;
-	title: string;
-	description?: string;
-	subSections: SubSection[];
-}) {
+	links,
+}: Section) => {
 	return (
 		<Element id={styles["sections-page"]} name={name}>
 			<div
 				id={styles["sections-page-child"]}
-				className={transitionStyles["interactive"]}
+				className={interactiveClass}
 			>
-				<h1
-					id={styles["sections-label"]}
-					className={transitionStyles["interactive"]}
-				>
-					{title}
-				</h1>
+				<div className={styles["sections-title"]}>
+					<h1
+						id={styles["sections-label"]}
+						className={interactiveClass}
+					>
+						{title}
+					</h1>
+					{subtitle ? (
+						<p
+							className={[
+								styles["sections-subtitle"],
+								interactiveClass,
+							].join(" ")}
+						>
+							{subtitle}
+						</p>
+					) : null}
+				</div>
 				{description ? (
-					<p
-						id={styles["sections-description"]}
-						className={transitionStyles["interactive"]}
+					<Markdown
+						components={markdownComponents(
+							[styles["sections-description"], interactiveClass].join(" "),
+						)}
 					>
 						{description}
-					</p>
+					</Markdown>
 				) : null}
 
-				{subSections.map((section, index) => (
+				{subSections?.map((section, index) => (
 					<div
 						key={index}
 						className={[
 							styles["section-type-div"],
-							transitionStyles["interactive"],
+							interactiveClass,
 						].join(" ")}
 					>
 						<h2
 							className={[
 								styles["section-type-label"],
-								transitionStyles["interactive"],
+								interactiveClass,
 							].join(" ")}
 						>
 							{section.title}
 						</h2>
-						{"description" in section && section.description ? (
-							<p
-								className={[
-									styles["section-type-description"],
-									transitionStyles["interactive"],
-								].join(" ")}
+						{section.description ? (
+							<Markdown
+								components={markdownComponents(
+									[styles["section-type-description"], interactiveClass].join(" "),
+								)}
 							>
-								{typeof section.description === "string"
-									? section.description
-									: section.description.map((desc, index) => (
-											<span key={index}>
-												{typeof desc === "string" ? (
-													desc
-												) : (
-													<a
-														className={[
-															transitionStyles["interactive"],
-															transitionStyles["clickable"],
-															transitionStyles["rounded-square"],
-														].join(" ")}
-														target="_blank"
-														rel="noreferrer"
-														href={desc.href}
-													>
-														{desc.text}
-													</a>
-												)}
-											</span>
-										))}
-							</p>
+								{section.description}
+							</Markdown>
 						) : undefined}
 						{"projects" in section &&
 						Object.prototype.toString.call(section.projects) ===
@@ -122,6 +143,28 @@ function SectionPage({
 						) : undefined}
 					</div>
 				))}
+
+				{links && links.length > 0 ? (
+					<div
+						className={[
+							styles["sections-links"],
+							interactiveClass,
+						].join(" ")}
+					>
+						{links.map((link) => (
+							<a
+								key={link.href}
+								href={link.href}
+								className={clickableClass}
+								{...(link.href.startsWith("mailto:")
+									? {}
+									: { target: "_blank", rel: "noreferrer" })}
+							>
+								{link.text}
+							</a>
+						))}
+					</div>
+				) : null}
 			</div>
 		</Element>
 	);

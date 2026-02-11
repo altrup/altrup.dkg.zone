@@ -5,7 +5,7 @@
     "description": "Some projects and things I'm interested in",
     "subSections": [
       {
-        "title": "Electrical Projects",
+        "title": "Electrical",
         "projects": [
           {
             "name": "Dual USB-C Expansion Card",
@@ -20,8 +20,12 @@
             },
             "links": [
               {
+                "href": "https://altrup.github.io/Framework-2-USB-C-Expansion-Card/Framework 2 USB-C Expansion Card.pdf",
+                "text": "Schematic"
+              },
+              {
                 "href": "https://github.com/altrup/Framework-2-USB-C-Expansion-Card",
-                "text": "Files"
+                "text": "Source Files"
               }
             ],
             "description": "WIP. My attempt at a Framework Dual USB-C Expansion Card featuring upstream Power Delivery"
@@ -29,7 +33,7 @@
         ]
       },
       {
-        "title": "Software Projects",
+        "title": "Software",
         "projects": [
           {
             "name": "AI model Ablater",
@@ -130,7 +134,7 @@
         ]
       },
       {
-        "title": "Mechanical Projects",
+        "title": "Mechanical",
         "projects": [
           {
             "name": "Svejk Dice",
@@ -199,14 +203,7 @@
       },
       {
         "title": "Cross View Images",
-        "description": [
-          "Cross your eyes and try to make the images overlap! For more info about cross view and a tutorial, check out ",
-          {
-            "href": "https://www.reddit.com/r/CrossView/wiki/index/",
-            "text": "this"
-          },
-          " Reddit post"
-        ],
+        "description": "Cross your eyes and try to make the images overlap! For more info about cross view and a tutorial, check out [this](https://www.reddit.com/r/CrossView/wiki/index/) Reddit post",
         "imageScroller": {
           "height": 200,
           "images": [
@@ -336,6 +333,23 @@
           }
         ]
       }
+    ]
+  },
+  {
+    "name": "contacts",
+    "title": "Contacts",
+    "subtitle": "and Links",
+    "links": [
+      { "text": "altrup@dkg.zone", "href": "mailto:altrup@dkg.zone" },
+      {
+        "text": "e255liu@uwaterloo.ca",
+        "href": "mailto:e255liu@uwaterloo.ca"
+      },
+      {
+        "text": "LinkedIn",
+        "href": "https://www.linkedin.com/in/altrup/"
+      },
+      { "text": "GitHub", "href": "https://github.com/altrup" }
     ]
   }
 ]

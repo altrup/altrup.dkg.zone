@@ -11,7 +11,6 @@ export function createPageInfo(sections: Section[]) {
 			section.name,
 			`/${section.name}`,
 		]),
-		["contacts", "/contacts"],
 	]);
 	// get pageTitle from pageName
 	const pageTitleMap = new Map([
@@ -20,7 +19,6 @@ export function createPageInfo(sections: Section[]) {
 			section.name,
 			`Altrup - ${section.title}`,
 		]),
-		["contacts", "Altrup - Contacts"],
 	]);
 	// pageName from pageUrl
 	const pageNameMap = new Map(Array.from(pageUrlMap, (a) => [a[1], a[0]]));
