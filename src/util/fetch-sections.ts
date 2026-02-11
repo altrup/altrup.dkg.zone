@@ -1,7 +1,7 @@
-import { createClient, PostgrestError } from "@supabase/supabase-js";
+import { createClient, PostgrestSingleResponse } from "@supabase/supabase-js";
 import { Section } from "../types";
 
-export const fetchSections = ({
+export const fetchSections = async ({
 	supabaseURL,
 	supabaseAnonKey,
 	supabaseTableName,
@@ -15,27 +15,17 @@ export const fetchSections = ({
 	}
 
 	const supabase = createClient(supabaseURL, supabaseAnonKey);
-	const tableName = supabaseTableName;
 
-	return new Promise<Section[]>((resolve, reject) => {
-		supabase
-			.from(tableName)
-			.select("id, Sections")
-			.then(
-				({
-					data,
-					error,
-				}: {
-					data: { id: number; Sections: Section }[] | null;
-					error: PostgrestError | null;
-				}) => {
-					if (error) {
-						reject(error);
-					} else if (data) {
-						const sortedData = data.sort((a, b) => a.id - b.id);
-						resolve(sortedData.map(({ Sections }) => Sections));
-					}
-				},
-			);
-	});
+	const { data, error } = (await supabase
+		.from(supabaseTableName)
+		.select("id, Sections")
+		.order("id", { ascending: true })) as PostgrestSingleResponse<
+		{ id: number; Sections: Section }[]
+	>;
+
+	if (error) {
+		throw error;
+	}
+
+	return data.map(({ Sections }) => Sections);
 };
