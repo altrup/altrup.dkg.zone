@@ -12,10 +12,9 @@ import Project from "./components/project";
 import ImageScroller from "./components/image-scroller";
 
 const interactiveClass = transitionStyles["interactive"];
-const clickableClass = [
-	interactiveClass,
-	transitionStyles["clickable"],
-].join(" ");
+const clickableClass = [interactiveClass, transitionStyles["clickable"]].join(
+	" ",
+);
 const clickableRoundedClass = [
 	clickableClass,
 	transitionStyles["rounded-square"],
@@ -25,13 +24,7 @@ const markdownComponents = (pClassName: string) => ({
 	p: ({ children }: { children?: React.ReactNode }) => (
 		<p className={pClassName}>{children}</p>
 	),
-	a: ({
-		href,
-		children,
-	}: {
-		href?: string;
-		children?: React.ReactNode;
-	}) => (
+	a: ({ href, children }: { href?: string; children?: React.ReactNode }) => (
 		<a
 			className={clickableRoundedClass}
 			target="_blank"
@@ -52,24 +45,21 @@ const SectionPage = ({
 	links,
 }: Section) => {
 	return (
-		<Element id={styles["sections-page"]} name={name}>
-			<div
-				id={styles["sections-page-child"]}
-				className={interactiveClass}
-			>
+		<Element
+			id={styles["sections-page"]}
+			className={!subSections ? styles["fit-content"] : undefined}
+			name={name}
+		>
+			<div id={styles["sections-page-child"]} className={interactiveClass}>
 				<div className={styles["sections-title"]}>
-					<h1
-						id={styles["sections-label"]}
-						className={interactiveClass}
-					>
+					<h1 id={styles["sections-label"]} className={interactiveClass}>
 						{title}
 					</h1>
 					{subtitle ? (
 						<p
-							className={[
-								styles["sections-subtitle"],
-								interactiveClass,
-							].join(" ")}
+							className={[styles["sections-subtitle"], interactiveClass].join(
+								" ",
+							)}
 						>
 							{subtitle}
 						</p>
@@ -88,23 +78,21 @@ const SectionPage = ({
 				{subSections?.map((section, index) => (
 					<div
 						key={index}
-						className={[
-							styles["section-type-div"],
-							interactiveClass,
-						].join(" ")}
+						className={[styles["section-type-div"], interactiveClass].join(" ")}
 					>
 						<h2
-							className={[
-								styles["section-type-label"],
-								interactiveClass,
-							].join(" ")}
+							className={[styles["section-type-label"], interactiveClass].join(
+								" ",
+							)}
 						>
 							{section.title}
 						</h2>
 						{section.description ? (
 							<Markdown
 								components={markdownComponents(
-									[styles["section-type-description"], interactiveClass].join(" "),
+									[styles["section-type-description"], interactiveClass].join(
+										" ",
+									),
 								)}
 							>
 								{section.description}
@@ -146,10 +134,7 @@ const SectionPage = ({
 
 				{links && links.length > 0 ? (
 					<div
-						className={[
-							styles["sections-links"],
-							interactiveClass,
-						].join(" ")}
+						className={[styles["sections-links"], interactiveClass].join(" ")}
 					>
 						{links.map((link) => (
 							<a
@@ -168,6 +153,6 @@ const SectionPage = ({
 			</div>
 		</Element>
 	);
-}
+};
 
 export default SectionPage;
