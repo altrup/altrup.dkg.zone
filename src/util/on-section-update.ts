@@ -25,9 +25,7 @@ export const onSectionUpdate = (
         })
         .subscribe();
     })
-    .catch((err) => {
-      console.error(err);
-    });
+    .catch(console.error);
 
   return () => {
     const currentChannel = channel;
@@ -36,12 +34,8 @@ export const onSectionUpdate = (
     supabase.realtime
       .setAuth()
       .then(() => {
-        supabase.removeChannel(currentChannel).catch((err) => {
-          console.error(err);
-        });
+        supabase.removeChannel(currentChannel).catch(console.error);
       })
-      .catch((err) => {
-        console.error(err);
-      });
+      .catch(console.error);
   };
 };

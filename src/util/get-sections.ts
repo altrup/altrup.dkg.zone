@@ -31,9 +31,9 @@ const updateSections = async () => {
           fileWatcher = watch(
             sectionsFilePath,
             undefined,
-            async (eventType: string) => {
+            (eventType: string) => {
               if (eventType === "change") {
-                await updateSections();
+                updateSections().catch(console.error);
               }
             },
           );
