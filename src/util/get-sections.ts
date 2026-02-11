@@ -36,6 +36,7 @@ const getState = () => {
 
 const updateSections = async () => {
   const state = getState();
+  state.sections = null;
 
   const isProduction = process.env.NODE_ENV === "production";
 
