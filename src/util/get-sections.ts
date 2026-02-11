@@ -102,7 +102,7 @@ const updateSections = async () => {
 					supabaseTableName: supabaseTableName,
 				},
 				async () => {
-					state.sections = await updateSections();
+					await updateSections();
 				},
 			);
 		}
