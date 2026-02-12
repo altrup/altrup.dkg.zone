@@ -13,6 +13,7 @@
 	flex-direction: row;
 	overflow-x: scroll;
 	scroll-snap-type: x mandatory;
+	overscroll-behavior-x: contain;
 
 	transform: scale(1);
 

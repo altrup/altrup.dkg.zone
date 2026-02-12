@@ -3,13 +3,15 @@
 // component for links when we have a wide enough screen
 
 import { useCallback, useContext, useMemo } from "react";
-import { Link, scroller } from "react-scroll";
 
 import styles from "./wide-links.module.css";
 import transitionStyles from "../../transitions.module.css";
 import unFocus from "../../../util/un-focus";
 
 import { SectionsContext } from "../../root";
+import { useScrollSpy } from "../../../util/use-scroll-spy";
+import { inView } from "motion";
+import { scrollToElement } from "../../../util/scroll-to-element";
 
 function WideLinks({
 	updatePageInfo,
@@ -17,21 +19,27 @@ function WideLinks({
 	updatePageInfo: (pageName: string) => void;
 }) {
 	const sections = useContext(SectionsContext);
+	const spyTargets = useMemo(
+		() =>
+			["home", ...sections.map((s) => s.name)].map((name, i, arr) => ({
+				id: name,
+				options: {
+					margin: i === arr.length - 1 ? "0px" : "0px 0px -90% 0px",
+					amount: i === arr.length - 1 ? 0.9 : "any",
+				} as Parameters<typeof inView>[2],
+			})),
+		[sections],
+	);
+	const activeSectionName = useScrollSpy(spyTargets);
 
 	const onLinkClick = useCallback(
-		(name: string) => {
+		(e: React.MouseEvent, name: string) => {
 			updatePageInfo(name);
 
-			// NOTE: can't use offset in Link because it affects both spy and scroll
-			scroller.scrollTo(name, {
-				containerId: "main-page",
-				smooth: true,
-				duration: 500,
-				offset: name == "home" ? 0 : 5, // Scroll extra to fix spy not correctly updating on mobile chrome
-			});
+			scrollToElement(name);
 
-			// react-scroll stops propagation
 			unFocus();
+			e.preventDefault();
 		},
 		[updatePageInfo],
 	);
@@ -50,35 +58,35 @@ function WideLinks({
 	return (
 		<div id={styles["links"]}>
 			<div id={styles["logo-parent"]} className={roundedSquareTransitionClass}>
-				<Link
+				<a
 					id={styles["logo"]}
-					activeClass={styles["selected"]}
-					spy={true}
-					containerId="main-page"
-					onClick={() => {
-						onLinkClick("home");
+					className={
+						activeSectionName === "home" ? styles["selected"] : undefined
+					}
+					onClick={(e) => {
+						onLinkClick(e, "home");
 					}}
 					href="/"
-					to="home"
 				>
 					<img src="/icon-small.png"></img>
 					<h1>Altrup</h1>
-				</Link>
+				</a>
 			</div>
 			{sections.map((section) => (
 				<div className={transitionClass} key={section.name}>
-					<Link
-						activeClass={styles["selected"]}
-						spy={true}
-						containerId="main-page"
-						onClick={() => {
-							onLinkClick(section.name);
+					<a
+						className={
+							activeSectionName === section.name
+								? styles["selected"]
+								: undefined
+						}
+						onClick={(e) => {
+							onLinkClick(e, section.name);
 						}}
 						href={`/${section.name}`}
-						to={section.name}
 					>
 						{section.title}
-					</Link>
+					</a>
 				</div>
 			))}
 		</div>

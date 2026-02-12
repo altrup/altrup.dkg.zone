@@ -1,13 +1,11 @@
 "use client";
 
-import { Element } from "react-scroll";
-
 import styles from "./home-page.module.css";
 import transitionStyles from "../transitions.module.css";
 
 function HomePage() {
 	return (
-		<Element id={styles["home-page"]} name="home">
+		<div id="home" className={styles["home-page"]}>
 			<div className={styles["text-div"]}>
 				<div className={styles["paragraph"]}>
 					<p className={transitionStyles["interactive"]}>
@@ -17,7 +15,7 @@ function HomePage() {
 					</p>
 				</div>
 			</div>
-		</Element>
+		</div>
 	);
 }
 

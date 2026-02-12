@@ -43,8 +43,6 @@ function ImageScroller({
 					left: direction * height,
 					behavior: "smooth",
 				});
-				// trigger lazy load
-				imagesDivElement.dispatchEvent(new Event("scroll"));
 			}
 		},
 		[height, imagesDiv],
@@ -127,7 +125,6 @@ function ImageScroller({
 				{images.map((image, index) => (
 					<InteractiveImage
 						key={index}
-						scrollContainer={imagesDiv ?? undefined}
 						image={{ ...image, height }}
 						customStyle={
 							index == 0 && centerFirstImage && width

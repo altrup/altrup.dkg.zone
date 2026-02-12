@@ -3,7 +3,6 @@
 // NOTE: also contains logic for scrolling
 
 import { useCallback, useContext, useEffect, useMemo, useState } from "react";
-import { scroller, scrollSpy } from "react-scroll";
 
 import ThemeChanger from "./components/theme-changer";
 import WideLinks from "./components/wide-links";
@@ -16,6 +15,7 @@ import styles from "./header.module.css";
 import transitionStyles from "../transitions.module.css";
 
 import setUrl from "../../util/set-url";
+import { scrollToElement } from "../../util/scroll-to-element";
 
 function Header() {
 	// import context
@@ -64,17 +64,8 @@ function Header() {
 
 		// update page info, then scroll to page
 		updatePageInfo(pageName);
-		scroller.scrollTo(pageName, {
-			containerId: "main-page",
-			smooth: true,
-			duration: 500,
-			offset: pageName == "home" ? 0 : 5, // Scroll extra to fix spy not correctly updating on mobile chrome
-		});
+		scrollToElement(pageName);
 	}, [updatePageInfo, getPageName]);
-	// force scroll-spy to update
-	useEffect(() => {
-		scrollSpy.update();
-	}, [useSlimLinks]);
 
 	const transitionClass = useMemo(
 		() =>
@@ -86,7 +77,7 @@ function Header() {
 		[],
 	);
 	return (
-		<div id={styles["header"]}>
+		<header id={styles["header"]}>
 			{useSlimLinks ? (
 				<SlimLinks updatePageInfo={updatePageInfo} />
 			) : (
@@ -111,7 +102,7 @@ function Header() {
 					></img>
 				</a>
 			</div>
-		</div>
+		</header>
 	);
 }
 

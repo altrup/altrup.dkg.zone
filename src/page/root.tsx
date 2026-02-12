@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useEffect, useMemo, useRef, useState } from "react";
+import { createContext, useEffect, useMemo, useState } from "react";
 
 import Header from "./header/header";
 
@@ -100,8 +100,6 @@ function Root({ sections }: { sections: Section[] }) {
 	);
 	const [showImage, setShowImage] = useState<boolean>(false);
 
-	const scrollContainer = useRef(null);
-
 	return (
 		<div
 			id={styles["root"]}
@@ -118,11 +116,7 @@ function Root({ sections }: { sections: Section[] }) {
 						>
 							<Header />
 
-							<div
-								id="main-page"
-								ref={scrollContainer}
-								className={[styles["main-page"]].join(" ")}
-							>
+							<div className={styles["main-page"]}>
 								<HomePage />
 								{sections.map((section) => (
 									<SectionPage key={section.name} {...section} />

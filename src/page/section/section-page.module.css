@@ -1,14 +1,14 @@
-#sections-page {
+.sections-page {
 	box-sizing: border-box;
 	width: 100%;
 	padding: 0 10vw;
 	padding-top: 125px;
 }
-#sections-page.fit-content {
+.sections-page.fit-content {
 	width: fit-content;
 	max-width: 100%;
 }
-#sections-page:last-child {
+.sections-page:last-child {
 	padding-bottom: 150px;
 }
 #sections-page-child {
@@ -55,8 +55,8 @@
 	width: 100%;
 }
 @media (hover: hover) {
-	#sections-page div.section-type-div:hover {
-		transform: scale(1.02);
+	.sections-page div.section-type-div:hover {
+		transform: scale(1.02) !important;
 	}
 }
 .section-type-label {

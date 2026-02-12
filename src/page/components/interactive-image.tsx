@@ -13,12 +13,10 @@ import styles from "./interactive-image.module.css";
 
 function InteractiveImage({
 	image,
-	scrollContainer,
 	customClass,
 	customStyle,
 }: {
 	image: ImageInfo;
-	scrollContainer?: Element;
 	customClass?: string;
 	customStyle?: CSSProperties;
 }) {
@@ -55,8 +53,7 @@ function InteractiveImage({
 				>
 					<LazyLoad
 						placeholder={<ImagePlaceholder image={image} />}
-						scrollContainers={[scrollContainer, "#main-page"]}
-						offset={300}
+						margin={"300px"}
 					>
 						<div className={styles["image-loading-position"]}>
 							<ImagePlaceholder

@@ -1,4 +1,4 @@
-#home-page {
+.home-page {
 	padding-top: 175px;
 	width: 100%;
 
@@ -7,7 +7,7 @@
 	justify-content: center;
 	align-items: center;
 }
-#home-page .text-div {
+.home-page .text-div {
 	box-sizing: border-box;
 	width: 100%;
 	padding: 0 10vw;
@@ -17,7 +17,7 @@
 	justify-content: flex-start;
 	align-items: flex-start;
 }
-#home-page .paragraph {
+.home-page .paragraph {
 	font-size: 1.5em;
 
 	width: min(100%, max(50%, 500px));

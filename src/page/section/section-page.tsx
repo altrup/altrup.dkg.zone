@@ -1,6 +1,5 @@
 "use client";
 
-import { Element } from "react-scroll";
 import Markdown from "react-markdown";
 
 import { isImageList, type Section } from "../../types";
@@ -45,10 +44,9 @@ const SectionPage = ({
 	links,
 }: Section) => {
 	return (
-		<Element
-			id={styles["sections-page"]}
-			className={!subSections ? styles["fit-content"] : undefined}
-			name={name}
+		<div
+			id={name}
+			className={[styles["sections-page"], !subSections ? styles["fit-content"] : undefined].join(" ")}
 		>
 			<div id={styles["sections-page-child"]} className={interactiveClass}>
 				<div className={styles["sections-title"]}>
@@ -151,7 +149,7 @@ const SectionPage = ({
 					</div>
 				) : null}
 			</div>
-		</Element>
+		</div>
 	);
 };
 
