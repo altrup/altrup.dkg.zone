@@ -29,7 +29,5 @@ tsconfig.tsbuildinfo
 
 .env
 
-/sections.json
-
 # Ignore supabase; see https://supabase.com/docs/guides/self-hosting/docker
 supabase
