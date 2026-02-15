@@ -25,7 +25,7 @@ function WideLinks({
 				id: name,
 				options: {
 					margin: i === arr.length - 1 ? "0px" : "0px 0px -90% 0px",
-					amount: i === arr.length - 1 ? 0.9 : "any",
+					amount: i === arr.length - 1 ? 0.8 : "any",
 				} as Parameters<typeof inView>[2],
 			})),
 		[sections],
