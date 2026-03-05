@@ -83,16 +83,18 @@ class ThemeManager extends EventTarget {
 // this variable is publicly available to all scripts on the page
 const themeManager = new ThemeManager();
 // if already loaded, mount element
-if (document.body) themeManager.mountElement = document.getElementById("mount");
+if (document.body) themeManager.mountElement = document.documentElement;
 // otherwise apply to html element for now, and apply to mount later
 else {
 	// run on DOM load
 	document.addEventListener("DOMContentLoaded", () => {
 		// get mount element
-		themeManager.mountElement = document.getElementById("mount");
+		themeManager.mountElement = document.documentElement;
+		// reset hardcoded background color
+		document.documentElement.style.backgroundColor = "";
 	});
 
-	// Until DOM loads, set documentElement background color to match theme, and hide content
+	// Until DOM loads, set documentElement background color to match theme
 	document.documentElement.style.backgroundColor =
-		themeManager.theme === "light" ? "#F5F6F4" : "#030C11";
+		themeManager.theme === "light" ? "#F5F6F4" : "#5b6f79";
 }
