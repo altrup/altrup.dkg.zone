@@ -1,13 +1,16 @@
 // Define the types for projects
 export type StyleOptions = "dark" | "light" | "none" | "both";
 export type ImageInfo = {
+	onClick?: "view" | "rotate"; // default "view"
+	borderRadius?: boolean; // default true
 	preview: string;
 	iframe?: boolean; // default false
-	full: string;
+	full?: string;
 	alt: string;
 	aspectRatio: number;
 	height: number;
 	dropShadowWithTheme?: StyleOptions;
+	invertWithTheme?: StyleOptions;
 };
 export type ImageList = {
 	centerFirstImage: boolean;
@@ -22,7 +25,7 @@ export const isImageList = (props: unknown): props is ImageList => {
 		imageScrollerProps.images.every(
 			(image) =>
 				typeof image.preview === "string" &&
-				typeof image.full === "string" &&
+				(typeof image.full === "string" || typeof image.full === "undefined") &&
 				typeof image.alt === "string" &&
 				typeof image.aspectRatio === "number",
 		)

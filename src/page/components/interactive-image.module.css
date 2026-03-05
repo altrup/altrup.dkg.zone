@@ -49,8 +49,8 @@
 	transition-property: all, z-index;
 	z-index: 1;
 }
-.image.drop-shadow {
-	filter: drop-shadow(0 0 0.2em var(--color-1));
+.image.no-border-radius {
+	border-radius: 0;
 }
 .image.hidden {
 	transition: none;
