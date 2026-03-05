@@ -77,15 +77,12 @@
 }
 #links #logo-parent {
 	margin: 0.4em;
+	margin-right: 0.3em;
 }
 #links #logo {
-	padding: 0.1em;
-
+	padding: 0.2em;
+	background-color: var(--background-color-2);
 	border-radius: 100vh;
-}
-#links #logo {
-	border-radius: 100vh;
-	border: 1px solid var(--color-1);
 }
 #links #logo img {
 	height: 50px;
