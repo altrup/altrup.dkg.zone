@@ -5,11 +5,8 @@
 	align-items: center;
 
 	position: fixed;
-	left: 0;
-	top: 0;
+	inset: 0;
 	z-index: 2;
-	width: 100vw;
-	height: 100vh;
 
 	backdrop-filter: blur(0.5em);
 
