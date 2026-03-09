@@ -9,14 +9,23 @@
 				"projects": [
 					{
 						"name": "Dual USB-C Expansion Card",
-						"image": {
-							"alt": "Current Schematic for Framework Dual USB-C Expansion Card",
-							"full": "https://altrup.github.io/Framework-2-USB-C-Expansion-Card/Framework 2 USB-C Expansion Card.pdf",
+						"imageScroller": {
 							"height": 200,
-							"iframe": true,
-							"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/projects/expansion-card-architecture.png",
-							"aspectRatio": 1.4,
-							"dropShadowWithTheme": "light"
+							"images": [
+								{
+									"alt": "Top of the Framework Dual USB-C Expansion Card",
+									"full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/projects/expansion-card-top-iso.png",
+									"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/projects/expansion-card-top-iso.png",
+									"aspectRatio": 1.378012048
+								},
+								{
+									"alt": "Bottom of the Framework Dual USB-C Expansion Card",
+									"full": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/full/projects/expansion-card-bottom-iso.png",
+									"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/preview/projects/expansion-card-bottom-iso.png",
+									"aspectRatio": 1.139130435
+								}
+							],
+							"centerFirstImage": true
 						},
 						"links": [
 							{
@@ -28,7 +37,7 @@
 								"text": "Source Files"
 							}
 						],
-						"description": "WIP. My attempt at a Framework Dual USB-C Expansion Card featuring upstream Power Delivery"
+						"description": "WIP. My attempt at a Framework Dual USB-C Expansion Card featuring USB 3.2"
 					}
 				]
 			},
@@ -87,11 +96,11 @@
 						"image": {
 							"alt": "An arrow",
 							"onClick": "rotate",
-              "borderRadius": false,
+							"borderRadius": false,
 							"height": 75,
 							"preview": "https://supabase-altrup.dkg.zone/storage/v1/object/public/images/svg/projects/Arrow.svg",
 							"aspectRatio": 1,
-              "invertWithTheme": "light"
+							"invertWithTheme": "light"
 						},
 						"links": [
 							{

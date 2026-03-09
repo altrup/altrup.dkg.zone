@@ -99,6 +99,9 @@ function Root({ sections }: { sections: Section[] }) {
 		undefined,
 	);
 	const [showImage, setShowImage] = useState<boolean>(false);
+	useEffect(() => {
+		document.documentElement.style.overflow = showImage ? "hidden" : "";
+	}, [showImage]);
 
 	return (
 		<div
