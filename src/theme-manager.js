@@ -96,5 +96,5 @@ else {
 
 	// Until DOM loads, set documentElement background color to match theme
 	document.documentElement.style.backgroundColor =
-		themeManager.theme === "light" ? "#F5F6F4" : "#5b6f79";
+		themeManager.theme === "light" ? "#F5F6F4" : "#030C11";
 }
