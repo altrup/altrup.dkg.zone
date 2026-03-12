@@ -3,6 +3,7 @@ import fs from "fs/promises";
 import path from "path";
 
 import "../base.css";
+import styles from "../page/transitions.module.css";
 
 export const metadata: Metadata = {
 	title: "Altrup",
@@ -34,7 +35,7 @@ export default async function RootLayout({
 				<script dangerouslySetInnerHTML={{ __html: inlineJS }} />
 				<meta name="color-scheme" content="dark light" />
 			</head>
-			<body>
+			<body className={styles["transition"]}>
 				<div id="mount">
 					{children}
 				</div>
