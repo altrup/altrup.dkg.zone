@@ -28,6 +28,3 @@ tsconfig.tsbuildinfo
 *.sw?
 
 .env
-
-# Ignore supabase; see https://supabase.com/docs/guides/self-hosting/docker
-supabase
