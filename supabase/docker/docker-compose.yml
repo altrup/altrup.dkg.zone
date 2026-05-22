@@ -412,6 +412,9 @@ services:
       - ./volumes/db/logs.sql:/docker-entrypoint-initdb.d/migrations/99-logs.sql:Z
       # Changes required for Pooler support
       - ./volumes/db/pooler.sql:/docker-entrypoint-initdb.d/migrations/99-pooler.sql:Z
+      # Custom schema and seed data (runs after all 99-* migrations alphabetically)
+      - ./volumes/db/init/baseline.sql:/docker-entrypoint-initdb.d/migrations/99-z-baseline.sql:Z
+      - ./volumes/db/init/seed.sql:/docker-entrypoint-initdb.d/migrations/99-z-seed.sql:Z
       # Use named volume to persist pgsodium decryption key between restarts
       - db-config:/etc/postgresql-custom
     healthcheck:
