@@ -61,7 +61,7 @@ Cloud](https://supabase.com/) or [self-hosted](https://supabase.com/docs/guides/
   files), mark the baseline as applied instead of pushing it
 
   ```bash
-  npx supabase migration repair --status applied 20260720000000 --db-url "$DB_URL"
+  npx supabase migration repair --status applied 20260720000000 --db-url "$SUPABASE_DB_URL"
   ```
 
 The migrations create the tables, trigger, and policies but no data — add your
