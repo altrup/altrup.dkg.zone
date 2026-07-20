@@ -19,7 +19,7 @@ Guide to running the website
   cd altrup.dkg.zone
   ```
 
-- Set up Supabase (see [Self-Hosting Supabase](#self-hosting-supabase) below) or use with a json file
+- Set up Supabase (see [Database (Supabase)](#database-supabase) below) or use with a json file
 
 - Copy [`.env.example`](/.env.example) and update to your values
   
@@ -43,51 +43,32 @@ Guide to running the website
   docker compose build
   ```
 
-### Self-Hosting Supabase
- 
-The site needs a Supabase backend. The self-hosted Supabase stack lives in
-[`supabase/docker`](/supabase/docker/).
- 
-- Enter the Supabase Docker folder
+### Database (Supabase)
+
+The site needs a Supabase backend. Host it however you like — [Supabase
+Cloud](https://supabase.com/) or [self-hosted](https://supabase.com/docs/guides/self-hosting)
+— this repo only tracks the database schema, as migrations in
+[`supabase/migrations`](/supabase/migrations/).
+
+- Apply the migrations to your database with the
+  [Supabase CLI](https://supabase.com/docs/guides/local-development/cli/getting-started)
+
   ```bash
-  cd supabase/docker
+  npx supabase db push --db-url "postgresql://postgres:PASSWORD@HOST:5432/postgres"
   ```
- 
-- Create its environment file from the example
+
+- If your database already has the schema (e.g. it predates the migration
+  files), mark the baseline as applied instead of pushing it
+
   ```bash
-  cp .env.example .env
+  npx supabase migration repair --status applied 20260720000000 --db-url "$DB_URL"
   ```
- 
-- Generate fresh secrets and keys
-  ```bash
-  ./utils/generate-keys.sh
-  ```
- 
-  This generates fresh values for `JWT_SECRET`, `ANON_KEY`, `SERVICE_ROLE_KEY`,
-  `SECRET_KEY_BASE`, `VAULT_ENC_KEY`, `PG_META_CRYPTO_KEY`,
-  `LOGFLARE_PUBLIC_ACCESS_TOKEN`, `LOGFLARE_PRIVATE_ACCESS_TOKEN`,
-  `POSTGRES_PASSWORD`, and `DASHBOARD_PASSWORD`, and writes them into `.env`.
-- Open `.env` and set the remaining values that the script does not generate,
-  including:
-  - `POOLER_TENANT_ID` — any short, lowercase, hyphen-free identifier
-  - `SUPABASE_PUBLIC_URL`, `API_EXTERNAL_URL`, `SITE_URL` — your domain
-  - `DASHBOARD_USERNAME` — the Studio login username and password
-- Start the Supabase stack
-  ```bash
-  docker compose up -d
-  ```
- 
-  On the first start, the database is initialized and the portfolio table,
-  trigger, policies, and example data are created automatically from the
-  scripts in [`volumes/db/init`](/supabase/docker/volumes/db/init/). View the dashboard at [localhost:8000](http://localhost:8000)
-- Return to the project root when finished
-  ```bash
-  cd ../..
-  ```
- 
-> **Note:** If you change the database password after the first start, use
-> `./utils/db-passwd.sh` rather than editing `.env`, since the database keeps
-> its own copy of the password from when it was first initialized.
+
+The migrations create the tables, trigger, and policies but no data — add your
+own rows, or see the `personal-data` branch, which carries the site owner's
+content as `supabase/personal-seed.sql` synced via
+[`scripts/personal-seed.sh`](/scripts/personal-seed.sh) (`pull` dumps the
+database to the file, `push` applies the file to the database).
 
 ### Testing
 - For testing changes, instead of using docker and rebuilding every time, you can also run using npm

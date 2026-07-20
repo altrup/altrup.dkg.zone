@@ -1,4 +1,0 @@
-.env
-.env.old
-volumes/db/data/
-volumes/storage/

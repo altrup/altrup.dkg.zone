@@ -27,3 +27,7 @@ tsconfig.tsbuildinfo
 *.sw?
 
 .env
+
+# Leftover self-hosted Supabase runtime data (stack now lives outside this repo)
+supabase/docker/
+supabase/.temp/
