@@ -112,6 +112,17 @@ const updateSections = async () => {
 		}
 	}
 
+	// Section data stores "{SUPABASE_URL}" placeholders (e.g. in image URLs) so
+	// rows edited directly in Supabase stay host-portable; resolve them here.
+	if (process.env.SUPABASE_URL) {
+		state.sections = JSON.parse(
+			JSON.stringify(state.sections).replace(
+				/\{SUPABASE_URL\}/g,
+				process.env.SUPABASE_URL,
+			),
+		) as Section[];
+	}
+
 	globalThis.__sectionsCache = state;
 	return state.sections;
 };
