@@ -12,6 +12,9 @@ PG_IMAGE=postgres:17-alpine
 [[ -f .env ]] && source .env
 : "${SUPABASE_DB_URL:?Set SUPABASE_DB_URL in .env or the environment}"
 
+# Section data uses "{SUPABASE_URL}" placeholders, stored literally in the
+# database and resolved by the server when it loads sections — so the dump is
+# copied verbatim in both directions.
 case "${1:-}" in
   pull)
     {
