@@ -64,9 +64,9 @@ Cloud](https://supabase.com/) or [self-hosted](https://supabase.com/docs/guides/
   npx supabase migration repair --status applied 20260720000000 --db-url "$SUPABASE_DB_URL"
   ```
 
-The migrations create the tables, trigger, and policies but no data — add your
-own rows, or see the `personal-data` branch, which carries the site owner's
-content as `supabase/personal-seed.sql` synced via
+The migrations create the tables, Realtime publication entries, and policies
+but no data — add your own rows, or see the `personal-data` branch, which
+carries the site owner's content as `supabase/personal-seed.sql` synced via
 [`scripts/personal-seed.sh`](/scripts/personal-seed.sh) (`pull` dumps the
 database to the file, `push` applies the file to the database).
 
