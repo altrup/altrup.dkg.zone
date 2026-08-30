@@ -1,4 +1,4 @@
-import { createClient, REALTIME_SUBSCRIBE_STATES } from "@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js";
 
 export const onSectionUpdate = (
 	{
@@ -21,12 +21,7 @@ export const onSectionUpdate = (
 			() => callback(),
 		)
 		.subscribe((status, error) => {
-			if (
-				status === REALTIME_SUBSCRIBE_STATES.CHANNEL_ERROR ||
-				status === REALTIME_SUBSCRIBE_STATES.TIMED_OUT
-			) {
-				console.error(`Supabase Realtime subscription ${status}`, error);
-			}
+			console.log("Supabase Realtime:", status, error);
 		});
 
 	return () => {

@@ -46,7 +46,10 @@ const SectionPage = ({
 	return (
 		<div
 			id={name}
-			className={[styles["sections-page"], !subSections ? styles["fit-content"] : undefined].join(" ")}
+			className={[
+				styles["sections-page"],
+				!subSections ? styles["fit-content"] : undefined,
+			].join(" ")}
 		>
 			<div id={styles["sections-page-child"]} className={interactiveClass}>
 				<div className={styles["sections-title"]}>
