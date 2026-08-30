@@ -1,4 +1,4 @@
-import { createClient, RealtimeChannel } from "@supabase/supabase-js";
+import { createClient, REALTIME_SUBSCRIBE_STATES } from "@supabase/supabase-js";
 
 export const onSectionUpdate = (
 	{
@@ -13,29 +13,23 @@ export const onSectionUpdate = (
 	callback: () => unknown,
 ) => {
 	const supabase = createClient(supabaseURL, supabaseAnonKey);
-	let channel: RealtimeChannel | null = null;
-
-	supabase.realtime
-		.setAuth()
-		.then(() => {
-			channel = supabase
-				.channel(`table:${supabaseTableName}`, { config: { private: true } })
-				.on("broadcast", { event: "*" }, () => {
-					callback();
-				})
-				.subscribe();
-		})
-		.catch(console.error);
+	const channel = supabase
+		.channel(`table:${supabaseTableName}`)
+		.on(
+			"postgres_changes",
+			{ event: "*", schema: "public", table: supabaseTableName },
+			() => callback(),
+		)
+		.subscribe((status, error) => {
+			if (
+				status === REALTIME_SUBSCRIBE_STATES.CHANNEL_ERROR ||
+				status === REALTIME_SUBSCRIBE_STATES.TIMED_OUT
+			) {
+				console.error(`Supabase Realtime subscription ${status}`, error);
+			}
+		});
 
 	return () => {
-		const currentChannel = channel;
-		if (!currentChannel) return;
-
-		supabase.realtime
-			.setAuth()
-			.then(() => {
-				supabase.removeChannel(currentChannel).catch(console.error);
-			})
-			.catch(console.error);
+		supabase.removeChannel(channel).catch(console.error);
 	};
 };
