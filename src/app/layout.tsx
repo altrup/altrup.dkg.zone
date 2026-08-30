@@ -36,9 +36,7 @@ export default async function RootLayout({
 				<meta name="color-scheme" content="dark light" />
 			</head>
 			<body className={styles["transition"]}>
-				<div id="mount">
-					{children}
-				</div>
+				<div id="mount">{children}</div>
 			</body>
 		</html>
 	);
