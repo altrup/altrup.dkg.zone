@@ -18,7 +18,15 @@ export const onSectionUpdate = (
 		.on(
 			"postgres_changes",
 			{ event: "*", schema: "public", table: supabaseTableName },
-			() => callback(),
+			(payload) => {
+				console.log(
+					"Supabase Realtime update:",
+					payload.eventType,
+					payload.schema,
+					payload.table,
+				);
+				callback();
+			},
 		)
 		.subscribe((status, error) => {
 			console.log("Supabase Realtime:", status, error);

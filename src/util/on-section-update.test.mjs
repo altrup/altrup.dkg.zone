@@ -41,6 +41,7 @@ beforeEach(() => {
 
 test("listens for Postgres changes on the configured table", () => {
 	let updates = 0;
+	const log = vi.spyOn(console, "log").mockImplementation(() => {});
 	const remove = onSectionUpdate(
 		{
 			supabaseURL: "https://example.supabase.co",
@@ -61,14 +62,32 @@ test("listens for Postgres changes on the configured table", () => {
 		table: "portfolio_v2",
 	});
 
-	calls.listener.callback();
-	expect(updates).toBe(1);
+	try {
+		calls.listener.callback({
+			schema: "public",
+			table: "portfolio_v2",
+			commit_timestamp: "2026-08-30T20:00:00Z",
+			errors: [],
+			eventType: "UPDATE",
+			new: { id: 1 },
+			old: { id: 1 },
+		});
+		expect(updates).toBe(1);
+		expect(log).toHaveBeenCalledWith(
+			expect.stringContaining("Realtime update"),
+			"UPDATE",
+			"public",
+			"portfolio_v2",
+		);
+	} finally {
+		log.mockRestore();
+	}
 
 	remove();
 	expect(calls.removedChannel).toBe(channel);
 });
 
-test("logs failed subscription states", () => {
+test("logs subscription states", () => {
 	onSectionUpdate(
 		{
 			supabaseURL: "https://example.supabase.co",
@@ -80,18 +99,21 @@ test("logs failed subscription states", () => {
 
 	expect(calls.subscribe).toBeTypeOf("function");
 
-	const errorLog = vi.spyOn(console, "error").mockImplementation(() => {});
+	const log = vi.spyOn(console, "log").mockImplementation(() => {});
 	try {
 		calls.subscribe("SUBSCRIBED");
 		calls.subscribe("CLOSED");
-		expect(errorLog).not.toHaveBeenCalled();
-
 		const error = new Error("channel failed");
 		calls.subscribe("CHANNEL_ERROR", error);
 		calls.subscribe("TIMED_OUT");
-		expect(errorLog).toHaveBeenCalledTimes(2);
-		expect(errorLog.mock.calls[0].at(-1)).toBe(error);
+
+		expect(log).toHaveBeenCalledTimes(4);
+		expect(log).toHaveBeenCalledWith(
+			expect.stringContaining("Supabase Realtime"),
+			"CHANNEL_ERROR",
+			error,
+		);
 	} finally {
-		errorLog.mockRestore();
+		log.mockRestore();
 	}
 });
