@@ -53,7 +53,7 @@ by `compose.yaml`, so content changes need no rebuild:
 - `public/images/` — image files referenced from the JSON as `/images/...`.
   This folder is gitignored. Keep the real images wherever you like and either
   symlink the folder in (`ln -s /path/to/images public/images`) or rsync them
-  onto the server (`rsync -a --delete /path/to/images/ server:/path/to/altrup.dkg.zone/public/images/`).
+  onto the server (`rsync -a --delete ./public/images/ server:/path/to/altrup.dkg.zone/public/images/`).
   The production server lists `public/` at startup, so run
   `docker compose restart web` after adding new image files.
 
