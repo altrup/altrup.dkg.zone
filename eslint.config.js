@@ -5,7 +5,7 @@ import tseslint from "typescript-eslint";
 import react from "eslint-plugin-react";
 
 export default tseslint.config(
-	{ ignores: ["dist", "supabase", ".next", "next-env.d.ts"] },
+	{ ignores: ["dist", ".next", "next-env.d.ts"] },
 	{
 		extends: [js.configs.recommended, ...tseslint.configs.strictTypeChecked],
 		files: ["**/*.{ts,tsx}"],

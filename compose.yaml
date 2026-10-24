@@ -4,14 +4,11 @@ services:
       context: .
       args:
         - PORT=${PORT}
-        - SUPABASE_URL=${SUPABASE_URL}
-        - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
-        - SUPABASE_TABLE_NAME=${SUPABASE_TABLE_NAME}
     restart: unless-stopped
     environment:
       - PORT=${PORT}
-      - SUPABASE_URL=${SUPABASE_URL}
-      - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
-      - SUPABASE_TABLE_NAME=${SUPABASE_TABLE_NAME}
+    volumes:
+      - ./data:/app/data:ro
+      - ./public/images:/app/public/images:ro
     ports:
       - "${PORT}:${PORT}"
