@@ -9,6 +9,17 @@
 				"projects": [
 					{
 						"name": "Dual USB-C Expansion Card",
+						"links": [
+							{
+								"href": "https://altrup.github.io/Framework-2-USB-C-Expansion-Card/Framework 2 USB-C Expansion Card.pdf",
+								"text": "Schematic"
+							},
+							{
+								"href": "https://github.com/altrup/Framework-2-USB-C-Expansion-Card",
+								"text": "Source Files"
+							}
+						],
+						"description": "WIP. My attempt at a Framework Dual USB-C Expansion Card featuring USB 3.2",
 						"imageScroller": {
 							"height": 200,
 							"images": [
@@ -26,18 +37,7 @@
 								}
 							],
 							"centerFirstImage": true
-						},
-						"links": [
-							{
-								"href": "https://altrup.github.io/Framework-2-USB-C-Expansion-Card/Framework 2 USB-C Expansion Card.pdf",
-								"text": "Schematic"
-							},
-							{
-								"href": "https://github.com/altrup/Framework-2-USB-C-Expansion-Card",
-								"text": "Source Files"
-							}
-						],
-						"description": "WIP. My attempt at a Framework Dual USB-C Expansion Card featuring USB 3.2"
+						}
 					}
 				]
 			},
@@ -72,7 +72,10 @@
 							"dropShadowWithTheme": "dark"
 						},
 						"links": [
-							{ "href": "https://github.com/altrup/RingVC", "text": "Code" }
+							{
+								"href": "https://github.com/altrup/RingVC",
+								"text": "Code"
+							}
 						],
 						"description": "A discord bot that allows you to easily ping people to join you in a Discord server voice chat"
 					},
@@ -86,8 +89,14 @@
 							"aspectRatio": 1.25
 						},
 						"links": [
-							{ "href": "https://schmek.dkg.zone", "text": "Demo" },
-							{ "href": "https://github.com/altrup/Schmek", "text": "Code" }
+							{
+								"href": "https://schmek.dkg.zone",
+								"text": "Demo"
+							},
+							{
+								"href": "https://github.com/altrup/Schmek",
+								"text": "Code"
+							}
 						],
 						"description": "A twist on the classic snake game, where players can upgrade abilities and create simple combos"
 					},
@@ -95,11 +104,11 @@
 						"name": "Rotating Arrow Game",
 						"image": {
 							"alt": "An arrow",
-							"onClick": "rotate",
-							"borderRadius": false,
 							"height": 75,
+							"onClick": "rotate",
 							"preview": "/images/svg/projects/Arrow.svg",
 							"aspectRatio": 1,
+							"borderRadius": false,
 							"invertWithTheme": "light"
 						},
 						"links": [
@@ -131,7 +140,10 @@
 								"href": "https://altrup.github.io/particlejs/test/test.html",
 								"text": "Demo"
 							},
-							{ "href": "https://github.com/altrup/particlejs", "text": "Code" }
+							{
+								"href": "https://github.com/altrup/particlejs",
+								"text": "Code"
+							}
 						],
 						"description": "In my opinion, satisfying, but very ineffecient particle simulation. Warning: flash bang for dark mode users"
 					},
@@ -293,9 +305,22 @@
 				"title": "Co-ops",
 				"projects": [
 					{
+						"name": "AXL Labs",
+						"links": [
+							{
+								"href": "https://axl.vc/",
+								"text": "Website"
+							}
+						],
+						"description": "Developed full-stack and AI systems for early-stage startups"
+					},
+					{
 						"name": "Guelph Eye MD (Relay)",
 						"links": [
-							{ "href": "https://guelpheyemd.com/", "text": "Website" }
+							{
+								"href": "https://guelpheyemd.com/",
+								"text": "Website"
+							}
 						],
 						"description": "Developed productivity and communication tools using a Go backend with an Electron and StreamDeck frontend, helping streamline patient flow"
 					},
@@ -310,7 +335,10 @@
 							"dropShadowWithTheme": "light"
 						},
 						"links": [
-							{ "href": "https://www.paigeframe.com/", "text": "Website" }
+							{
+								"href": "https://www.paigeframe.com/",
+								"text": "Website"
+							}
 						],
 						"description": "Worked on a cross-platform video calling solution for seniors, focused on simplicity. Developed the React Native device app and Ionic companion app, integrating Firebase and Vidyo's SDK"
 					}
@@ -322,7 +350,10 @@
 					{
 						"name": "Orbital",
 						"links": [
-							{ "href": "https://www.uworbital.com/", "text": "Website" }
+							{
+								"href": "https://www.uworbital.com/",
+								"text": "Website"
+							}
 						],
 						"description": "Working on firmware for a CubeSat designed to capture images of Earth from orbit. Personally worked on the ArduCAM Driver, and saving flash space by seperating HalCoGen and FreeRTOS libraries in CMake",
 						"imageScroller": {
@@ -335,10 +366,16 @@
 									"aspectRatio": 1.003921569
 								},
 								{
-									"alt": "A test image taken using the ArduCAM",
-									"full": "/images/full/experience/orbital-arducam.png",
-									"preview": "/images/preview/experience/orbital-arducam.png",
-									"aspectRatio": 1.320833333
+									"alt": "ArduCAM connected to RM46 Launchpad",
+									"full": "/images/full/experience/orbital-arducam.jpg",
+									"preview": "/images/preview/experience/orbital-arducam.jpg",
+									"aspectRatio": 1.108465608
+								},
+								{
+									"alt": "Picture taken with ArduCAM",
+									"full": "/images/full/experience/orbital-arducam-picture.jpg",
+									"preview": "/images/preview/experience/orbital-arducam-picture.jpg",
+									"aspectRatio": 1.333333333
 								}
 							],
 							"centerFirstImage": true
@@ -346,7 +383,12 @@
 					},
 					{
 						"name": "WARG",
-						"links": [{ "href": "https://www.uwarg.com/", "text": "Website" }],
+						"links": [
+							{
+								"href": "https://www.uwarg.com/",
+								"text": "Website"
+							}
+						],
 						"description": "Member of Electrical Subteam. Just joined, hopefully going to be designing and testing some PCBs soon!"
 					}
 				]
@@ -356,10 +398,22 @@
 	{
 		"name": "contacts",
 		"links": [
-			{ "href": "mailto:altrup@dkg.zone", "text": "altrup@dkg.zone" },
-			{ "href": "mailto:e255liu@uwaterloo.ca", "text": "e255liu@uwaterloo.ca" },
-			{ "href": "https://www.linkedin.com/in/altrup/", "text": "LinkedIn" },
-			{ "href": "https://github.com/altrup", "text": "GitHub" }
+			{
+				"href": "mailto:altrup@dkg.zone",
+				"text": "altrup@dkg.zone"
+			},
+			{
+				"href": "mailto:e255liu@uwaterloo.ca",
+				"text": "e255liu@uwaterloo.ca"
+			},
+			{
+				"href": "https://www.linkedin.com/in/altrup/",
+				"text": "LinkedIn"
+			},
+			{
+				"href": "https://github.com/altrup",
+				"text": "GitHub"
+			}
 		],
 		"title": "Contacts",
 		"subtitle": "and Links"
