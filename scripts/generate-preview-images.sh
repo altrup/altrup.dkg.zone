@@ -1,27 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Generate 250px-tall previews for every image under public/images/full.
+set -euo pipefail
+cd "$(dirname "$0")/.."
 
-resize_images() {
-    local input_dir="${1:-.}"           # First argument or default to current dir
-    local output_dir="${2:-./resized}"  # Second argument or default to ./resized
-    local target_height="${3:-200}"     # Third argument or default to 200
-
-    # Create output directory if it doesn't exist
-    mkdir -p "$output_dir"
-
-    # Process all image files
-    for img in "$input_dir"/*.{jpg,jpeg,png,JPG,JPEG,PNG}; do
-        if [ -f "$img" ]; then
-            filename=$(basename "$img")
-            echo "Resizing: $filename"
-            magick "$img" \
-                -resize "x$target_height" \
-                -quality 100 \
-                "$output_dir/$filename"
-        fi
-    done
-}
-
-resize_images "../public/images/full/projects" "../public/images/preview/projects" 250
-resize_images "../public/images/full/crossview" "../public/images/preview/crossview" 250
-
+find public/images/full/ -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' \) -print0 |
+while IFS= read -r -d '' img; do
+	out=public/images/preview/${img#public/images/full/}
+	mkdir -p "$(dirname "$out")"
+	echo "Resizing: $img"
+	magick "$img" -resize x250 -strip -quality 100 "$out"
+done
 echo "Resizing complete!"

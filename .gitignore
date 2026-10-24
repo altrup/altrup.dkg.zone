@@ -28,6 +28,5 @@ tsconfig.tsbuildinfo
 
 .env
 
-# Leftover self-hosted Supabase runtime data (stack now lives outside this repo)
-supabase/docker/
-supabase/.temp/
+# Site images; see README
+public/images
