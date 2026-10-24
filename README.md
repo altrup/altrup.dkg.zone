@@ -19,7 +19,7 @@ Guide to running the website
   cd altrup.dkg.zone
   ```
 
-- Set up Supabase (see [Database (Supabase)](#database-supabase) below) or use with a json file
+- Add your content (see [Content](#content) below)
 
 - Copy [`.env.example`](/.env.example) and update to your values
   
@@ -43,32 +43,27 @@ Guide to running the website
   docker compose build
   ```
 
-### Database (Supabase)
+### Content
 
-The site needs a Supabase backend. Host it however you like — [Supabase
-Cloud](https://supabase.com/) or [self-hosted](https://supabase.com/docs/guides/self-hosting)
-— this repo only tracks the database schema, as migrations in
-[`supabase/migrations`](/supabase/migrations/).
+The site reads two things from the repo folder, both mounted into the container
+by `compose.yaml`, so content changes need no rebuild:
 
-- Apply the migrations to your database with the
-  [Supabase CLI](https://supabase.com/docs/guides/local-development/cli/getting-started)
+- `data/sections.json` — the page sections. An example ships in the repo; edit
+  it and reload.
+- `public/images/` — image files referenced from the JSON as `/images/...`.
+  This folder is gitignored. Keep the real images wherever you like and either
+  symlink the folder in (`ln -s /path/to/images public/images`) or rsync them
+  onto the server (`rsync -a --delete /path/to/images/ server:/path/to/altrup.dkg.zone/public/images/`).
+  The production server lists `public/` at startup, so run
+  `docker compose restart web` after adding new image files.
 
-  ```bash
-  npx supabase db push --db-url "postgresql://postgres:PASSWORD@HOST:5432/postgres"
-  ```
+Image helpers (need [ImageMagick](https://imagemagick.org/) and [exiv2](https://exiv2.org/)):
 
-- If your database already has the schema (e.g. it predates the migration
-  files), mark the baseline as applied instead of pushing it
-
-  ```bash
-  npx supabase migration repair --status applied 20260720000000 --db-url "$SUPABASE_DB_URL"
-  ```
-
-The migrations create the tables, Realtime publication entries, and policies
-but no data — add your own rows, or see the `personal-data` branch, which
-carries the site owner's content as `supabase/personal-seed.sql` synced via
-[`scripts/personal-seed.sh`](/scripts/personal-seed.sh) (`pull` dumps the
-database to the file, `push` applies the file to the database).
+- `./scripts/strip-metadata.sh` removes EXIF/XMP/IPTC metadata (GPS,
+  timestamps, camera) and Motion Photo video trailers from every image without
+  re-encoding. Run it before publishing photos.
+- `./scripts/generate-preview-images.sh` writes 250px-tall previews of
+  everything under `public/images/full/` to `public/images/preview/`.
 
 ### Testing
 - For testing changes, instead of using docker and rebuilding every time, you can also run using npm
