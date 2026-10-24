@@ -60,8 +60,7 @@ by `compose.yaml`, so content changes need no rebuild:
 Image helpers (need [ImageMagick](https://imagemagick.org/) and [exiv2](https://exiv2.org/)):
 
 - `./scripts/strip-metadata.sh` removes EXIF/XMP/IPTC metadata (GPS,
-  timestamps, camera) and Motion Photo video trailers from every image without
-  re-encoding. Run it before publishing photos.
+  timestamps, camera) from every image without re-encoding. Run it before publishing photos.
 - `./scripts/generate-preview-images.sh` writes 250px-tall previews of
   everything under `public/images/full/` to `public/images/preview/`.
 
